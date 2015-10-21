@@ -1,0 +1,3 @@
+[submodule "themes/o2"]
+	path = themes/o2
+	url = git@github.com:o2team/hexo-theme-o2.git
