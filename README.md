@@ -40,7 +40,7 @@
     
 ## 如何创建文章
 
-    hexo使用markdown来编辑文章，在source目录下，拷贝任意md文件进行创建新的文章。具体可参考下hexo的官方说明
+hexo使用markdown来编辑文章，在source目录下，拷贝任意md文件进行创建新的文章。具体可参考下hexo的官方说明
     
 ## 如何定制主题
 
