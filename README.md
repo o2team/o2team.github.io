@@ -16,25 +16,38 @@
     git clone git@github.com:o2team/o2team.github.io.git o2team
     ```
 
-3. 安装nodejs包
+3. 初始化子模块(submodules)
 
     ```
     cd o2team
-    npm install
-    ```
-
-5. 初始化子模块(submodules)
-
-    ```
     git submodule init
     git submodule update
+    
+    # 切换至public目录，签出master分支
+    cd public
+    git checkout master
+    
+    # 切换至themes/o2目录，签出master分支
+    cd ../themes/o2
+    git checkout master
     ```
 
     hexo在生成的静态文件在public目录，所以本项目设置了master分支作为hexo分支的一个子模块，并且指向public目录，这样public目录下的文件发生变更提交后会在master分支，可通过域名进行直接访问。
     
     另外，本项目使用了hexo定制的皮肤[hexo-theme-o2](https://github.com/o2team/hexo-theme-o2)，为了方便维护，项目还设置了hexo-theme-o2作为hexo分支的一个子模块，指向`themes/o2`目录
 
-6. 运行`hexo serve --watch`
+4. 安装nodejs包
+
+    ```
+    # 在themes/o2目录下
+    npm install
+    
+    # 切换回根目录下
+    cd ../../
+    npm install
+    ```
+
+5. 运行`hexo serve --watch`
 
     运行上述命令后，浏览器打开http://localhost:4000即可本地访问我们的网站
     
