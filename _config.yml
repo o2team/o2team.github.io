@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://o2team.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -22,8 +22,8 @@ permalink_defaults:
 source_dir: source
 public_dir: public
 tag_dir: tags
-archive_dir: blog
-category_dir: categories
+archive_dir: notes
+category_dir: cates
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
