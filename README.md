@@ -44,10 +44,38 @@
     
 ## 如何定制主题
 
-    在`themes/o2`目录中进行主题模块的修改。注意修改后记得在`themes/o2`目录内提交变更文件至github
-    
-    注意：themes/o2目录对应的github项目是[hexo-theme-o2](https://github.com/o2team/hexo-theme-o2)，它只是作为子模块被引用到o2team.github.io项目中
+在`themes/o2`目录中进行主题模块的修改。注意修改后记得在`themes/o2`目录内提交变更文件至github
+
+注意：themes/o2目录对应的github项目是[hexo-theme-o2](https://github.com/o2team/hexo-theme-o2)，它只是作为子模块被引用到o2team.github.io项目中
     
 ## 如何发布
 
-    在本地修改完成确认可以发布时，请通过以下步骤完成发布：
+在本地修改完成确认可以发布时，请通过以下步骤完成发布：
+
+1. 运行`hexo g`生成待发布的静态文件
+2. 在`public`目录中提交静态文件
+
+    ```
+    cd public
+    git add -A
+    git commit -a -m "更新"
+    git push origin master
+    ```
+    
+3. 在`themes/o2`目录中提交主题文件
+
+    ```
+    cd themes/o2
+    git add -A
+    git commit -a -m "更新主题"
+    git push origin master
+    ```
+4. 在根目录下提交静态文件对应的md文件
+
+    ```
+    cd ../..
+    git add -A
+    git commit -a -m "更新远阿梅"
+    git push origin hexo
+    ```
+    注意：根目录下是hexo分支！！！
