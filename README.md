@@ -59,8 +59,11 @@ hexo使用markdown来编辑文章，在source目录下，拷贝任意md文件进
 
 1. 收md文档
 2. 图片统一传我们外网服务器
-3. 为了保证博客整体美观，每个文章需要一张配图(大小：720x340)：
+3. 为了保证博客整体美观，每个文章需要一张配图(大小：720x340)
+
     参考：http://blog.zhangruipeng.me/hexo-theme-hueman/2015/03/03/post2/
+
+4. 文章写好后，请commit至[source/_posts](https://github.com/o2team/o2team.github.io/tree/hexo/source/_posts)目录下！
     
 ## 如何定制主题
 
