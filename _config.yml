@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: O2 Team
-subtitle: O2多终端研发中心
-subtitle_desc: O2 Multi-terminal Development Center
-description: O2多终端研发中心始建于2015年，是一个年轻激进的技术社区组织。O2面向多终端技术体系，致力于构建沉淀与分享包括但不限于交互、页面制作技巧、前端开发、原生APP开发等方面的专业知识及案例。
-author: WeLoveO2
+title: Aotu.io
+subtitle: 凹凸实验室
+subtitle_desc: Open Oriented Development Center
+description: 凹凸实验室(Aotu.io) 始建于2015年，是一个年轻激进的技术社区组织。O2面向多终端技术体系，致力于构建沉淀与分享包括但不限于交互、页面制作技巧、前端开发、原生APP开发等方面的专业知识及案例。
+author: 凹凸
 language:
 timezone:
 
@@ -65,8 +65,10 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: o2
-exclude_generator:
-- index
+deploy:
+  type: git
+  repo: git@github.com:o2team/o2team.github.io.git
+  branch: master
 
 # Feeds
 feed:
