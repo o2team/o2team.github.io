@@ -8,15 +8,15 @@ subtitle: 凹凸实验室
 subtitle_desc: Open Oriented Development Center
 description: |
     凹凸实验室(Aotu.io) 始建于2015年，是一个年轻激进的技术社区组织。O2面向多终端技术体系，致力于构建沉淀与分享包括但不限于交互、页面制作技巧、前端开发、原生APP开发等方面的专业知识及案例。
-author: 凹凸
-language:
-timezone:
+author: 凹凸实验室
+language: zh-cn
+timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://o2team.github.io
+url: http://aotu.io
 root: /
-permalink: :year/:month/:day/:title/
+permalink: notes/:year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
@@ -30,7 +30,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -65,11 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: o2
-deploy:
-  type: git
-  repo: git@github.com:o2team/o2team.github.io.git
-  branch: master
+theme: navy
 
 # Feeds
 feed:
@@ -77,7 +73,38 @@ feed:
   path: atom.xml
   limit: 30
 
+# Imagemin
+imagemin:
+  enable     : true
+  interlaced : false
+  multipass  : false
+  optimizationLevel: 2
+  pngquant   : true
+  progressive: false
+
+# Search
+search:
+  path: search.xml
+  field: post
+
+# SASS
+node_sass:
+  outputStyle: nested
+  precision: 5
+  sourceComments: false
+
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:o2team/o2team.github.io.git
+  branch: master
+
+# others
+duoshuo_shortname: aotu
+baidu_analytics: bb4b770d7fdf4e05245cd1327199d813
+twitter: o2circle
+github: o2team/o2team.github.io
+gh:
+  user: o2team
+  repo: o2team.github.io
