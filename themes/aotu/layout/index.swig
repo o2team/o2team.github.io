@@ -1,15 +1,21 @@
 {% block main %}
 <div id="main" class="main">
+
 {% for post in page.posts %}
+{% if loop.index <=3 %}
 {% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
 {{ partial('partial/post_index', {post: post, author: author}) }}
+{% endif %}
 {% endfor %}
+
+{% include 'partial/pagination.swig' %}
+
 </div>
 {% endblock %}
 
 {% block sidebar %}
 <section id="sidebar" class="sidebar">
-<!-- Intro -->
+	<!-- Intro -->
 	<section id="intro" class="intro">
 		<a href="{{ url_for('') }}" class="intro-logo"><img src="{{ url_for(config.logo|default('img/logo.png')) }}" alt="{{ config.title }}" /></a>
 		<header class="intro-header">
@@ -27,5 +33,25 @@
 			</p>
 		</header>
 	</section>
+	<!-- /Intro -->
+	
+	<!-- Mini Post -->
+    {% if page.posts.length > 3 %}
+	<section class="mini-posts-wrap">
+		<div class="mini-posts">
+		{% for post in page.posts %}
+		{% if loop.index > 3 %}
+		{% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
+		{{ partial('partial/post_index_mini', {post:post, author:author}) }}
+		{% endif %}	
+		{% endfor%}	
+		</div>
+	</section>
+	{% endif %}
+	<!-- /Mini Post-->
+
+	<!-- Footer -->
+    {{ partial('partial/footer') }}
+	<!-- /Footer -->
 </section>
 {% endblock %}

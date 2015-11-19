@@ -1,26 +1,18 @@
-///
-/// Future Imperfect by HTML5 UP
-/// html5up.net | @n33co
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
+.icon {
+    @include icon;
+    border-bottom: none;
+    position: relative;
 
-/* Icon */
+    > .label {
+        display: none;
+    }
 
-	.icon {
-		@include icon;
-		border-bottom: none;
-		position: relative;
+    &.prefix {
+    }
 
-		> .label {
-			display: none;
-		}
-
-		&.prefix {
-		}
-
-		&.suffix {
-			&:before {
-				float: right;
-			}
-		}
-	}
+    &.suffix {
+        &:before {
+            float: right;
+        }
+    }
+}

@@ -9,10 +9,10 @@
         </div>
         <div class="post-meta">
             <time class="published" datetime="{{ post.date }}">{{ date(post.date) }}</time>
-            <a href="https://github.com/{{ author.github_name }}" class="author"><span class="name">{{ author.nick|default(author.github_name) }}</span><img src="https://avatars.githubusercontent.com/{{ author.github_name }}?v=3&s=80" alt="{{ author.github_name }}" /></a>
+            <a target="_blank" href="https://github.com/{{ author.github_name }}" class="author"><span class="name">{{ author.nick|default(author.github_name) }}</span><img src="https://avatars.githubusercontent.com/{{ author.github_name }}?v=3&s=80" alt="{{ author.github_name }}" /></a>
         </div>
     </header>
-    <a href="{{ url_for(post.path) }}" class="image featured post-cover"><img src="{{ post.cover | default(theme.post.cover) }}" alt="{{ post.title }}" /></a>
+    <a href="{{ url_for(post.path) }}" class="image featured post-cover"><img src="{{ post_img( post.cover|default(theme.post.cover) ) }}" alt="{{ post.title }}" /></a>
     <p>{{ post.excerpt }}</p>
     <footer class="post-footer">
         <ul class="actions">

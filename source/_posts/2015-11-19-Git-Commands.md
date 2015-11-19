@@ -1,5 +1,6 @@
 title: "Git常用操作总结"
 subtitle: "理解Git的内部原理，分清楚工作区、暂存区、版本库，还有就是理解Git跟踪并管理的是修改，而非文件。"
+cover: git-flow.jpg
 date: 2015-11-19 12:44:25
 tags:
   - Git

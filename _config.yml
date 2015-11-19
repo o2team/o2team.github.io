@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Aotu Labs
+title: Aotu.io
 subtitle: 凹凸实验室
 subtitle_desc: Open Oriented Development Center
 slogan: Open Oriented, more haste, less speed.
@@ -60,12 +60,12 @@ time_format: HH:mm:ss
 
 # generator-index
 index_generator:
-  per_page: 4
+  per_page: 7
   order_by: -date
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 5
+per_page: 7
 pagination_dir: page
 
 # Extensions
