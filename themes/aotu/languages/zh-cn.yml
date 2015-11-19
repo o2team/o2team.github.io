@@ -5,9 +5,16 @@ menu:
   plugins: 插件
   themes: 主题
   search: 搜索
+  aotu_labs: 凹凸实验室
 
 index:
   get_started: 开始使用
+
+site:
+  pv: 总访问量
+  pv_unit: 次
+  uv: 总访客数
+  uv_unit: 人
 
 page:
   contents: 目录
@@ -16,6 +23,9 @@ page:
   prev: 上一页
   next: 下一页
   last_updated: 上次更新：%s
+  read_more: 阅读全部
+  pv: 热度
+  word_count: 字数 
 
 sidebar:
   docs:

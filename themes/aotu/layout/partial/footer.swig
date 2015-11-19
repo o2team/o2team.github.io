@@ -5,7 +5,17 @@
         <li><a href="{{ url_for('atom.xml') }}" class="fa-rss"><span class="label">RSS</span></a></li>
     </ul>
     <div class="copyright">
-      &copy; {{ moment(Date.now()).year() }} <a href="http://zespia.tw/" target="_blank">{{ config.author }}</a><br>
+      &copy; {{ moment(Date.now()).year() }} <a href="http://aotu.io" target="_blank">{{ config.author }}</a><br>
       Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
     </div>
+    {% if theme.busuanzi %}
+    <div class="site-stats">
+        <span id="busuanzi_container_site_pv" class="site-pv">
+            {{ __('site.pv') }}: <span id="busuanzi_value_site_pv" class="site-pv-num"></span> {{ __('site.pv_unit') }}
+        </span>
+        <span id="busuanzi_container_site_uv" class="site-uv">
+            {{ __('site.uv') }}: <span id="busuanzi_value_site_uv" class="site-uv-num"></span> {{ __('site.uv_unit') }}
+        </span>
+    </div>
+    {% endif %}
 </footer>

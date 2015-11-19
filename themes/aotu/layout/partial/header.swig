@@ -1,5 +1,5 @@
 <header id="header" class="header">
-	<h1 class="logo-wrap"><a class="logo" href="{{ url_for_lang('index.html') }}">AOTU Labs</a></h1>
+	<h1 class="logo-wrap"><a class="logo" href="{{ url_for_lang('index.html') }}">{{ config.title }}</a></h1>
 	<nav class="links">
 		<ul>
         	{{ header_menu('main-nav') }}
