@@ -23,6 +23,8 @@ author:
 ### 提交
 git tracked的是修改，而不是文件
 
+![git-track](/img/post/git-trees.jpg)
+
     #将“当前修改”移动到暂存区(stage)
     $ git add somfile.txt
     #将暂存区修改提交
@@ -68,6 +70,9 @@ git tracked的是修改，而不是文件
 
 
 ### 分支操作
+
+![about-merge](/img/post/git-merge.png)
+
     # 查看当前分支
     $ git branch
 
@@ -89,4 +94,4 @@ git tracked的是修改，而不是文件
     $ git tag 0.1.1
     $ git push origin --tags
 
-> 本文Fork自 [yikun.github.io](http://yikun.github.io/)
+注意：本文Fork自 [yikun.github.io](http://yikun.github.io/)，[凹凸实验室](http://aotu.io)作进一步完善。
