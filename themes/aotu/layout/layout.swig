@@ -6,7 +6,6 @@
     {{ partial('partial/header') }}
     {{ partial('partial/slide_menu') }}
     {{ body }}
-    {{ partial('partial/footer') }}
     {{ partial('partial/after_footer') }}
 </div>
 </body>

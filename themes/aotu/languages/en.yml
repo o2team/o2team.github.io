@@ -5,9 +5,16 @@ menu:
   plugins: Plugins
   themes: Themes
   search: Search
+  aotu_labs: AOTU Labs 
 
 index:
   get_started: Get started
+
+site:
+  pv: Total PV
+  pv_unit: Hits
+  uv: Total UV
+  uv_unit: Hits
 
 page:
   contents: Contents
@@ -16,6 +23,9 @@ page:
   prev: Prev
   next: Next
   last_updated: "Last updated: %s"
+  read_more: Continue Reading 
+  pv: Viewed
+  word_count: Word Count
 
 sidebar:
   docs:

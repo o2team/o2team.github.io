@@ -1,5 +1,12 @@
 title: Service Workers：采用WebP动态响应图片
-author: 伟哥
+subtitle: "你可能听过**WebP**图片格式。相比于PNG图片，其文件大小能够节省26％；相比于JPEG图片，能够节省大约25％。"
+date: 2015-11-17 18:44:25
+tags:
+  - WebP
+  - Fork
+author:
+  nick: 伟哥
+  github_name: wengeek
 ---
 
 > 译文地址：http://deanhume.com/Home/BlogPost/service-workers--dynamic-responsive-images-using-webp-images/10132/

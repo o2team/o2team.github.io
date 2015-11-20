@@ -2,9 +2,56 @@
 <div id="main" class="main">
 
 {% for post in page.posts %}
-{{ partial('partial/post_index', {post: post}) }}
+{% if loop.index <=3 %}
+{% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
+{{ partial('partial/post_index', {post: post, author: author}) }}
+{% endif %}
 {% endfor %}
 
-</div>
+{% include 'partial/pagination.swig' %}
 
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<section id="sidebar" class="sidebar">
+	<!-- Intro -->
+	<section id="intro" class="intro">
+		<a href="{{ url_for('') }}" class="intro-logo"><img src="{{ url_for(config.logo|default('img/logo.png')) }}" alt="{{ config.title }}" /></a>
+		<header class="intro-header">
+			<h1 class="intro-title">{{ __('menu.aotu_labs') }}</h1>
+			<p class="intro-subtitle">
+			"
+			{% if theme.daily_words %}
+			{% set cnt = site.data.words.length %}
+			{% set pick = Math.floor(Math.random()*cnt) %}
+			{{ site.data.words[pick].en }}
+			{% else %}
+			{{ config.slogan }}
+			{% endif %}
+			"
+			</p>
+		</header>
+	</section>
+	<!-- /Intro -->
+	
+	<!-- Mini Post -->
+    {% if page.posts.length > 3 %}
+	<section class="mini-posts-wrap">
+		<div class="mini-posts">
+		{% for post in page.posts %}
+		{% if loop.index > 3 %}
+		{% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
+		{{ partial('partial/post_index_mini', {post:post, author:author}) }}
+		{% endif %}	
+		{% endfor%}	
+		</div>
+	</section>
+	{% endif %}
+	<!-- /Mini Post-->
+
+	<!-- Footer -->
+    {{ partial('partial/footer') }}
+	<!-- /Footer -->
+</section>
 {% endblock %}

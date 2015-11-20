@@ -1,34 +1,26 @@
-///
-/// Future Imperfect by HTML5 UP
-/// html5up.net | @n33co
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
+.root {
+    @include vendor('display', 'flex');
+    @include vendor('flex-direction', 'row-reverse');
+    @include vendor('transition', 'opacity #{_duration(menu)} ease');
+    margin: 0 auto;
+    max-width: 100%;
+    opacity: 1;
+    padding: (_size(section-spacing) * 1.5);
+    width: 90em;
 
-/* Wrapper */
+    body.is-menu-visible & {
+        opacity: 0.15;
+    }
 
-	#wrapper {
-		@include vendor('display', 'flex');
-		@include vendor('flex-direction', 'row-reverse');
-		@include vendor('transition', 'opacity #{_duration(menu)} ease');
-		margin: 0 auto;
-		max-width: 100%;
-		opacity: 1;
-		padding: (_size(section-spacing) * 1.5);
-		width: 90em;
+    @include breakpoint(xlarge) {
+        padding: _size(section-spacing);
+    }
 
-		body.is-menu-visible & {
-			opacity: 0.15;
-		}
+    @include breakpoint(large) {
+        display: block;
+    }
 
-		@include breakpoint(xlarge) {
-			padding: _size(section-spacing);
-		}
-
-		@include breakpoint(large) {
-			display: block;
-		}
-
-		@include breakpoint(small) {
-			padding: _size(section-spacing-small);
-		}
-	}
+    @include breakpoint(small) {
+        padding: _size(section-spacing-small);
+    }
+}

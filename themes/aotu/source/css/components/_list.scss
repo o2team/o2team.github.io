@@ -1,278 +1,238 @@
-///
-/// Future Imperfect by HTML5 UP
-/// html5up.net | @n33co
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
+ol {
+    list-style: decimal;
+    margin: 0 0 _size(element-margin) 0;
+    padding-left: 1.25em;
 
-/* List */
+    li {
+        padding-left: 0.25em;
+    }
+}
 
-	ol {
-		list-style: decimal;
-		margin: 0 0 _size(element-margin) 0;
-		padding-left: 1.25em;
+ul {
+    list-style: disc;
+    margin: 0 0 _size(element-margin) 0;
+    padding-left: 1em;
 
-		li {
-			padding-left: 0.25em;
-		}
-	}
+    li {
+        padding-left: 0.5em;
+    }
 
-	ul {
-		list-style: disc;
-		margin: 0 0 _size(element-margin) 0;
-		padding-left: 1em;
+    &.alt {
+        list-style: none;
+        padding-left: 0;
 
-		li {
-			padding-left: 0.5em;
-		}
+        li {
+            border-top: solid 1px _palette(border);
+            padding: 0.5em 0;
 
-		&.alt {
-			list-style: none;
-			padding-left: 0;
+            &:first-child {
+                border-top: 0;
+                padding-top: 0;
+            }
+        }
+    }
 
-			li {
-				border-top: solid 1px _palette(border);
-				padding: 0.5em 0;
+    &.icons {
+        cursor: default;
+        list-style: none;
+        padding-left: 0;
 
-				&:first-child {
-					border-top: 0;
-					padding-top: 0;
-				}
-			}
-		}
+        li {
+            display: inline-block;
+            padding: 0 1em 0 0;
 
-		&.icons {
-			cursor: default;
-			list-style: none;
-			padding-left: 0;
+            &:last-child {
+                padding-right: 0;
+            }
 
-			li {
-				display: inline-block;
-				padding: 0 1em 0 0;
+            > * {
+                @include icon;
+                border: 0;
 
-				&:last-child {
-					padding-right: 0;
-				}
+                .label {
+                    display: none;
+                }
+            }
+        }
+    }
 
-				> * {
-					@include icon;
-					border: 0;
+    &.actions {
+        cursor: default;
+        list-style: none;
+        padding-left: 0;
 
-					.label {
-						display: none;
-					}
-				}
-			}
-		}
+        li {
+            display: inline-block;
+            padding: 0 (_size(element-margin) * 0.75) 0 0;
+            vertical-align: middle;
 
-		&.actions {
-			cursor: default;
-			list-style: none;
-			padding-left: 0;
+            &:last-child {
+                padding-right: 0;
+            }
+        }
 
-			li {
-				display: inline-block;
-				padding: 0 (_size(element-margin) * 0.75) 0 0;
-				vertical-align: middle;
+        &.small {
+            li {
+                padding: 0 (_size(element-margin) * 0.5) 0 0;
+            }
+        }
 
-				&:last-child {
-					padding-right: 0;
-				}
-			}
+        &.vertical {
+            li {
+                display: block;
+                padding: (_size(element-margin) * 0.75) 0 0 0;
 
-			&.pagination {
-				.next {
-					@include icon('', after);
+                &:first-child {
+                    padding-top: 0;
+                }
 
-					&:after {
-						content: '\f054';
-					}
-				}
+                > * {
+                    margin-bottom: 0;
+                }
+            }
 
-				.previous {
-					@include icon('', before);
+            &.small {
+                li {
+                    padding: (_size(element-margin) * 0.5) 0 0 0;
 
-					&:before {
-						content: '\f053';
-					}
-				}
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
 
-				@include breakpoint(large) {
-					text-align: center;
+        &.fit {
+            display: table;
+            margin-left: (_size(element-margin) * -0.5);
+            padding: 0;
+            table-layout: fixed;
+            width: calc(100% + #{(_size(element-margin) * 0.5)});
 
-					.next, .previous {
-						min-width: 20em;
-					}
-				}
+            li {
+                display: table-cell;
+                padding: 0 0 0 (_size(element-margin) * 0.5);
 
-				@include breakpoint(small) {
-					.next, .previous {
-						min-width: 18em;
-					}
-				}
-			}
+                > * {
+                    margin-bottom: 0;
+                }
+            }
 
-			&.small {
-				li {
-					padding: 0 (_size(element-margin) * 0.5) 0 0;
-				}
-			}
+            &.small {
+                margin-left: (_size(element-margin) * -0.25);
+                width: calc(100% + #{(_size(element-margin) * 0.25)});
 
-			&.vertical {
-				li {
-					display: block;
-					padding: (_size(element-margin) * 0.75) 0 0 0;
+                li {
+                    padding: 0 0 0 (_size(element-margin) * 0.25);
+                }
+            }
+        }
 
-					&:first-child {
-						padding-top: 0;
-					}
+        @include breakpoint(xsmall) {
+            margin: 0 0 _size(element-margin) 0;
 
-					> * {
-						margin-bottom: 0;
-					}
-				}
+            li {
+                padding: (_size(element-margin) * 0.5) 0 0 0;
+                display: block;
+                text-align: center;
+                width: 100%;
 
-				&.small {
-					li {
-						padding: (_size(element-margin) * 0.5) 0 0 0;
+                &:first-child {
+                    padding-top: 0;
+                }
 
-						&:first-child {
-							padding-top: 0;
-						}
-					}
-				}
-			}
+                > * {
+                    width: 100%;
+                    margin: 0 !important;
 
-			&.fit {
-				display: table;
-				margin-left: (_size(element-margin) * -0.5);
-				padding: 0;
-				table-layout: fixed;
-				width: calc(100% + #{(_size(element-margin) * 0.5)});
+                    &.icon {
+                        &:before {
+                        }
+                    }
+                }
+            }
 
-				li {
-					display: table-cell;
-					padding: 0 0 0 (_size(element-margin) * 0.5);
+            &.small {
+                li {
+                    padding: (_size(element-margin) * 0.25) 0 0 0;
 
-					> * {
-						margin-bottom: 0;
-					}
-				}
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+    }
 
-				&.small {
-					margin-left: (_size(element-margin) * -0.25);
-					width: calc(100% + #{(_size(element-margin) * 0.25)});
+    &.posts {
+        list-style: none;
+        padding: 0;
 
-					li {
-						padding: 0 0 0 (_size(element-margin) * 0.25);
-					}
-				}
-			}
+        li {
+            border-top: dotted 1px _palette(border);
+            margin: (_size(element-margin) * 0.75) 0 0 0;
+            padding: (_size(element-margin) * 0.75) 0 0 0;
 
-			@include breakpoint(xsmall) {
-				margin: 0 0 _size(element-margin) 0;
+            &:first-child {
+                border-top: 0;
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
 
-				li {
-					padding: (_size(element-margin) * 0.5) 0 0 0;
-					display: block;
-					text-align: center;
-					width: 100%;
+        article {
+            @include vendor('display', 'flex');
+            @include vendor('align-items', 'flex-start');
+            @include vendor('flex-direction', 'row-reverse');
 
-					&:first-child {
-						padding-top: 0;
-					}
+            .image {
+                display: block;
+                margin-right: 1.5em;
+                min-width: 4em;
+                width: 4em;
 
-					> * {
-						width: 100%;
-						margin: 0 !important;
+                img {
+                    width: 100%;
+                }
+            }
 
-						&.icon {
-							&:before {
-							}
-						}
-					}
-				}
+            header {
+                @include vendor('flex-grow', '1');
+                -ms-flex: 1;
 
-				&.small {
-					li {
-						padding: (_size(element-margin) * 0.25) 0 0 0;
+                h3 {
+                    font-size: 0.7em;
+                    margin-top: 0.125em;
+                }
 
-						&:first-child {
-							padding-top: 0;
-						}
-					}
-				}
-			}
-		}
+                .published {
+                    display: block;
+                    font-family: _font(family-heading);
+                    font-size: 0.6em;
+                    font-weight: _font(weight-heading);
+                    letter-spacing: _font(kerning-heading);
+                    margin: -0.625em 0 (_size(element-margin) * 0.85) 0;
+                    text-transform: uppercase;
+                }
 
-		&.posts {
-			list-style: none;
-			padding: 0;
+                > :last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
 
-			li {
-				border-top: dotted 1px _palette(border);
-				margin: (_size(element-margin) * 0.75) 0 0 0;
-				padding: (_size(element-margin) * 0.75) 0 0 0;
+dl {
+    margin: 0 0 _size(element-margin) 0;
 
-				&:first-child {
-					border-top: 0;
-					margin-top: 0;
-					padding-top: 0;
-				}
-			}
+    dt {
+        display: block;
+        font-weight: _font(weight-bold);
+        margin: 0 0 (_size(element-margin) * 0.5) 0;
+    }
 
-			article {
-				@include vendor('display', 'flex');
-				@include vendor('align-items', 'flex-start');
-				@include vendor('flex-direction', 'row-reverse');
-
-				.image {
-					display: block;
-					margin-right: 1.5em;
-					min-width: 4em;
-					width: 4em;
-
-					img {
-						width: 100%;
-					}
-				}
-
-				header {
-					@include vendor('flex-grow', '1');
-					-ms-flex: 1;
-
-					h3 {
-						font-size: 0.7em;
-						margin-top: 0.125em;
-					}
-
-					.published {
-						display: block;
-						font-family: _font(family-heading);
-						font-size: 0.6em;
-						font-weight: _font(weight-heading);
-						letter-spacing: _font(kerning-heading);
-						margin: -0.625em 0 (_size(element-margin) * 0.85) 0;
-						text-transform: uppercase;
-					}
-
-					> :last-child {
-						margin-bottom: 0;
-					}
-				}
-			}
-		}
-	}
-
-	dl {
-		margin: 0 0 _size(element-margin) 0;
-
-		dt {
-			display: block;
-			font-weight: _font(weight-bold);
-			margin: 0 0 (_size(element-margin) * 0.5) 0;
-		}
-
-		dd {
-			margin-left: _size(element-margin);
-		}
-	}
+    dd {
+        margin-left: _size(element-margin);
+    }
+}
