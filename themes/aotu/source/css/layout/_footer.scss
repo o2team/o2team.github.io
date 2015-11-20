@@ -1,0 +1,14 @@
+.footer {
+    .icons {
+        color: _palette(fg-light);
+    }
+
+    .copyright, .site-stats {
+        color: _palette(fg-light);
+        font-family: _font(family-heading);
+        font-size: 0.5em;
+        font-weight: _font(weight-heading);
+        letter-spacing: _font(kerning-heading);
+        text-transform: uppercase;
+    }
+}

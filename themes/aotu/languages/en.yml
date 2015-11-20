@@ -1,0 +1,66 @@
+menu:
+  docs: Docs
+  api: API
+  news: News
+  plugins: Plugins
+  themes: Themes
+  search: Search
+  aotu_labs: AOTU Labs 
+  about: About
+  home: Home
+
+button:
+  learn_more: Learn More
+
+index:
+  get_started: Get started
+
+site:
+  pv: Total PV
+  pv_unit: Hits
+  uv: Total UV
+  uv_unit: Hits
+
+post:
+  contents: Contents
+  back_to_top: Back to Top
+  improve: Improve this doc
+  prev: Prev
+  next: Next
+  last_updated: "Last updated: %s"
+  read_more: Continue Reading 
+  pv: Viewed
+  word_count: Word Count
+  posted: Posted At
+
+sidebar:
+  docs:
+    getting_started: Getting Started
+    overview: Overview
+    common: Common
+    issues: Issues 
+    id_vd: Interactive & Visual Design
+    interactive: Interactive Design
+    visual: Visual Design
+    fd_rd: Full-Stack Development
+    dev_common: Common Dev Configs
+    homebrew: Homebrew
+    shell_terminal: Shell And Terminal
+    version_control: Version Control
+    vim: Vim Editor
+    markdown: Markdown Cheatsheet
+    misc: Miscellaneous
+    dev_fd: Front-End Development
+    sublime_text: Sublime Text 
+    nodejs: NodeJS
+    network_analysis: Network Analysis
+    dev_rd: Logic Development
+    nginx: NGinx
+    mongodb: MongoDB
+    dev_ios: IOS Development
+    alcatraz: Alcatraz 
+    crash_logs: Crash Logs 
+    dev_android: Android Development
+    android_studio: Android Studio
+    miscellaneous: Miscellaneous
+    contributing: Contributing

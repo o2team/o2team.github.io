@@ -3,30 +3,28 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "hexo serve --watch"
+    "build": "hexo generate && gulp"
   },
   "hexo": {
     "version": "3.1.1"
-  },
-  "scripts": {
-    "build": "hexo generate && gulp"
   },
   "dependencies": {
     "cheerio": "^0.19.0",
     "hexo": "^3.1.1",
     "hexo-deployer-git": "0.0.4",
     "hexo-generator-archive": "^0.1.3",
-    "hexo-generator-tag": "^0.1.1",
     "hexo-generator-category": "^0.1.2",
     "hexo-generator-feed": "^1.0.3",
-    "hexo-generator-sitemap": "^1.0.1",
+    "hexo-generator-index": "^0.2.0",
     "hexo-generator-search": "^1.0.2",
+    "hexo-generator-sitemap": "^1.0.1",
+    "hexo-generator-tag": "^0.1.1",
     "hexo-renderer-jade": "^0.1.0",
     "hexo-renderer-marked": "^0.2.5",
-    "hexo-renderer-stylus": "^0.3.0",
     "hexo-renderer-sass": "^0.2.0",
+    "hexo-renderer-stylus": "^0.3.0",
     "hexo-server": "^0.1.2",
-    "hexo-imagemin": "^0.1.0",
+    "hexo-wordcount": "0.0.3",
     "lodash": "^3.10.1",
     "lunr": "^0.6.0"
   },
@@ -47,7 +45,7 @@
     "gulp-rev": "^6.0.1",
     "gulp-rev-collector": "^1.0.2",
     "gulp-rev-replace": "^0.4.2",
-    "gulp-task-loader": "^1.2.3",
+    "gulp-task-loader": "github:mamboer/gulp-task-loader",
     "gulp-uglify": "^1.5.1",
     "gulp-useref": "^3.0.0",
     "imagemin-pngquant": "^4.2.0",

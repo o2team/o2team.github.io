@@ -1,0 +1,21 @@
+<header id="header" class="header">
+	<h1 class="logo-wrap"><a class="logo" href="{{ url_for('index.html') }}">{{ config.title }}</a></h1>
+	<nav class="header-main">
+		<ul class="header-links">
+        	{{ header_menu('main-nav') }}
+		</ul>
+	</nav>
+	<nav class="header-extra">
+		<ul class="header-links-extra">
+			<li class="search">
+				<a class="fa-search" href="#search">Search</a>
+				<form id="search" method="get" action="#">
+					<input type="text" name="query" placeholder="Search" />
+				</form>
+			</li>
+			<li class="menu">
+				<a class="fa-bars" href="#menu">Menu</a>
+			</li>
+		</ul>
+	</nav>
+</header>
