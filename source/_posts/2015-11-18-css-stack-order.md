@@ -1,8 +1,4 @@
 title: css层叠顺序探究
-<<<<<<< HEAD:source/_posts/stack-order.md
-author: 燕婷
-
-=======
 subtitle: A stacking context is formed, anywhere in the document, by any element which is either
 date: 2015-11-18 11:44:25
 tags:
@@ -10,7 +6,6 @@ tags:
 author:
   nick: 燕婷 
   github_name: Yettyzyt
->>>>>>> 10101987b3cb60c83ddfcf00bec40727d49fc500:source/_posts/2015-11-18-css-stack-order.md
 ---
 
 嗯~一个比较基础但容易混乱的知识点~
