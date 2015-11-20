@@ -1,19 +1,19 @@
+{% extends '_layout.swig' %}
+
 {% block main %}
 <div id="main" class="main">
 
 {% for post in page.posts %}
 {% if loop.index <=3 %}
 {% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
-{{ partial('partial/post_index', {post: post, author: author}) }}
+{{ partial('partial/index/post', {post: post, author: author}) }}
 {% endif %}
 {% endfor %}
 
 {% include 'partial/pagination.swig' %}
 
 </div>
-{% endblock %}
 
-{% block sidebar %}
 <section id="sidebar" class="sidebar">
 	<!-- Intro -->
 	<section id="intro" class="intro">
@@ -42,13 +42,20 @@
 		{% for post in page.posts %}
 		{% if loop.index > 3 %}
 		{% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
-		{{ partial('partial/post_index_mini', {post:post, author:author}) }}
+		{{ partial('partial/index/post_mini', {post:post, author:author}) }}
 		{% endif %}	
 		{% endfor%}	
 		</div>
 	</section>
 	{% endif %}
 	<!-- /Mini Post-->
+
+    <!-- Recent Posts -->
+    {% include 'partial/index/recent_posts.swig' %}
+    <!-- /Recent Posts -->
+
+    <!-- About -->
+    {% include 'partial/index/about.swig' %}
 
 	<!-- Footer -->
     {{ partial('partial/footer') }}

@@ -12,8 +12,9 @@ author:
 ---
 
 用Git比较久了，之前一直在Win用的TortoiseGit，现在命令行用的比较多，所以把一些指令总结一下，以便回顾和查询。
-
 理解这些指令，觉得最重要的是理解Git的内部原理，比如Git的分布式版本控制，分清楚工作区、暂存区、版本库，还有就是理解Git跟踪并管理的是修改，而非文件。
+
+<!-- more -->
 
 ### 设置
     $ git config --global user.name "Your Name"

@@ -6,6 +6,11 @@ menu:
   themes: 主题
   search: 搜索
   aotu_labs: 凹凸实验室
+  about: 关于
+  home: 首页
+
+button:
+  learn_more: 了解详情 
 
 index:
   get_started: 开始使用
@@ -16,7 +21,7 @@ site:
   uv: 总访客数
   uv_unit: 人
 
-page:
+post:
   contents: 目录
   back_to_top: 回到顶部
   improve: 改进本文
@@ -26,6 +31,7 @@ page:
   read_more: 阅读全部
   pv: 热度
   word_count: 字数 
+  posted: 发表于 
 
 sidebar:
   docs:
