@@ -6,6 +6,11 @@ menu:
   themes: Themes
   search: Search
   aotu_labs: AOTU Labs 
+  about: About
+  home: Home
+
+button:
+  learn_more: Learn More
 
 index:
   get_started: Get started
@@ -16,7 +21,7 @@ site:
   uv: Total UV
   uv_unit: Hits
 
-page:
+post:
   contents: Contents
   back_to_top: Back to Top
   improve: Improve this doc
@@ -26,6 +31,7 @@ page:
   read_more: Continue Reading 
   pv: Viewed
   word_count: Word Count
+  posted: Posted At
 
 sidebar:
   docs:

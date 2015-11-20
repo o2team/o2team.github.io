@@ -8,7 +8,7 @@
             {% endif %}
         </div>
         <div class="post-meta">
-            <time class="published" datetime="{{ post.date }}">{{ date(post.date) }}</time>
+            <time class="published" datetime="{{ date_xml(post.date) }}" itempro="datePublished">{{ date(post.date) }}</time>
             <a target="_blank" href="https://github.com/{{ author.github_name }}" class="author"><span class="name">{{ author.nick|default(author.github_name) }}</span><img src="https://avatars.githubusercontent.com/{{ author.github_name }}?v=3&s=80" alt="{{ author.github_name }}" /></a>
         </div>
     </header>
@@ -24,9 +24,9 @@
             <li><a href='{{ url_for(tag.path) }}' class='meta-tag'>{{ tag.name }}</a></li>
             {% endfor %} 
             {% endif %}
-            <li title="{{ __("page.word_count") }}"><span class="icon fa-font">{{ wordcount(post.content) }}</span></li>
+            <li title="{{ __("post.word_count") }}"><span class="icon fa-font">{{ wordcount(post.content) }}</span></li>
             {% if theme.busuanzi %}
-			<li id="busuanzi_container_page_pv" title="{{ __("page.pv") }}"><span class="icon fa-eye" id="busuanzi_value_page_pv"></span></li>
+			<li id="busuanzi_container_page_pv" title="{{ __("post.pv") }}"><span class="icon fa-eye" id="busuanzi_value_page_pv"></span></li>
         	{% endif %}
 		</ul>
     </footer>

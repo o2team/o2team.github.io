@@ -1,3 +1,5 @@
+{% extends '_layout.swig' %}
+
 <div id="content-wrap" class="content-wrap">
   <div id="content" class="wrapper">
     <div id="content-inner" class="content-inner">

@@ -12,3 +12,21 @@ hexo.extend.helper.register('post_img', function(path){
     path = this.url_for('img/post/' + path);
     return path;
 });
+
+hexo.extend.helper.register('header_menu', function(className){
+  var menu = this.site.data.menu;
+  var result = '';
+  var self = this;
+  var lang = this.page.lang;
+  var isDefaultLang = lang === 'zh-cn';
+
+  _.each(menu, function(path, title){
+    if (!isDefaultLang && ~localizedPath.indexOf(title)) path = lang + '/' + path;
+
+    result += '<li class="' + className + '-item">';
+    result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + self.__('menu.' + title) + '</a>';
+    result += '</li>';
+  });
+
+  return result;
+});
