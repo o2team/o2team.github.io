@@ -68,7 +68,7 @@ git tracked的是修改，而不是文件
 
 
 ### 分支操作
-    # 产看当前分支
+    # 查看当前分支
     $ git branch
 
     # 创建分支
@@ -78,7 +78,6 @@ git tracked的是修改，而不是文件
 
     # 创建并checkout分支
     $ git checkout -b dev
-
 
     # 合并分支
     $ git merge dev
