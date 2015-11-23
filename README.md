@@ -70,10 +70,14 @@
 1. 使用markdown写博文 
 2. 博文图片统一位置：`source/img/post/`
     在博客内容中可以使用 `pimg` 自定义标签来引用图片。注意别覆盖了别人的图片!!!
+
     其语法格式为：
-    `{% raw %}{% pimg imageName [alt text] [JSONImageAttibutes] %}{% endraw %}`
+    
+    `{% pimg imageName [alt text] [JSONImageAttibutes] %}`
+    
     例如： 
-    `{% raw %}{% pimg post-aotu.jpg "空格请用%20来区分" '{"title":"hello","class":"test_img"}' %}{% endraw %}`
+    
+    `{% pimg post-aotu.jpg "空格请用%20来区分" '{"title":"hello","class":"test_img"}' %}`
     需要注意的是：`pimg` 利用空格来划分字段属性，如果一个属性的值需要空格，请将空格用`%20`代替!!!    
 
 3. 为了保证博客整体美观，每个文章需要一张配图(大小：840x340)
