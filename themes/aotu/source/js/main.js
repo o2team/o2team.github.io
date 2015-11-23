@@ -56,12 +56,13 @@
 
 		// Search (header).
 			var $search = $('#search'),
-				$search_input = $search.find('input');
+				$search_input = $search.find('input'),
+                searchTimer;
 
 			$body
-				.on('click', '[href="#search"]', function(event) {
+				.on('click', '[href="#search"]', function(e) {
 
-					event.preventDefault();
+					e.preventDefault();
 
 					// Not visible?
 						if (!$search.hasClass('visible')) {
@@ -75,6 +76,7 @@
 							// Focus input.
 								$search_input.focus();
 
+                            clearTimeout(searchTimer);
 						}
 
 				});
@@ -87,9 +89,9 @@
 
 				})
 				.on('blur', function() {
-					window.setTimeout(function() {
+					searchTimer = window.setTimeout(function() {
 						$search.removeClass('visible');
-					}, 100);
+					}, 200);
 				});
 
 		// Intro.

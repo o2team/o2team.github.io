@@ -144,6 +144,10 @@ body {
 
         input {
             width: 12em;
+            &.error {
+                box-shadow:none !important;
+                border-color: rgba(240,114,125,0.4);
+            }
         }
 
         &.visible {

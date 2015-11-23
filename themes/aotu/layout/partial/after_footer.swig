@@ -1,7 +1,9 @@
 <!-- Scripts -->
 <!-- build:js js/dist.main.js -->
+{{ js('js/lunr') }}
 {{ js('js/debounce') }}
 {{ js('js/jquery') }}
+{{ js('js/xhogan') }}
 {% if theme.fancybox %}
 {{ js('assets/fancybox/jquery.fancybox') }}
 {{ js('js/fancybox') }}
@@ -18,11 +20,11 @@
 {{ js('js/skel') }}
 {{ js('js/util') }}
 {{ js('js/main') }}
+{{ js('js/search') }}
 <!-- endbuild -->
 
 {% if page.layout === 'plugins' %}
 <!-- build:js js/dist.plugins.js -->
-{{ js('js/lunr') }}
 {{ js('js/plugins') }}
 <!-- endbuild -->
 {% endif %}

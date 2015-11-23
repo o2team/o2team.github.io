@@ -93,6 +93,11 @@ node_sass:
   precision: 5
   sourceComments: false
 
+# lunr
+lunr:
+  field: all
+  path: assets/lunr/
+
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:

@@ -9,7 +9,7 @@
 		<ul class="header-links-extra">
 			<li class="search">
 				<a class="fa-search" href="#search">{{ __('menu.search') }}</a>
-				<form id="search" method="get" action="#">
+				<form id="search" method="get" class="search-form">
 					<input type="text" name="query" placeholder="{{ __('menu.search') }}" />
 				</form>
 			</li>
