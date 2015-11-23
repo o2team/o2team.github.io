@@ -69,14 +69,18 @@
 
 1. 使用markdown写博文 
 2. 博文图片统一位置：`source/img/post/`
-    
-    在博客内容中可以通过`{{ post_img("xxx.jpg") }}`来引用图片。注意别覆盖了别人的图片!!!    
+    在博客内容中可以使用 `pimg` 自定义标签来引用图片。注意别覆盖了别人的图片!!!
+    其语法格式为：
+    `{% raw %}{% pimg imageName [alt text] [JSONImageAttibutes] %}{% endraw %}`
+    例如： 
+    `{% raw %}{% pimg post-aotu.jpg "空格请用%20来区分" '{"title":"hello","class":"test_img"}' %}{% endraw %}`
+    需要注意的是：`pimg` 利用空格来划分字段属性，如果一个属性的值需要空格，请将空格用`%20`代替!!!    
 
 3. 为了保证博客整体美观，每个文章需要一张配图(大小：840x340)
 4. 指明文章的副标题、作者信息、封面图片地址
 
     ```
-    subtitle: "凹凸实验室博客是一个托管于Github的静态博客，基于HEXO搭建，主题的定做参考自[future-imperfect](http://html5up.net/future-imperfect)的扁平简约，暂且命名为`o2`。"
+    subtitle: "凹凸实验室博客是一个托管于Github的静态博客，基于HEXO搭建..."
     date: 2015-11-20 00:24:35
     cover: "封面图片地址"
     tags:
@@ -86,6 +90,19 @@
         github_name: mamboer
 
     ```
+5. 利用`<!-- more --> `设置文章的摘要
+
+    示例：
+    ```
+	title: 文章标题
+	---
+	这部分是文章摘要，这部分是文章摘要。在hexo模版里可通过 {% raw %}{{ post.excerpt }}{% endraw %} 来引用。
+	<!-- more --> 
+	这里是文章的剩余部分。在hexo模版里可通过{% raw %}{{ post.more }}{% endraw %} 来引用。
+    ```
+
+    实际使用请参考[本文]({{ raw_link('_post/2015-11-20-aotu-blog-v1.md') }})。
+
 
 ## 关于博客的发布
 
