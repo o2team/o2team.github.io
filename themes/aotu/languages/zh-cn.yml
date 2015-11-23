@@ -1,6 +1,8 @@
 menu:
   docs: 文档
-  api: API
+  tags: 标签
+  archive: 归档
+  cates: 分类
   news: 新闻
   plugins: 插件
   themes: 主题
@@ -28,10 +30,36 @@ post:
   prev: 上一页
   next: 下一页
   last_updated: 上次更新：%s
-  read_more: 阅读全部
+  read_more: 阅读全文
   pv: 热度
   word_count: 字数 
   posted: 发表于 
+
+cheers:
+  um: 嗯..
+  ok: OK
+  nice: 好
+  good: 很好
+  great: 非常好
+  excellent: 太棒了
+
+keep_on: 继续努力。
+
+counter:
+  tag_cloud:
+    zero: 暂无标签
+    one: 目前共计 1 个标签
+    other: "目前共计 %d 个标签"
+
+  categories:
+    zero: 暂无分类
+    one: 目前共计 1 个分类
+    other: "目前共计 %d 个分类"
+
+  archive_posts:
+    zero: 暂无文章。
+    one: 目前共计 1 篇文章。
+    other: "目前共计 %d 篇文章。"
 
 sidebar:
   docs:

@@ -76,5 +76,13 @@
             }
         }
     }
-
+    &-post {
+        @include clearfix();
+        &-prev {
+            float:left;
+        }
+        &-next {
+            float:right;
+        } 
+    }
 }

@@ -12,7 +12,7 @@ button,
     background-color: transparent;
     border: 0;
     box-shadow: inset 0 0 0 1px _palette(border);
-    color: _palette(fg-bold) !important;
+    color: _palette(fg-bold);
     cursor: pointer;
     display: inline-block;
     font-family: _font(family-heading);
@@ -29,8 +29,7 @@ button,
 
     &:hover {
         box-shadow: inset 0 0 0 1px _palette(accent);
-        color: _palette(accent) !important;
-
+        color: _palette(accent);
         &:active {
             background-color: transparentize(_palette(accent), 0.95);
         }

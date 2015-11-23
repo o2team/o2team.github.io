@@ -17,21 +17,32 @@
 </script>
 {% endif %}
 
-{% if page.comments && config.duoshuo_shortname %}
+{% if page.comments && theme.duoshuo.shortname %}
+<div class="post-comments" id="comments">
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="{{ url }}" data-title="{{ title }}" data-url="{{ url }}"></div>
+<div class="ds-thread" data-thread-key="{{ url }}" data-title="{{ page.title }}" data-url="{{ url }}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-    var duoshuoQuery = {short_name:"{{ config.duoshuo_shortname }}"};
+    var duoshuoQuery = {short_name:"{{ theme.duoshuo.shortname }}"};
     (function() {
         var ds = document.createElement('script');
+        ds.id = "duoshuo-script";
         ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0] 
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
 </script>
 <!-- 多说公共JS代码 end -->
+
+{% if theme.duoshuo.admin_enable and theme.duoshuo.user_id %}
+<script type="text/javascript">
+    var duoshuo_user_ID = {{theme.duoshuo_info.user_id}},
+        duoshuo_admin_nickname="{{theme.duoshuo_info.admin_nickname}}";
+</script>
+{% endif %}
+
+</div>
 {% endif %}

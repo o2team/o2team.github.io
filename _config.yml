@@ -63,6 +63,11 @@ index_generator:
   per_page: 7
   order_by: -date
 
+# tag generator
+## https://github.com/hexojs/hexo-generator-tag
+tag_generator:
+  per_page: 7
+
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 7
@@ -74,10 +79,11 @@ pagination_dir: page
 theme: aotu
 
 # Feeds
+## https://www.npmjs.com/package/hexo-generator-feed
 feed:
   type: atom
   path: atom.xml
-  limit: 30
+  limit: false
 
 # Search
 search:
@@ -85,7 +91,9 @@ search:
   field: post
 
 # SASS
+## https://www.npmjs.com/package/hexo-renderer-sass
 node_sass:
+  debug: false
   outputStyle: nested
   precision: 5
   sourceComments: false
@@ -97,8 +105,7 @@ deploy:
   repo: git@github.com:o2team/o2team.github.io.git
   branch: master
 
-# others
-duoshuo_shortname: aotu
+# Others
 baidu_analytics: bb4b770d7fdf4e05245cd1327199d813
 twitter: o2circle
 github:

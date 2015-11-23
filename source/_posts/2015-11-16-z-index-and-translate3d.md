@@ -1,6 +1,6 @@
 subtitle: ""
 date: 2015-11-16 00:24:35
-cover: "img/post/manjiz-151116-cover.png"
+cover: "manjiz-151116-cover.png"
 tags:
 - translate3d
 author:

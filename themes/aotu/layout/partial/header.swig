@@ -1,4 +1,4 @@
-<header id="header" class="header">
+<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
 	<h1 class="logo-wrap"><a class="logo" href="{{ url_for('index.html') }}">{{ config.title }}</a></h1>
 	<nav class="header-main">
 		<ul class="header-links">
@@ -8,9 +8,9 @@
 	<nav class="header-extra">
 		<ul class="header-links-extra">
 			<li class="search">
-				<a class="fa-search" href="#search">Search</a>
+				<a class="fa-search" href="#search">{{ __('menu.search') }}</a>
 				<form id="search" method="get" action="#">
-					<input type="text" name="query" placeholder="Search" />
+					<input type="text" name="query" placeholder="{{ __('menu.search') }}" />
 				</form>
 			</li>
 			<li class="menu">

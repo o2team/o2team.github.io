@@ -13,6 +13,13 @@
                 {% if theme.busuanzi %}
                 <li id="busuanzi_container_page_pv" title="{{ __("post.pv") }}"><span class="icon fa-eye" id="busuanzi_value_page_pv"></span></li>
                 {% endif %}
+                {% if page.comments and theme.duoshuo.shortname %}
+                <li>
+                    <a href="{{ url_for(post.path) }}#comments" itemprop="discussionUrl" class="lnk-comments">
+                        <span class="post-comments-count ds-thread-count icon fa-comments" data-thread-key="{{ post.path }}" itemprop="commentsCount">0</span>
+                    </a>
+                </li>
+                {% endif %} 
             </ul>
             {% if post.subtitle %}
             <p>{{ post.subtitle }}</p>
@@ -24,10 +31,12 @@
         </div>
     </header>
     <a href="{{ url_for(post.path) }}" class="image featured post-cover"><img src="{{ post_img( post.cover|default(theme.post.cover) ) }}" alt="{{ post.title }}" /></a>
-    <p>{{ post.content }}</p>
-    
-    <div class="article-content" itemprop="articleBody" data-swiftype-index="true">
+    <div class="post-content" itemprop="articleBody" data-swiftype-index="true">
         {{ page_anchor(post.content) }}
     </div>
+    <div class="post-revision">
+        <i class="fa fa-clock-o"></i> <time class="post-updated" datetime="{{ date_xml(post.updated) }}" itemprop="dateModified">{{ __('post.last_updated', full_date(post.updated)) }}</time>
+    </div>
+    {% include 'prevnext.swig' %}
     {{ partial('partial/comment') }}
 </article>

@@ -40,6 +40,10 @@ body {
         }
     }
 
+    &-page {
+        @include clearfix();
+    }
+
     &-main {
         @include vendor('flex', '1');
         border-left: solid 1px _palette(border);

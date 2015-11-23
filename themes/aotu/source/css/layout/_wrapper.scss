@@ -12,6 +12,10 @@
         opacity: 0.15;
     }
 
+    .page-post-detail & {
+        display:block;
+    }
+
     @include breakpoint(xlarge) {
         padding: _size(section-spacing);
     }

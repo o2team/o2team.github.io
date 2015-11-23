@@ -2,7 +2,7 @@
     border: solid 1px _palette(border);
     margin-bottom: _size(element-margin);
     padding: 1.5em;
-
+    max-width: 100%;
     > :last-child,
     > :last-child > :last-child,
     > :last-child > :last-child > :last-child {
@@ -13,5 +13,9 @@
         border: 0;
         border-radius: 0;
         padding: 0;
+    }
+
+    &-white {
+        background-color: #ffffff;
     }
 }

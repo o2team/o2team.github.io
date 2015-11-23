@@ -1,36 +1,55 @@
 {% extends '_layout.swig' %}
 
-<div id="content-wrap" class="content-wrap">
-  <div id="content" class="wrapper">
-    <div id="content-inner" class="content-inner">
-      <article class="article-container" itemscope itemtype="http://schema.org/Article">
-        <div class="article-inner">
-          <div class="article">
-            <div class="inner">
-              <header class="article-header">
-                <h1 class="article-title" itemprop="name">{{ page.title }}</h1>
-                <a href="{{ raw_link(page.source) }}" class="article-edit-link" title="{{ __('page.improve') }}"><i class="fa fa-pencil"></i></a>
-              </header>
-              <div class="article-content" itemprop="articleBody" data-swiftype-index="true">
-                {{ page_anchor(page.content) }}
-              </div>
-              <footer class="article-footer">
-                <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">{{ __('page.last_updated', date(page.updated)) }}</time>
-                {{ page_nav() }}
-              </footer>
-              {{ partial('partial/comment') }}
-            </div>
-          </div>
-          <aside class="article-toc" id="article-toc" role="navigation">
-            <div id="article-toc-inner" class="article-toc-inner">
-              <strong class="sidebar-title">{{ __('page.contents') }}</strong>
-              {{ bstoc(page.content, {list_number: false}) }}
-              <a href="#" id="article-toc-top" class="article-toc-top">{{ __('page.back_to_top') }}</a>
-            </div>
-          </aside>
+{% block title %}
+  {% set page_title_suffix = ' | ' + config.title %}
+  {% if page.type === "cates" %}
+    {{ __('menu.cates') + page_title_suffix }}
+  {% elif page.type === "tags" %}
+    {{ __('menu.tags') + page_title_suffix }}
+  {% else %}
+    {{ page.title + page_title_suffix }}
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+
+<div id="main" class="main">
+    <div class="box box-white box-page">    
+    {# tagcloud page support #}
+    {% if page.type === "tags" %}
+      <div class="tag-cloud">
+        <div class="tag-cloud-title">
+            {{ _p('counter.tag_cloud', site.tags.length) }}
         </div>
-      </article>
-      {{ partial('partial/sidebar') }}
+        <div class="tag-cloud-items">
+          {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
+        </div>
+      </div>
+    {% elif page.type === 'categories' %}
+      <div class="cates-wrap">
+        <div class="cates-title">
+            {{ _p('counter.categories', site.categories.length) }}
+        </div>
+        <div class="cates">
+          {{ list_categories() }}
+        </div>
+      </div>
+    {% else %}
+      {{ page.content }}
+    {% endif %}
+    {{ partial('partial/comment') }}
     </div>
-  </div>
 </div>
+
+<section id="sidebar" class="sidebar">
+	
+    {% include 'partial/index/intro.swig' %}	
+
+    {% include 'partial/index/about.swig' %}
+
+    {% include 'partial/footer.swig' %}
+</section>
+
+{% endblock %}
+
+
