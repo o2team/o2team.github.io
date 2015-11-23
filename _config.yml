@@ -85,11 +85,6 @@ feed:
   path: atom.xml
   limit: false
 
-# Search
-search:
-  path: search.xml
-  field: post
-
 # SASS
 ## https://www.npmjs.com/package/hexo-renderer-sass
 node_sass:
