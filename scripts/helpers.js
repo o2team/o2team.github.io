@@ -44,16 +44,23 @@ hexo.extend.helper.register('post_img', function(path){
 });
 
 hexo.extend.helper.register('header_menu', function(className){
-  var menu = this.site.data.menu;
-  var result = '';
-  var self = this;
-  var lang = this.page.lang;
-  var isDefaultLang = lang === 'zh-cn';
+  var menu = this.site.data.menu,
+    result = '',
+    self = this,
+    lang = this.page.lang,
+    isDefaultLang = lang === 'zh-cn',
+    path1 = this.path,
+    isActive = function(path0){
+        if(path0 === 'index.html') {
+            return path1 === path0;    
+        }
+        return (path1.indexOf(path0)!==-1);    
+    }
 
   _.each(menu, function(path, title){
     if (!isDefaultLang && ~localizedPath.indexOf(title)) path = lang + '/' + path;
-
-    result += '<li class="' + className + '-item">';
+    var activeClass  = isActive(path) ? " active" : "";
+    result += '<li class="' + className + '-item' + activeClass + '">';
     result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + self.__('menu.' + title) + '</a>';
     result += '</li>';
   });

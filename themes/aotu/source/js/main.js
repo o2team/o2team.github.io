@@ -42,7 +42,7 @@
 
 		// Menu.
 			$menu
-				.appendTo($body)
+                //.appendTo($body)
 				.panel({
 					delay: 500,
 					hideOnClick: true,

@@ -35,6 +35,7 @@
 
     &-subtitle {
         font-size: 0.8em;
+        text-transform:none;
     }
 
     @include breakpoint(large) {
@@ -64,6 +65,9 @@
 
         &-title {
             font-size: 1.25em;
+        }
+        &-subtitle {
+            line-height: 2;
         }
         &-header {
             > :last-child {

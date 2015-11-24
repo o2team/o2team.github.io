@@ -829,9 +829,6 @@ var Base64 = (function() {
                     me.opts.cbk && me.opts.cbk(err);
                     return;
                 }
-                l("xhogan:html->"+html);
-                l("xhogan:tpl->"+tpl);
-                l("xhogan:data->"+data);
                 if(me.opts.appendToTarget){
                     me.opts.$target.append(html);
                 }else{

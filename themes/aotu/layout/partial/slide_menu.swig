@@ -1,13 +1,18 @@
 <section id="menu" class="slide-menu">
 
-<!-- Search -->
+    <!-- Search -->
     <section>
         <form class="search search-form" method="get">
             <input type="text" name="query" placeholder="{{ __('menu.search') }}" />
         </form>
     </section>
 
-<!-- Links -->
+    <section>
+        <ul class="links sm-links-aotu">
+        {{ header_menu('main-nav') }}
+        </ul>
+    </section>
+    <!-- Links -->
     <section>
         <ul class="links">
             {% for item in site.data.links %}
@@ -21,7 +26,7 @@
         </ul>
     </section>
 
-<!-- Actions -->
+    <!-- Actions -->
     <section>
         <ul class="actions vertical">
             <li><a href="https://github.com/{{ config.github.user }}" class="button big fit"><i class="fa fa-github"></i>Github</a></li>

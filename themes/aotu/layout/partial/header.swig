@@ -1,5 +1,5 @@
 <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-	<h1 class="logo-wrap"><a class="logo" href="{{ url_for('index.html') }}">{{ config.title }}</a></h1>
+	<h1 class="logo-wrap"><a class="logo" href="{{ url_for('index.html') }}" title="{{ config.title }}"><img src="{{ url_for(theme.logo.url) }}" alt="{{ config.title }}"/></a></h1>
 	<nav class="header-main">
 		<ul class="header-links">
         	{{ header_menu('main-nav') }}

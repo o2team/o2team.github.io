@@ -3,6 +3,17 @@
     <header class="post-header">
         <div class="post-title">
             <h2 itemprop="name headline"><a href="{{ url_for(post.path) }}" itemprop="url">{{ post.title }}</a></h2>
+            <ul class="post-stats">
+                {% if post.tags and post.tags.length %}
+                {% for tag in post.tags %}
+                <li><a href='{{ url_for(tag.path) }}' class='meta-tag' rel="tag">{{ tag.name }}</a></li>
+                {% endfor %} 
+                {% endif %}
+                <li title="{{ __("post.word_count") }}"><span class="icon fa-font" itemprop="wordCount">{{ wordcount(post.content) }}</span></li>
+                {% if theme.busuanzi %}
+                <li id="busuanzi_container_page_pv" title="{{ __("post.pv") }}"><span class="icon fa-eye" id="busuanzi_value_page_pv">0</span></li>
+                {% endif %}
+            </ul>   
             {% if post.subtitle %}
             <p itemprop="description" class="post-desc">{{ post.subtitle }}</p>
             {% endif %}
@@ -26,7 +37,7 @@
             {% endif %}
             <li title="{{ __("post.word_count") }}"><span class="icon fa-font" itemprop="wordCount">{{ wordcount(post.content) }}</span></li>
             {% if theme.busuanzi %}
-			<li id="busuanzi_container_page_pv" title="{{ __("post.pv") }}"><span class="icon fa-eye" id="busuanzi_value_page_pv"></span></li>
+			<li id="busuanzi_container_page_pv" title="{{ __("post.pv") }}"><span class="icon fa-eye" id="busuanzi_value_page_pv">0</span></li>
         	{% endif %}
 		</ul>
     </footer>

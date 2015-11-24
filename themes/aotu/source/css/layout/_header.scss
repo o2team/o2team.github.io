@@ -1,7 +1,21 @@
 body {
     padding-top: 3.5em;
 }
-
+.logo {
+    &-wrap {
+       position:relative;
+    }
+    height: 58%;
+    display:inline-block;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    vertical-align: top;
+    img {
+        height:100%;
+        vertical-align: top;
+    }
+}
 .header {
     @include vendor('display', 'flex');
     @include vendor('justify-content', 'space-between');
@@ -31,6 +45,7 @@ body {
     }
     h1 {
         height: inherit;
+        max-height: 100%;
         line-height: inherit;
         padding: 0 0 0 1.5em;
         white-space: nowrap;
@@ -55,6 +70,14 @@ body {
     }
 
     &-links {
+        a {
+            border-bottom: 0;
+            font-family: _font(family-heading);
+            font-size: 0.7em;
+            font-weight: _font(weight-heading);
+            letter-spacing: _font(kerning-heading);
+            text-transform: uppercase;
+        }
         li {
             border-left: solid 1px _palette(border);
             line-height: 1;
@@ -66,14 +89,11 @@ body {
                 margin-left: 0;
                 padding-left: 0;
             }
-
-            a {
-                border-bottom: 0;
-                font-family: _font(family-heading);
-                font-size: 0.7em;
-                font-weight: _font(weight-heading);
-                letter-spacing: _font(kerning-heading);
-                text-transform: uppercase;
+            &.active {
+                a {
+                    font-weight: _font(weight-heading-extrabold);
+                    font-size: 0.75em;
+                }
             }
         }
     }
@@ -146,7 +166,7 @@ body {
             width: 12em;
             &.error {
                 box-shadow:none !important;
-                border-color: rgba(240,114,125,0.4);
+                border-color: _palette(highlight);
             }
         }
 

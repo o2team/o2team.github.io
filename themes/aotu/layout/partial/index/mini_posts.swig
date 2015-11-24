@@ -9,6 +9,7 @@
     {% endif %}	
     {% endfor%}	
     </div>
+    {% include '../../partial/pagination.swig' %}
 </section>
 {% endif %}
 <!-- /Mini Post-->

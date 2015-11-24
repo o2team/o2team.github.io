@@ -1,5 +1,7 @@
 {% extends '_layout.swig' %}
 
+{% block page_class %}page-index{% endblock %}
+
 {% block main %}
 <div id="main" class="main">
 
@@ -14,7 +16,7 @@
     {% include 'partial/index/intro.swig' %}	
 	
     {% include 'partial/index/mini_posts.swig' %}	
-    
+
     {% include 'partial/index/recent_posts.swig' %}
 
     {% include 'partial/index/about.swig' %}

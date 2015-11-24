@@ -1,3 +1,5 @@
+logo:
+    url: img/logo-206x70.png
 post:
     cover: post-default.png
     img_dir: img/post/

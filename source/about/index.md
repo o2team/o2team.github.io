@@ -1,12 +1,7 @@
 title: 关于凹凸实验室
 ---
 
-## 服务范围
-TODO：
-
-## 招聘信息
-TODO:
-
 ## 联系我们
 
-TODO：
+1. [Github/o2team](https://github.com/o2team)
+2. [twitter/o2circle](https://twitter.com/o2circle)

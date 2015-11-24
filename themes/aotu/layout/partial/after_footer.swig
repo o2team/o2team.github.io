@@ -4,14 +4,6 @@
 {{ js('js/debounce') }}
 {{ js('js/jquery') }}
 {{ js('js/xhogan') }}
-{% if theme.fancybox %}
-{{ js('assets/fancybox/jquery.fancybox') }}
-{{ js('js/fancybox') }}
-{% endif %}
-{% if page.comments and theme.duoshuo.shortname and theme.duoshuo.ua_enable %}
-{{ js('js/ua-parser.min') }}
-{{ js('js/duoshuo') }}
-{% endif %}
 {{ js('js/hammer') }}
 {{ js('assets/bootstrap/js/bootstrap') }}
 {{ js('js/lang_select') }}
@@ -22,6 +14,16 @@
 {{ js('js/main') }}
 {{ js('js/search') }}
 <!-- endbuild -->
+
+{% if theme.fancybox %}
+{{ js('assets/fancybox/jquery.fancybox') }}
+{{ js('js/fancybox') }}
+{% endif %}
+
+{% if page.comments and theme.duoshuo.shortname and theme.duoshuo.ua_enable %}
+{{ js('js/ua-parser.min') }}
+{{ js('js/duoshuo') }}
+{% endif %}
 
 {% if page.layout === 'plugins' %}
 <!-- build:js js/dist.plugins.js -->

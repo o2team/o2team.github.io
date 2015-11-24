@@ -1,4 +1,4 @@
-#menu {
+@mixin slide-panel {
     @include vendor('transform', 'translateX(#{_size(menu)})');
     @include vendor('transition', (
         'transform #{_duration(menu)} ease',
@@ -76,14 +76,35 @@
         }
     }
 
-    body.is-menu-visible & {
-        @include vendor('transform', 'translateX(0)');
-        visibility: visible;
-    }
+    
 
     @include breakpoint(small) {
         > * {
             padding: _size(section-spacing-small);
         }
+    }
+}
+.slide-menu {
+    @include slide-panel();
+    body.is-menu-visible & {
+        @include vendor('transform', 'translateX(0)');
+        visibility: visible;
+    }
+    .main-nav-item {
+        font-size: 0.8em;
+        font-weight: 800;
+    }
+}
+.slide-search {
+    @include slide-panel();
+    body.is-search-visible & {
+        @include vendor('transform', 'translateX(0)');
+        visibility: visible;
+    }
+    &.no-res {
+        .links {
+            font-size:0.9em;
+            color: _palette(highlight);
+        }    
     }
 }
