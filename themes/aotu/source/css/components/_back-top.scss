@@ -1,0 +1,35 @@
+.back-to-top {
+  	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1050;
+	padding: 5px 12px;
+	//background: #23232e;
+	//color: #fff;
+    display:none;
+	box-shadow: inset 0 0 0 1px _palette(border);
+    color: _palette(fg-bold);
+	cursor: pointer;
+	transform: translateZ(0);
+    @include vendor('transition', (
+        'background-color #{_duration(transition)} ease',
+        'box-shadow #{_duration(transition)} ease',
+        'color #{_duration(transition)} ease'
+    ));
+	&:hover {
+        box-shadow: inset 0 0 0 1px _palette(accent);
+        color: _palette(accent);
+		background-color: #ffffff;
+	}
+}
+@media (max-width: 767px) {
+  	.back-to-top {
+    	display: none !important;
+  	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  	.back-to-top {
+    	display: none !important;
+  	}
+}
+

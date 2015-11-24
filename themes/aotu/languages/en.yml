@@ -1,11 +1,18 @@
 menu:
   docs: Docs
-  api: API
+  archive: Archive
+  tags: Tags
+  cates: Categories
   news: News
   plugins: Plugins
   themes: Themes
   search: Search
   aotu_labs: AOTU Labs 
+  about: About
+  home: Home
+
+button:
+  learn_more: Learn More
 
 index:
   get_started: Get started
@@ -16,7 +23,7 @@ site:
   uv: Total UV
   uv_unit: Hits
 
-page:
+post:
   contents: Contents
   back_to_top: Back to Top
   improve: Improve this doc
@@ -26,6 +33,33 @@ page:
   read_more: Continue Reading 
   pv: Viewed
   word_count: Word Count
+  posted: Posted At
+
+cheers:
+  um: Um..
+  ok: OK
+  nice: Nice
+  good: Good
+  great: Great
+  excellent: Excellent
+
+keep_on: Keep on posting.
+
+counter:
+  tag_cloud:
+    zero: No tags
+    one: 1 tag in total
+    other: "%d tags in total"
+
+  categories:
+    zero: No categories
+    one: 1 category in total
+    other: "%d categories in total"
+
+  archive_posts:
+    zero: No posts.
+    one: 1 post.
+    other: "%d posts in total."
 
 sidebar:
   docs:

@@ -1,19 +1,23 @@
-{% set page.title = 'News' %}
-<div id="content-wrap" class="content-wrap">
-  <div class="wrapper">
-    <div class="inner">
-      {% for post in page.posts %}
-        {% if loop.index == 1 %}
-          {{ partial('partial/post', {post: post}) }}
-        {% else %}
-          <article class="article post archive-post" itemscope itemtype="http://schema.org/Article">
-            <a class="archive-post-link" href="{{ url_for(post.path) }}">
-              <strong class="archive-post-title" itemprop="name">{{ post.title }}</strong>
-              <span class="archive-post-date">{{ time_tag(post.date) }}</span>
-            </a>
-          </article>
-        {% endif %}
-      {% endfor %}
+{% extends '_layout.swig' %}
+
+{% block title %} {{ __('menu.archive') }} | {{ config.title }} {% endblock %}
+{% block page_class %} page-archive {% endblock %}
+
+{% block main %}
+<div id="main" class="main">
+    {% include 'partial/archive/cheers.swig' %}	
+    <div class="box box-white archives">
+        {% include 'partial/archive/mini_posts.swig' %}	
     </div>
-  </div>
+    {% include 'partial/pagination.swig' %}
 </div>
+
+<section id="sidebar" class="sidebar">
+	
+    {% include 'partial/index/intro.swig' %}	
+
+    {% include 'partial/index/about.swig' %}
+
+    {% include 'partial/footer.swig' %}
+</section>
+{% endblock %}

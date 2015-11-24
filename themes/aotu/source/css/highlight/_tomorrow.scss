@@ -1,0 +1,180 @@
+// https://github.com/chriskempson/tomorrow-theme
+
+@import "vars";
+
+@mixin hl-block {
+    background: $highlight-background;
+    margin: 20px 0;
+    padding: 15px;
+    overflow: auto;
+    font-size: _codeblock(font-size);
+    color: $highlight-foreground;
+    line-height:  _codeblock(line-height);
+}
+@mixin hl-color-ln {
+    color: #666;
+}
+
+pre, code {
+    font-family: _codeblock(font-family);
+}
+code {
+    word-break: break-all;
+    background: #eee;
+    text-shadow: 0 1px #fff;
+    padding: 0 0.3em;
+}
+pre {
+    @include hl-block
+    code {
+        background: none;
+        text-shadow: none;
+        padding: 0;
+        margin:0;
+        border:none;
+    }
+}
+.highlight {
+    @include hl-block
+    pre {
+        border: none;
+        margin: 0;
+        padding: 1px;
+    }
+    table {
+        margin: 0;
+        width: auto;
+        border: none;
+    }
+    tr {
+        border: none !important;
+    }
+    td {
+        border: none;
+        padding: 0;
+    }
+    a {
+        text-decoration:none !important;
+    }
+    figcaption {
+        @include clearfix
+        font-size: 0.85em;
+        color: $highlight-comment;
+        line-height: 1em;
+        margin-bottom: 1em;
+        a {
+            float: right;
+        }
+    }
+    .gutter pre {
+        @include hl-color-ln
+        text-align: right;
+        padding-right: 20px;
+    }
+    .line {
+        height: 20px;
+    }
+}
+.gist {
+    margin: 20px 0;
+    border-style: solid;
+    border-color: _palette(border);
+    border-width: 1px 0;
+    background: $highlight-background;
+    padding: 15px $content-desktop-padding 15px 15px;
+    .gist-file {
+        border: none;
+        font-family: _codeblock(font-family);
+        margin: 0;
+        .gist-data {
+            background: none;
+            border: none;
+            .line-numbers {
+                @include hl-color-ln
+                background: none;
+                border: none;
+                padding: 0 20px 0 0;
+            }
+            .line-data {
+                padding: 0 !important;
+            }
+        }
+        .highlight {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .gist-meta {
+            background: $highlight-background;
+            color: $highlight-comment;
+            font: 13px _font(font-family);
+            text-shadow: 0 0;
+            padding: 0;
+            margin-top: 1em;
+            margin-left: $content-desktop-padding;
+            a {
+                font-weight: normal;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+pre {
+    .comment {
+        color: $highlight-comment;
+    }
+    .variable,
+    .attribute,
+    .tag,
+    .regexp,
+    .ruby .constant,
+    .xml .tag .title,
+    .xml .pi,
+    .xml .doctype,
+    .html .doctype,
+    .css .id,
+    .css .class,
+    .css .pseudo {
+        color: $highlight-red;
+    }
+    .number,
+    .preprocessor,
+    .built_in,
+    .literal,
+    .params,
+    .constant {
+        color: $highlight-orange;
+    }
+    .ruby .class .title,
+    .css .rules .attribute {
+        color: $highlight-green;
+    }
+    .string,
+    .value,
+    .inheritance,
+    .header,
+    .ruby .symbol,
+    .xml .cdata {
+        color: $highlight-green;
+    }
+    .title,
+    .css .hexcolor {
+        color: $highlight-aqua;
+    }
+    .function,
+    .python .decorator,
+    .python .title,
+    .ruby .function .title,
+    .ruby .title .keyword,
+    .perl .sub,
+    .javascript .title,
+    .coffeescript .title {
+        color: $highlight-blue;
+    }
+    .keyword,
+    .javascript .function {
+        color: $highlight-purple;
+    }
+}

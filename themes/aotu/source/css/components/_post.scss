@@ -4,6 +4,14 @@
     border: solid 1px _palette(border);
     margin: 0 0 _size(section-spacing) 0;
     position: relative;
+    max-width: 100%;
+    &-anchor {
+        margin-left: 10px;
+        display: none;
+    }
+    img {
+        max-width: 100%;
+    }
     &-title {
         @include vendor('flex-grow', '1');
         -ms-flex: 1;
@@ -17,6 +25,9 @@
         > :last-child {
             margin-bottom: 0;
         }
+    }
+    &-revision {
+        font-size:0.7em;
     }
     &-meta {
         @include padding(_size(section-spacing) * 1.25, _size(section-spacing));
@@ -225,5 +236,10 @@
                 padding: 0 0 0 1.25em;
             }
         }
+    }
+}
+.fancybox {
+    &-close {
+        border: none;
     }
 }

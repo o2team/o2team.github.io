@@ -61,7 +61,7 @@ css:
 
 **eg.2：定位元素／行内元素／浮动元素之间的层叠关系**
 
-![eg.3](labs.qiang.it/yetty/stack/z-index4.png)
+![eg.3](http://labs.qiang.it/yetty/stack/z-index4.png)
 
 **＊ 结论： 层叠顺序如下（高➡低）：**
 

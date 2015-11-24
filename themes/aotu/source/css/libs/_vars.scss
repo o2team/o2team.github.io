@@ -1,6 +1,6 @@
 // Misc.
 	$misc: (
-		z-index-base:				10000
+		z-index-base:				7000
 	);
 
 // Duration.
@@ -23,7 +23,8 @@
 		family:						('Source Sans Pro', Helvetica, sans-serif),
 		family-fixed:				('Courier New', monospace),
 		family-heading:				('Lato', Helvetica, sans-serif),
-		weight:						400,
+		family-monospace:           ('Source Sans Pro', Consolas, Monaco, Menlo, monospace),
+        weight:						400,
 		weight-bold:				700,
 		weight-heading:				400,
 		weight-heading-bold:		800,
@@ -43,3 +44,15 @@
 		border-alt:					rgba(160,160,160,0.65),
 		accent:						#2ebaae
 	);
+
+// Code block
+    $codeblock: (
+        line-height:                1.6,  // Can't be less than 1.3
+        font-family:                map-get($font, family-monospace),
+        font-size:                  0.9em
+    );
+
+$content-desktop-padding:           40px;
+$duoshuo:                           hexo-theme-config('duoshuo.shortname');
+$duoshuoBaseBorderColor:            #c7d4e1;
+$duoshuoBaseBgColor:                #f6f8fa;

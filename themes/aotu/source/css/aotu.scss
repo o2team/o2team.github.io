@@ -42,9 +42,20 @@
 	@import 'components/list';
 	@import 'components/pagination';
 	@import 'components/mini-post';
+	@import 'components/recent-post';
 	@import 'components/post';
 	@import 'components/section';
 	@import 'components/table';
+	@import 'components/back-top';
+	@import 'components/archive';
+	@import 'components/tagcloud';
+    
+    @if $duoshuo {
+        @import 'components/duoshuo';
+    }
+
+// 3Party Libs
+    @import 'highlight/tomorrow';
 
 // Layout.
 

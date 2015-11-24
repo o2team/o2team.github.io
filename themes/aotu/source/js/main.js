@@ -1,9 +1,3 @@
-/*
-	Future Imperfect by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	skel.breakpoints({
@@ -109,6 +103,24 @@
 					.on('-large', function() {
 						$intro.prependTo($sidebar);
 					});
+
+        // Back Top
+        var $backTop = $('#backTop');
+        $window.on('scroll.backtop', debounce(function () {
+            if ($window.scrollTop() > 100) {
+                $backTop.show();
+            } else {
+                $backTop.hide();
+            }
+        }));
+
+        // scroll body to 0px on click
+        $backTop.on('click',function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
 
 	});
 

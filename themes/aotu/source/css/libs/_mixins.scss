@@ -51,3 +51,11 @@
     @return url("data:image/svg+xml;charset=utf8,#{$svg}");
 
 }
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
