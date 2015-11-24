@@ -1,6 +1,7 @@
 title: css层叠顺序探究
 subtitle: A stacking context is formed, anywhere in the document, by any element which is either
 date: 2015-11-18 11:44:25
+cover: "2015-11-18-stack-order/cover.png"
 tags:
   - CSS
 author:
@@ -31,7 +32,7 @@ author:
 
 ## 1. 浮动与行内
 
-**eg.1-eg.2共同结构与样式**
+**eg.1-1/eg.1-2共同结构与样式**
 
 html:
 
@@ -50,18 +51,18 @@ css:
 	.div4{background-color: #C7C7A8;margin:-150px 60px;}
 	.div5{background-color: #84AF9B;margin:-140px -10px;}
 
-**eg.1：常规流中非定位非行内元素的层叠情况**
+**eg.1-1：常规流中非定位非行内元素的层叠情况**
 
-![eg.1](http://labs.qiang.it/yetty/stack/z-index3.png)
+{% pimg 2015-11-18-stack-order/1-1-normal-order.png %}
 
 
 **＊ 结论： 常规流中非定位非行内的元素根据html顺序，按照“后来居上”的规则层叠。**
 
 ---
 
-**eg.2：定位元素／行内元素／浮动元素之间的层叠关系**
+**eg.1-2：定位元素／行内元素／浮动元素之间的层叠关系**
 
-![eg.3](http://labs.qiang.it/yetty/stack/z-index4.png)
+{% pimg 2015-11-18-stack-order/1-2-change-order.png %}
 
 **＊ 结论： 层叠顺序如下（高➡低）：**
 
@@ -78,7 +79,7 @@ css:
 1. 每个定位元素都有一个整型的层叠级别（stack level）；
 2. z-index属性只对定位元素有效。
 
-**eg.3-eg.4共同结构与样式:** 
+**eg.2-1/eg.2-2共同结构与样式:** 
 
 html:
 
@@ -98,17 +99,17 @@ css:
 	.div5{background-color: #84AF9B;margin:-140px -10px;}
 
 
-**eg3: 5个定位元素在未设置z-index时的层叠情况**
+**eg.2-1: 5个定位元素在未设置z-index时的层叠情况**
 
-![eg.3](http://labs.qiang.it/yetty/stack/z-index.png)
+{% pimg 2015-11-18-stack-order/2-1-normal-order.png %}
 
 **＊ 结论： z-index为auto的定位元素根据html顺序，按照“后来居上”的规则层叠。**
 
 ---
 
-**eg4: 5个定位元素设置不同z-index时的层叠情况**
+**eg.2-2: 5个定位元素设置不同z-index时的层叠情况**
 
-![eg.4](http://labs.qiang.it/yetty/stack/z-index2.png)
+{% pimg 2015-11-18-stack-order/2-2-change-order.png %}
 
 **＊ 结论：**
 
@@ -135,7 +136,7 @@ css:
 
 规范中的描述比较乏味，可结合[w3help][3]中的一张图片进行理解：
 
-> ![stack-order](http://labs.qiang.it/yetty/stack/1.png)
+> {% pimg 2015-11-18-stack-order/3-1-summay-order.png %}
 
 
 ## 4. 层叠上下文（stacking context）
@@ -169,7 +170,7 @@ css:
 
 注：在同一层叠上下文中，父元素、子元素与自身都被当作是并级关系进行层叠级别的比较。他们之间可能互相层叠。
 
-**eg.5：z-index为auto的定位元素没有创建层叠上下文**
+**eg.4-1：z-index为auto的定位元素没有创建层叠上下文**
 
 html:
 
@@ -185,7 +186,7 @@ css:
 	.div1_1{background-color: #FC9D99;margin:100px 0 0 50px;width: 300px;}
 	.div2{background-color: #F9CCAD;line-height: 300px;}
 
-![eg.5](http://labs.qiang.it/yetty/stack/css2.png)
+{% pimg 2015-11-18-stack-order/4-1-normal-order.png %}
 
 分析上述例子：
 
@@ -205,9 +206,9 @@ css:
 
 **IE中的BUG：**
 
-在IE6-7浏览器中测试eg.5：
+在IE6-7浏览器中测试eg.4-1：
 
-![eg.5 in IE](http://labs.qiang.it/yetty/stack/ie.png)
+{% pimg 2015-11-18-stack-order/4-2-ie-bug.png %}
 
 **＊ 结论： ie6-7中，z-index为auto的定位元素也会创建新的层叠上下文。**
 
@@ -247,9 +248,9 @@ css:
 
 ---
 
-**eg.6：opacity创建新的层叠上下文**
+**eg.4-2：opacity创建新的层叠上下文**
 
-![eg.6](http://labs.qiang.it/yetty/stack/opacity.png)
+{% pimg 2015-11-18-stack-order/4-3-opacity-order.png %}
 
 分析：
 
