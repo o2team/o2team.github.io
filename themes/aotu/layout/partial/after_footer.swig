@@ -16,18 +16,16 @@
 <!-- endbuild -->
 
 {% if theme.fancybox %}
+<!-- build:js js/dist.fancybox.js -->
 {{ js('assets/fancybox/jquery.fancybox') }}
 {{ js('js/fancybox') }}
+<!-- endbuild -->
 {% endif %}
 
 {% if page.comments and theme.duoshuo.shortname and theme.duoshuo.ua_enable %}
+<!-- build:js js/dist.duoshuo.js -->
 {{ js('js/ua-parser.min') }}
 {{ js('js/duoshuo') }}
-{% endif %}
-
-{% if page.layout === 'plugins' %}
-<!-- build:js js/dist.plugins.js -->
-{{ js('js/plugins') }}
 <!-- endbuild -->
 {% endif %}
 

@@ -1,5 +1,10 @@
 title: 关于凹凸实验室
+hideAbout: true
 ---
+
+## About
+
+{{ hexo.config.description }}
 
 ## 联系我们
 

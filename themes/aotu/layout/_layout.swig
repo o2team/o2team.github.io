@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang }}" class="theme-o2 {% block page_class %}{% endblock %}">
 <head prefix="og: http://ogp.me/ns#">
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<title>{% block title %}{% if page.title %}{{ page.title }} | {% endif %}{{ config.title }}{% endblock %}</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
     {{ partial('partial/head') }}
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">

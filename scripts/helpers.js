@@ -81,6 +81,20 @@ hexo.extend.helper.register('canonical_path_for_nav', function(){
     }
     return '';
 });
+hexo.extend.helper.register('page_keywords', function(asStr){
+    var tags = this.page.tags,
+        siteKeywords = hexo.config.keywords.split(', ');
+
+    if (tags) {
+        tags.each(function(tag){
+            siteKeywords.splice(0, 0, tag.name);
+        }); 
+    }
+    if (asStr) {
+        return siteKeywords.join(',');
+    }
+    return siteKeywords;
+});
 
 // Custom hexo tags
 /**
@@ -124,4 +138,31 @@ hexo.extend.tag.register('pimg', function(args,content){
     }
 
     return util.htmlTag('img', imgAttr);
+});
+
+hexo.extend.tag.register('tag_cfg', function(args, content){
+    var fieldName = args[0],
+        cls = args[1] || 'cfg-val',
+        fields = fieldName.split('.'),
+        cfg = hexo.config,
+        cfg1 = hexo.theme.config,
+        getPro = function(obj, fds){
+            var len = fds.length,
+                val = "";
+            for (var i = 0; i < len; i++) {
+                val = obj[fds[i]];
+                if (typeof val === 'object') {
+                    if (fds.shift()){
+                        return getPro(val, fds);
+                    }
+                    return JSON.stringify(val);
+                }
+                return val;
+            }
+        };
+    
+    return util.htmlTag('div', {
+        "class": cls
+    }, getPro(cfg, fields) || getPro(cfg1, fields));
+
 });
