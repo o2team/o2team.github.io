@@ -107,7 +107,7 @@ deploy:
   branch: master
 
 # Others
-baidu_analytics: bb4b770d7fdf4e05245cd1327199d813
+baidu_analytics: e850b980d029480b092fdd7503c3f8de
 twitter: o2circle
 github:
   user: o2team

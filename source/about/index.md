@@ -4,9 +4,20 @@ hideAbout: true
 
 ## About
 
-{{ hexo.config.description }}
+{% tag_cfg description %}
 
-## 联系我们
+## Contact
 
-1. [Github/o2team](https://github.com/o2team)
-2. [twitter/o2circle](https://twitter.com/o2circle)
+### 公众号
+
+{% pimg common/qrcode.jpg %} 
+
+### 其它
+
+1. Github 
+  
+  [Github/o2team](https://github.com/o2team)
+
+2. Twitter 
+  
+  [twitter/o2circle](https://twitter.com/o2circle)

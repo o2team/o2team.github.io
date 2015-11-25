@@ -25,7 +25,7 @@
 <meta name="msapplication-TileImage" content="{{ url_for('img/mstile-144x144.png') }}">
 <!-- CSS -->
 <!-- build:css css/dist.style.css -->
-{{ css('css/aotu') }}
+{{ css('css/o2') }}
 <!-- endbuild -->
 {% if theme.fancybox %}
 {{ css('assets/fancybox/jquery.fancybox.css') }}
