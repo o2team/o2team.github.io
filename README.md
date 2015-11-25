@@ -1,5 +1,14 @@
 # aotu.io
 
+## changelogs
+
+### v1.0.1 - 合并theme/aotu至theme/o2
+
+1. 做了导航样式在各分辨率下的细节优化
+2. 合并theme/aotu至theme/o2
+  
+  在根目录`git pull` 更新之后，别忘了跑`theme/o2`目录下进行`git pull`更新至最新的主题
+
 ## 博客的一些特性
 
 1. 使用github头像
