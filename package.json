@@ -18,6 +18,7 @@
     "hexo-generator-index": "^0.2.0",
     "hexo-generator-sitemap": "^1.0.1",
     "hexo-generator-tag": "^0.1.2",
+    "hexo-generator-lunr": "^1.0.0",
     "hexo-renderer-marked": "^0.2.5",
     "hexo-renderer-scss": "^1.0.1",
     "hexo-server": "^0.1.2",

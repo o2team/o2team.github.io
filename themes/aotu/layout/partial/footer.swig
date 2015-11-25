@@ -9,7 +9,7 @@
       Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
     </div>
     {% if theme.busuanzi %}
-    <div class="site-stats">
+    <div class="site-stats" style="display:none">
         <span id="busuanzi_container_site_pv" class="site-pv">
             {{ __('site.pv') }}: <span id="busuanzi_value_site_pv" class="site-pv-num"></span> {{ __('site.pv_unit') }}
         </span>

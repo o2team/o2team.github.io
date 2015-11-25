@@ -62,6 +62,9 @@ em, i {
 
 p {
     margin: 0 0 _size(element-margin) 0;
+    li >& {
+        margin-bottom: 0;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -116,6 +119,9 @@ blockquote {
     font-style: italic;
     margin: 0 0 _size(element-margin) 0;
     padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
+    > p {
+        margin-bottom: 0;  
+    }
 }
 
 code {

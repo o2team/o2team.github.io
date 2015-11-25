@@ -1,0 +1,17 @@
+.page {
+    &-index {
+        .pagination {
+            display: block;
+            @include breakpoint(large) {
+                display: none;
+            }
+        }
+        .mini-posts-wrap {
+            .pagination {
+                @include breakpoint(large) {
+                    display: block;
+                }
+            }
+        }
+    }
+}

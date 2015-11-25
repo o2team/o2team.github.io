@@ -28,6 +28,7 @@
     }
     &-revision {
         font-size:0.7em;
+        margin-bottom: _size(element-margin);
     }
     &-meta {
         @include padding(_size(section-spacing) * 1.25, _size(section-spacing));
@@ -125,6 +126,7 @@
         border-right: 0;
         left: _size(section-spacing) * -1;
         width: calc(100% + (#{_size(section-spacing)} * 2));
+        max-width: calc(100% + (#{_size(section-spacing)} * 2));
 
         &-header {
             @include vendor('flex-direction', 'column');
@@ -186,6 +188,7 @@
         left: _size(section-spacing-small) * -1;
         margin: 0 0 _size(element-margin) 0;
         width: calc(100% + (#{_size(section-spacing-small)} * 2));
+        max-width: calc(100% + (#{_size(section-spacing-small)} * 2));
 
         &-header {
             @include padding(_size(section-spacing-small) * 2, _size(section-spacing-small), (0, 0, -0.5em, 0));
@@ -232,8 +235,12 @@
             text-align: center;
 
             li {
-                margin: 0 0 0 1.25em;
-                padding: 0 0 0 1.25em;
+                margin: 0 1em 0 1em;
+                padding: 0;
+                border-left: 0;
+                &:first-child {
+                    margin-left: 1em;
+                }
             }
         }
     }

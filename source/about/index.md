@@ -1,12 +1,23 @@
 title: 关于凹凸实验室
+hideAbout: true
 ---
 
-## 服务范围
-TODO：
+## About
 
-## 招聘信息
-TODO:
+{% tag_cfg description %}
 
-## 联系我们
+## Contact
 
-TODO：
+### 公众号
+
+{% pimg common/qrcode.jpg %} 
+
+### 其它
+
+1. Github 
+  
+  [Github/o2team](https://github.com/o2team)
+
+2. Twitter 
+  
+  [twitter/o2circle](https://twitter.com/o2circle)

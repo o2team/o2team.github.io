@@ -20,6 +20,9 @@ form {
 
         > input:first-child {
             padding-left: 2.5em;
+            &.error {
+                box-shadow:none;
+            }
         }
     }
 }

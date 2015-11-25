@@ -4,8 +4,9 @@ date: 2015-11-17 18:44:25
 tags:
   - WebP
   - Fork
+cover: wengeek/responsive-image.png
 author:
-  nick: 伟哥
+  nick: WEN
   github_name: wengeek
 ---
 

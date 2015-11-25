@@ -1,3 +1,5 @@
+<!-- keywords -->
+<meta name="keywords" name="{{ page_keywords(true) }}"/>
 <!-- Canonical links -->
 <link rel="canonical" href="{{ url }}">
 <!-- Alternative links -->
@@ -23,7 +25,7 @@
 <meta name="msapplication-TileImage" content="{{ url_for('img/mstile-144x144.png') }}">
 <!-- CSS -->
 <!-- build:css css/dist.style.css -->
-{{ css('css/aotu') }}
+{{ css('css/o2') }}
 <!-- endbuild -->
 {% if theme.fancybox %}
 {{ css('assets/fancybox/jquery.fancybox.css') }}
@@ -35,8 +37,6 @@
 fb_admins: config.fb_admins,
 twitter_site: config.twitter
 }) }}
-<!-- Swiftype -->
-<meta class="swiftype" name="title" data-type="string" content="{{ page.title || config.title }}">
 <!-- Baidu Analytics -->
 {{ partial('baidu_analytics') }}
 <script>

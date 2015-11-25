@@ -44,9 +44,9 @@
 <section id="sidebar" class="sidebar">
 	
     {% include 'partial/index/intro.swig' %}	
-
+    {% if not page.hideAbout %}
     {% include 'partial/index/about.swig' %}
-
+    {% endif %}
     {% include 'partial/footer.swig' %}
 </section>
 

@@ -11,6 +11,10 @@
     body.is-menu-visible & {
         opacity: 0.15;
     }
+    
+    body.is-search-visible & {
+        opacity: 0.15;
+    }
 
     .page-post-detail & {
         display:block;

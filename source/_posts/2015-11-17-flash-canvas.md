@@ -1,12 +1,13 @@
 title: 使用Adobe FLASH CC制作Canvas动画
 subtitle: "flash可以导出canvas动画，大大缩短制作动画所需要的时间。它是可视化IDE，可以让我们写少很多代码。做出来的动画，可以更加精确。"
 date: 2015-11-17 18:44:25
+cover: "flash-canvas.png"
 tags:
   - Flash
   - Canvas
 author:
-  nick: 宝辉
-  github_name: o2team
+  nick: 圆姑娘她爹
+  github_name: youing
 
 ---
 
@@ -15,7 +16,7 @@ author:
 
 flash可以导出canvas动画，大大缩短制作动画所需要的时间。它是可视化IDE，可以让我们写少很多代码。做出来的动画，可以更加精确。
 
-#### 新建HTML5 Canvas项目
+### 新建HTML5 Canvas项目
 
 ![img1](http://b.gengshu.net/doc/flash/img/1.png)
 

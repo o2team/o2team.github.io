@@ -44,16 +44,23 @@ hexo.extend.helper.register('post_img', function(path){
 });
 
 hexo.extend.helper.register('header_menu', function(className){
-  var menu = this.site.data.menu;
-  var result = '';
-  var self = this;
-  var lang = this.page.lang;
-  var isDefaultLang = lang === 'zh-cn';
+  var menu = this.site.data.menu,
+    result = '',
+    self = this,
+    lang = this.page.lang,
+    isDefaultLang = lang === 'zh-cn',
+    path1 = this.path,
+    isActive = function(path0){
+        if(path0 === 'index.html') {
+            return path1 === path0;    
+        }
+        return (path1.indexOf(path0)!==-1);    
+    }
 
   _.each(menu, function(path, title){
     if (!isDefaultLang && ~localizedPath.indexOf(title)) path = lang + '/' + path;
-
-    result += '<li class="' + className + '-item">';
+    var activeClass  = isActive(path) ? " active" : "";
+    result += '<li class="' + className + '-item' + activeClass + '">';
     result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + self.__('menu.' + title) + '</a>';
     result += '</li>';
   });
@@ -74,47 +81,17 @@ hexo.extend.helper.register('canonical_path_for_nav', function(){
     }
     return '';
 });
+hexo.extend.helper.register('page_keywords', function(asStr){
+    var tags = this.page.tags,
+        siteKeywords = hexo.config.keywords.split(', ');
 
-// Custom hexo tags
-/**
- * post img
- * usage: {% pimg imageName [alt text] [JSONImageAttibutes] %}
- * ref: https://github.com/wsk3201/hexo-local-image
- */
-hexo.extend.tag.register('pimg', function(args,content){
-    var imageName = args[0],
-        altText = "",
-        imgAttr = "{}",
-        themeConfig = hexo.theme.config;
-
-    switch(args.length){
-        case 1:
-            break;
-        case 2:
-            altText = args[1]
-            if(altText.length > 1 && altText[0] === '{' && altText[altText.length-1] === '}'){
-                imgAttr = altText;
-            }
-            break;
-        case 3:
-            altText = args[1];
-            imgAttr = args[2];
-            break;       
+    if (tags) {
+        tags.each(function(tag){
+            siteKeywords.splice(0, 0, tag.name);
+        }); 
     }
-    try {
-        imgAttr = JSON.parse(imgAttr);
-    }catch(e){
-        console.log('scripts.helpers.pimg', e);
-        imgAttr = {};
+    if (asStr) {
+        return siteKeywords.join(',');
     }
-    imgAttr.src   = hexo.config.root + (themeConfig.post.img_dir||postImgDir) + imageName;
-    imgAttr.alt = imgAttr.alt || altText;
-
-    // spaces proccess
-    for(var p in imgAttr){
-        if(typeof imgAttr[p] !== 'string') continue;
-        imgAttr[p] = imgAttr[p].replace(/\%20/g, ' ');
-    }
-
-    return util.htmlTag('img', imgAttr);
+    return siteKeywords;
 });
