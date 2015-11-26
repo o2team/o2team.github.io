@@ -19,6 +19,9 @@ var gulp    = require('gulp'),
 		public: 'public',
 		fonts: 'public/fonts',
 		imgs: 'public/img',
+		css: 'public/css',
+		js: 'public/js',
+        temp: 'temp',
 		assetsDir:'public/assets'
 	};
 
@@ -29,4 +32,5 @@ require('gulp-task-loader')({
 	dirs: dirs
 });
 
-gulp.task('default', ['rev:replace', 'imgmin']);
+gulp.task('rev', ['rev:replace']);
+gulp.task('default', ['rev', 'replace', 'imgmin', 'cleanup']);

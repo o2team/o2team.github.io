@@ -2,10 +2,19 @@
 
 ## changelogs
 
+### v1.0.2 - 增加 `gulp pull` 命令方便大家更新源码
+
+1. `gulp pull` 一个命令同时更新博客和博客主题
+
+  之前`git pull` 之后需要跑到themes/o2 目录下做一次 `git pull`，现在将这两个操作合并到了`gulp pull`命令中.
+  
+2. 静态资源资源优化
+
+
 ### v1.0.1 - 合并theme/aotu至theme/o2
 
 1. 做了导航样式在各分辨率下的细节优化
-2. 合并theme/aotu至theme/o2
+2. 合并themes/aotu至themes/o2
   
   在根目录`git pull` 更新之后，别忘了跑`theme/o2`目录下进行`git pull`更新至最新的主题
 

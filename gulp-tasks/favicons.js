@@ -5,7 +5,7 @@ module.exports = function(){
 		cfg = this.opts.cfg,
 		$ = this.opts.$;
 
-	gulp.src('themes/navy/source/img/logo.png').pipe($.favicons({
+	gulp.src('themes/o2/source/img/logo.png').pipe($.favicons({
 		"icons": {
 			// Create Android homescreen icon. `boolean`
 			android: true,              
@@ -26,6 +26,6 @@ module.exports = function(){
 			// Create Yandex browser icon. `boolean`
 			yandex: false
 		}
-	})).pipe(gulp.dest('./themes/navy/source/img/'));
+	})).pipe(gulp.dest('./themes/o2/source/img/'));
 
 };

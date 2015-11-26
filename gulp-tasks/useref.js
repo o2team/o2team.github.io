@@ -7,7 +7,7 @@ module.exports = function(){
 		dirs = this.opts.dirs,
 		cfg = this.opts.cfg,
 		$ = this.opts.$,
-		htmlMinifierOptions;
+		htmlMinifierOptions = this.opts.htmlMinifierOptions;
 
 	return gulp.src('public/**/*.html')
 		.pipe($.useref({

@@ -1,3 +1,6 @@
+
+require('shelljs/global');
+
 module.exports = function(){
     
 	var gulp = this.gulp,
@@ -5,7 +8,9 @@ module.exports = function(){
 		cfg = this.opts.cfg,
 		$ = this.opts.$;
 
-     return gulp.src([dirs.fonts + '/**/*', dirs.imgs + '/**/*'], {base: dirs.public})
-        .pipe(gulp.dest(dirs.assetsDir));
+    cd('themes/o2/');
+    exec('git pull origin master');
+    cd('../../');
+    exec('git pull');
      
 };

@@ -7,7 +7,7 @@ title: Aotu.io
 subtitle: 凹凸实验室
 subtitle_desc: Open Oriented Development Center
 slogan: Open Oriented, more haste, less speed.
-keywords: 凹凸实验室, Aotu, 前端开发, 全栈开发, IOS开发, Android开发 
+keywords: 凹凸实验室, Aotu, 前端开发, 全栈开发, IOS开发, Android开发
 description: |
     凹凸实验室(Aotu.io) 始建于2015年，是一个年轻激进的技术社区组织。O2面向多终端技术体系，致力于构建沉淀与分享包括但不限于交互、页面制作技巧、前端开发、原生APP开发等方面的专业知识及案例。
 author: 凹凸实验室
@@ -106,8 +106,14 @@ deploy:
   repo: git@github.com:o2team/o2team.github.io.git
   branch: master
 
-# Others
+# Disqus
+disqus_shortname:
+
+# Analytics
 baidu_analytics: e850b980d029480b092fdd7503c3f8de
+google_analytics:
+
+# Social
 twitter: o2circle
 github:
   user: o2team
