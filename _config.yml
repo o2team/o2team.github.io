@@ -77,7 +77,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: aotu
+theme: o2
 
 # Feeds
 ## https://www.npmjs.com/package/hexo-generator-feed
