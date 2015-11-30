@@ -1,6 +1,7 @@
 title: 基于phantomJs的网络爬虫
 subtitle: "phantomJs是一个基于WebKit的服务器端JavaScript API。可以用于页面自动化，网络监测，网页截屏，以及无界面测试等。"
 date: 2015-11-18 09:59:33
+cover: "phantomjs.png"
 tags:
   - PhantomJS
   - Crawler
