@@ -23,7 +23,7 @@ author:
 
 根据[维基](http://zh.wikipedia.org/wiki/%E5%8A%A8%E7%94%BB)的释义，动画是指由许多帧静止的画面，以一定的速度（如每秒16张）连续播放时，肉眼因视觉残象产生错觉，而误以为画面活动的作品（gif图片正是运用这种原理）。因此最初的动画是通过几张快速翻动的连续画面制作而成，而后经历了电影摄影技术的出现、电脑科技的进步，逐渐转向数字化。
 
-![bouncing_ball](/img/post/2015-11-22-css3-animation-to-movie/1-2_bouncing_ball.gif)
+![bouncing_ball](/img/post/2015-11-22-css3-animation-to-movie/1-2_bouncing_ball_2.gif)
 ![boucing_ball_frames](/img/post/2015-11-22-css3-animation-to-movie/1-3_boucing_ball_frames.png)
  
 - 将gif拖入PS之后打开时间轴窗口即可看到每一帧的画面
@@ -36,7 +36,7 @@ author:
 
 在[《動畫製作流程介紹》](http://cghappening.blogspot.com/2011/02/blog-post_23.html)提供的视频中可以看到关键帧在动画制作中所起的地基般的作用。
 
-![story_board_of_Monster_Inc](/img/post/2015-11-22-css3-animation-to-movie/1-5_story_board_of_Monster_Inc.gif)
+![story_board_of_Monster_Inc](/img/post/2015-11-22-css3-animation-to-movie/1-5_story_board_of_Monster_Inc_2.gif)
  
 - 画面上方的手绘图即为[怪物公司]的关键帧
 
