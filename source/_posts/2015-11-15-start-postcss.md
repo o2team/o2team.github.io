@@ -27,14 +27,14 @@ author:
 
 一句话来概括PostCSS：**CSS编译器能够做到的事情，它也可以做到，而且能够做得更好**
 
-### 快速使用PostCSS
+## 快速使用PostCSS
 
 上面大致介绍了`PostCSS`，也许我们并没有在头脑里形成对它的认知，那下面我们就通过一个简单地实例来看看如何使用`PostCSS`。
 
 `PostCSS`得益于插件，支持Grunt,Gulp,webpack,Broccoli,Brunch还有ENB，这里我们将以`Gulp`作为实例来讲。
 
 
-#### 环境准备
+### 环境准备
 
 创建并进入我们的实例目录
 
@@ -63,7 +63,7 @@ npm i gulp gulp-postcss autoprefixer autoprefixer-core cssnext --save-dev -d
 touch gulpfile.js
 ```
 
-#### 修改gulpfile.js
+### 修改gulpfile.js
 
 将下面代码贴进`gulpfile.js`
 
@@ -90,7 +90,7 @@ gulp.task('css', function(){
 });
 ```
 
-#### 创建示例样式
+### 创建示例样式
 
 在项目根目录下创建src目录，再在src目录下面创建css目录，然后创建style.css文件
 
@@ -123,7 +123,7 @@ padding: calc((var(--fontSize) / 2) + 1px);
 ```
 
 
-#### 运行实例
+### 运行实例
 
 一切准备就绪之后可以在项目根目录下执行刚才我们定义的任务
 
@@ -236,7 +236,7 @@ h1 {
 }
 ```
 
-#### 环境准备
+### 环境准备
 
 我们将以`Gulp`作为基础来实现我们的插件，首先创建项目文件夹
 
@@ -271,7 +271,7 @@ gulp.task('css', function(){
 });
 ```
 
-#### 创建插件文件夹
+### 创建插件文件夹
 
 我们在执行`npm install`安装的包都放置在`node_modules`文件夹下面，这里我们创建PostCSS的插件文件夹，注意：**PostCSS的插件命名格式为：postcss-插件名字**
 
@@ -280,7 +280,7 @@ gulp.task('css', function(){
 mkdir node_modules/postcss-fontstack
 ```
 
-#### 创建插件入口文件
+### 创建插件入口文件
 
 现在我们可以在`postcss-fontstack`文件夹创建入口文件`index.js`，`PostCSS`创建插件的方式如下：
 
@@ -350,7 +350,7 @@ gulp.task('css', function(){
 });
 ```
 
-#### 运行实例
+### 运行实例
 
 在项目根目录下运行实例，最终实现我们的效果
 
