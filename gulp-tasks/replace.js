@@ -10,7 +10,8 @@ module.exports = function(){
     echo('------ O2 is doing some replacements ------');
 
     return gulp.src('public/**/*.html')
-        .pipe($.replace(/\/img\//g, '/assets/img/'))
+        .pipe($.replace(/\"\/img\//g, '"/assets/img/'))
+        .pipe($.replace(/\(\/img\//g, '(/assets/img/'))
         .pipe(gulp.dest('public'));
      
 };

@@ -61,7 +61,7 @@ time_format: HH:mm:ss
 
 # generator-index
 index_generator:
-  per_page: 7
+  per_page: 8
   order_by: -date
 
 # tag generator

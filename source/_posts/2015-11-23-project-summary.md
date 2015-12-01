@@ -7,6 +7,7 @@ author:
   nick: NoNo
   github_name: liqinuo
 date: 2015-11-23 20:23:44
+sticky: true
 ---
 
 <!-- more -->
