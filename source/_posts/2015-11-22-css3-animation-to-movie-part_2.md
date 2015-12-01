@@ -113,14 +113,14 @@ Using Bounce.js and classical animation concepts to bring life to user interface
 
 - [《动画的时间掌握（修订版）》](http://www.amazon.cn/%E5%8A%A8%E7%94%BB%E7%9A%84%E6%97%B6%E9%97%B4%E6%8E%8C%E6%8F%A1-%E5%93%88%E7%BD%97%E5%BE%B7%E2%80%A2%E5%A8%81%E7%89%B9%E5%85%8B/dp/B0094N5III/ref=sr_1_1?ie=UTF8&qid=1420369719&sr=8-1&keywords=%E5%8A%A8%E7%94%BB%E7%9A%84%E6%97%B6%E9%97%B4%E6%8E%8C%E6%8F%A1)[英]哈罗德•威特克；[英]约翰•哈拉斯；[美]汤姆•赛图
 
-- The Art of UI Animations [http://markgeyer.com/pres/the-art-of-ui-animations/#/](http://markgeyer.com/pres/the-art-of-ui-animations/#/) 
+- [The Art of UI Animations](http://markgeyer.com/pres/the-art-of-ui-animations/#/) 
 
 ## 推荐：
 
-- ISUX动画工具、动画手册 [http://isux.tencent.com/css3/tools.html](ttp://isux.tencent.com/css3/tools.html)
+- [ISUX动画工具、动画手册](ttp://isux.tencent.com/css3/tools.html)
 	
 	> 了解所有与CSS3动画相关的属性，使用动画工具更直观地调整变形。
 
-- 12 Principles of Animation [http://minyos.its.rmit.edu.au/aim/a_notes/anim_principles.html](http://minyos.its.rmit.edu.au/aim/a_notes/anim_principles.html)
+- [12 Principles of Animation](http://minyos.its.rmit.edu.au/aim/a_notes/anim_principles.html)
 	
 	> 最近存在感极强的动画12原则，如果想要做出自然流畅的CSS3动画，这个由迪士尼动画巨头所总结出的经典原则绝对是必读之物。这里附上视频版：[http://vimeo.com/93206523](http://vimeo.com/93206523)
