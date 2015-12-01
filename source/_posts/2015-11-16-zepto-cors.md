@@ -1,15 +1,14 @@
 title: 前方有坑，请绕道——Zepto 中使用 CORS
-subtitle: "一直以来，我们在移动端上面使用 `zepto`并没有出现太大的问题。直至我们将 Ajax 跨域请求从 iframe 的方式切换成 `CORS` 之后。"
+subtitle: "一直以来，我们在移动端上面使用 zepto 并没有出现太大的问题。直至我们将 Ajax 跨域请求从 iframe 的方式切换成 CORS 之后。"
 date: 2015-11-16 12:24:22
+cover: cors-zepto.jpg
 tags:
   - Zepto
   - CORS
 author:
-  nick: 小明
+  nick: koppt
   github_name: Koppthe
 ---
-
-## 前方有坑，请绕道——Zepto 中使用 CORS
 
 众所周知，现在移动 Web 开发中，`Zepto.js` 是使用频率比较高的库之一。由于它的体积小，加载速度快，有着和 `jquery` 类似的 API，而备受开发者喜爱。可随着时间的推移，我们遇到了不少 `Zepto` 的坑，而且文件体积的大小跟代码的执行效率并没有什么关系，最后我们发现 `Zepto` 并没有太大的卵用。
 
@@ -33,13 +32,14 @@ jsperf 上有个 `zepto` 和 `jquery` DOM 操作的对比测试，有兴趣可�
 1. 页面在Webview中，点击按钮无效
 2. 页面在部分浏览器中，无法拉取到用户的信息
 
-###问题定位
+### 问题定位
 
 我通过 `Fiddler` 或 `Charles` 抓包发现，在 webview 中，点击按钮之后的 Ajax 请求并未发出，但是页面在手机QQ浏览器和 PC 上表现都是正常的。因为是在切换 CORS 之后，页面才出现异常的，在此之前并没有版本迭代。所以 CORS 代码首当其冲要进行深层次的 code-review，于是我直接在 `CORS` 的代码块上进行 `try-catch`，结果捕获到异常：
 
-```INVALID_STATE_ERR: DOM Exception 11```
+`INVALID_STATE_ERR: DOM Exception 11`
 
-###问题深入剖析
+
+### 问题深入剖析
 
 先来看看测试代码：
 
@@ -134,7 +134,7 @@ xhr.open(settings.type, settings.url, async, settings.username, settings.passwor
 
 ----
 
-###参考资料：
+### 参考资料：
 
 [XMLHttpRequest Level 2 2011](http://www.w3.org/TR/2011/WD-XMLHttpRequest2-20110816/#the-withcredentials-attribute)
 [XMLHttpRequest Level 1 2014](http://www.w3.org/TR/XMLHttpRequest/)
