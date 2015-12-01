@@ -1,8 +1,10 @@
-subtitle: ""
+title: 探究transform动画元素的z-index
+subtitle: transform 变换的时候会让 z-index “临时失效”，其实并非 z-index 失效了，只是 z-index 被用在不同的 `stacking context` 上。
 date: 2015-11-16 00:24:35
-cover: "manjiz-151116-cover.png"
+cover: "Manjiz/manjiz-151116-cover.png"
 tags:
-- translate3d
+    - translate3d
+    - zindex
 author:
     nick: 小振
     github_name: Manjiz

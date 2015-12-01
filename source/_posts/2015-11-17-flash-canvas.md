@@ -1,7 +1,7 @@
 title: 使用Adobe FLASH CC制作Canvas动画
 subtitle: "flash可以导出canvas动画，大大缩短制作动画所需要的时间。它是可视化IDE，可以让我们写少很多代码。做出来的动画，可以更加精确。"
 date: 2015-11-17 18:44:25
-cover: "flash-canvas.png"
+cover: "youing/flash-canvas.png"
 tags:
   - Flash
   - Canvas
@@ -18,7 +18,7 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 
 ## 新建HTML5 Canvas项目
 
-{% pimg 2015-11-17-flash-canvas/1.png %}
+{% pimg youing/1.png %}
 
 ### 舞台设置
 
@@ -28,7 +28,7 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 
 是指每秒钟放映或显示的帧或图像的数量，这个数值设置越大，动画越快，但同时也是性能消耗大户。这里我们设置为36
 
-{% pimg 2015-11-17-flash-canvas/2.png %}
+{% pimg youing/2.png %}
 
 ## 导入资源
 
@@ -40,7 +40,7 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 
 从资源库中把资源拖到舞台进去,通过移动拖拽的形式进行布局
 
-{% pimg 2015-11-17-flash-canvas/3.png %}
+{% pimg youing/3.png %}
 
 ## 图形与影片剪辑
 
@@ -55,15 +55,15 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 
 选择位图，右键 > 转换为元件，这个时候，弹出一个对话窗口，我们首先选择“影片剪辑”，保存。双击进入刚才创始的影片剪辑，这个时候，由于刚才我们只是把位图转成了影片剪辑，但实际上，它里面，仍然是一个位图，所以并不能做动画操作。所以我们需要在影片剪辑里，把图片转换了“图形”。
 
-{% pimg 2015-11-17-flash-canvas/4.png %}
+{% pimg youing/4.png %}
 
 ## 时间轴
 
 上面已经把图片转成图形元件，所以我们现在需要时间轴某个地方中插入关键帧。这里我们在30,60帧处插入关键帧。然后在30帧处，移动元件的位置，然后在每个关键帧的中间右键，选择“创建传统补间”。速度可以通过删除或者增加两个关键帧的补间动画时间长度来控制。
 
-{% pimg 2015-11-17-flash-canvas/5.png %}
+{% pimg youing/5.png %}
 
-{% pimg 2015-11-17-flash-canvas/6.png %}
+{% pimg youing/6.png %}
 
 ## 动作播放控制
 
@@ -71,7 +71,7 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 
 	this.gotoAndPlay(0)
 
-{% pimg 2015-11-17-flash-canvas/7.png %}
+{% pimg youing/7.png %}
 
 
 即可回到第一帧重新播放，如果希望停止动画，则
@@ -102,7 +102,7 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 * javascript命名空间(_基本上不需要修改_)，这几个属于全局变量，可以在发布后的js文件中再修改。
 
 
-{% pimg 2015-11-17-flash-canvas/8.png %}
+{% pimg youing/8.png %}
 
 
 
@@ -114,13 +114,13 @@ flash可以导出canvas动画，大大缩短制作动画所需要的时间。它
 
 * 框架自带的preloadjs,可以轻松管理资源预加载，它提供了相关api可以进行loading等操作。
 
-{% pimg 2015-11-17-flash-canvas/9.png %}
+{% pimg youing/9.png %}
 
 ### 生成的js文件
 
 * 生成的动画配置及脚本都在这个js文件里面，如果需要，可以手动修改相关数据。
 
-{% pimg 2015-11-17-flash-canvas/10.png %}
+{% pimg youing/10.png %}
 
 
 ## 附上最终效果

@@ -1,4 +1,4 @@
-title: 开始学习PostCSS
+title: PostCSS快速入门使用
 subtitle: "PostCSS 是一套利用JS插件实现的用来改变CSS的工具.这些插件能够支持变量和混合语法，转换未来CSS语法，内联图片，还有更多"
 date: 2015-11-15 09:34:25
 cover: cnt1992/postcss.jpg
