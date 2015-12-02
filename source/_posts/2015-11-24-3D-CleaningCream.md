@@ -1,5 +1,5 @@
 subtitle: 看官别走啊，这真不是软文。
-title: 如何优(zhuang)雅(bi)地向别人介绍你的洗面奶
+title: 使用ThreeJS在浏览器中展示3D物件
 cover: "2015-11-24-3D-CleaningCream/title.png"
 date: 2015-11-24 13:00:35
 tags: three.js
