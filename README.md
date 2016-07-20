@@ -6,7 +6,7 @@
 
 ### 关于联合编辑
 
-凹凸实验室的宗旨是`面向开发(Open Oriented)`，所以我们支持`开源`和`创作共用`的精神，也十分欢迎其他优秀的个人、团队来凹凸实验室投稿。
+凹凸实验室的宗旨是`面向开发(Open Oriented)`，所以我们支持`开源`和`创作共用`的精神，欢迎其他优秀的个人、团队来凹凸实验室投稿。
 
 我们在收到你的投稿之后，会第一时间进行审核，审核通过后即发布官网进行安利推广。除此之外，凹凸实验室会利用自己的公众号来安利推送您的文章，同时发布到`掘金`APP。
 
@@ -15,6 +15,28 @@
 1. `fork` 凹凸实验室官网源码：https://github.com/o2team/o2team.github.io
 2. 在v2分支的`source/_posts/` 路径下新建文章，格式参考现有的文章，图床请使用您自己的图床哦
 3. `pull request`，注明『投稿』
+
+Co-Editor投稿的文章，可以在MD文档头部的`front-formatter`中设定你们的名称(name)和链接(url)，这些信息用于文章页面的末尾的版权声明。
+
+示例如下：
+
+```yaml
+title: feWorkflow - 使用electron, react, redux, immutable构建桌面App
+subtitle: "使用react, redux, immutable框架做ui开发，仍然基于运行gulpfile的方案，这样可以使每个使用自己团队的gulp工作流快速接入和自由调整。"
+cover: //img.aotu.io/FqMe96r-4Spj-juPOP-rH50-oaKX
+date: 2016-07-05 00:24:35
+categories: NodeJS
+tags:
+  - React
+  - Electron
+author:
+    nick: whatif
+    github_name: whatifhappen
+coeditor:
+    name: whatifhappen
+    url: https://github.com/whatifhappen
+---
+```
 
 
 ### 关注公众号
