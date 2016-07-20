@@ -1,0 +1,12 @@
+---
+"extends":
+  - "defaults"
+
+"env":
+  "browser": true
+  "node": true
+
+"globals":
+  "hexo": true
+  "jQuery": true
+  "$": true

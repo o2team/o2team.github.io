@@ -1,0 +1,71 @@
+.grid
+    width: 1190px
+    margin auto
+    clearfix()
+    +desktop-large() {
+        width: 1490px
+    }
+    +desktop() {
+        width: 990px
+    }
+    +mobile() {
+        width: 100%
+    }
+    
+
+.mod-container
+    padding-top: 20px
+    +mobile() {
+        // background: #eaeaea
+    }
+  
+.mod-main
+    float:left
+    width: 930px
+    margin-right: 20px
+    +mobile() {
+        float: none
+        margin-right: 0
+        width: 100%
+    }
+    +desktop-large() {
+        width: 1230px
+    }
+    +desktop() {
+        width: 730px
+    }
+
+ .mod-side
+    float: left
+    width: 240px
+    box-sizing: border-box
+    padding: 20px 15px
+    +mobile() {
+        border-top: 1px solid #eee
+        float: none
+        width: 100%
+    }
+    
+.compat 
+    .mod-hd,
+    .post-comments 
+        display: none
+        
+.nohd 
+    .mod-hd
+        display: none
+.nostats {
+    .post-stats {
+        display: none;
+    }
+}
+.nopager {
+    .pagination-post {
+        display: none;
+    }
+}
+.nocm {
+    .post-comments {
+        display: none;
+    }
+}

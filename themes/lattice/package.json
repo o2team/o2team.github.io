@@ -1,0 +1,12 @@
+{
+  "name": "hexo-theme-lattice",
+  "description": "The most beautiful theme for Hexo, flat and delicate, created and maintained by [AOTU Labs](http://aotu.io).",
+  "version": "0.9.0",
+  "private": true,
+  "author": {
+    "name": "o2team",
+    "email": "o2team@qq.com"
+  },
+  "dependencies": {
+  }
+}

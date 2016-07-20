@@ -1,0 +1,96 @@
+menu:
+  docs: 文档
+  tags: 标签
+  archive: 博客
+  cates: 分类
+  blog: 博客
+  plugins: 插件
+  themes: 主题
+  search: 搜索
+  aotu_labs: 凹凸实验室
+  about: 关于
+  join: 加入我们
+  brand: 品牌
+  home: 首页
+  source: 源码
+
+button:
+  learn_more: 了解详情 
+
+index:
+  get_started: 开始使用
+
+site:
+  pv: 总访问量
+  pv_unit: 次
+  uv: 总访客数
+  uv_unit: 人
+  theme_dark: 暗影猎手
+  theme_light: 曙光女神
+  about_us: 关于我们
+  follow_us: 关注我们
+
+post:
+  contents: 目录
+  back_to_top: 回到顶部
+  improve: 改进本文
+  prev: 上一页
+  next: 下一页
+  last_updated: 上次更新：%s
+  read_more: 阅读全文
+  view_more: 查看更多
+  pv: 热度
+  word_count: 字数 
+  posted: 发表于
+
+counter:
+  tag_cloud:
+    zero: 暂无标签
+    one: 目前共计 1 个标签
+    other: "目前共计 %d 个标签"
+
+  categories:
+    zero: 暂无分类
+    one: 目前共计 1 个分类
+    other: "目前共计 %d 个分类"
+
+  archive_posts:
+    zero: 暂无文章。
+    one: 目前共计 1 篇文章。
+    other: "目前共计 %d 篇文章。"
+
+sidebar:
+  recommended_posts: 推荐文章
+  latest_posts: 文章列表
+  favlinks: 友情链接
+  works: 服务/产品
+  docs:
+    getting_started: 开始使用
+    overview: 概述
+    common: 通用
+    issues: 常见问题
+    id_vd: 交互与视觉
+    interactive: 交互设计
+    visual: 视觉设计
+    fd_rd: 全栈开发 
+    dev_common: 通用开发
+    homebrew: Homebrew
+    shell_terminal: Shell和终端
+    version_control: 版本控制
+    vim: Vim编辑器
+    markdown: Markdown手册
+    misc: 其他设置
+    dev_fd: 前端开发
+    sublime_text: Sublime Text 
+    nodejs: NodeJS
+    network_analysis: 网络抓包
+    dev_rd: 后台开发
+    nginx: NGinx
+    mongodb: MongoDB
+    dev_ios: IOS开发
+    alcatraz: Alcatraz 
+    crash_logs: 崩溃日志 
+    dev_android: Android开发
+    android_studio: Android Studio
+    miscellaneous: 其他
+    contributing: 贡献

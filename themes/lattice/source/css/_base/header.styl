@@ -1,0 +1,140 @@
+.mod-hd
+    height: 60px
+    width: 100%
+    box-sizing: border-box 
+    background-color: rgba(255,255,255,.95)
+    z-index: 100
+    border-bottom: 1px solid #eee;
+    &-toggle
+        display: none
+        float: right
+        padding: 5px 12px
+        margin: 15px 0 0 
+        // border: 1px solid #cecece
+        color: $color-theme
+        text-align: center
+        & i
+            font-size: 16px
+
+    & .mod-logo
+        height: 100%
+        float: left
+        padding: 12px 0
+        box-sizing: border-box
+        & a
+            display: block
+            width: 105px
+            height: 36px
+            overflow: hidden
+            text-indent: -9999px
+            background: url('../img/o2logo.png') no-repeat
+            background-image: -webkit-image-set(url('../img/o2logo.png') 1x, url('../img/o2logo@2x.png') 2x)
+
+    & .mod-nav
+        float: left
+        padding-left: 50px
+        & li 
+            position: relative
+            float: left
+            height: 100%
+            margin: 0 10px
+            line-height: 60px
+            font-size: 16px
+        & a 
+            padding: 0 15px
+            height: 100%
+            display: block
+            transition: color 200ms
+        & .active:after
+            content: ' '
+            position: absolute
+            top: 0
+            left: 0
+            height: 3px;
+            width: 100%
+            background-color: #6190e8
+
+    & .mod-search
+        float: right
+        padding: 0 0 0 30px
+        margin-top: 14px
+        position:relative
+        &-ico
+            position: absolute
+            top: 0
+            left: 0
+            height: 30px
+            width: 30px
+            line-height: 30px
+            text-align: center
+            font-size: 16px
+        &-form
+            overflow:hidden
+            opacity: 0
+            transition: all 600ms ease
+            width: 0
+            &.show
+                width: 200px
+                opacity: 1
+        &-ipt
+            height: 30px
+            line-height: 20px
+            width: 100%
+            padding: 5px
+            box-sizing: border-box
+            border: 1px solid #eee
+            background-color: #fcfcfc
+            &::-webkit-input-placeholder
+                font-size: 14px
+                
+    +mobile() {
+        padding: 0 15px
+        &-main {
+            position: absolute
+            top: 60px
+            left: 0
+            width: 100%
+            box-sizing: border-box
+            z-index: 99
+            height: 0
+            overflow:hidden
+            background-color: #fff
+            transition: height 500ms
+        }
+        &-main-expand {
+            height: 195px
+        }
+        &-inner {
+            padding: 15px
+        }
+        &-toggle {
+            display: block
+        }
+        & .mod-search {
+            float: none
+            margin-top: 0
+            margin-left: 5px
+            &-form {
+                &.show {
+                    width: 100%
+                }
+            }
+        }
+        & .mod-nav {
+            float: none
+            padding-left: 0
+            margin: 0
+            & li {
+                margin: 0 0 15px
+                float: none
+                height: 30px
+                line-height: 30px
+                font-size: 14px
+            }
+            & .active:after {
+                height: 100%
+                width: 2px
+            }
+        }
+     }
+

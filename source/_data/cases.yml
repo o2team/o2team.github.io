@@ -1,0 +1,48 @@
+- type: case
+  name: 拇指期刊
+  desc: 由凹凸实验室3个美少女精心整理的HTML5案例期刊，每个案例附带创意、技术分析，开阔你的专业视界。
+  link: https://github.com/o2team/cases
+  preview: //cases.aotu.io/mobi/maga.html
+  tags:
+    - 期刊
+    - HTML5
+- type: case
+  name: Athena
+  desc: 不仅仅是前端自动化流程构建工具，Athena还可以将构建流程数据化、可视化。
+  link: https://github.com/o2team/athena
+  preview: //athena.aotu.io/
+  tags:
+    - ATHENA
+    - 前端自动化
+- name: 前端代码规范
+  desc: 凹凸实验室整理的前端开发规范，与最新前端技术同步修正。
+  link: https://github.com/o2team/guide
+  preview: //guide.aotu.io/
+  tags:
+    - guide
+    - frontend
+    - specification
+    - 前端规范
+    - JS编码规范
+    - CSS编码规范
+- name: HaloJS
+  desc: 一个敏捷易用的移动端组件库。
+  link: https://github.com/o2team/halojs
+  preview: //halojs.aotu.io/
+  tags:
+    - 移动端组件库
+- name: 邮件签名工具
+  desc: 一个简单易用的邮件签名制作工具，高度定制化。
+  link: https://github.com/o2team/sign
+  preview: //sign.aotu.io/
+  tags:
+    - 邮件签名
+- name: MAC全栈环境
+  desc: MAC全栈开发环境搭建指引可以让你快速将你的MAC搭建成强悍的全栈开发利器.
+  link: https://github.com/o2team/mac
+  preview: //mac.aotu.io/
+  logo: /img/home/mac-guide.png
+  bgc: 23232e
+  tags:
+    - mac
+    - guide

@@ -1,0 +1,183 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Aotu.io
+subtitle: 凹凸实验室
+subtitle_desc: Open Oriented Development Center
+slogan: Open Oriented, more haste, less speed.
+keywords: 凹凸实验室, Aotu, 前端开发, 全栈开发, IOS开发, Android开发
+description: 凹凸实验室(Aotu.io) 始建于2015年，是一个年轻基情的技术社区组织。<br/>O2面向多终端技术体系，致力于构建沉淀与分享包括但不限于交互、页面制作技巧、前端开发、原生APP开发等方面的专业知识及案例。
+author: 凹凸实验室
+language: zh-cn
+timezone: UTC
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://aotu.io
+root: /
+permalink: notes/:year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: notes
+category_dir: cates
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - 'baidu*.html'
+  - 'demo/**'
+
+# Writing
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# generator-index
+index_generator:
+  per_page: 24
+  order_by: -date
+
+# tag generator
+## https://github.com/hexojs/hexo-generator-tag
+tag_generator:
+  per_page: 24
+
+# fragments generator
+## https://github.com/mamboer/hexo-generator-fragments
+fragments_generator:
+  dir: fragments
+  per_page: 24
+  index_dir: index
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 24
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: lattice
+
+
+# Feeds
+## https://www.npmjs.com/package/hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: false
+
+
+#stylus
+stylus:
+  compress: false
+  sourcemaps:
+    comment: true
+    inline: true
+    sourceRoot: ''
+    basePath: .
+
+
+# lunr
+lunr:
+  field: all
+  path: assets/lunr/
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  message: Super AOTUMan at {{ now('YYYY-MM-DD HH:mm:ss') }}
+  repo: 
+    github: git@github.com:o2team/o2team.github.io.git,master
+
+# Disqus
+disqus_shortname:
+
+# Analytics
+baidu_analytics: e850b980d029480b092fdd7503c3f8de
+google_analytics:
+cnzz_analytics: 1258539944
+
+# Social
+twitter: o2circle
+github:
+  user: o2team
+  repo: o2team.github.io
+
+# baidu sitemap
+baidusitemap:
+  url: http://aotu.io/
+
+# filter_cleanup
+hfc_useref:
+  enable: true
+  concat: true
+
+hfc_html:
+  enable: true
+
+hfc_css:
+  enable: true
+  exclude: 
+    - '*.min.css'
+
+hfc_js:
+  enable: true
+  mangle: true
+  exclude: 
+    - '*.min.js'
+
+hfc_img:
+  enable: true
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
+
+hfc_favicons:
+  enable: false
+  src: img/logo.png
+  target: img/
+  icons:
+    android: true
+    appleIcon: true
+    appleStartup: false
+    coast: false
+    favicons: true
+    firefox: false
+    opengraph: false
+    windows: true
+    yandex: false
+
+# O2 Theme Customation
+logo_url: img/o2logo.png

@@ -1,0 +1,87 @@
+.page-about
+    .mod-container
+        padding-top: 0
+
+.picwall 
+    position: relative
+    height: 320px
+    margin-bottom: 30px
+    +mobile() {
+        height: 200px
+    }
+    &:after 
+        content: ''
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        background: rgba(53,73,95,.7)
+        z-index: 1
+    &-canvas
+        position: absolute
+        top: 0
+        left: 0
+        -webkit-filter: grayscale(100%)
+
+.about
+    +mobile() {
+        padding: 0 20px
+    } 
+    &-sec
+        margin-bottom: 40px
+        &-hd
+            margin-bottom: 15px
+        &-tit
+            font-size: 20px
+            font-weight: bold
+        
+.contact
+    &-item
+        display: block
+        width: 220px
+        height: 220px
+        padding: 5px 20px 10px
+        border: 1px solid #eee
+        background: #fcfcfc
+        transition: all 300ms
+        &:hover
+            background: #fafafa
+            box-shadow: 0 0 2px rgba(0,0,0,.2)
+        +desktop(){
+           width: 180px
+           height: 180px
+        }
+        +mobile(){
+           margin: auto
+        }
+    & ul
+        overflow: hidden
+      & li
+        float:left
+        margin: 0 30px 20px 0
+        text-align: center
+        &:last-child
+            margin-right: 0
+
+        +mobile(){
+           float: none
+           margin-right: 0
+        }
+        & strong
+            font-size: 16px
+            display: block
+            margin: 5px 0 
+        & img
+            display:block
+            margin: auto
+            max-width: 80%
+        & i
+            font-size: 72px
+            display: block
+            text-align: center
+            margin: 35px 0 20px
+            +desktop() {
+               margin: 20px 0 10px
+            }
+            

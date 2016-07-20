@@ -1,0 +1,37 @@
+.join
+    margin-top: 20px
+    line-height: 1.8
+    display: flex
+    +mobile(){
+        display:block
+    }
+    &-sec
+        padding: 20px
+        margin-bottom: 30px
+        box-shadow: 0 0 1px 1px rgba(0,0,0,.1)
+        margin-right: 20px
+        &:last-child
+            margin-right: 0
+        &:hover
+            background: #fafafa
+        +mobile(){
+            box-shadow: none
+            margin-right: 0
+            
+        }
+        flex: 1
+    &-sec-hd 
+        h3
+            font-size: 20px
+            font-weight: bold
+            margin-bottom: 10px
+    &-sec-bd
+        section
+            margin-bottom: 20px
+    & h4
+          font-size: 14px
+          margin: 10px 0 5px
+    & li
+        margin-bottom: 5px
+    & a
+        color: $color-theme

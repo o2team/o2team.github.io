@@ -1,0 +1,45 @@
+logo:
+    url: img/logo-square-120.png
+
+post:
+    cover: post-default.png
+    img_dir: img/post/
+
+layout:
+    feature_count: 4
+
+# busuanzi
+busuanzi: false
+
+# baidu push
+baidu_push: true
+
+# dict daily
+## http://dict.cn/foot/help2.htm
+dict_daily: false
+
+# daily words
+daily_words: true 
+
+# Content
+fancybox: false
+
+# Code Highlight theme
+# Available value:
+#    normal | night | eighties | blue | bright
+# https://github.com/chriskempson/tomorrow-theme
+highlight_theme: normal
+
+# Make duoshuo show UA
+# user_id must NOT be null when admin_enable is true!
+# you can visit http://dev.duoshuo.com get duoshuo user id.
+duoshuo:
+  shortname: aotu
+  ua_enable: true
+  admin_enable: false
+  user_id: 0
+  #admin_nickname: ROOT
+
+# Wechat
+wechat:
+  desc: "海海人生，无折腾不为乐。"

@@ -1,0 +1,54 @@
+.banner 
+    position:relative
+    background-color: bg-primary
+    overflow: hidden
+    transition: background-color ease 1s
+    &-bg 
+        position: absolute
+        z-index: 1
+        top:0
+        left: 0
+        right: 0
+        bottom: 0
+        background: url("../img/ball_1408.png") no-repeat
+        background-size: cover
+        background-position: center 80%
+        opacity: 0.02
+    &-inner 
+        z-index: 3
+    &-ball 
+        z-index: 2
+        position: absolute
+        &-1 
+            height: 195px
+            width: 195px
+            background: url("../img/ball_195.png") center center no-repeat
+            background-size: cover
+            top: 50%
+            margin-top: -95px
+            left: - 95px
+            +mobile() {
+                height: 130px
+                width: 130px
+                margin-top: -65px
+                left: -65px
+            }
+
+        &-2 
+            width: 100px
+            height: 100px
+            background: url("../img/ball_1408.png") center center no-repeat
+            background-size: cover
+            top: -50px
+            right: 0
+            opacity: .8
+    &-pic 
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 250px
+        img 
+            max-width: 100%
+        +mobile() {
+            height: 200px
+        }

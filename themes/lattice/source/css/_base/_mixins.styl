@@ -1,0 +1,40 @@
+the-transition() {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+mobile() {
+  @media (max-width: 989px) {
+    {block}
+  }
+}
+
+// tablet() {
+//   @media (min-width: 768px) and (max-width: 991px) {
+//     {block}
+//   }
+// }
+
+desktop() {
+  @media (min-width: 990px) and (max-width: 1189px) {
+    {block}
+  }
+}
+
+desktop-large() {
+  @media (min-width: 1600px) {
+    {block}
+  }
+}
+
+
+// Clearfix. http://nicolasgallagher.com/micro-clearfix-hack/
+clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after { clear: both; }
+}
