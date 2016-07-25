@@ -12,9 +12,26 @@
 
 ### 如何投稿？
 
+有3种方法投稿：
+
+#### 1、`fork` + `pull request`
+
 1. `fork` 凹凸实验室官网源码：https://github.com/o2team/o2team.github.io
 2. 在v2分支的`source/_posts/` 路径下新建文章，格式参考现有的文章，图床请使用您自己的图床哦
 3. `pull request`，注明『投稿』
+
+#### 2、直接加入凹凸实验室
+
+1. 新建一个[issue](https://github.com/o2team/o2team.github.io/issues)
+
+  标题为`申请加入凹凸实验室`，标签打上`co-editor`，在issue里面提供你简要的公司、团队或个人信息。
+
+2. 在审核完信息后我们会联系你并将你加入到凹凸实验室
+3. 加入凹凸后可以直接在[o2team.github.io](https://github.com/o2team/o2team.github.io)仓库上提交文章
+
+  参考[如何添加文章](https://github.com/o2team/o2team.github.io/wiki/A1-New-Post)
+  
+#### 3、将文章的markdown文件发送给`aotu{at}jd.com`
 
 Co-Editor投稿的文章，可以在MD文档头部的`front-formatter`中设定你们的名称(name)和链接(url)，这些信息用于文章页面的末尾的版权声明。
 
@@ -38,6 +55,7 @@ coeditor:
 ---
 ```
 
+关于联合编辑更为详细的说明，轻参考文档：[Co-Editor](https://github.com/o2team/o2team.github.io/wiki/Z3-Co-Editor)
 
 ### 关注公众号
 
