@@ -14,13 +14,13 @@
 
 有3种方法投稿：
 
-#### 1、`fork` + `pull request`
+#### 1）`fork` + `pull request`
 
 1. `fork` 凹凸实验室官网源码：https://github.com/o2team/o2team.github.io
 2. 在v2分支的`source/_posts/` 路径下新建文章，格式参考现有的文章，图床请使用您自己的图床哦
 3. `pull request`，注明『投稿』
 
-#### 2、直接加入凹凸实验室
+#### 2）直接加入凹凸实验室
 
 1. 新建一个[issue](https://github.com/o2team/o2team.github.io/issues)
 
@@ -31,7 +31,7 @@
 
   参考[如何添加文章](https://github.com/o2team/o2team.github.io/wiki/A1-New-Post)
   
-#### 3、将文章的markdown文件发送给`aotu{at}jd.com`
+#### 3）将文章的markdown文件发送给`aotu{at}jd.com`
 
 Co-Editor投稿的文章，可以在MD文档头部的`front-formatter`中设定你们的名称(name)和链接(url)，这些信息用于文章页面的末尾的版权声明。
 
