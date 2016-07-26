@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "hexo g",
-    "deploy": "hexo d",
+    "deploy": "sh ./.travis/deploy.sh",
     "clean": "rm -rf public/js/libs && rm -rf public/js/mods"
   },
   "hexo": {

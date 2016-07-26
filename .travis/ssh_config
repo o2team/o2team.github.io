@@ -1,5 +1,0 @@
-Host o2-site.github.com
-	User git
-	StrictHostKeyChecking no
-	IdentityFile ~/.ssh/o2-site
-	IdentitiesOnly yes

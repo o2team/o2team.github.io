@@ -10,24 +10,12 @@ cache:
   directories:
     - node_modules
 
-env:
-  - CXX=g++-4.8
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-  ssh_known_hosts: github.com
-
 script:
   - npm run build
   - npm run clean
+  - npm run deploy
 
-deploy:
-  provider: script
-  script: .travis/deploy.sh
-  skip_cleanup: true
-  on:
-    all_branches: true
+env:
+  global:
+    - GH_REPO: "github.com/o2team/o2team.github.io.git"
+    - secure: "H+LCehn5ve9wjaEYRsVCQa43dlvvWveTEOOrpSCu8XKW9Xbfnpp2ph1obsLhKnS3LHV4e9D5LzyWEAvcMV4r+QGB5dPfv6L4Ww6pUPhiJYreLU+SED2q0aO9lUiQXkE5siEHFbMB1XVUIcEetu41Uwe+lszS9olu5Ko+qId9DCoIgSkur6X1n7O1TH6hSWT5xz/djotzyh6abkZTCYBIIMK/D5o/XlxHggTrgIKt9hx6vMKUUHmQUkrhs5wvpQzMJB+QFjl+dFui6s2dVhpTSO4aweyeY+MJ4nzFOHDOY70gAtA0sMRZGWWV5icTSXUn2BGoeFTY1EzUYHhWtSMcEvHAgEPnrgOKGoq92+xZ27n30yr+ac2jZJQEvVPgeLMRwlVTUZhc3Z+UH4PxE0fkTd6M2t5b5mmhtRXK62e1x1IEOoOG3dJp2DzF0LNekuYM4UuLdt9K9/KSeaDoh/jg4MU7wH1Omd/v3qEHxFCaoKE1Nkqy0rp1zVfy1KnVw25mcdTcBcYhquRAsmwmtlZvxSl5cuCme7XGytmSgG74IewmG3pOo8EKwPoh62ehFSW2PLGyuyHmC8tvtDIFefrmMW1Je0cJt53KRCeGCcMmWydfz4qJlzxejADbzDtVVZFmzQRlIfUD3OnTFKvRdsdgMpZ9cRic69mP+I3ox5QbkdE="
