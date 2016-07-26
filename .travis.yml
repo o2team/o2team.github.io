@@ -29,4 +29,4 @@ deploy:
   script: .travis/deploy.sh
   skip_cleanup: true
   on:
-    branch: master
+    branch: v2
