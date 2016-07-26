@@ -1,6 +1,6 @@
 #!/bin/bash
 # Decrypt the private key
-openssl aes-256-cbc -K $encrypted_7bc606770d22_key -iv $encrypted_7bc606770d22_iv in o2-site.enc -out ~\/.ssh/o2-site -d
+openssl aes-256-cbc -K $encrypted_7bc606770d22_key -iv $encrypted_7bc606770d22_iv -in o2-site.enc -out ~\/.ssh/o2-site -d
 # Set the permission of the key
 chmod 600 ~/.ssh/o2-site
 # Start SSH agent
