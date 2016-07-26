@@ -1,5 +1,5 @@
-Host o2team-site.github.com
+Host o2-site.github.com
 	User git
 	StrictHostKeyChecking no
-	IdentityFile ~/.ssh/o2team_o2team-github-io
+	IdentityFile ~/.ssh/o2-site
 	IdentitiesOnly yes
