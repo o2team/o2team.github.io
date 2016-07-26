@@ -23,10 +23,11 @@ addons:
 
 script:
   - npm run build
+  - npm run clean
 
 deploy:
   provider: script
   script: .travis/deploy.sh
   skip_cleanup: true
   on:
-    branch: v2
+    all_branches: true

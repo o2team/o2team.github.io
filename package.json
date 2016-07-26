@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "hexo g",
-    "deploy": "hexo d"
+    "deploy": "hexo d",
+    "clean": "rm -rf public/js/libs && rm -rf public/js/mods"
   },
   "hexo": {
     "version": "3.2.2"
