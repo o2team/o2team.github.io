@@ -1,7 +1,7 @@
 title: 如何制作cocoaPods依赖库
 subtitle: 本文介绍如何制作cocoaPods依赖库
 cover: //img.aotu.io/MarkLin/cocoaPods/CocoaPods.png
-date: 2016-01-26 19:40:49
+date: 2016-01-27 19:40:49
 categories: 移动开发
 tags:
   - iOS

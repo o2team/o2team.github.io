@@ -1,6 +1,6 @@
 title: 使用Adobe FLASH CC制作Canvas动画
 subtitle: "flash可以导出canvas动画，大大缩短制作动画所需要的时间。它是可视化IDE，可以让我们写少很多代码。做出来的动画，可以更加精确。"
-date: 2015-11-01 18:44:25
+date: 2015-11-02 18:44:25
 cover: //img.aotu.io/youing/flash-canvas.png
 categories: Web开发
 tags:

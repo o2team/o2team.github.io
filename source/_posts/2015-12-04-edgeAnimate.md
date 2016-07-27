@@ -9,7 +9,7 @@ tags:
 author:
   nick: 高大师
   github_name: pfan123
-date: 2015-12-03 22:05:18
+date: 2015-12-04 22:05:18
 ---
 
 Edge Animate是Adobe出品的制作HTML5动画的可视化工具，简单的可以理解为HTML5版本的Flash Pro。Adobe Edge Animate的目的是帮助专业设计师制作网页动画乃至简单游戏。目前该工具的重点放在动画引擎上，将增加更多HTML5功能，比如Canvas、HTML5音频/视频标签等。支持Android、iOS、webOS、黑莓PlayBook、Firefox、Chrome、Safari和IE9等各个平台。

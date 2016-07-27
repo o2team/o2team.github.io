@@ -130,10 +130,12 @@ hexo.extend.helper.register('page_keywords', function(asStr){
 
 /**
  * post unique key
+ * @param path post path
+ * @param customKey custom post unique key
  */
-hexo.extend.helper.register('post_key', function(path){
-    path = new Buffer(path).toString('base64');
-    return path;
+hexo.extend.helper.register('post_key', function(path, customKey){
+    customKey = customKey || new Buffer(path).toString('base64');
+    return customKey;
 });
 
 hexo.extend.helper.register('num_toArray', function(num) {
@@ -145,11 +147,3 @@ hexo.extend.helper.register('num_toArray', function(num) {
     }
     return ret;
 });
-
-
-
-
-
-
-
-

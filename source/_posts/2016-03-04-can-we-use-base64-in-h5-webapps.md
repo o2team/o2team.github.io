@@ -8,7 +8,7 @@ tags:
 author:
   nick: Simba
   github_name: Simbachen
-date: 2016-03-03 17:45:03
+date: 2016-03-04 17:45:03
 ---
 
 将图片资源转至base64格式后可直接放入页面作为首屏直出，也可以放入css文件中，减少请求，以加快首屏的呈现速度。 

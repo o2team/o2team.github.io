@@ -20,7 +20,7 @@
 {% if page.comments && theme.duoshuo.shortname %}
 <div class="post-comments" id="comments">
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="{{ post_key(page.path) }}" data-title="{{ page.title }}" data-url="{{ url }}"></div>
+<div class="ds-thread" data-thread-key="{{ post_key(page.path, page.ckey) }}" data-title="{{ page.title }}" data-url="{{ url }}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

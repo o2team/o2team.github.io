@@ -1,6 +1,6 @@
 title: 你所知道的3xx状态码
 subtitle: 介绍了3xx系列状态码，以及缓存、网页劫持一些列相关的知识。
-date: 2016-01-27 20:20:00
+date: 2016-01-28 20:20:00
 cover: //img.aotu.io/wengeek/3xx_cover.png
 categories: Web开发
 tags:

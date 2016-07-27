@@ -10,7 +10,7 @@ tags:
 author:
   nick: 高大师
   github_name: pfan123
-date: 2016-04-06 18:32:18
+date: 2016-04-07 18:32:18
 ---
 ## 简介
 本文介绍用 Node.js 中的依赖库来处理 Excel 文件，深入分析对比常见npm库处理Excel 文件存在的优缺点，主要阐述用js-xlsx、excel-export 库来处理 Excel 文件。 

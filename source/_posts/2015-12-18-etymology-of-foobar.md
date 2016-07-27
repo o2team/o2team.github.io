@@ -1,6 +1,6 @@
 title: What Does the Foo Mean
 subtitle: "以前在不少编程书里经常看到 “foo”、“bar” 这对 couple，一直不知道他们的具体含义，于是默默去 google 搜了一下，发现结果还挺有意思"
-date: 2015-12-17 21:22:23
+date: 2015-12-18 21:22:23
 cover: //img.aotu.io/mihanX/foo-banner.png
 categories: 生活玩乐
 tags: 

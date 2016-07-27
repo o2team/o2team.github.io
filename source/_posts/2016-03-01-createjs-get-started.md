@@ -12,7 +12,7 @@ tags:
 author:
   nick: 圆姑娘她爹
   github_name: youing
-date: 2016-02-29 20:10:15
+date: 2016-03-01 10:10:15
 ---
 通过实例简单介绍createjs的使用方法
 <!-- more -->

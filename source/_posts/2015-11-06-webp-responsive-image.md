@@ -1,6 +1,6 @@
 title: Service Workers：采用WebP动态响应图片
 subtitle: "你可能听过**WebP**图片格式。相比于PNG图片，其文件大小能够节省26％；相比于JPEG图片，能够节省大约25％。"
-date: 2015-11-05 18:44:25
+date: 2015-11-06 18:44:25
 categories: 性能优化
 tags:
   - WebP

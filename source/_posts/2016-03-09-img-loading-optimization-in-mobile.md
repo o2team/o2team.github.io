@@ -1,6 +1,6 @@
 title: "让图片加载这件事儿变得更美好"
 subtitle: "图片是触屏页面让人赏心悦目的重要元素之一。而对图片资源的加载渲染将影响页面呈现，处理好图片加载才能给用户更好的体验。"
-date: 2016-03-08 17:38:02
+date: 2016-03-09 17:38:02
 cover: //img.aotu.io/Tingglelaoo/20160302/load_cover_840x340.png
 categories: 性能优化
 tags: 

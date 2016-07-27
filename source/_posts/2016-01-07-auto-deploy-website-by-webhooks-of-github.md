@@ -1,7 +1,7 @@
 title: 使用Github的webhooks进行网站自动化部署
 subtitle: 本文介绍Github的高级功能webhooks，并通过实例帮助我们如何使用它进行网站的自动化部署
 cover: //img.aotu.io/cnt1992/webhooks-cover.jpg
-date: 2016-01-06 17:05:05
+date: 2016-01-07 17:05:05
 categories: Web开发
 tags:
   - Github
