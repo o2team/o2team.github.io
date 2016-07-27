@@ -23,6 +23,10 @@ script:
   - 'npm run clean'
   - 'npm run deploy  "${TRAVIS_PULL_REQUEST}"'
 
+branches:
+  only:
+    - v2
+
 env:
   global:
     - CXX: g++-4.8
