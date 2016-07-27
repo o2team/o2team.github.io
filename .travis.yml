@@ -11,9 +11,9 @@ cache:
     - node_modules
 
 script:
-  - npm run build
-  - npm run clean
-  - npm run deploy
+  - 'npm run build'
+  - 'npm run clean'
+  - 'npm run deploy  "${TRAVIS_PULL_REQUEST}"'
 
 env:
   global:
