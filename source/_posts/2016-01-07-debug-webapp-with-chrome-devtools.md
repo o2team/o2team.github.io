@@ -8,7 +8,7 @@ tags:
 author:
   nick: Simba
   github_name: Simbachen
-date: 2016-01-07 
+date: 2016-01-07 17:05:05
 ---
 
 当我们写了一组炫(fu)酷(za)的H5动效后，发现在移动端上会卡顿，该怎么办？

@@ -2,6 +2,7 @@ title: 如何用ArrayBuffer构造一个form请求
 subtitle: form表单数据编码类型为multi/formdata的分析
 cover: //img.aotu.io/FrwIQ0XqdLlbyozfiGE8Jblf4SFy
 categories: Web开发
+date: 2016-04-21 10:53:03
 tags:
 - form
 - xhr2

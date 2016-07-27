@@ -1,7 +1,7 @@
 title: 第二界HiFSD分享会PPT讲义下载分享
 subtitle: "HiFSD, 全称Hi Full Stack Developver, 意在定期邀请不同BG、不同团队甚至不同公司的设计或开发团队进行交流，实现知识共享、经验互取等目的，为个人成为全栈工程师而努力。"
 cover: //img.aotu.io/FhrSTu6ppPfs8nqoRU-l9whgbdPB
-date: 2016-07-03 00:24:35
+date: 2016-07-03 10:24:35
 categories: 项目总结
 tags:
   - HiFSD

@@ -1,7 +1,7 @@
 title: feWorkflow - 使用electron, react, redux, immutable构建桌面App
 subtitle: "使用react, redux, immutable框架做ui开发，仍然基于运行gulpfile的方案，这样可以使每个使用自己团队的gulp工作流快速接入和自由调整。"
 cover: //img.aotu.io/FqMe96r-4Spj-juPOP-rH50-oaKX
-date: 2016-07-05 00:24:35
+date: 2016-07-05 10:24:35
 categories: NodeJS
 tags:
   - React
