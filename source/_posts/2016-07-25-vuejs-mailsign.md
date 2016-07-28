@@ -1,7 +1,7 @@
 title: Vue实战－邮箱签名设计项目
 subtitle: 此次项目借助Vue快速开发，除了带来Vue实践心得外，还带来一些对于项目开发的思考。
 date: 2016-07-25 10:24:35
-cover: "https://cdn.rawgit.com/o2team/misc/gh-pages/Tingglelaoo/o2mailsign_900x500.png"
+cover: "https://misc.aotu.io/Tingglelaoo/o2mailsign_900x500.png"
 categories: "项目总结"
 tags:
 - Vue
@@ -21,7 +21,7 @@ author:
 
 >项目托管在Github上开源，喜欢的话可以给项目加个[『星星』](https://github.com/o2team/sign/tree/master)
 
-![1.gif](https://cdn.rawgit.com/o2team/misc/gh-pages/Tingglelaoo/sign.gif)
+![1.gif](https://misc.aotu.io/Tingglelaoo/sign.gif)
 
 ### 功能一览
   - 即时预览
@@ -55,7 +55,7 @@ author:
 
 > 方法概览
 
-![codes.png](https://cdn.rawgit.com/o2team/misc/gh-pages/Tingglelaoo/codes.jpg)
+![codes.png](https://misc.aotu.io/Tingglelaoo/codes.jpg)
 
 #### bindLoadImgEvent()
 ```javascript
