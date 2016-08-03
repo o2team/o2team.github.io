@@ -1,7 +1,7 @@
 title: Vue实战－邮箱签名设计项目
 subtitle: 此次项目借助Vue快速开发，除了带来Vue实践心得外，还带来一些对于项目开发的思考。
 date: 2016-07-25 10:24:35
-cover: "https://misc.aotu.io/Tingglelaoo/o2mailsign_900x500.png"
+cover: "https://misc.aotu.io/Tingglelaoo/o2mailsign_900x500.jpg"
 categories: "项目总结"
 tags:
 - Vue
