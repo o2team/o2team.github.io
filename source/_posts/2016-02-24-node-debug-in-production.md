@@ -7,7 +7,7 @@ tags:
   - node
   - 调试
 author:
-    nick: 教授
+    nick: 朱奕腾
     github_name: chuyik
 ---
 
