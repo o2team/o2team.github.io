@@ -61,7 +61,7 @@ coeditor:
 
 关注公众号可以及时了解我们的信息、博文推送。
 
-![凹凸实验室](https://aotu.io/assets/img/qrcode.jpg)
+![凹凸实验室](https://cloud.githubusercontent.com/assets/6262943/17502000/d9a3de24-5e16-11e6-9b88-197fcd80e0af.png)
 
 ## 其他
 
