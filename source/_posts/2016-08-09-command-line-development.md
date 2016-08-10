@@ -19,6 +19,7 @@ date: 2016-08-09 09:30:12
 * 本文需要一点node基础
 * 本文涉及到一些es6语法，并且请确保node版本在4.0及以上
 * 不属于本文的知识点一秒带过哈
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_8.jpg)
 
 ### 基础准备
@@ -62,6 +63,7 @@ date: 2016-08-09 09:30:12
 * Git 风格的子命令
 * 自动化帮助信息
 * 自定义帮助等
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_9.jpg)
 
 #### 一个简单的实例
@@ -88,6 +90,7 @@ program.parse(process.argv)
 
 #### 全局方式运行
 我们可以通过一些配置，然后以 **模块名 + command**的方式运行，实现这种方式分三步走：
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_10.jpg)
 
 * 配置package.json的bin字段。bin字段有啥用呢？它可以用来**存放一个可执行的文件**，如下配置所示
@@ -119,6 +122,7 @@ program.parse(process.argv)
 
 做好了以上三步后，然后运行$ app module
 //输出结果 Hello World
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_11.jpg)
 
 #### commander API
@@ -129,11 +133,13 @@ program.parse(process.argv)
 * **option** -- 定义参数。它接受四个参数，在第一个参数中，它可输入短名字 -a和长名字--app ,使用 **|** 或者**,**分隔，在命令行里使用时，这两个是等价的，区别是后者可以在程序里通过回调获取到；第二个为描述, 会在 help 信息里展示出来；第三个参数为回调函数，他接收的参数为一个string，有时候我们需要一个命令行创建多个模块，就需要一个回调来处理；第四个参数为默认值
 * **action** -- 注册一个callback函数,这里需注意**目前回调不支持let声明变量**
 * **parse** -- 解析命令行
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_12.jpg)
 
 #### 生成帮助信息
 ##### 自动生成
 执行 $ app m --help
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_2.jpg)
 
 它会自动将description、option的信息显示在help中
@@ -164,6 +170,7 @@ program
 program.parse(process.argv)
 ```
 执行$ app m --help
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_3.jpg)
 
 #### inquirer
@@ -190,6 +197,7 @@ inquirer.prompt([/* Pass your questions in here */], function (answers) {
 * list--列表选项
 * confirm--提示
 * checkbox--复选框等等
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_9.jpg)
 
 这个模块相当简单，看个栗子就全明白了
@@ -273,6 +281,7 @@ program.parse(process.argv)
 
 ```
 执行命令 $ app m
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_4.jpg)
 
 以上为了代码组织方便使用了一个promps数组来接收参数以及借助了**lodash**模块的**assign**方法用来合并对象，lodash不属于本章的知识点哈，这里给大家提供一个[中文API文档](http://www.kancloud.cn/wizardforcel/lodash-doc-45/144108)仅供大家学习参考
@@ -366,9 +375,11 @@ program.parse(process.argv)
 
 ```
 执行命令 $ app m
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_5.jpg)
 
 正如你所看到的输出结果，本篇文章收工咯，是不是so easy！
+
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_14.jpg)
 
 曾经在很长一段时间里，我一直不知道他们口中的老司机究竟是个什么梗。后来随着时间的拉长，以及在现实生活中对这个词所出现语境的理解，我的潜意识一度将它理解成了一个![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_15.jpg)的词汇(咦，这里咋显示不出来呢)...后来才知道真正的老司机指的是**在各个网站、论坛里接触时间比较长，熟悉站内各种规则、内容以及技术、玩法，并且掌握着一定资源的老手，亦指在某些方面熟门熟路，资历较老，见识广，经验足的人...**
