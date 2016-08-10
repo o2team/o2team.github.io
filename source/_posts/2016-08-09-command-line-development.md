@@ -1,5 +1,5 @@
 title:  前端工程化--跟着老司机玩转命令行开发
-cover: yangzicheng/2016-03-31-readable/readable_cover.png
+cover: //misc.aotu.io/yangzicheng/command-line-development/command-line-development_900_500.png
 tags:
   - 命令行
   - 前端工程化
@@ -10,7 +10,7 @@ author:
   github_name: yangzicheng
 date: 2016-08-09 09:30:12
 
-当我们使用node.js原生开发命令行程序时或许会有一定的门槛，但通过依赖一些开源模块却能够帮助我们简化命令行开发，从而达到事半功倍的效果。本文主要通过一些示例来演示commder.js、inquirer.js的一些基本用法。下面老司机将带着我，我带着大家一起来玩转node命令行吧！
+当我们使用node.js原生开发命令行程序时或许会有一定的门槛，但通过依赖一些开源模块却能够帮助我们简化命令行开发，从而达到事半功倍的效果。本文主要通过一些示例来演示commander.js、inquirer.js的一些基本玩法。下面老司机将带着我，我带着大家一起来玩转node命令行吧！
 
 <!-- more -->
 
@@ -54,7 +54,7 @@ date: 2016-08-09 09:30:12
 我们先看来认识一下comnander吧
 
 ####commander 简介
-呃~~官方时刻到了哈：commander灵感来自 Ruby 的 commander，它提供了用户命令行输入和参数解析强大功能，可以帮助我们简化命令行开发。
+呃~~官方时刻到了哈：commander灵感来自 Ruby，它提供了用户命令行输入和参数解析的强大功能，可以帮助我们简化命令行开发。
 根据其官方的描述，具有以下特性:
 * 参数解析
 * 强制多态
