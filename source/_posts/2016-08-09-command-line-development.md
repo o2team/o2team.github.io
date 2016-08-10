@@ -1,10 +1,10 @@
-title: 跟着老司机玩转node命令行
+title: 跟着老司机玩转Node命令行
 subtitle: 对于一些没有接触过的东西，或许会因为它的神秘而觉得遥不可及...
-cover: //misc.aotu.io/yangzicheng/command-line-development/command-line-development_900_500.png
+cover: //misc.aotu.io/yangzicheng/command-line-development/command-line-development_900_500.jpg
 tags:
   - 命令行
   - 前端工程化
-  - node
+  - Node
   - 老司机
 author:
   nick: 自成
@@ -13,12 +13,12 @@ date: 2016-08-09 09:30:12
 ---
 
 
-当我们使用node.js原生开发命令行程序时或许会有一定的门槛，但通过依赖一些开源模块却能够帮助我们简化命令行开发，从而达到事半功倍的效果。本文主要通过一些示例来演示commander.js、inquirer.js的一些基本玩法。下面老司机将带着我，我带着大家一起来玩转node命令行吧！
+当我们使用Node.js原生开发命令行程序时或许会有一定的门槛，但通过依赖一些开源模块却能够帮助我们简化命令行开发，从而达到事半功倍的效果。本文主要通过一些示例来演示commander.js、inquirer.js的一些基本玩法。下面老司机将带着我，我带着大家一起来玩转Node命令行吧！
 
 ### 温馨提示
 * 本文部分代码参考自凹凸实验室前端流程工具 [athena](https://github.com/o2team/athena)
-* 本文需要一点node基础
-* 本文涉及到一些es6语法，并且请确保node版本在4.0及以上
+* 本文需要一点Node基础
+* 本文涉及到一些es6语法，并且请确保Node版本在4.0及以上
 * 不属于本文的知识点一秒带过哈
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_8.jpg)
@@ -81,7 +81,7 @@ program
     .option('-a, --name [moduleName]', '模块名称')
     .action(option => {
         console.log('Hello World')
-        //为什么是Hello World 你懂的
+        //为什么是Hello World 给你个眼神，自己去体会...
     })
     
 program.parse(process.argv)
