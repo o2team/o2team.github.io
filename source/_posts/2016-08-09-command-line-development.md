@@ -15,7 +15,7 @@ date: 2016-08-09 09:30:12
 
 当我们使用Node.js原生开发命令行程序时或许会有一定的门槛，但通过依赖一些开源模块却能够帮助我们简化命令行开发，从而达到事半功倍的效果。本文主要通过一些示例来演示commander.js、inquirer.js的一些基本玩法。下面老司机将带着我，我带着大家一起来玩转Node命令行吧！
 
-### 温馨提示
+## 温馨提示
 * 本文部分代码参考自凹凸实验室前端流程工具 [athena](https://github.com/o2team/athena)
 * 本文需要一点Node基础
 * 本文涉及到一些es6语法，并且请确保Node版本在4.0及以上
@@ -23,7 +23,7 @@ date: 2016-08-09 09:30:12
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_8.jpg)
 
-### 基础准备
+## 基础准备
 1.新建一个项目，打开cmd命令，执行npm init,创建package.json
 2.在根目录下创建一个不带后缀的系统文件，作为主入口文件
 3.安装本文所涉及到的模块commander、inquirer、chalk，在根目录下执行 npm install commander inquirer chalk  --save-dev,这时候会看到根目录下多了一个node_modules目录，里面有刚刚安装的几个模块，package.json里面devDependencies依赖了这几个模块，如下图
@@ -52,10 +52,10 @@ date: 2016-08-09 09:30:12
 
 ```
 
-### 主体内容
+## 主体内容
 我们先看来认识一下commander吧
 
-#### commander 简介
+### commander 简介
 呃~~官方时刻到了哈：commander灵感来自 Ruby，它提供了用户命令行输入和参数解析的强大功能，可以帮助我们简化命令行开发。
 根据其官方的描述，具有以下特性:
 * 参数解析
@@ -67,7 +67,7 @@ date: 2016-08-09 09:30:12
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_9.jpg)
 
-#### 一个简单的实例
+### 一个简单的实例
 下面我们通过一个简单的实例来了解一下它的基本语法吧
 ```js
 const program = require('commander')
@@ -89,7 +89,7 @@ program.parse(process.argv)
 执行一下看看效果吧！$ node app.js app (请各位看官自行体会这种执行方式哈)
 //输出结果 Hello World
 
-#### 全局方式运行
+### 全局方式运行
 我们可以通过一些配置，然后以 **模块名 + command**的方式运行，实现这种方式分三步走：
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_10.jpg)
@@ -126,7 +126,7 @@ program.parse(process.argv)
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_11.jpg)
 
-#### commander API
+### commander API
 我们逐个来看看各个属性的功能，一看秒懂哦
 * **command** -- 定义命令行指令，后面可跟上一个name，用空格隔开，如 .command( 'app [name] ')
 * **alias** -- 定义一个更短的命令行指令 ，如执行命令**$ app m** 与之是等价的
@@ -137,15 +137,16 @@ program.parse(process.argv)
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_12.jpg)
 
-#### 生成帮助信息
-##### 自动生成
+### 生成帮助信息
+
+#### 自动生成
 执行 $ app m --help
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_2.jpg)
 
 它会自动将description、option的信息显示在help中
 
-##### 自定义生成
+#### 自定义生成
 我们也可以通过自定义的方式生成帮助信息
 ```
 const program = require('commander')
@@ -174,7 +175,7 @@ program.parse(process.argv)
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_3.jpg)
 
-#### inquirer
+### inquirer
 在开发的过程中，我们需要频繁的跟命令行进行交互，借助**inquirer**这个模块就能轻松实现，它提供了用户界面和查询会话流程。它的语法是这样的（直接从[官方](https://www.npmjs.com/package/inquirer)拷贝~~）
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_16.jpg)
 
@@ -192,7 +193,7 @@ inquirer.prompt([/* Pass your questions in here */], function (answers) {
 })
 ```
 
-##### inquirer功能简介
+#### inquirer功能简介
 * input--输入
 * validate--验证
 * list--列表选项
@@ -287,7 +288,7 @@ program.parse(process.argv)
 
 以上为了代码组织方便使用了一个promps数组来接收参数以及借助了**lodash**模块的**assign**方法用来合并对象，lodash不属于本章的知识点哈，这里给大家提供一个[中文API文档](http://www.kancloud.cn/wizardforcel/lodash-doc-45/144108)仅供大家学习参考
 
-##### chalk
+### chalk
 最后我们引入[chalk](https://www.npmjs.com/package/chalk)这个**美化命令行**的模块，它具有轻量级、高性能、学习成本低等特点。继续在以上栗子中引入chalk进行输出
 
 ```
@@ -385,7 +386,7 @@ program.parse(process.argv)
 
 曾经在很长一段时间里，我一直不知道他们口中的老司机究竟是个什么梗。后来随着时间的拉长，以及在现实生活中对这个词所出现语境的理解，我的潜意识一度将它理解成了一个![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_15.jpg)的词汇(咦，这里咋显示不出来呢)...后来才知道真正的老司机指的是**在各个网站、论坛里接触时间比较长，熟悉站内各种规则、内容以及技术、玩法，并且掌握着一定资源的老手，亦指在某些方面熟门熟路，资历较老，见识广，经验足的人...**
 
-### 参考文献
+## 参考文献
 凹凸实验室前端流程工具:  https://github.com/o2team/athena
 博文: http://www.tuicool.com/articles/ZFNZjq
 commander: https://www.npmjs.com/package/commander
