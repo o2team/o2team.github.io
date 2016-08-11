@@ -53,7 +53,7 @@ date: 2016-08-09 09:30:12
 ```
 
 ## 主体内容
-我们先看来认识一下commander吧
+我们先来认识一下commander吧
 
 ### commander 简介
 呃~~官方时刻到了哈：commander灵感来自 Ruby，它提供了用户命令行输入和参数解析的强大功能，可以帮助我们简化命令行开发。
@@ -384,7 +384,7 @@ program.parse(process.argv)
 
 ![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_14.jpg)
 
-曾经在很长一段时间里，我一直不知道他们口中的老司机究竟是个什么梗。后来随着时间的拉长，以及在现实生活中对这个词所出现语境的理解，我的潜意识一度将它理解成了一个![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_15.jpg)的词汇(咦，这里咋显示不出来呢)...后来才知道真正的老司机指的是**在各个网站、论坛里接触时间比较长，熟悉站内各种规则、内容以及技术、玩法，并且掌握着一定资源的老手，亦指在某些方面熟门熟路，资历较老，见识广，经验足的人...**
+> 曾经在很长一段时间里，我一直不知道他们口中的老司机究竟是个什么梗。后来随着时间的拉长，以及在现实生活中对这个词所出现语境的理解，我的潜意识一度将它理解成了一个![](//misc.aotu.io/yangzicheng/command-line-development/command-line-development_15.jpg)的词汇(咦，这里咋显示不出来呢)...后来才知道真正的老司机指的是**在各个网站、论坛里接触时间比较长，熟悉站内各种规则、内容以及技术、玩法，并且掌握着一定资源的老手，亦指在某些方面熟门熟路，资历较老，见识广，经验足的人...**
 
 ## 参考文献
 凹凸实验室前端流程工具:  https://github.com/o2team/athena
