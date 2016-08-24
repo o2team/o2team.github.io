@@ -12,7 +12,6 @@ author:
     github_name: JChehe
 
 ---
-![CSS 3D Panorama 封面][1]
 
 ### 前言
 3D 全景并不是什么新鲜事物了，但以前我们在 Web 上看到的 3D 全景一般是通过 Flash 实现的。若我们能将 `CSS3 transform` 的相关知识运用得当，也是能实现类似的效果。换句话说，3D 全景其实就是 CSS3 3D 的应用场景之一。
@@ -172,7 +171,6 @@ calTranlateZ({
 
 最后，如有不清晰或不明白的地方，可以联系我，我会尽可能解决的。谢谢谢~
 
-感谢您的阅读，本文由 [凹凸实验室][29] 版权所有。如若转载，请注明出处：凹凸实验室。
 
 
   [1]: https://misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/cover.jpg
@@ -187,7 +185,7 @@ calTranlateZ({
   [10]: https://misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/perspective.jpg
   [11]: https://zh.wikipedia.org/wiki/%E7%9B%B8%E4%BC%BC%E4%B8%89%E8%A7%92%E5%BD%A2
   [12]: https://misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/transform.jpg
-  [13]: https:misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/ball.png
+  [13]: https://misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/ball.png
   [14]: http://zwj360.im20.com.cn
   [15]: https://misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/diagram.png
   [16]: https://misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/calc.png
