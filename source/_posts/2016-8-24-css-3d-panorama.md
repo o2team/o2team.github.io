@@ -1,4 +1,4 @@
-title: CSS 3D Panorama
+title: CSS 3D Panorama - 淘宝造物节技术剖析
 subtitle: 3D全景并不是什么新鲜事物了，但以前我们在Web 上看到的3D全景一般是通过Flash实现的。若我们能将CSS3 transform的相关知识运用得当，也是能实现类似的效果。
 cover: //misc.aotu.io/JChehe/2016-8-24-css-3d-panorama/cover.jpg
 date: 2016-08-24 18:58:35
