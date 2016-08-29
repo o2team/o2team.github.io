@@ -35,7 +35,7 @@ author:
 
 谢谢 [Stephen Coles](http://www.fontbureau.com/blog/clear-definitions/) 对此简洁的定义。如果你对用神经网络设计字体感兴趣的话，不妨看下 Erik Bern 大神的 [Deep Fonts](http://erikbern.com/2016/01/21/analyzing-50k-fonts-using-deep-neural-networks/) 项目，大概对 50000 个字体进行视觉分析。所以说，「AI 文字设计」——让计算机做字体设计。
 - - - - -
-设计一个能重复创建复杂一个复杂专业的核心规范的人工智能系统，确实是有点挑战。比如我要要在工作中，从一些基础原则中学习人工智能和它的所有规范（我并没有计算机科学的背景，我是项目中唯一一个设计工程师）。那时每晚我都会远离屏幕，去 Pacific Heights 附近散步，看着日落和仔细琢磨那个项目的艰巨性。有一次散步，Alan Turing（译者注：艾伦·图灵，计算机之父）的一句话跳进我的脑子里了。
+设计一个能生成复杂专业的中心法则的人工智能系统，确实是有点挑战。这需要我在工作中，从一些基本法则里学习人工智能和相关的所有学科（我并没有计算机科学的背景，我是项目中唯一一个设计工程师）。记得那个时候，我每晚都会远离屏幕去 Pacific Heights 附近散步，看着日落，仔细琢磨那个项目的艰巨性。有一次走着走着，Alan Turing（译者注：艾伦·图灵，计算机之父）的一句话跳进了我的脑子里。
 
 > 与其说试着去写程序去模拟成年人的心智，为什么不试着去写个可以模拟小孩的呢？如果它受到适当的教育，它应该会获得一个成年人的大脑。
 > — Alan Turing, [Computing Machinery and Intelligence](http://www.loebner.net/Prizef/TuringArticle.html), 1950
