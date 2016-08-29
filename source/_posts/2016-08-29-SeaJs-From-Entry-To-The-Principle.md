@@ -87,8 +87,6 @@ define(function (require) {
 
 实际上在版本 1.3.1 之前，有一个特性叫做**firstModuleInPackage**，即当一个文件里有多个 define 时，默认将第一个define里的模块作为主模块进行返回。由于各种原因作者去掉了这个特性。
 
-因此SeaJS文件如何合并比传统方式的JS合并复杂多了，因为SeaJS简化了模块书写，导致合并时需要做模块格式的转换。
-
 
 ## 3、factory参数
 
