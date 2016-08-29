@@ -157,7 +157,7 @@ hfc_js:
     - '*.min.js'
 
 hfc_img:
-  enable: false
+  enable: true
   interlaced: false
   multipass: false
   optimizationLevel: 2
