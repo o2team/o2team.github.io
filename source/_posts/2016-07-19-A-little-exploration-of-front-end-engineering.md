@@ -1,6 +1,7 @@
 title: 我们是如何做好前端工程化和静态资源管理
 subtitle: 本文主要介绍O2团队在前端工程化领域的一些探索，以及我们的前端工程化方案——Athena
 cover: //misc.aotu.io/luckyadam/athena/athena_cover.jpg
+categories: Web开发
 tags:
   - Front-end
   - Engineering
