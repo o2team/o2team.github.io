@@ -1,10 +1,11 @@
 title: 跟着老司机玩转Node命令行
 subtitle: 对于一些没有接触过的东西，或许会因为它的神秘而觉得遥不可及...
 cover: //misc.aotu.io/yangzicheng/command-line-development/command-line-development_900_500.jpg
+categories: NodeJS
 tags:
   - 命令行
   - 前端工程化
-  - Node
+  - NodeJS
   - 老司机
 author:
   nick: 自成

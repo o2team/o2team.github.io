@@ -17,6 +17,22 @@
     <div class="post-content">
         {{ page_anchor(post.content) }}
 
+        <div class="post-tags" style="display: none">
+            {% if page.tags.length %}
+                {% for tag in page.tags %}
+                    <a href="{{ url_for(tag.path) }}">{{ tag.name }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="post-categories" style="display: none">
+            {% if page.categories.length %}
+                {% for cate in page.categories %}
+                    <a href="{{ url_for(cate.path) }}">{{ cate.name }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+
         {% if post.coeditor %}
         <div class="post-announce">感谢您的阅读，本文由 <a href="{{ post.coeditor.url }}">{{ post.coeditor.name }}</a> 原创提供。如若转载，请注明出处：凹凸实验室（<a href="{{ url_for(post.path) }}">https://aotu.io{{ url_for(post.path) }}</a>）</div> 
         {% else %}
