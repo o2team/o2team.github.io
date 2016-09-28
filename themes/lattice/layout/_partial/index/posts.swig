@@ -6,8 +6,10 @@
     </nav>
     <div class="posts" id="posts">
       {% for post in page.posts %}
-      {% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
-      {% include '../post/mini.swig' with {post:post, author:author} %}
+        {% if not post.draft %}
+          {% set author = post.author|default({github_name:config.github.user, nick:config.author}) %}
+          {% include '../post/mini.swig' with {post:post, author:author} %}
+        {% endif %}
       {% endfor%}
     </div>
     {% include '../common/pagination.swig' %}
