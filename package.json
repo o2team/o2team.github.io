@@ -3,6 +3,8 @@
   "version": "2.5.5",
   "private": true,
   "scripts": {
+    "preinstall": "echo 'Using CDN to download PhantomJS...' && PHANTOMJS_CDNURL=https://npm.taobao.org/dist/phantomjs",
+    "serve": "hexo s --watch",
     "build": "hexo g",
     "deploy": "sh ./.travis/deploy.sh",
     "clean": "rm -rf public/js/libs && rm -rf public/js/mods"
