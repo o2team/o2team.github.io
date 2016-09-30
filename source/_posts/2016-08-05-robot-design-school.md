@@ -15,7 +15,7 @@ author:
 ---
 
 
-> 本文翻译自 Jon Gold 的 [Taking The Robots To Design School](http://www.jon.gold/2016/05/robot-design-school/)，略有删减。
+> 本文译自 Jon Gold 的 [Taking The Robots To Design School](http://www.jon.gold/2016/05/robot-design-school/)，略有删减。
 
 大概在一年前，我开始尝试把「字体设计」和「人工智能」这两个东西结合起来。
 现在是 2016 年了，我打算把脑子里的东西搬到网上来。部分原因是它实在是有趣，其次是我想作为日志，便于以后翻看。但最重要的是，我想更多人能读到这些东西。
