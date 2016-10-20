@@ -46,4 +46,25 @@
 
     {% include 'prevnext.swig' %}
     {% include '../common/comment.swig' %}
+
+    {% if post.wechat %}
+    <script>
+        var v = {
+            img_url: "{{ post.wechat.share_cover | default(post.cover) }}",
+            img_width: 120,
+            img_height: 120,
+            link: window.location.href,
+            title: "{{ post.wechat.share_title | default(post.title) }}",
+            desc: "{{ post.wechat.share_desc | default(post.subtitle) }}"
+        }
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            WeixinJSBridge.on("menu:share:timeline", function (r) {
+                WeixinJSBridge.invoke("shareTimeline", v)
+            })
+            WeixinJSBridge.on("menu:share:appmessage", function (c) {
+                WeixinJSBridge.invoke("sendAppMessage", v)
+            })
+        })
+    </script>
+    {% endif %}
 </article>
