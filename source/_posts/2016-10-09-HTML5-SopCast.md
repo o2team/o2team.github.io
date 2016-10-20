@@ -10,6 +10,8 @@ author:
   nick: 高大师
   github_name: pfan123
 date: 2016-10-09 15:24:41
+wechat:
+    share_cover: //misc.aotu.io/pfan123/sopcast/sopcast_200x200.png
 ---
 
 <!-- more -->
