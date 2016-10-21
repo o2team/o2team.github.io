@@ -35,4 +35,5 @@
 {{ js('js/mods/common') }}
 {{ js('js/mods/console') }}
 {{ js('js/mods/scrollPager') }}
+{{ js('js/mods/jweixin-1.0.0') }}
 <!-- endbuild -->

@@ -15,3 +15,7 @@
     </div>
 {% endblock %}
 
+
+{% block pagejs %}
+{{ js('js/post_wx_share') }}
+{% endblock %}

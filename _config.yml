@@ -181,3 +181,6 @@ hfc_favicons:
 
 # O2 Theme Customation
 logo_url: img/o2logo.png
+
+wechat:
+  jssdk_url: http://aotu.jd.com/aotu-wx-api/api/wx/jssdk/signature
