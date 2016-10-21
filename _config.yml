@@ -183,4 +183,4 @@ hfc_favicons:
 logo_url: img/o2logo.png
 
 wechat:
-  jssdk_url: http://aotu.jd.com/aotu-wx-api/api/wx/jssdk/signature
+  jssdk_url: https://aotu.jd.com/aotu-wx-api/api/wx/jssdk/signature
