@@ -1,5 +1,5 @@
 title: Javascript 中的装饰器
-subtitle: 麻麻说: 写代码一定要优雅
+subtitle: 麻麻说：写代码一定要优雅
 cover: https://misc.aotu.io/Secbone/decorator/decorator_840x340.jpg
 date: 2016-10-14 20:49:11
 categories: Web开发
@@ -13,7 +13,7 @@ tags:
     wechat:
       share_cover: https://misc.aotu.io/Secbone/decorator/decorator_200x200.jpg
       share_title: Javascript 中的装饰器
-      share_desc: 麻麻说: 写代码一定要优雅
+      share_desc: 麻麻说：写代码一定要优雅
 ---
 
 <!-- more -->
