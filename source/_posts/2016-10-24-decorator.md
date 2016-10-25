@@ -2,7 +2,7 @@
 title: Javascript 中的装饰器
 subtitle: 麻麻说：写代码一定要优雅
 cover: https://misc.aotu.io/Secbone/decorator/decorator_840x340.jpg
-date: 2016-10-14 20:49:11
+date: 2016-10-24 20:49:11
 categories: Web开发
 draft: false
 tags:
