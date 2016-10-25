@@ -1,3 +1,4 @@
+---
 title: Javascript 中的装饰器
 subtitle: 麻麻说：写代码一定要优雅
 cover: https://misc.aotu.io/Secbone/decorator/decorator_840x340.jpg
@@ -5,18 +6,19 @@ date: 2016-10-14 20:49:11
 categories: Web开发
 draft: false
 tags:
-- decorator
-- 装饰器
-    author:
+    - decorator
+    - 装饰器
+author:
     nick: Secbone
     github_name: Secbone
-    wechat:
-      share_cover: https://misc.aotu.io/Secbone/decorator/decorator_200x200.jpg
-      share_title: Javascript 中的装饰器
-      share_desc: 麻麻说：写代码一定要优雅
+wechat:
+    share_cover: https://misc.aotu.io/Secbone/decorator/decorator_200x200.jpg
+    share_title: Javascript 中的装饰器
+    share_desc: 麻麻说：写代码一定要优雅
 ---
 
 <!-- more -->
+
 # Javascript 中的装饰器
 
 ## 前言
