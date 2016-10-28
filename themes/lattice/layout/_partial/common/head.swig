@@ -8,7 +8,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=yes" />
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="robots" content="index, follow" />    
+<meta name="robots" content="index, follow" />
+
+{% if config.baiduce %}
+<meta baidu-gxt-verify-token="{{ config.baiduce }}" />
+{% endif%}
 
 <!-- keywords -->
 <meta name="keywords" content="{{ page_keywords(true) }}"/>

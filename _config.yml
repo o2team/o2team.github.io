@@ -137,6 +137,8 @@ github:
 baidusitemap:
   url: http://aotu.io/
 
+baiduce: 2b74a5aea155a215abea8547f929190c
+
 # filter_cleanup
 hfc_useref:
   enable: true
