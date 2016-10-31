@@ -1,0 +1,93 @@
+/**
+ * aotu.typo inspired by http://typo.sofi.sh/
+ */
+/* 强制文本换行 */
+.textwrap, .textwrap td, .textwrap th
+  word-wrap: break-word
+  word-break: break-all
+
+.textwrap-table
+  table-layout: fixed
+
+/* 提供 serif 版本的字体设置: iOS 下中文自动 fallback 到 sans-serif */
+.serif
+  font-family: font-serif
+
+
+.typo
+  /* 让链接在 hover 状态下显示下划线 */
+  a
+    color: color-primary
+    border-bottom: 1px dotted color-primary
+    transition: all .3s ease-out
+    &:hover
+      text-decoration: underline
+      border-bottom-color: color-default
+      color: color-default
+      text-decoration: none
+  /* 保证块/段落之间的空白隔行 */
+  p, pre, ul, ol, dl, form, hr, table, blockquote
+    margin-bottom: 1.2em
+  /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+  h1, h2, h3, h4, h5, h6
+    margin-top: 1.2em
+    margin-bottom: 0.6em
+  h1
+    font-size: 2em
+  h2
+    font-size: 1.8em
+  h3
+    font-size: 1.6em
+  h4
+    font-size: 1.4em
+  h5, h6
+    font-size: 1.2em
+  /* 在文章中，应该还原 ul 和 ol 的样式 */
+  ul
+    margin-left: 1.3em
+    list-style: disc
+  ol
+    list-style: decimal
+    margin-left: 1.9em
+  li
+    margin-bottom: 0.2em
+    ul, ol
+      margin-bottom: 0.8em
+      margin-left: 2em
+    ul
+      list-style: circle
+    & > p 
+      margin-bottom: 0.6em
+  table
+    tbody > tr
+      &:nth-of-type(even) 
+        background-color: bg-block
+    /* 同 ul/ol，在文章中应用 table 基本格式 */
+    th, td, caption
+      border: 1px solid color-border
+      padding: 0.5em 1em
+      color: color-default
+    th
+      background: bg-table-th
+    thead th
+      background: bg-table-hd
+      font-weight: 600
+    caption
+      border-bottom: none
+  input, textarea
+    -webkit-appearance: none
+    border-radius: 0
+  em, legend, caption, .em
+    color: #000
+    font-weight: inherit
+  /* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
+  .em
+    position: relative
+    &:after
+      position: absolute
+      top: 0.65em
+      left: 0
+      width: 100%
+      overflow: hidden
+      white-space: nowrap
+      content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"

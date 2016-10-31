@@ -5,7 +5,7 @@
 {% block main %}
     <div class="mod-container">
         <div class="grid">
-            <div class="mod-main">
+            <div class="mod-main typo">
                 {% set author = page.author|default({github_name:config.github.user, nick:config.author}) %}
                 {{ partial('_partial/post/main', {post:page, author: author}) }}
             </div>
