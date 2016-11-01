@@ -1,5 +1,9 @@
 .mod-side
     background: #fff
+    float: left
+    width: 240px
+    box-sizing: border-box
+    padding: 20px 0 20px 15px
     &-sec
         margin-bottom: 30px
         &:last-child
@@ -22,6 +26,8 @@
         &-bd
           padding: 10px 15px
     +mobile() {
+        float: none
+        width: 100%
         margin-top: 20px
         border-top: 1px solid #ddd 
     }
@@ -53,7 +59,3 @@
         margin: 0 auto 10px
     &-slogan
       text-align: center
-
-      
-      
-  

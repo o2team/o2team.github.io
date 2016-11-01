@@ -6,11 +6,11 @@
     word-wrap: break-word
     &-hd
         padding: 20px 0
-        h2
-            margin-bottom: 5px
-            color: #333
-            font-size: 28px
-            font-weight: 300
+    &-tit
+        margin-bottom: 5px
+        color: #333
+        //font-size: 28px
+        font-weight: 300
     &-meta
         font-size: 12px
         overflow: hidden
@@ -40,9 +40,13 @@
         top: 0
     
     &-cover
-        margin: 0 0 20px
+        padding-top: 20px
         img
             display: block
+            +mobile()
+              width: 100%
+        +mobile()
+          padding-top: 0
   
     &-revision
         font-size: 12px
@@ -71,7 +75,7 @@
               border-bottom: none
 
     &-content
-        padding: 20px 0
+        padding: 0 0 20px 0
         & a
             vertical-align: top
         & img
