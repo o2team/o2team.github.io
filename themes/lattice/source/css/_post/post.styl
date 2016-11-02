@@ -3,21 +3,19 @@
 
 .post
     background: #fff
-    box-sizing: border-box
     word-wrap: break-word
     &-hd
         padding: 20px 0
-        h2
-            margin-bottom: 5px
-            color: #333
-            font-size: 28px
-            font-weight: normal
+    &-tit
+        margin-bottom: 5px
+        color: #333
+        //font-size: 28px
+        font-weight: 300
     &-meta
         font-size: 12px
         overflow: hidden
         margin-bottom: 30px
         & a
-          color: $color-theme
           text-decoration: none
   
     &-subtit
@@ -42,10 +40,13 @@
         top: 0
     
     &-cover
-        margin: 0 0 20px
-        & img
+        padding-top: 20px
+        img
             display: block
-            max-width: 100%
+            +mobile()
+              width: 100%
+        +mobile()
+          padding-top: 0
   
     &-revision
         font-size: 12px
@@ -71,14 +72,11 @@
               white-space: nowrap
               width: 100%
               display: block
+              border-bottom: none
 
     &-content
-        padding: 20px 0
-        font-size: 14px
-        line-height: 1.8
+        padding: 0 0 20px 0
         & a
-            color: #333
-            text-decoration: underline
             vertical-align: top
         & img
             max-width: 80%
@@ -86,73 +84,20 @@
         > table 
             margin: 20px 0
             width: 100%
-            border-collapse: collapse
-            border-spacing: 0
             table-layout: fixed
             word-wrap: break-word
-            tbody > tr 
-                &:nth-of-type(even) 
-                    background-color:#f9f9f9
-            caption, th, td 
-                padding: 10px
-                text-align: left
-                vertical-align: middle
-            th, td 
-                border: 1px solid #ddd
-            th 
-                font-weight: bold
-                background: #eee
-        a
-            text-decoration: underline
-        p
-            margin-bottom: 1em
-        b, strong
-            font-weight: bold
-        h1, h2, h3, h4, h5, h6
-            font-weight: bold
-            margin: 1.2em 0 .8em
-            font-size: 1em
-            padding-top: 1em
-        h1
-            font-size: 1.8em
-        h2
-            font-size: 1.6em
-        h3
-            font-size: 1.2em
-        ol, ul
-            margin: 0 0 1em 2em;
-        ol li
-            list-style: outside decimal
-        ul li
-            list-style: outside disc 
-        li li 
-            list-style: outside square
-        li
-            margin-bottom: 0.2em
-        li > p 
-            margin-bottom: 0.8em
         & .post-heading
             & + .post-heading
                 padding-top: 0
             &:first-child
                 padding-top: 0
                 margin-top: 0
-        blockquote   
-            padding: 5px 10px
-            margin-bottom: 1em
-            color: #666
-            border-left: 4px solid #eee
-            & p
-                margin-bottom: 5px
-            & *:last-child
-                margin-bottom: 0
-            
     +mobile() {
         &-hd,
         &-content,
         &-nav,
         &-comments {
-            padding: 0 15px
+            padding: 0 20px
         }
         
         &-hd {

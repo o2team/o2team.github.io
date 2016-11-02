@@ -10,6 +10,10 @@ author:
   nick: 高大师
   github_name: pfan123
 date: 2016-10-09 15:24:41
+wechat:
+    share_cover: http://misc.aotu.io/pfan123/sopcast/sopcast_200x200.png
+    share_title: H5直播起航
+    share_desc: 直播这么火，想直播写代码的冲动吗，那还等什么，一起开始做H5直播吧～
 ---
 
 <!-- more -->

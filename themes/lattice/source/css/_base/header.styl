@@ -39,7 +39,6 @@
             height: 100%
             margin: 0 10px
             line-height: 60px
-            font-size: 16px
         & a 
             padding: 0 15px
             height: 100%
@@ -67,7 +66,10 @@
             width: 30px
             line-height: 30px
             text-align: center
-            font-size: 16px
+            color: color-default
+        &.active
+          .mod-search-ico
+            background: color-grey-lite
         &-form
             overflow:hidden
             opacity: 0
@@ -84,11 +86,13 @@
             box-sizing: border-box
             border: 1px solid #eee
             background-color: #fcfcfc
+            outline: none
             &::-webkit-input-placeholder
                 font-size: 14px
                 
     +mobile() {
         padding: 0 15px
+        box-shadow: 0 1px 2px rgba(0,0,0,.1)
         &-main {
             position: absolute
             top: 60px
@@ -129,7 +133,6 @@
                 float: none
                 height: 30px
                 line-height: 30px
-                font-size: 14px
             }
             & .active:after {
                 height: 100%

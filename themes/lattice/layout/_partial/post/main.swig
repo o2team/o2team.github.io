@@ -1,8 +1,9 @@
 <!-- Post -->
 <article class="post">
+    <div class="post-cover"><img src="{{ post_img( post.cover|default(theme.post.cover) ) }}" alt="{{ post.title }}" /></div>
     <header class="post-hd">
         {{seachData()}}
-        <h2 class="post-tit">{{ post.title }}</h2>
+        <h1 class="post-tit">{{ post.title }}</h1>
         <div class="post-meta">
             by <a target="_blank" href="https://github.com/{{ author.github_name }}" class="post-author">{{ author.nick|default(author.github_name) }}</a> on <span>{{ date(post.date) }}</span>
         </div>
@@ -11,9 +12,6 @@
         {% endif %}
         <span style="display:none;" id="busuanzi_value_page_pv"></span>
     </header>
-
-    <div class="post-cover"><img src="{{ post_img( post.cover|default(theme.post.cover) ) }}" alt="{{ post.title }}" /></div>
-    
     <div class="post-content">
         {{ page_anchor(post.content) }}
 
@@ -46,4 +44,16 @@
 
     {% include 'prevnext.swig' %}
     {% include '../common/comment.swig' %}
+
+    {% if post.wechat %}
+    <script>
+        window.WechatShareData = {
+            imgUrl: "{{ post.wechat.share_cover | default(post.cover) }}",
+            link: window.location.href,
+            title: "{{ post.wechat.share_title | default(post.title) }}",
+            desc: "{{ post.wechat.share_desc | default(post.subtitle) }}"
+        }
+        window.WechatJSSDKURL = '{{ config.wechat.jssdk_url }}'
+    </script>
+    {% endif %}
 </article>

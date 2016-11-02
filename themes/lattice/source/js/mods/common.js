@@ -27,6 +27,7 @@
 
   var search = {
         init: function (){
+            this.$el = $('#J_search');
             this.$form = $('#J_searchForm');
             this.$input = $('#J_searchInput');
             this.$trigger = $('#J_searchTrigger');
@@ -41,12 +42,14 @@
             });
 
             this.$trigger.on('click', function(e){
-                var isShowed = $(this).data('show');
+                var $this = $(this),
+                    isShowed = $(this).data('show');
                 if (!isShowed) {
                     self.$input.focus();
                 }
                 self.$form.toggleClass('show');
-                $(this).data('show', !isShowed);
+                self.$el.toggleClass('active');
+                $this.data('show', !isShowed);
             });
         }
     };
