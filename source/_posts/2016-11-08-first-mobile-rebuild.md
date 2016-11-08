@@ -202,7 +202,8 @@ REM 布局有两种实现方式：CSS 媒介查询和 JavaScript 动态修改。
   </script>
 ```
 
-从以上代码可得出以下信息：
+从以上代码可得出以下信息：  
+
 1. 以 iPhone 6 为基准，iPhone 6 的缩放比 `zoom` 为 `1`
 2. 由于只针对移动端，因此最大宽度为768（恰好等于 iPad 的竖屏宽度）
 3. 通过 document.documentElement.clientWidth 获取视口宽度
