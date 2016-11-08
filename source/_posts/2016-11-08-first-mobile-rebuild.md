@@ -289,7 +289,21 @@ SASS 无疑增强了原本声明式的 CSS，为 CSS 注入了可编程等能力
 
 ### 其他一些知识点
 
- - 图片占位元素：对于宽高比例不变的坑位，通过将图片放置在占位元素中，可避免图片加载时引起的页面抖动。
+ - 图片占位元素：对于宽高比例固定的坑位（如商品列表项），通过将图片放置在占位元素中，可避免图片加载时引起的页面抖动和图片尺寸不一致而导致的页面布局错乱。代码实现：
+        
+        .img_placeholder {
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          padding-top: placeholder 的高/宽%; // padding-top/bottom: 百分比; 是基于父元素的宽度
+          img {
+              width: 100%;
+              height: auto;
+              position: absolute;
+              left: 0;
+              top: 0;
+          }
+        }
  - 1px：在 retina 屏幕下，1 CSS像素是用 4 个物理像素表示，为了在该屏幕下显示更精细，通过为 ::after 应用以下代码（以上边框为例）：
     
         div {
