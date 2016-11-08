@@ -1,5 +1,5 @@
 title: 我的第一次移动端构建 — 总结与思考
-subtitle: 
+subtitle: 第一次上路，学习很多...
 cover: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/poster.jpg
 categories: 项目总结
 tags:
@@ -16,7 +16,7 @@ wechat:
     share_cover: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/wx_share.jpg
     share_title: 我的第一次移动端构建 — 总结与思考
     share_desc: 我的第一次...
-date: 2016-11-02 21:22:23
+date: 2016-11-08 16:22:23
 ---
 
 <!-- more -->
