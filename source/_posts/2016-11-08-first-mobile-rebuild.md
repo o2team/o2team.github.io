@@ -21,8 +21,6 @@ date: 2016-11-08 16:22:23
 
 <!-- more -->
 
-最近被分配到移动端开发组，支持某活动的页面页面制作。这算是我第一次真正接触移动端页面制作，下面就谈谈个人总结和思考。
-
 ## 整体流程
 开会大体讲解、讨论与排期 -> 交互设计 -> 视觉设计 -> 页面页面制作 -> 前端开发 -> 测试
 
@@ -229,7 +227,7 @@ REM 布局有两种实现方式：CSS 媒介查询和 JavaScript 动态修改。
 #### 为什么要用
 有人说 rem 布局是 `vw` 和 `vh` 的替换方案，当 `vw` 和 `vh` 成熟时，两者可能会各司其职吧。
 
-> [vw 的兼容性][2]：在安卓 4.3 及以下是不支持的。
+> [vw 的兼容性][1]：在安卓 4.3 及以下是不支持的。
 
 ##### 哪些地方要用
 由于 rem 布局是相对于视口宽度，因此任何需要根据屏幕大小进行变化的元素（width、height、position 等）都可以用 rem 单位。
@@ -241,7 +239,7 @@ REM 布局有两种实现方式：CSS 媒介查询和 JavaScript 动态修改。
 
 字体不采用 rem 的好处是：在大屏手机下，能显示更多字体。
 
-看到 [网易新闻][3] 和 [聚划算][4] 的字体大小都采用 rem 单位，我就不纠结了。当然，也有其它网站是采用绝对单位的，两者没有绝对的对与错，取决于你的实际情况。
+看到 [网易新闻][2] 和 [聚划算][3] 的字体大小都采用 rem 单位，我就不纠结了。当然，也有其它网站是采用绝对单位的，两者没有绝对的对与错，取决于你的实际情况。
 
 #### 缺点
 ##### 小数点（不精细，有间隙）
@@ -260,8 +258,9 @@ SASS 无疑增强了原本声明式的 CSS，为 CSS 注入了可编程等能力
 下面列出我所遇到的兼容性问题（不列具体机型，因为这些兼容性处理终会过时，不必死记硬背，遇到了能解决就好（要求基础扎实））：
 
  - flexbox：在构建工具处理下（实现了新旧语法）可以大胆用，但个别设备不支持 flex-wrap: wrap。因此对于想使用 flex-wrap 实现自动分行的情况，建议使用其他实现。如果个数固定（如 N  行，每行 M 个），则可使用 N 个 flexbox（这样就可以使用 flexbox 的特性了）。flexbox 的其他属性也有支持不好的情况，可以通过显式声明 display、overflow、width、height 等方法解决。
- - background-size：需要单独写，否则在 [安卓 4.3 及以下，IOS 6.1及以下不兼容][5]。
- - 渐变：线性渐变大胆使用，径向渐变有兼容性问题。但是不建议对整体背景使用，会有性能问题（可简单地通过 1px 高的图片替代，注意，不要 background-size: 100% auto; 应该采用 background-size: 100% 1px; 因为有些浏览器会忽略小数点【`auto = img.Height * (screen.Width/img.Width)`】，导致图片未显示）。
+ - background-size：需要单独写，否则在 [安卓 4.3 及以下，IOS 6.1及以下不兼容][4]。
+ - 渐变：线性渐变大胆使用，径向渐变有兼容性问题。但是不建议对整体背景使用，会有性能问题（可简单地通过 1px 高的图片替代，注意，不要 background-size: 100% auto; 应该采用 background-size: 100% 1px; 因为有些浏览器（视口宽度较小）会忽略小数点【`auto = img.Height * (screen.Width/img.Width)`】，导致图片未显示）。另外，需要注意的是：透明的色标在iOS 默认是黑色的，即 transparent 等于 rgba(0,0,0,0)。因此即使是完全透明的色标，也要指定颜色。否则后果如下：  
+ ![此处输入图片的描述][5]
  - classlist.remove(String[, String])，传递多个参数时，会有不兼容的情况。建议每次写一个。add (String[, String])同理。
  - 根节点 html font-size 渲染错误：在华为、魅族的某设备上（手Q），会出现一个非常奇葩的渲染 Bug，同一个网页，“扫一扫”打开 html 的 font-size 正常，直接点击链接会出现**渲染出来的 html font-size 会比设置得值大**（如：设置25.8，渲染出来是 29），因此导致整体变大，且布局错乱。  
 我的方法是：为 html font-size 重新设置大小：渲染字体大小 - (渲染与正常差值)
@@ -387,11 +386,11 @@ JS 页面片
 以上仅是我个人完成某项目页面制作的思考和总结，不小心暴露了团队下限。🌚
 
 
-  [1]: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/team.jpg
-  [2]: http://caniuse.com/#search=vw
-  [3]: http://3g.163.com/
-  [4]: https://jhs.m.taobao.com/m/index.htm#!all
-  [5]: http://caniuse.com/#search=background-size
+  [1]: http://caniuse.com/#search=vw
+  [2]: http://3g.163.com/
+  [3]: https://jhs.m.taobao.com/m/index.htm#!all
+  [4]: http://caniuse.com/#search=background-size
+  [5]: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/linear-gradient.jpg
   [6]: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/tag1.png
   [7]: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/tag2.png
   [8]: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/coupon.png
