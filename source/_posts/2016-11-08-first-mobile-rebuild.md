@@ -367,14 +367,14 @@ SASS 无疑增强了原本声明式的 CSS，为 CSS 注入了可编程等能力
 #### 延伸：页面片是什么？
 CSS 页面片
 ```
-<!-- #include virtual="/static/res/sinclude/cssi/h5/1111/app_market/branch.shtml" -->
-<link combofile="/fd/h5/1111/app_market/branch.shtml" rel="stylesheet" href="//wq.360buyimg.com/c/=/fd/h5/1111/gb/css/gb.min_1151b5b0.css,/fd/h5/1111/app_market/css/branch.min_925332fc.css" />
+<!-- #include virtual="/folder/branch.shtml" -->
+<link combofile="/folder/branch.shtml" rel="stylesheet" href="//website/folder/gb.min_1151b5b0.css,/folder/branch.min_925332fc.css" />
 ```
 
 JS 页面片
 ```
-<!-- #include virtual="/static/res/sinclude/cssi/h5/1111/app_market/branch_js.shtml" -->
-<script combofile="/fd/h5/1111/app_market/branch.shtml" src="//wq.360buyimg.com/fd/h5/1111/app_market/js/branch.min_8971778a.js"></script>
+<!-- #include virtual="/folder/branch_js.shtml" -->
+<script combofile="/folder/branch.shtml" src="//website/path/branch.min_8971778a.js"></script>
 ```
 
 > Combo Handler是Yahoo!开发的一个Apache模块，它实现了开发人员简单方便地通过URL来合并JavaScript和CSS文件，从而大大减少文件请求数。 http://www.cnblogs.com/zhengyun_ustc/archive/2012/07/18/combo.html
