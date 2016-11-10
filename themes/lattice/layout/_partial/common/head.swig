@@ -42,6 +42,13 @@
 <meta name="msapplication-TileColor" content="#2f83cd">
 <meta name="msapplication-TileImage" content="{{ url_for('img/mstile-144x144.png') }}">
 
+<!--wechat shares meta-->
+{% if page.wechat %}
+<meta name="wechat-logo" content="{{ page.wechat.share_cover | default(page.cover) }}">
+<meta name="wechat-title" content="{{ page.wechat.share_title | default(page.title) }}">
+<meta name="wechat-desc" content="{{ page.wechat.share_desc | default(page.subtitle) }}">
+{% endif %}
+
 <!-- Prefetch -->
 {% include 'prefetch.swig' %}
 
@@ -68,3 +75,15 @@ twitter_site: config.twitter
         isTag: {{is_tag()}}  
     };
 </script>
+
+{% if page.wechat %}
+<script>
+    window.WechatShareData = {
+        imgUrl: "{{ page.wechat.share_cover | default(page.cover) }}",
+        link: window.location.href,
+        title: "{{ page.wechat.share_title | default(page.title) }}",
+        desc: "{{ page.wechat.share_desc | default(page.subtitle) }}"
+    }
+    window.WechatJSSDKURL = '{{ config.wechat.jssdk_url }}'
+</script>
+{% endif %}
