@@ -45,15 +45,4 @@
     {% include 'prevnext.swig' %}
     {% include '../common/comment.swig' %}
 
-    {% if post.wechat %}
-    <script>
-        window.WechatShareData = {
-            imgUrl: "{{ post.wechat.share_cover | default(post.cover) }}",
-            link: window.location.href,
-            title: "{{ post.wechat.share_title | default(post.title) }}",
-            desc: "{{ post.wechat.share_desc | default(post.subtitle) }}"
-        }
-        window.WechatJSSDKURL = '{{ config.wechat.jssdk_url }}'
-    </script>
-    {% endif %}
 </article>
