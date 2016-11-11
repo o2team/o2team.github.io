@@ -33,7 +33,7 @@ font-weight可取值：100～900和normal、bold、bolder、lighter。
 如果字体使用九阶有序数值100～900来划分其字重(字体的粗细度)，那么样式指定的font-weight属性值与字体的字重则一一对应。并且normal等价于400，bold等价于700。
 但实际上，我们一般遇到的字体很多时候都是使用一些通用的词描述划分其字重，如下所示。
 
-常见的字重数值大致对应的字重描述词语：
+常见的字重数值**大致对应**的字重描述词语：
 - 100 - Thin
 - 200 - Extra Light (Ultra Light)
 - 300 - Light
@@ -44,7 +44,7 @@ font-weight可取值：100～900和normal、bold、bolder、lighter。
 - 800 - Extra Bold (Ultra Bold)
 - 900 - Black (Heavy)
 
-> 为什么说大致对应呢？在有些字库下是有差异的，比如在[Adobe Typekit字库](https://helpx.adobe.com/typekit/using/css-selectors.html)中对字重描述的划分列表中，它列出Heavy指的是800而不是900。
+> 为什么说大致对应呢？在有些字库下是有差异的，比如在[Adobe Typekit字库](https://helpx.adobe.com/typekit/using/css-selectors.html)中对字重描述的划分列表中，它列出Heavy指的是800而不是900。另外，在我们日常使用的Photoshop和Sketch里面，Ultra Light是100，而Thin是200。
 
 并且，字体所拥有的字重的数量实际上很少存在满足有9个字重刚好跟100～900的CSS字重一一对应的情况，通常字体拥有的字重数量为4至6个。
 不必担心，起码400和700对应的字重至少是每种字体必备的，譬如常见的 Arial、Helvetica、Georgia等等，只有400(normal)和700(bold)。
