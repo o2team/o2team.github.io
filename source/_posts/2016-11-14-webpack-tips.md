@@ -8,7 +8,7 @@ tags:
   - Webpack 配置技巧
 author:
   nick: Simba
-  github_name: Simba
+  github_name: Simbachen
 wechat:
     share_cover: http://ww2.sinaimg.cn/large/66f2e5a7gw1f9m525uohdj205k05kmx2.jpg
     share_title: Webpack 实用配置技巧
