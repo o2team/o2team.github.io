@@ -10,9 +10,9 @@ author:
     nick: LV大大
     github_name: mamboer
 wechat:
-    share_cover: https://misc.aotu.io/o2/img/weui-logo.jpg
+    share_cover: https://misc.aotu.io/o2/img/books/wx-logo.jpg
     share_title: 漫漫编程路上必读的7本书
-    share_desc: 卖卖口袋中还算充裕的编程经验，再谷歌度娘下别人的建议然后取一个交集，给大家推荐7本程序员通用读物
+    share_desc: 卖卖口袋中还算充裕的编程经验，给大家推荐7本程序员通用读物
 ---
 
 每个专业每门编程语言都有它自己的经典书籍，而撇开具体的专业和程序语言来看，也有不少经典的对提升编程思想、软件工程理论大有裨益的书籍。
