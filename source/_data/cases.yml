@@ -46,3 +46,10 @@
   tags:
     - mac
     - guide
+- name: Excel Filter
+  desc: Excel数据可视化过滤工具
+  link: https://github.com/o2team/xcel
+  preview: //xcel.aotu.io
+  tags:
+    - xcel
+    - excel
