@@ -85,6 +85,12 @@ Bingo！
 - 如果所需的字重是400，那么会优先匹配500对应的字重，如仍没有，那么执行第一条所需字重小于400的规则。
 - 如果所需的字重是500，则优先匹配400对应的字重，如仍没有，那么执行第二条所需字重大于500的规则。
 
+> 感谢来自@何洋的补充：
+大多数浏览器已实现font-synthesis属性，使用该属性可以控制在font-weight没有相匹配的font typeface时，会模拟计算出合适的渲染字重(与其应有的typeface有些差异)，从而忽略Font Matching Algorithm。
+参考文章：
+- [Fonts－字体匹配算法第5条](https://www.w3.org/TR/REC-CSS2/fonts.html#algorithm) 
+- [MDN－font-synthesis](https://developer.mozilla.org/en/docs/Web/CSS/font-synthesis)
+
 ### 理解与运用
 
 下面我们通过官方例子和实际测试来好好理解这个匹配算法规则。
