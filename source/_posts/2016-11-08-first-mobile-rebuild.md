@@ -13,7 +13,7 @@ coeditor:
     name: 饮水机隔壁的小刘
     url: https://github.com/JChehe
 wechat:
-    share_cover: //misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/wx_share2.jpg
+    share_cover: https://misc.aotu.io/JChehe/2016-11-08-first-mobile-rebuild/wx_share2.jpg
     share_title: 我的第一次移动端页面制作 — 总结与思考
     share_desc: 我的第一次...
 date: 2016-11-08 16:22:23
