@@ -336,6 +336,7 @@ NFA 引擎的特点：
 
 MDN
 w3school
+http://es6.ruanyifeng.com/#docs/regex
 http://imweb.io/topic/56e804ef1a5f05dc50643106
 http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html
 http://www.cnblogs.com/hustskyking/p/how-regular-expressions-work.html
