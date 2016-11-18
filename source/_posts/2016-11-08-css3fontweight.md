@@ -1,7 +1,7 @@
 title: 深入了解font-weight
 subtitle: font-weight的各个属性值有什么区别？浏览器如何渲染字重？
 date: 2016-11-08 16:34:58
-cover: "//misc.aotu.io/Tingglelaoo/CSS3_fontWeight_900x500.jpg"
+cover: //misc.aotu.io/Tingglelaoo/CSS3_fontWeight_900x500.jpg
 categories: "Web开发"
 tags:
 - font-weight
@@ -10,7 +10,7 @@ author:
     nick: Tingglelaoo
     github_name: Tingglelaoo
 wechat:
-    share_cover: "//misc.aotu.io/Tingglelaoo/CSS3_fontWeight_200x200.jpg"
+    share_cover: https://misc.aotu.io/Tingglelaoo/CSS3_fontWeight_200x200.jpg
     share_title: 深入了解font-weight
 
 ---
