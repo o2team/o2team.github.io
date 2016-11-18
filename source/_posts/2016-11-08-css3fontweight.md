@@ -1,7 +1,7 @@
 title: 深入了解font-weight
 subtitle: font-weight的各个属性值有什么区别？浏览器如何渲染字重？
 date: 2016-11-08 16:34:58
-cover: "//misc.aotu.io/Tingglelaoo/CSS3_fontWeight_900x500.jpg"
+cover: //misc.aotu.io/Tingglelaoo/CSS3_fontWeight_900x500.jpg
 categories: "Web开发"
 tags:
 - font-weight
@@ -10,7 +10,7 @@ author:
     nick: Tingglelaoo
     github_name: Tingglelaoo
 wechat:
-    share_cover: "//misc.aotu.io/Tingglelaoo/CSS3_fontWeight_200x200.jpg"
+    share_cover: https://misc.aotu.io/Tingglelaoo/CSS3_fontWeight_200x200.jpg
     share_title: 深入了解font-weight
 
 ---
@@ -84,6 +84,12 @@ Bingo！
 - 如果所需的字重大于500，则首先升序检查大于所需字重的各字重，之后降序检查小于所需字重的各字重，直到找到匹配的字重。
 - 如果所需的字重是400，那么会优先匹配500对应的字重，如仍没有，那么执行第一条所需字重小于400的规则。
 - 如果所需的字重是500，则优先匹配400对应的字重，如仍没有，那么执行第二条所需字重大于500的规则。
+
+> 感谢来自@何洋的补充：
+大多数浏览器已实现font-synthesis属性，使用该属性可以控制在font-weight没有相匹配的font typeface时，会模拟计算出合适的渲染字重(与其应有的typeface有些差异)，从而忽略Font Matching Algorithm。
+参考文章：
+- [Fonts－字体匹配算法第5条](https://www.w3.org/TR/REC-CSS2/fonts.html#algorithm) 
+- [MDN－font-synthesis](https://developer.mozilla.org/en/docs/Web/CSS/font-synthesis)
 
 ### 理解与运用
 
