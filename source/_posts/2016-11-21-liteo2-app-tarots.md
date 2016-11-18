@@ -3,7 +3,6 @@ subtitle: 「轻氧」是一款专门为互联网从业人士打造的资讯应�
 cover: //misc.aotu.io/o2/img/app/v1-4-cover.jpg
 date: 2016-11-21 13:21:43
 categories: 移动开发
-draft: true
 tags:
   - liteo2
   - app
