@@ -13,7 +13,7 @@ coeditor:
     name: leeenx
     url: https://github.com/leeenx
 wechat:
-    share_cover: https://misc.aotu.io/leeenx/border-image/share.png
+    share_cover: //misc.aotu.io/leeenx/border-image/share.png
     share_title: border-image 的正确用法
     share_desc: 尽管经常使用 border-image，但我们真的了解它的吗？
 date: 2016-11-02 21:22:23
@@ -281,7 +281,7 @@ border-image: none | <uri> [<number> | <percentage>]{4} [ / <border-width>{1,4} 
 设置了 border-image-outset 后 border-width 的分割 border image area 的假像就被揭穿了！！
 border-width 分割 border image area 的假象源自 border-image-width 的缺省值1，数值1表示 border-image-width 是 1x border-width，大白话就是**border-image-width 的默认值是border-width**。
 
-尽管，“border-width 分割 border image area” 只是个假像，但是这并不影响我们利用它暂代 border-image-width，特别是从 -webkit-border-image 转向标准的 border-image 的老用户。
+**尽管在最新的CSS3标准中 “border-width 分割 border image area” 只是个假像，但当前(2016.11.1)阶段，为了更多浏览器兼容建议 border-width 与 border-image-width 保持一致，即使用 border-width 暂代 border-image-width。**
 
 ### 2.4 border-image-outset
 
