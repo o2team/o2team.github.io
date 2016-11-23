@@ -378,7 +378,7 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) 27 27 27 27 / 1
 ```
 错误的写法：
 ```scss
-border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) 27 27 27 27 / 10px / 10px;
+border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
 ```
 
 
