@@ -1,6 +1,6 @@
 title: 三看 SVG Web 动效
 subtitle: 800字作文再也不用担心凑不够字数啦！
-cover: //.aotu.io/lyxuncle/20161125_SVG_Web_Animation/svg_web_animation_900x500.png
+cover: //misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/svg_web_animation_900x500.png
 categories: Web开发
 tags:
   - SVG
