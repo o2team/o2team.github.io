@@ -1,6 +1,6 @@
 title: 三看 SVG Web 动效
 subtitle: 800字作文再也不用担心凑不够字数啦！
-cover: //misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/svg_web_animation_900x500.png
+cover: //misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/svg_web_animation_v2_900x500.png
 categories: Web开发
 tags:
   - SVG
@@ -9,7 +9,7 @@ author:
   nick: EC
   github_name: lyxuncle
 wechat:
-    share_cover: http://misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/svg_web_animation_200x200.png
+    share_cover: http://misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/svg_web_animation_v2_200x200.png
     share_title: 三看 SVG Web 动效
     share_desc: 800字作文再也不用担心凑不够字数啦！
 date: 2016-11-22 17:33:00
@@ -473,7 +473,7 @@ SVG 中的蒙版有两种——剪裁cliping `<clipPath>` 与遮罩mask `<mask>`
 
 因此遮罩的功能其实是包含剪裁的，当遮罩使用的是纯黑的图像时，功能等同于剪裁。
 
-![cliping and mask](https://misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/cliping_mask.jpg)
+![cliping and mask](https://misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/cliping_mask_2.jpg)
 
 虚线的描线动效结合剪裁或者遮罩即可以完成（[Codepen](http://codepen.io/lyxuncle/pen/PbmdxO)）：
 
