@@ -19,9 +19,7 @@ CSS3 动效玩腻了吗？没关系的，我们还有 SVG。
 
 <!-- more -->
 
-# 三看 SVG Web 动效
-
-Welikesmall 是一个互联网品牌宣传代理，这是我见过的最喜欢使用 SVG 做动效的网页设计团队。事实上，越来越多的网页动效达人选择在 SVG 的疆土上开辟动效的土壤，即便 SMIL 寿将终寝，事实上这反而将 SVG 动效推向了一个新的世界：CSS3 Animation + SVG。
+[Welikesmall](http://www.welikesmall.com/) 是一个互联网品牌宣传代理，这是我见过的最喜欢使用 SVG 做动效的网页设计团队。事实上，越来越多的网页动效达人选择在 SVG 的疆土上开辟动效的土壤，即便 SMIL 寿将终寝，事实上这反而将 SVG 动效推向了一个新的世界：CSS3 Animation + SVG。
 
 ![Alt text](https://misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/1479630242685.png)
 
@@ -37,6 +35,8 @@ CSS 与 SVG 的打通无疑将 html 代码的可读性又推上一个台阶，�
   - [**箭头**描线动效](http://codepen.io/lyxuncle/pen/wozzrV)
   - [**播放按钮**滤镜动效](http://codepen.io/lyxuncle/pen/qqbopp)
   - [**虚线**描线动效](http://codepen.io/lyxuncle/pen/bBejZZ)
+
+动效来源：[WLS-Adobe](http://www.welikesmall.com/work/adobe/)
 
 即将聊到的 SVG 标签：
   - `<path>`
@@ -532,6 +532,7 @@ svg:hover .line {
   - [**箭头**描线动效](http://codepen.io/lyxuncle/pen/wozzrV)
   - [**播放按钮**滤镜动效](http://codepen.io/lyxuncle/pen/qqbopp)
   - [**虚线**描线动效](http://codepen.io/lyxuncle/pen/bBejZZ)
+- 动效来源于 [WLS-Adobe](http://www.welikesmall.com/work/adobe/)
 - 聊到了 SVG 的几个标签
   - `<path>`
   - `<g>`
