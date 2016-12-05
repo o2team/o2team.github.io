@@ -19,7 +19,7 @@ CSS3 动效玩腻了吗？没关系的，我们还有 SVG。
 
 <!-- more -->
 
-[Welikesmall](http://www.welikesmall.com/) 是一个互联网品牌宣传代理，这是我见过的最喜欢使用 SVG 做动效的网页设计团队。事实上，越来越多的网页动效达人选择在 SVG 的疆土上开辟动效的土壤，即便 SMIL 寿将终寝，事实上这反而将 SVG 动效推向了一个新的世界：CSS3 Animation + SVG。
+[Welikesmall](http://www.welikesmall.com/) 是一个互联网品牌宣传代理，这是我见过的最喜欢使用 SVG 做动效的网页设计团队。事实上，越来越多的网页动效达人选择在 SVG 的疆土上开辟动效的土壤，即便 SMIL 寿终正寝，事实上这反而将 SVG 动效推向了一个新的世界：CSS3 Animation + SVG。
 
 ![Alt text](https://misc.aotu.io/lyxuncle/20161125_SVG_Web_Animation/1479630242685.png)
 
