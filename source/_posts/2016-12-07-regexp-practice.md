@@ -4,8 +4,14 @@ cover: //misc.aotu.io/Newcandy/2016-12-07-regexp-practice/cover_900x500.jpg
 categories: Web开发
 tags:
   - 正则表达式
-  - String方法
-  - RegExp方法
+  - regexp
+  - javascript
+  - 匹配美元
+  - 匹配24小时制的时间
+  - 匹配IP地址
+  - 匹配分隔符之内的文本
+  - 多选分支
+  - 回溯
 author:
   nick: 暖暖
   github_name: Newcandy

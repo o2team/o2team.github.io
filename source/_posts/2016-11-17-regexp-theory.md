@@ -4,6 +4,8 @@ cover: //misc.aotu.io/Newcandy/2016-11-16-regexp-theory/cover2_900x500.jpg
 categories: Web开发
 tags:
   - 正则表达式
+  - regexp
+  - javascript
   - String方法
   - RegExp方法
   - 回溯
