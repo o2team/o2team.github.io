@@ -45,6 +45,9 @@
 <meta name="msapplication-TileColor" content="#2f83cd">
 <meta name="msapplication-TileImage" content="{{ url_for('img/mstile-144x144.png') }}">
 
+<!--open.weibo.com-->
+<meta property="wb:webmaster" content="a1686eb81db284d5" />
+
 <!--wechat shares meta-->
 {% if page.wechat %}
 <meta name="wechat-logo" content="{{ page.wechat.share_cover | default(page.cover) }}">
