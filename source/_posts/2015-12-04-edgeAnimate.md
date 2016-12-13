@@ -139,7 +139,7 @@ Edge Animate Buttons
 ```
 我们只需要把class类o2-scale，添加给舞台就可以，完成适配。
 
-[demo演示效果](http://pingfan1990.sinaapp.com/jdcase/blackfriday/)
+[demo演示效果](http://jdc.jd.com/fd/promote/201512/blackfriday/index.html)
 手机扫描：
 ![edge](//img.aotu.io/pfan/edge/15.jpg)
 ios，android亲测，效果还是比较流畅的。
