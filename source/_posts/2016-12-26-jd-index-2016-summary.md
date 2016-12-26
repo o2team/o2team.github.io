@@ -107,11 +107,11 @@ date: 2016-12-26 20:25:57
 
 一直以来轮播都是靠页面最后加载的JS来进行渲染的，因为轮播图有随机渲染图片的逻辑需要依赖JS，但在一段时间的观察之后发现，如果CDN出现抖动，或者用户的网速较慢，那么首屏轮播这一块位置就会一直空着，给人的体验非常不好
 
-![轮播](//misc.aotu.io/luckyadam/index_2016/carsouel_past.jpg)
+![轮播](//misc.aotu.io/luckyadam/index_2016/past_carsouel.jpg)
 
 所以在这一版的首页中我们将轮播图第一帧的数据直出在页面上，同时也将第一帧的渲染逻辑也直出在页面上，这样一来，首屏轮播出来得就非常快，减少用户的等待时间。
 
-![轮播](//misc.aotu.io/luckyadam/index_2016/carsouel_now.jpg)
+![轮播](//misc.aotu.io/luckyadam/index_2016/now_carsouel.jpg)
 
 ### 楼层按需加载与滚动优化
 
@@ -119,9 +119,9 @@ date: 2016-12-26 20:25:57
 
 在我们新的方案中，已经采用了前端模板+数据的开发模式，所以在开发中我们想用直接书写前端模板的方式来进行开发，然后在本地进行预览，而在项目编译时能将我们的模板编译成独立的文件，方便渲染逻辑进行加载。所幸`Athena`工具已经支持了这样的功能，在开发中我们以编写前端模板的方式去开发整个页面，随后通过编译工具，在代码编译阶段自动将楼层的模板和样式抽离成一个与组件同名的独立JS文件，通过页面加载逻辑去按需拉取模板文件，再进行渲染。
 
-下面截图揭示了楼层模板生成的过程
+下面例子揭示了楼层模板生成的过程
 
-> 在编写模板时我们给模板加上标记位 o2-out-tpl
+> 直接书写前端模板，编写模板时我们给模板加上标记位 o2-out-tpl
 ```javascript
 <script type="text/template" class="o2template" o2-out-tpl>
   {%
@@ -187,7 +187,7 @@ date: 2016-12-26 20:25:57
 }
 ```
 
->通过关系表去合并处理CSS，再和前端模板一起生成独立的JS文件
+>通过关系表去合并处理CSS样式，再和前端模板一起计算出MD5，生成独立的JS文件
 ```javascript
 jsonCallBack_rec_tpl({dom:'{%var i,clstagPrefix = pageConfig.clstagPrefix + o.staticLogTag;var isWide = pageConfig.compatible && pageConfig.wideVersion;%}{% var len = o.list.length; len = Math.min(len, 3); %}{% if (len >= 1) { %}<div class="grid_c1 rec_inner"><ul class="rec_list">{% for(i = 0; i < len; i++){ %}{% var item = o.list[i]; %}{% var imgUrl = isWide ? item.imgUrl : item.imgUrlB; %}<li class="rec_item" fclog="{%= item.clog %}"><a href="{%= item.url %}" class="rec_lk" target="_blank" clstag="{%= clstagPrefix + \'a\' + (i < 9 ? \'0\' : \'\') + (1+i) %}"><img src="//misc.360buyimg.com/mtd/pc/common/img/blank.png" data-lazy-img="{%= imgUrl %}" alt="{%= item.title %}" title="{%= item.title %}" class="rec_img" data-webp="no" ></a></li>{% } %}</ul></div>{% } %} ',style:".rec_list{overflow:hidden;height:100px}.rec_item{overflow:hidden;float:left;width:396px;height:100%}.rec_lk{display:block;height:100%}.rec_img{display:block;margin:auto}.o2_mini .rec_item{width:330px}.csstransitions .rec_img{-webkit-transition:opacity .2s;-moz-transition:opacity .2s;transition:opacity .2s}.csstransitions .rec_lk:hover .rec_img{opacity:.8}",time:1479466862559,version:"ff78610a0ef9cdbb"});
 ```
@@ -221,6 +221,8 @@ require.async(__uri('APP_JS_ROOT/header.js'))
 // 编译后
 require.async('//misc.360buyimg.com/mtd/pc/index/js/header.js')
 ```
+
+同时，还有业务上一些统计上报等逻辑，可以放到 `window onload` 事件之后再执行，这样可以避免由于类似统计这样的请求占用到页面加载资源，从而降低页面 `onload` 时间。
 
 ### 模板、数据分离缓存
 
