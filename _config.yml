@@ -95,6 +95,10 @@ feed:
   path: atom.xml
   limit: false
 
+# Json Feeds
+## https://github.com/alexbruno/hexo-generator-json-feed
+jsonFeed:
+  limit: 30
 
 #stylus
 stylus:
