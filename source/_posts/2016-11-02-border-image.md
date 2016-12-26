@@ -179,7 +179,7 @@ CSS 代码：
 .box {
 	width: 27px;
 	height:27px;
-	border: 27px solid transparent;
+	border: 27px solid;
 	border-image: url(box.png) 27 27 27 27 fill repeat stretch;//fil？
 }
 ```
@@ -381,6 +381,13 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) 27 27 27 27 / 1
 border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
 ```
 
+### 后记
+
+实践过程中遇到BUG：
+
+safari浏览器下，border-color不能使用 `transparent` 与 `rgba(x,x,x, 0)`。否则，border-image 会失效。
+
+补记于：2016.12.26
 
 -------
 参考资料：
