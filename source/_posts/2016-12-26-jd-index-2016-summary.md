@@ -1,7 +1,7 @@
 title: 京东2016版首页改版前端总结
 subtitle: 经过1个多月的奋战，京东2016版首页终于捅上线了，本文主要对此次改版项目中前端所做的工作进行总结
 cover: //misc.aotu.io/luckyadam/index_2016/cover.jpg
-categories: Web开发
+categories: 项目总结
 tags:
   - JD
   - Summary
