@@ -25,21 +25,19 @@ date: 2016-12-26 20:25:57
 
 ![架构](//misc.aotu.io/luckyadam/index_2016/architecture.jpg)
 
-**前端工程化工具[Athena](https://github.com/o2team/athena)**，是我们团队自己探索开发的一套基于`NodeJs`的命令行式前端工程化工具，解决了自动化编译、代码处理、依赖分析、文件压缩等前端开发中的常规问题，有效地提升了我们的工作效率，解放生产力，目前已经应用于我们团队的多个业务中，首页改版也使用[Athena](https://github.com/o2team/athena)来进行开发；
+**[Athena前端工程化工具](https://github.com/o2team/athena)**，是我们团队自己探索开发的一套基于`NodeJs`的命令行式前端工程化工具，解决了自动化编译、代码处理、依赖分析、文件压缩等前端开发中的常规问题，有效地提升了我们的工作效率，解放生产力，目前已经应用于我们团队的多个业务中，首页改版也使用[Athena](https://github.com/o2team/athena)来进行开发；
 
 **Athena管理平台**，是Athena工具配套的管理后台，它会收集本地工具操作中上报的统计数据，包括项目、模块、页面、组件创建的信息，文件、资源依赖关系的信息等，通过这些数据来进行项目和资源的管理，同时提供了项目模板，方便使用本地工具创建项目时选择，具体可以参考之前的博文[我们是如何做好前端工程化和静态资源管理](https://aotu.io/notes/2016/07/19/A-little-exploration-of-front-end-engineering/)；
 
 **Athena组件平台**，是基于Athena总结的一套业务组件的平台，可以很好地管理我们的业务组件，方便组件的复用和传播；
 
-**基础库及组件库[channel-base](https://github.com/o2team/channel-base)**，是业务中总结出的基于`jQuery` + `Seajs`的js库，简化业务开发，提供完整的框架；
+**[Athena基础库及组件库](https://github.com/o2team/channel-base)**，是业务中总结出的基于`jQuery` + `Seajs`的js库，简化业务开发，提供完整的框架；
 
-**Athena前端测速系统**，通过在页面中进行埋点上报的方式，我们可以在测速系统中，实时地看到性能相关数据；
+**Athena模拟接口**，可以自由编辑生成指定接口的假数据，用于开发时真实接口的替代，让开发不再依赖后端接口；
 
-**假数据平台**，可以自由编辑生成指定接口的假数据，用于开发时真是接口的替代，让开发不再依赖后端接口；
+**Athena兜底接口服务**，可以指定接口生成一份兜底数据接口，平台会定时去抓取指定接口数据，然后生成兜底数据到CDN，从而生成对应的兜底接口，这样让正常接口多一份兜底保障；
 
-**兜底接口平台**，可以指定接口生成一份兜底数据接口，平台会定时去抓取指定接口数据，然后生成兜底数据到CDN，从而生成对应的兜底接口，这样让正常接口多一份兜底保障；
-
-**统计上报**，我们进行上报的不止有页面性能、速度相关的数据，同时会上报用户的环境信息，例如操作系统、浏览器、网速等，而且还会对页面中错误信息进行上报，如模块的隐藏等，通过这些数据，对我们的业务进行实时地监控与分析。
+**Athena前端监控**，通过在页面中进行埋点上报的方式，我们可以在监控系统中，实时地看到性能相关数据。我们进行上报的不止有页面性能、速度相关的数据，同时会上报用户的环境信息，例如操作系统、浏览器、网速等，而且还会对页面中错误信息进行上报，如模块的隐藏等，通过这些数据，对我们的业务进行实时地监控与分析。
 
 在我们的架构中，各种各样的工具与系统相辅相成，覆盖到了开发到上线的各个环节，自成一套体系。这样的架构不止是针对首页这个业务的，而是在基于对之前业务开发总结的基础上进行完善、调整的架构，适用于我们各个业务。而这次首页的改版中，我们对开发模式、性能优化、体验优化都进行了一些新的探索，让我们对于业务开发的整体解决方案又有了新的改进。
 
@@ -89,7 +87,15 @@ date: 2016-12-26 20:25:57
 
 通过对`Athena`工具的改造，我们实现样式、模板的统一抽离这一功能，并且是在项目编译阶段自动实现的，开发者勿需关心。由于Athena统一的项目结构，每一个楼层在我们的项目中对应一个`widget`的组件，组件包含自己的`HTML` 、`CSS`、 `JavaScript`文件，所以在编译时，工具会自动分析所有`widget`的依赖关系，然后把楼层的模板和样式打包到一个文件中。最后在楼层加载的时候去请求这个文件，然后解析加载。这样的抽离工作会在最后的项目编译阶段进行，而进行本地开发预览的时候并不会执行，这样保证了开发的效率。
 
-![模板样式抽离](//misc.aotu.io/luckyadam/index_2016/tpl.jpg)
+```javascript
+// https://misc.360buyimg.com/mtd/pc/index/home/rec_tpl.min.js
+jsonCallBack_rec_tpl({
+    dom: '{%var i,clstagPrefix = pageConfig.clstagPrefix + o.staticLogTag;var isWide = pageConfig.compatible && pageConfig.wideVersion;%}{% var len = o.list.length; len = Math.min(len, 3); %}{% if (len >= 1) { %}<div class="grid_c1 rec_inner"><ul class="rec_list">{% for(i = 0; i < len; i++){ %}{% var item = o.list[i]; %}{% var imgUrl = isWide ? item.imgUrl : item.imgUrlB; %}<li class="rec_item" fclog="{%= item.clog %}"><a href="{%= item.url %}" class="rec_lk" target="_blank" clstag="{%= clstagPrefix + \'a\' + (i < 9 ? \'0\' : \'\') + (1+i) %}"><img src="//misc.360buyimg.com/mtd/pc/common/img/blank.png" data-lazy-img="{%= imgUrl %}" alt="{%= item.title %}" title="{%= item.title %}" class="rec_img" data-webp="no" ></a></li>{% } %}</ul></div>{% } %} ',
+    style: ".rec_list{overflow:hidden;height:100px}.rec_item{overflow:hidden;float:left;width:396px;height:100%}.rec_lk{display:block;height:100%}.rec_img{display:block;margin:auto}.o2_mini .rec_item{width:330px}.csstransitions .rec_img{-webkit-transition:opacity .2s;-moz-transition:opacity .2s;transition:opacity .2s}.csstransitions .rec_lk:hover .rec_img{opacity:.8}",
+    time: 1479195351434,
+    version: "ff78610a0ef9cdbb"
+});
+```
 
 通过上述手段，我们让首屏变得更加精简，从下面的对比中就可以看出
 
@@ -239,10 +245,35 @@ require.async('//misc.360buyimg.com/mtd/pc/index/js/header.js')
 而对于模板来说，则可以通过`Athena`工具，在每次编译的时候自行计算出版本号，写入模板文件和入口JS文件中，这样在模板加载的时候也可以进行比对。
 
 单个模板文件
-![模板样式抽离](//misc.aotu.io/luckyadam/index_2016/tpl.jpg)
+
+```javascript
+// https://misc.360buyimg.com/mtd/pc/index/home/rec_tpl.min.js
+jsonCallBack_rec_tpl({
+    dom: '{%var i,clstagPrefix = pageConfig.clstagPrefix + o.staticLogTag;var isWide = pageConfig.compatible && pageConfig.wideVersion;%}{% var len = o.list.length; len = Math.min(len, 3); %}{% if (len >= 1) { %}<div class="grid_c1 rec_inner"><ul class="rec_list">{% for(i = 0; i < len; i++){ %}{% var item = o.list[i]; %}{% var imgUrl = isWide ? item.imgUrl : item.imgUrlB; %}<li class="rec_item" fclog="{%= item.clog %}"><a href="{%= item.url %}" class="rec_lk" target="_blank" clstag="{%= clstagPrefix + \'a\' + (i < 9 ? \'0\' : \'\') + (1+i) %}"><img src="//misc.360buyimg.com/mtd/pc/common/img/blank.png" data-lazy-img="{%= imgUrl %}" alt="{%= item.title %}" title="{%= item.title %}" class="rec_img" data-webp="no" ></a></li>{% } %}</ul></div>{% } %} ',
+    style: ".rec_list{overflow:hidden;height:100px}.rec_item{overflow:hidden;float:left;width:396px;height:100%}.rec_lk{display:block;height:100%}.rec_img{display:block;margin:auto}.o2_mini .rec_item{width:330px}.csstransitions .rec_img{-webkit-transition:opacity .2s;-moz-transition:opacity .2s;transition:opacity .2s}.csstransitions .rec_lk:hover .rec_img{opacity:.8}",
+    time: 1479195351434,
+    version: "ff78610a0ef9cdbb"
+});
+```
 
 JS入口文件
-![js入口](//misc.aotu.io/luckyadam/index_2016/tpl_version.jpg)
+
+```javascript
+// https://misc.360buyimg.com/mtd/pc/index/home/index_focus.min.js
+window.tplVersion = {
+    "1212_tpl": "ce7dcd7cd0beacb2",
+    elevator_tpl: "e4d5dbaa3ecd12d2",
+    entry_tpl: "2caa7cd543c322ea",
+    fbt_tpl: "18f8bff18188a453",
+    floor_coupon_tpl: "b98cf33be84aae98",
+    floor_ract_tpl: "13b92d16fb6e2f7a",
+    mod_footer_tpl: "072072ffc47778be",
+    more_tpl: "25dcb060800c503a",
+    portal_tpl: "68fae801a032cf93",
+    rec_tpl: "ff78610a0ef9cdbb",
+    seckill_tpl: "4fee56c5b073e5e1"
+};
+```
 
 通过上述方式，我们实现了模板、数据的分离缓存，由于楼层类似的关系，页面中的模板大多数是重复，这样子模板缓存起来就能大大提高模板的利用率，当用户第二次访问的时候将不会再产生请求，在加速访问的同时，减少网络带宽消耗，并且如果数据发生更新，用户只需要更新数据即可，大大减少流量消耗。
 
