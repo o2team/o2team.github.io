@@ -6,6 +6,7 @@
     "serve": "hexo s --watch",
     "build": "hexo g",
     "deploy": "sh ./.travis/deploy.sh",
+    "start": "hexo",
     "clean": "rm -rf public/js/libs && rm -rf public/js/mods"
   },
   "hexo": {
