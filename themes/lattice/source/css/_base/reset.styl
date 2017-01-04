@@ -51,17 +51,14 @@ blockquote
   position: relative
   color: color-grey
   font-weight: 400
-  border-left: 1px solid color-accent
-  padding-left: 1em
-  margin: 1em 3em 1em 2em
+  border: 1px solid color-grey-lite
+  border-left: 2px solid color-accent
+  padding: .5em 1em
+  margin: 1em 0
   & p
-    margin-bottom: 0.3em
+    margin-bottom: 0.5em !important
   & *:last-child
-    margin-bottom: 0
-
-@media only screen and ( max-width: 640px )
-  blockquote
-    margin: 1em 0
+    margin-bottom: 0 !important
 
 /* Firefox 以外，元素没有下划线，需添加 */
 acronym, abbr
