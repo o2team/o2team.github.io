@@ -36,13 +36,13 @@ date: 2017-01-04 11:35:12
 
 心灵手巧的硬妹子EC，凹凸实验室的动效一姐，目前单身！
 
-<iframe height="498" width="510" src='http://player.youku.com/embed/XMTg5ODUyMzU3Ng==' frameborder="0" allowfullscreen></iframe>
+<iframe height="498" width="510" src='//player.youku.com/embed/XMTg5ODUyMzU3Ng==' frameborder="0" allowfullscreen></iframe>
 
 #### 茶歇
 
 听听分享，吃吃东西。
 
-<iframe height="498" width="510" src='http://player.youku.com/embed/XMTg5ODUyNzg0OA==' frameborder="0" allowfullscreen></iframe>
+<iframe height="498" width="510" src='//player.youku.com/embed/XMTg5ODUyNzg0OA==' frameborder="0" allowfullscreen></iframe>
 
 #### 分享嘉宾合照
 
