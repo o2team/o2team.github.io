@@ -120,8 +120,9 @@ function handleResize() {
 }
 ```
 
-## 代码示例
+## 示例
 
+[在线示例](http://video.aco.aotu.io/)
 [代码仓库](https://github.com/o2team/elf/tree/master/templates/video)
 
 > 代码基于 [`ELF`](https://github.com/o2team/elf) 构建，运行示例需要 [安装 ELF](https://github.com/o2team/elf#安装)，欢迎试用反馈。
