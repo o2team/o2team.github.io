@@ -12,7 +12,7 @@ wechat:
     share_cover: http://misc.aotu.io/booxood/mobile-video/cover_200x200.jpg
     share_title: 视频H5のVideo标签在微信里的坑和技巧
     share_desc: 介绍一些移动端使用 Video 标签满屏播放视频的实践经验
-date: 2017-1-11 18:36:37
+date: 2017-1-11 17:36:37
 
 ---
 
