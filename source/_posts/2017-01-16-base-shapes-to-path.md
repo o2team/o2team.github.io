@@ -243,7 +243,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建基本形状，还�
  function line2path(x1, y1, x2, y2) {
     //非数值单位计算，如当宽度像100%则移除
     if (isNaN(x1 - y1 + x2 - y2)) return; 
-    
+
      x1 = x1 || 0;
      y1 = y1 || 0;
      x2 = x2 || 0;
@@ -278,7 +278,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建基本形状，还�
 
 ## 五、convertpath 转换工具 
 
-为了方便处理SVG基本元素路径转换，我写了[convertpath](https://github.com/pfan123/convertpath)库工具，可很方便处理基本元素路径转换问题 ，具体如下：
+为了方便处理SVG基本元素路径转换，本人抽空写了[convertpath](https://github.com/pfan123/convertpath)工具，具体如下：
 
 安装：
 ```
