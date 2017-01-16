@@ -275,7 +275,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
 
 ## `convertpath`转换工具 
 
-为了方便处理SVG基本元素路径转换，我写了[`convertpath`](https://github.com/pfan123/convertpath)库工具，可很方便处理基本元素路径转换问题 ，具体如下：
+为了方便处理SVG基本元素路径转换，我写了[convertpath](https://github.com/pfan123/convertpath)库工具，可很方便处理基本元素路径转换问题 ，具体如下：
 
 安装：
 ```
