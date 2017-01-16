@@ -1,7 +1,7 @@
 title: 聊聊 SVG 基本形状转换那些事
 subtitle: 介绍如何把SVG基本形状转换为更紧凑的path形式
 cover: //misc.aotu.io/pfan123/svgpath/svgpath_banner.png?t=123
-categories: 移动开发
+categories: web开发
 tags:
   - svg
   - path
