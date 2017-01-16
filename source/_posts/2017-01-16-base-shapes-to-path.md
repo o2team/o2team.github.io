@@ -31,7 +31,7 @@ date: 2017-1-16 12:36:37
 
 SVG 提供了`rect`、`circle`、`ellipse`、`line`、`polyline`、`polygon`六种基本形状用于图形绘制，这些形状可以直接用来绘制一些基本的形状，如矩形、椭圆等，而复杂图形的绘制则需要使用 path 路径来实现。
 
-![svg基本形状](//img.pfan123.com/svgpath1.jpg)
+![svg基本形状](//misc.aotu.io/pfan123/svgpath/svgpath1.png)
 
 #### 1.`rect` 矩形
 
@@ -144,7 +144,7 @@ points 点集数列，每个数字用空白、逗号、终止命令符或者换�
 
 SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状，还能创建更多复杂的形状。`<path>`路径是由一些命令来控制的，每一个命令对应一个字母，并且区分大小写，大写主要表示绝对定位，小写表示相对定位。`<path>` 通过属性 d 来定义路径， d 是一系列命令的集合，主要有以下几个命令：
 
-![svg基本形状](//img.pfan123.com/svgpath2.jpg)
+![svg基本形状](//misc.aotu.io/pfan123/svgpath/svgpath2.png)
 
 通常大部分形状，都可以通过指令`M(m)`、`L(l)`、`H(h)`、`V(v)`、`A(a)`来实现，注意特别要区分大小写，相对与绝对坐标情况，转换时推荐使用相对路径可减少代码量，例如：
 
@@ -165,7 +165,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
 
 如下图所示，一个 `rect` 是由 4 个弧和 4 个线段构成；如果 `rect` 没有设置 rx 和 ry 则 `rect` 只是由 4 个线段构成。`rect` 转换为 `path` 只需要将 A ~ H 之间的弧和线段依次实现即可。
 
-![svg基本形状](//img.pfan123.com/rect2path.png)
+![svg基本形状](//misc.aotu.io/pfan123/svgpath/rect2path.png)
 
 ```
  function rect2path(x, y, width, height, rx, ry) {
@@ -218,7 +218,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
 
 圆可视为是一种特殊的椭圆，即 rx 与 ry 相等的椭圆，所以可以放在一起讨论。 椭圆可以看成A点到C做180度顺时针画弧、C点到A做180度顺时针画弧即可。
 
-![svg基本形状](//img.pfan123.com/ellipse2path.png)
+![svg基本形状](//misc.aotu.io/pfan123/svgpath/ellipse2path.png)
 
 ```
  function ellipse2path(cx, cy, rx, ry) {
