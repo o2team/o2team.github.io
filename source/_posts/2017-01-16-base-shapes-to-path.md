@@ -23,11 +23,11 @@ date: 2017-1-16 12:36:37
 ---
 
 <!-- more -->
-## 前言
+## 一、前言
 
 前段时间研究 SVG 压缩优化，发现SVG预定义的 `rect`、`circle`、`ellipse`、`line`、`polyline`、`polygon`  六种基本形状可通过path路径转换实现，这样可以在一定程度上减少代码量。不仅如此，我们常用的 SVG Path 动画(路径动画)，是以操作path中两个属性值`stroke-dasharray`和`stroke-dashoffset`来实现，基本形状转换为path路径，有利于实现路径动画。
 
-## SVG基本形状
+## 二、SVG基本形状
 
 SVG 提供了`rect`、`circle`、`ellipse`、`line`、`polyline`、`polygon`六种基本形状用于图形绘制，这些形状可以直接用来绘制一些基本的形状，如矩形、椭圆等，而复杂图形的绘制则需要使用 path 路径来实现。
 
@@ -140,9 +140,9 @@ points 点集数列，每个数字用空白、逗号、终止命令符或者换�
 points 点集数列，每个数字用空白、逗号、终止命令符或者换行符分隔开，每个点必须包含2个数字，一个是x坐标，一个是y坐标 如0 0, 1 1, 2 2， 路径绘制完闭合图形”
 ```
 
-## SVG path 路径
+## 三、SVG path 路径
 
-SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状，还能创建更多复杂的形状。`<path>`路径是由一些命令来控制的，每一个命令对应一个字母，并且区分大小写，大写主要表示绝对定位，小写表示相对定位。`<path>` 通过属性 d 来定义路径， d 是一系列命令的集合，主要有以下几个命令：
+SVG 的路径`<path>`功能非常强大，它不仅能创建基本形状，还能创建更多复杂的形状。`<path>`路径是由一些命令来控制的，每一个命令对应一个字母，并且区分大小写，大写主要表示绝对定位，小写表示相对定位。`<path>` 通过属性 d 来定义路径， d 是一系列命令的集合，主要有以下几个命令：
 
 ![svg基本形状](//misc.aotu.io/pfan123/svgpath/svgpath2.png)
 
@@ -159,7 +159,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
 ```
 
 
-## SVG 基本形状路径转换原理
+## 四、SVG 基本形状路径转换原理
 
 #### 1.rect to path
 
@@ -223,7 +223,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
 ```
  function ellipse2path(cx, cy, rx, ry) {
     //非数值单位计算，如当宽度像100%则移除
-    if (isNaN(x - y + width - height + rx - ry)) return;
+    if (isNaN(cx - cy + rx - ry)) return;
 
     var path =
         'M' + (cx-rx) + ' ' + cy +
@@ -241,6 +241,9 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
 
 ```
  function line2path(x1, y1, x2, y2) {
+    //非数值单位计算，如当宽度像100%则移除
+    if (isNaN(x1 - y1 + x2 - y2)) return; 
+    
      x1 = x1 || 0;
      y1 = y1 || 0;
      x2 = x2 || 0;
@@ -273,7 +276,7 @@ SVG 的路径`<path>`功能非常强大，它不仅能创建其他基本形状�
  } 
 ```
 
-## `convertpath`转换工具 
+## 五、convertpath 转换工具 
 
 为了方便处理SVG基本元素路径转换，我写了[convertpath](https://github.com/pfan123/convertpath)库工具，可很方便处理基本元素路径转换问题 ，具体如下：
 
@@ -299,8 +302,8 @@ console.log(parse.toSimpleSvg())
 
 参考资料：
 
-[w3c Basic shapes](https://www.w3.org/TR/SVG/shapes.html)
-[基本形状](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Basic_Shapes)
+[Basic Shapes – SVG 1.1 (Second Edition)](https://www.w3.org/TR/SVG/shapes.html)
+[基本形状 - SVG | MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Basic_Shapes)
 [SVG (一) 图形, 路径, 变换总结; 以及椭圆弧线, 贝塞尔曲线的详细解释](https://segmentfault.com/a/1190000004393817)
-[路径](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)
-[xmldom](https://github.com/jindw/xmldom)  
+[路径 - SVG | MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)
+[XMLDOM](https://github.com/jindw/xmldom)  
