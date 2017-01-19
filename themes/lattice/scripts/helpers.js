@@ -58,13 +58,23 @@ hexo.extend.helper.register('header_menu', function(className){
             return path1 === path0;    
         }
         return (path1.indexOf(path0)!==-1);    
-    }
+    },
+    isAbs = function(path0) {
+        if(path0.indexOf('http') === 0) {
+            return true;
+        }
+        return false;
+    };
 
   _.each(menu, function(path, title){
     if (!isDefaultLang && ~localizedPath.indexOf(title)) path = lang + '/' + path;
     var activeClass  = isActive(path) ? " active" : "";
     result += '<li class="' + className + '-item' + activeClass + '">';
-    result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + self.__('menu.' + title) + '</a>';
+    if(isAbs(path)) {
+        result += '<a target="_blank" href="' + self.url_for(path) + '" class="' + className + '-link">' + self.__('menu.' + title) + '</a>';
+    } else {
+        result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + self.__('menu.' + title) + '</a>';
+    }
     result += '</li>';
   });
 

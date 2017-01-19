@@ -6,6 +6,7 @@
     "serve": "hexo s --watch",
     "build": "hexo g",
     "deploy": "sh ./.travis/deploy.sh",
+    "start": "hexo",
     "clean": "rm -rf public/js/libs && rm -rf public/js/mods"
   },
   "hexo": {
@@ -33,11 +34,11 @@
     "hexo-server": "^0.2.0",
     "hexo-util": "^0.6.0",
     "hexo-wordcount": "2.0.0",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.4",
     "lunr": "github:codepiano/lunr.js.git"
   },
   "devDependencies": {
-    "eslint": "^3.11.1",
+    "eslint": "^3.13.1",
     "eslint-config-defaults": "^9.0.0",
     "js-yaml": "^3.7.0"
   },
