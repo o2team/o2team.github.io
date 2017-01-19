@@ -1,7 +1,7 @@
 title: 微信小程序跨页面通信解决思路
 subtitle: 利用订阅／发布模式来实现微信小程序 Page 间通讯
 cover: //misc.aotu.io/Chen-jj/wxapp_event_900x500.png
-date: 2017-01-16 11:21:00
+date: 2017-01-19 20:27:00
 categories: Web开发
 tags:
   - 小程序
