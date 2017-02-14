@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "cheerio": "^0.22.0",
-    "fs-extra": "^1.0.0",
+    "fs-extra": "^2.0.0",
     "hexo": "^3.2.2",
     "hexo-deployer-git": "0.2.0",
     "hexo-filter-cleanup": "^1.0.6",
@@ -38,9 +38,9 @@
     "lunr": "github:codepiano/lunr.js.git"
   },
   "devDependencies": {
-    "eslint": "^3.13.1",
+    "eslint": "^3.15.0",
     "eslint-config-defaults": "^9.0.0",
-    "js-yaml": "^3.7.0"
+    "js-yaml": "^3.8.1"
   },
   "optionalDependencies": {
     "hexo-browsersync": "^0.2.0"
