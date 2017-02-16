@@ -1,5 +1,5 @@
-title: # “等一下，我碰！”——常见的2D碰撞检测
-subtitle: 讲述在 Web 开发中常见的 2D 碰撞检测，内含运行实例（基于 Canvas）、图片说明。
+title: “等一下，我碰！”——常见的2D碰撞检测
+subtitle: 讲述了在 Web 开发中常见的几种 2D 碰撞检测，内含运行实例（基于 Canvas）、图片说明。
 cover: //misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/cover.jpg
 date: 2017-02-16 18:00
 categories: Web开发
@@ -12,7 +12,7 @@ author:
 wechat:
     share_cover: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/wx_cover.jpg
     share_title: “等一下，我碰！”——常见的2D碰撞检测
-    share_desc: 讲述在 Web 开发中常见的 2D 碰撞检测，内含运行实例（基于 Canvas）、图片说明。
+    share_desc: 讲述了在 Web 开发中常见的几种 2D 碰撞检测，内含运行实例（基于 Canvas）、图片说明。
 
 
 ---
