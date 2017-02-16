@@ -166,7 +166,7 @@ player = {left: 2, top: 2}
  1. 如下述的案例中，通过将两个物体在 offscreen canvas 中判断同一位置（坐标）下是否同时存在非透明的像素。
  2. 利用 canvas 的 `globalCompositeOperation = 'destination-in'` 属性。该属性会让两者的重叠部分会被保留，其余区域都变成透明。因此，若存在非透明像素，则为碰撞。
 
-注意，当待检测碰撞物体为两个时，第一种方法需要两个 offscreen canvas，而第二个只需一个。
+注意，当待检测碰撞物体为两个时，第一种方法需要两个 offscreen canvas，而第二种只需一个。
 
  > offscreen canvas：与之相关的是 offscreen rendering。正如其名，它会在某个地方进行渲染，但不是屏幕。“某个地方”其实是**内存**。渲染到内存比渲染到屏幕更快。—— [Offscreen Rendering][5]
  
