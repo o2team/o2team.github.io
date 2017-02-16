@@ -11,8 +11,8 @@ author:
     github_name: JChehe
 wechat:
     share_cover: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/wx_cover.jpg
-    share_title: 探讨判断横竖屏的最佳实现
-    share_desc: 简述多种横竖屏判断的实现方式以及其中的优缺点，并探讨最佳的实现方式
+    share_title: “等一下，我碰！”——常见的2D碰撞检测
+    share_desc: 讲述在 Web 开发中常见的 2D 碰撞检测，内含运行实例（基于 Canvas）、图片说明。
 
 
 ---
