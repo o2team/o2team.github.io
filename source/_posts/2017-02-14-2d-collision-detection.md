@@ -37,7 +37,7 @@ wechat:
 
 下文将由易到难的顺序介绍上述各种碰撞检测方法：外接图形判别法 > 其他 > 光线投射法 > 分离轴定理。
 
-另外，有一些场景只要我们约定好限定条件，也能实现我们想要的碰撞，如下例的碰壁反弹：
+另外，有一些场景只要我们约定好限定条件，也能实现我们想要的碰撞，如下面的碰壁反弹：
 
 <p data-height="270" data-theme-id="0" data-slug-hash="WRLLYX" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="Boundary collision detection" class="codepen">See the Pen <a href="http://codepen.io/JChehe/pen/WRLLYX/">Boundary collision detection</a> by Jc (<a href="http://codepen.io/JChehe">@JChehe</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -70,7 +70,7 @@ rect1.height + rect1.y > rect2.y
 ![轴对称包围盒][1]
 
 
-在线运行示例：
+在线运行示例（先点击运行示例以获取焦点，下同）：
 <p data-height="215" data-theme-id="0" data-slug-hash="rjoZdZ" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="AxisAlignedBoundingBox collision detection" class="codepen">See the Pen <a href="http://codepen.io/JChehe/pen/rjoZdZ/">AxisAlignedBoundingBox collision detection</a> by Jc (<a href="http://codepen.io/JChehe">@JChehe</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
@@ -118,7 +118,7 @@ Math.sqrt(Math.pow(circleA.x - circleB.x, 2) +
 ## 其他
 
 ### 地图格子划分
-概念：将地图（场景）划分为一个个格子。地图中参与检测的对象都存储着自身所在的格子坐标，那么你即可以认为两个物体在相邻格子为碰撞，或者两个物体在同一格。另外，采用此方式的前提是：地图中所有可能参与碰撞的物体都要是格子单元的大小或者是其整数倍。
+概念：将地图（场景）划分为一个个格子。地图中参与检测的对象都存储着自身所在格子的坐标，那么你即可以认为两个物体在相邻格子时为碰撞，又或者两个物体在同一格才为碰撞。另外，采用此方式的前提是：地图中所有可能参与碰撞的物体都要是格子单元的大小或者是其整数倍。
 
 
 `蓝色X` 为障碍物：  
@@ -137,7 +137,7 @@ map = [
   [0, 1, 1, 1, 1, 1, 1, 0, 0]
 ],
 // 设定角色的初始位置
-player= {left: 2, top: 2}
+player = {left: 2, top: 2}
 
 // 移动前（后）判断角色的下一步的动作（如不能前行）
 ...
@@ -166,11 +166,11 @@ player= {left: 2, top: 2}
  1. 如下述的案例中，通过将两个物体在 offscreen canvas 中判断同一位置（坐标）下是否同时存在非透明的像素。
  2. 利用 canvas 的 `globalCompositeOperation = 'destination-in'` 属性。该属性会让两者的重叠部分会被保留，其余区域都变成透明。因此，若存在非透明像素，则为碰撞。
 
-注意，当待检测碰撞物体为两个时，第一个方法需要两个 offscreen canvas，而第二个只需一个。
+注意，当待检测碰撞物体为两个时，第一种方法需要两个 offscreen canvas，而第二个只需一个。
 
  > offscreen canvas：与之相关的是 offscreen rendering。正如其名，它会在某个地方进行渲染，但不是屏幕。“某个地方”其实是**内存**。渲染到内存比渲染到屏幕更快。—— [Offscreen Rendering][5]
  
-当然，我们这里并不是利用 `offscreen render` 的性能优势，而是利用 `offscreen canvas` 保存着独立物体的像素。换句话说：**onscreen canvas 只是起展示作用，碰撞检测是在 offscreen canvas 中进行**。
+当然，我们这里并不是利用 `offscreen render` 的性能优势，而是利用 `offscreen canvas` 保存独立物体的像素。换句话说：**onscreen canvas 只是起展示作用，碰撞检测是在 offscreen canvas 中进行**。
 
 另外，由于需要逐像素检测，若对整个 Canvas 内所有像素都进行此操作，无疑会浪费很多资源。因此，我们可以先通过运算得到两者**相交区域**，然后只对该区域内的像素进行检测即可。
 
@@ -226,7 +226,7 @@ player= {left: 2, top: 2}
 
 ## 分离轴定理（Separating Axis Theorem）
 
-概念：通过判断任意两个 `凸多边形` 在任意角度下的投影是否均存在重叠，来判断是否发生碰撞。若在某一角度光源下，两物体的投影存在间隙，则为不碰撞。否则为发生碰撞。
+概念：通过判断任意两个 `凸多边形` 在任意角度下的投影是否均存在重叠，来判断是否发生碰撞。若在某一角度光源下，两物体的投影存在间隙，则为不碰撞，否则为发生碰撞。
 
 图例：   
 ![分离轴定理][8]
@@ -376,7 +376,7 @@ projection.prototype = {
 ![点积][13]
 
 ```js
-// 根据多边形的每个定点，得到投影的最大和最小值。
+// 根据多边形的每个定点，得到投影的最大和最小值，以表示投影。
 function project = function (axis) {
     var scalars = [], v = new Vector()
     
@@ -391,15 +391,15 @@ function project = function (axis) {
 ```
 
 #### 圆形与多边形之间的碰撞检测
-由于圆形可近似地看成一个有无数条边的正多边形，而我们不可能按照这些边一一进行投影与测试。我们只需将圆形投射到一条投影轴上即可，这条轴就是圆心与距其最近的多边形顶点之间的连线，如图所示：
+由于圆形可近似地看成一个有无数条边的正多边形，而我们不可能按照这些边一一进行投影与测试。我们只需将圆形投射到一条投影轴上即可，这条轴就是圆心与多边形顶点中最近的一点的连线，如图所示：
 
 ![圆形与多边形的投影轴][14]
 
 因此，该投影轴和多边形自身的投影轴就组成了一组待检测的投影轴了。
 
-而在圆形与圆形之间的碰撞检测依然是最初的两圆心距离是否小于两半径之和。
+而对于圆形与圆形之间的碰撞检测依然是最初的两圆心距离是否小于两半径之和。
 
-分裂轴定理的整体代码实现，可查看以下案例：
+分离轴定理的整体代码实现，可查看以下案例：
 
 <p data-height="364" data-theme-id="0" data-slug-hash="KabEaw" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="SeparatingAxisTheorem" class="codepen">See the Pen <a href="http://codepen.io/JChehe/pen/KabEaw/">SeparatingAxisTheorem</a> by Jc (<a href="http://codepen.io/JChehe">@JChehe</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -430,7 +430,7 @@ function project = function (axis) {
 
 通常来说，如果碰撞之后，相撞的双方依然存在，那么就需要将两者分开。分开之后，可以使原来相撞的两物体彼此弹开，也可以让他们黏在一起，还可以根据具体需要来实现其他行为。不过首先要做的是，还是将两者分开，这就需要用到最小平移向量（Minimum Translation Vector, MIT）。
 
-![此处输入图片的描述][20]
+![最小平移向量][20]
 
 
 ### 碰撞性能优化
