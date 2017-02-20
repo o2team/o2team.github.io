@@ -10,7 +10,7 @@ author:
     nick: Tingglelaoo
     github_name: Tingglelaoo
 wechat:
-    share_cover: http://misc.aotu.io/Tingglelaoo/detect-orientation_200x200.png
+    share_cover: //misc.aotu.io/Tingglelaoo/detect-orientation_200x200.png
     share_title: 探讨判断横竖屏的最佳实现
     share_desc: 简述多种横竖屏判断的实现方式以及其中的优缺点，并探讨最佳的实现方式
 
@@ -199,7 +199,7 @@ window.addEventListener('orientationchange',detectOrient);
 如此，对应的代码为：
 
 ```javascript
-function recordOrient() {
+function detectOrient() {
     var storage = localStorage;
     var data = storage.getItem('J-recordOrientX');
     var w = document.documentElement.clientWidth,
