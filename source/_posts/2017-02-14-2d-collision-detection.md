@@ -301,7 +301,7 @@ Vector.prototype = {
     // 后续将会用其计算出投影的长度
     dotProduct: function(vector) {
         return this.x * vector.x + this.y + vector.y
-    }
+    },
     // 向量相减 得到边
     subtarct: function(vector) {
         var v = new Vector()
