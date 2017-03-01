@@ -294,7 +294,7 @@ $ sudo npm -g install weinre
 
 **2、启动 Weinre 监听服务**
 
-```
+```shell
 $ ipconfig getifaddr en0 // 查看本机 IP
 $ weinre --boundHost 10.14.217.14 --httpPort 8090
 ```
