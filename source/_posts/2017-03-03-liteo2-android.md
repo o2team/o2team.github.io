@@ -2,7 +2,6 @@ title: 轻氧 - React Native 安卓版 V1.0
 subtitle: 小伙伴们呼声很高的轻氧 APP 安卓版本正式发布啦，欢迎下载尝鲜体验
 cover: //misc.aotu.io/o2/img/app/app-intro-android.png
 categories: 移动开发
-draft: true
 tags:
   - 轻氧
 author:
@@ -12,7 +11,7 @@ wechat:
   share_cover: http://storage.360buyimg.com/mtd/home/logo_200-1-1478683218419.png
   share_title: 轻氧 - 安卓版 V1.0
   share_desc: React Native 打造的轻氧APP安卓版本正式发布啦
-date: 2017-03-02 16:45:36
+date: 2017-03-03 16:45:36
 
 ---
 
