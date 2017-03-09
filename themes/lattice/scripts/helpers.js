@@ -60,7 +60,8 @@ hexo.extend.helper.register('header_menu', function(className){
         return (path1.indexOf(path0)!==-1);    
     },
     isAbs = function(path0) {
-        if(path0.indexOf('http') === 0) {
+        let except = ['https://cases.aotu.io'];
+        if(path0.indexOf('http') === 0 && except.indexOf(path0) === -1) {
             return true;
         }
         return false;
