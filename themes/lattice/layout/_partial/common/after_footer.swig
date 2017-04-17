@@ -30,5 +30,5 @@
 
 {% include 'baidu_analytics.swig' %}
 {% include 'cnzz_analytics.swig' %}
-
+{% include 'aotu_analytics.swig' %}
 
