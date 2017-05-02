@@ -204,7 +204,7 @@ body {
 }
 ```
 
-这里就不再给出截图，但你可以[点击此处在线地址](//jdc.jd.com/demo/ting/vw_layout.html)进行体验。
+这里就不再给出截图，但你可以[点击此处在线地址](//jdc.jd.com/demo/ting/vw_rem_layout.html)进行体验。
 
 ### 小结
 
