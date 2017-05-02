@@ -1,7 +1,7 @@
-title: 利用视口单位适配页面
+title: 利用视口单位实现适配布局
 subtitle: 视口单位的出现又为移动端Web开发提供了一种新的适配页面的布局方式
-cover: //misc.aotu.io/Tingglelaoo/CSS_viewport_units_900x500.jpg
-date: 2017-04-12 10:25
+cover: https://cdn.rawgit.com/o2team/misc/gh-pages/Tingglelaoo/CSS_viewport_units_900x500.jpg
+date: 2017-4-28 10:25
 categories: Web开发
 tags:
   - 视口单位
@@ -11,7 +11,7 @@ author:
     nick: Tingglelaoo
     github_name: Tingglelaoo
 wechat:
-    share_cover: ://misc.aotu.io/Tingglelaoo/CSS_viewport_units_200x200.jpg
+    share_cover: https://cdn.rawgit.com/o2team/misc/gh-pages/Tingglelaoo/CSS_viewport_units_200x200.jpg
     share_title: 利用视口单位实现适配布局
     share_desc: 视口单位的出现又为移动端Web开发提供了一种新的适配页面的布局方式
 
