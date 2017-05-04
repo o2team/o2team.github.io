@@ -28,7 +28,7 @@ wechat:
 ## 明白你什么时候该知道你需要知道的东西
 在这之前，如果你还没准备好，你可以花一点时间来看一下我之前的描述这两个模块架构上存在许多根本区别的[文章](https://hackernoon.com/node-js-tc-39-and-modules-a1118aecf95e)。总结来说就是：CommonJS 与 ES6 Modules 之间的关键不同在于代码什么时候知道一个模块的结构和使用它。
 
-举个栗子，假如我现在有一个简单的 ComminJS 模块（模块名叫`'foobar'`）：
+举个栗子，假如我现在有一个简单的 CommonJS 模块（模块名叫`'foobar'`）：
 
 ```
 function foo() {
