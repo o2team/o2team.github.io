@@ -1,7 +1,7 @@
 title: 一个例子上手SVG动画
 subtitle: 本文通过一个例子来一步一步展示使用SVG制作动效的过程，并且在过程中讲解所用到的svg的标签和特性。完成了整个例子后会对svg绘制图形和制作动画有一个系统的认识。
 cover: //o2team.github.io/misc/Simbachen/svg/banner.png
-categories: SVG
+categories: Web开发
 tags:
   - SVG
   - CSS
