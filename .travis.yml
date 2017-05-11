@@ -1,28 +1,27 @@
 language: node_js
-
 sudo: false
-
 node_js:
-  - "6"
-
+- '6'
 cache:
   apt: true
   directories:
-    - node_modules
-
+  - node_modules
 addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
   ssh_known_hosts: github.com
-
 script:
-  - 'npm run build'
-  - 'npm run clean'
-  - 'npm run deploy  "${TRAVIS_PULL_REQUEST}"'
-
+- npm run build
+- npm run clean
+- npm run deploy  "${TRAVIS_PULL_REQUEST}"
 branches:
   only:
-    - v2
-
+  - v2
 env:
   global:
-    - GH_REPO: "github.com/o2team/o2team.github.io.git"
-    - secure: "TU5kkhDIMdFkWZZ4VRK3Vj+K6bFbE+AosjMi0cXJSsrZsD2bHAkAps2Wi9+/NHfTt+cuEKFaYXE4EYrSWmNoC1dXTasQEuo1OBOL5WZjPzNX1u7takERPMCCExrKWlOt18Ywxpqg4OUtYUlHH3g7FtB5HRB2ne0bN4BwdrHLpHP3i0U83R4IdOe6xbjDKMT0DRv5FizWfCUXEcIlQ6z2Ywd1UDXd9JVbLl5VR6f8c5UabV1/5hn19dguNuK7ctlUuWcLVZpABDSL2JlMZyoBRycRpPGeIMt5TBMncvk8vYhnZdx7gaSAEPvYy+RmGeEQbDgxejzaxgB5sB7m8tDjddVcnqlOKKoH/s3t3ETWvsahJcRtxXFHj+bAGcfr7r1Ul0hWDCWrtUgLeokNQoX9R3fhwTAJoFMpMZyopzoUih5QfO/jAMNugbzjrAd9AmBUujgDXNqFcOiLnvOGl8UnpFVnphMTIcqU3i2QZhH45rq0kfB8piZ1daCRt6gvGIerwbdtyuXswoOAPyiiYptpX6rlxV7gB420E0PY8NeZzmqISNAdd4n2DESMgOHmmPV8gELjjJrbWAQ/icoK1DATgdo9rfD3Ex/peLxVPb+VBBMiYaPHT6Ib4Pi4V3qRaQPbmsICmGXUgGkkXpIMPeu0m8E4UGrlyLry2JrnzwYqYDc="
+  - CXX: g++-4.8
+  - GH_REPO: github.com/o2team/o2team.github.io.git
+  - secure: BF/nWKPH+6N0b8nV64VMNjNwT/DdhyMBCZJ6zdot3sT/3lhlG9vXFAR/p1LGI4+35gPx+lsuzOOEzRLQ1QP1SRVFmbIE9wGcfx2uAjwAitg7pLDkM0JSn/B4DYdb8wXBCg76ahTP71HB10T5IH/Lz4zy4Sm8nbWGe1NKtk16xhq181dcEpdM/SbwbBI0hJOUJsTBJScCR4PjzX69kbc58z8wXChdJ3Lkd2cFO8CsKwXODAkwqLjbHquW2jD1yjFwMLlsM5pI2nHgctoEyhM+Z1n/FacQ3jc48HYNSUeuJVgIcFU77xGKTwjm/91c2KucpD0NtihEWufklZCV/XYJGbkXdi3FvG6iJMZCoyMBJy6aX21QCX3gj2TClyJU929/13xnMtVr4qunnW3Cjc9wS4PaBNi4aJhaTRGpNXcBPYKigFtutytLJFalDdMemV7IUEvJgn3UtA5YwT8MC4JZJ26NZNMn+nXNWxHT6TVjq0l77/jp1ylKLy9kqYbQkuK/svrKgH2lcf8u7lji1lVPKKBHGnisbqKmZI+4qu0QqRFuBKKAoU+3iOmTMAdZGiT5CgZ6MBI+wmG6MGYAo6DOSSsMa/rtO+0XYJ77twa92PvY8DnRdc6Atvx/oxgunbrBDq1DTfLXE0fp2Ok0STjrWcIZXRQZRWqxMauy30jRJsQ=
