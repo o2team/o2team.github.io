@@ -3,7 +3,7 @@ language: node_js
 sudo: false
 
 node_js:
-  - "6"
+  - "7"
 
 cache:
   apt: true
@@ -11,11 +11,6 @@ cache:
     - node_modules
 
 addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
   ssh_known_hosts: github.com
 
 script:
@@ -29,6 +24,5 @@ branches:
 
 env:
   global:
-    - CXX: g++-4.8
     - GH_REPO: "github.com/o2team/o2team.github.io.git"
-    - secure: "H+LCehn5ve9wjaEYRsVCQa43dlvvWveTEOOrpSCu8XKW9Xbfnpp2ph1obsLhKnS3LHV4e9D5LzyWEAvcMV4r+QGB5dPfv6L4Ww6pUPhiJYreLU+SED2q0aO9lUiQXkE5siEHFbMB1XVUIcEetu41Uwe+lszS9olu5Ko+qId9DCoIgSkur6X1n7O1TH6hSWT5xz/djotzyh6abkZTCYBIIMK/D5o/XlxHggTrgIKt9hx6vMKUUHmQUkrhs5wvpQzMJB+QFjl+dFui6s2dVhpTSO4aweyeY+MJ4nzFOHDOY70gAtA0sMRZGWWV5icTSXUn2BGoeFTY1EzUYHhWtSMcEvHAgEPnrgOKGoq92+xZ27n30yr+ac2jZJQEvVPgeLMRwlVTUZhc3Z+UH4PxE0fkTd6M2t5b5mmhtRXK62e1x1IEOoOG3dJp2DzF0LNekuYM4UuLdt9K9/KSeaDoh/jg4MU7wH1Omd/v3qEHxFCaoKE1Nkqy0rp1zVfy1KnVw25mcdTcBcYhquRAsmwmtlZvxSl5cuCme7XGytmSgG74IewmG3pOo8EKwPoh62ehFSW2PLGyuyHmC8tvtDIFefrmMW1Je0cJt53KRCeGCcMmWydfz4qJlzxejADbzDtVVZFmzQRlIfUD3OnTFKvRdsdgMpZ9cRic69mP+I3ox5QbkdE="
+    - secure: "TU5kkhDIMdFkWZZ4VRK3Vj+K6bFbE+AosjMi0cXJSsrZsD2bHAkAps2Wi9+/NHfTt+cuEKFaYXE4EYrSWmNoC1dXTasQEuo1OBOL5WZjPzNX1u7takERPMCCExrKWlOt18Ywxpqg4OUtYUlHH3g7FtB5HRB2ne0bN4BwdrHLpHP3i0U83R4IdOe6xbjDKMT0DRv5FizWfCUXEcIlQ6z2Ywd1UDXd9JVbLl5VR6f8c5UabV1/5hn19dguNuK7ctlUuWcLVZpABDSL2JlMZyoBRycRpPGeIMt5TBMncvk8vYhnZdx7gaSAEPvYy+RmGeEQbDgxejzaxgB5sB7m8tDjddVcnqlOKKoH/s3t3ETWvsahJcRtxXFHj+bAGcfr7r1Ul0hWDCWrtUgLeokNQoX9R3fhwTAJoFMpMZyopzoUih5QfO/jAMNugbzjrAd9AmBUujgDXNqFcOiLnvOGl8UnpFVnphMTIcqU3i2QZhH45rq0kfB8piZ1daCRt6gvGIerwbdtyuXswoOAPyiiYptpX6rlxV7gB420E0PY8NeZzmqISNAdd4n2DESMgOHmmPV8gELjjJrbWAQ/icoK1DATgdo9rfD3Ex/peLxVPb+VBBMiYaPHT6Ib4Pi4V3qRaQPbmsICmGXUgGkkXpIMPeu0m8E4UGrlyLry2JrnzwYqYDc="
