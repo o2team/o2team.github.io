@@ -189,7 +189,7 @@ y’ = sin(β) * (cx – centerX) + cos(β) * (cy – centerY) + centerY
     1. |AB| = y/sin(δ) = x / cos(δ)
     2. |CB| = d/sin(δ + β) = c / cos(δ + β)
 3. 半径 r = x / cos(δ) = y / sin(δ) = d / sin(δ + β) = c / cos(δ + β)
-4. 由以下三角函数两角和/差公式：
+4. 由以下三角函数两角和差公式：
     -  sin(δ + β) = sin(δ)cos(β) + cos(δ)sin(β)
     -  cos(δ + β) = cos(δ)cos(β) - sin(δ)sin(β)
 5. 可得出旋转后的坐标：
