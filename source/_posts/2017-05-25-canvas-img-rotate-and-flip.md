@@ -1,7 +1,7 @@
 title: canvas 图像旋转与翻转姿势解锁
 subtitle: 多图预警，数学不好可直接跳至文末小结。
 date: 2017-05-25 23:00:00
-cover: //o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/cover_900x500.png
+cover: //misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/cover_900x500.png
 categories: Web开发
 tags:
   - canvas
@@ -13,7 +13,7 @@ author:
 
 ## 需求背景
 从一个游戏需求说起：
-![需求背景](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/coke.png)
+![需求背景](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/coke.png)
 1. 技术选型：canvas
 上图所展示的游戏场景，“可乐瓶”里有多个“气泡”，需要设置不同的动画效果，且涉及 deviceOrientation 的交互，需要有大量计算改变元素状态。从性能方面考虑，canvas 是不二的选择。
 2. 技术点：canvas 绘制图像
@@ -22,11 +22,11 @@ author:
 虽然“气泡”元素是相同的，可以使用相同的图像，但图像需要多个角度/多个方向展示，因此需要对图像进行相应的旋转与翻转（镜像），这也是本文所要介绍的重点。
 
 后文代码以下图左侧绿框的“气泡”为示例，右侧展示了场景中用到的两个图像：
-![需求背景](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/bg.png)
+![需求背景](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/bg.png)
 
 ## 认识 canvas 坐标系
 canvas 上图像的旋转和翻转，常见的做法是将 canvas 坐标系统进行变换。因此，我们需要先认识 canvas 坐标系统：
-![canvas 坐标系](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/system.png)
+![canvas 坐标系](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/system.png)
 由上图可得，canvas 2D 环境中坐标系统和 Web 的坐标系统是一致的，有以下几个特点：
 1. 坐标原点 (0,0) 在左上角
 2. X坐标向右方增长
@@ -45,7 +45,7 @@ canvas.height = 1054
 var ctx = canvas.getContext('2d')
 ```
 此时，canvas 的坐标系统如下图所示：
-![coke 坐标系](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/system_coke.png)
+![coke 坐标系](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/system_coke.png)
 
 ### 在 canvas 上绘制图像
 在 canvas 上绘制图像，可以使用 `drawImage()` 方法，语法如下（详细用法参见 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage)）：
@@ -64,7 +64,7 @@ img.onload = function() {
 }
 ```
 此时，便可以 canvas 上看到一个未旋转/翻转的“气泡”图像，如下图所示：
-![绘制图像](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/drawImage.png)
+![绘制图像](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/drawImage.png)
 
 ## canvas 坐标变换
 接下来，我们再来了解 canvas 坐标的变换。上述需求仅涉及 2D 绘制上下文，因此仅介绍 2D 绘制上下文支持的各种变换：
@@ -104,10 +104,10 @@ e | 水平移动绘图
 f | 垂直移动绘图
 
 ## 图像旋转的实现
-![图像旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke.png)
+![图像旋转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke.png)
 上图所示“气泡”，宽为 160，高为 192，x 轴方向距离原点 512，y 轴方向距离原点 220，逆时针旋转 35 度。
 要绘制该“气泡”，需要先将坐标系平移（translate），再旋转（rotate）。具体实现步骤如下：
-![图像旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke_join.png)
+![图像旋转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke_join.png)
 
 > save() 方法与 restore() 方法：
 1. save() 方法用来保存 Canvas 状态的，没有参数。每一次调用 save() 方法，当前的状态就会被推入栈中保存起来。当前状态包括：
@@ -118,18 +118,18 @@ f | 垂直移动绘图
 3. 状态保存在栈中，可以嵌套使用 save() 与 restore()。
 
 ## 图像翻转的实现
-![图像翻转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke.png)
+![图像翻转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke.png)
 上图所示“气泡”，宽为 160，高为 192，x 轴方向距离原点 172，y 轴方向距离原点 365，顺时针旋转 35 度。
 要绘制该“气泡”，需要先将坐标系统平移（translate），翻转（scale），平移（translate），再旋转（rotate）。具体实现步骤如下：
-![图像翻转1](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_1.png)
+![图像翻转1](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_1.png)
 至此，实现了“气泡”的镜像翻转，但翻转后的“气泡”还需要旋转特定的角度，在方法一的基础上继续对坐标系统进行变换：
-![图像翻转2](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_2.png)
+![图像翻转2](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_2.png)
 以上操作中进行了两次平移（translate）操作，可以进行合并简化：
-![图像翻转3](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_3.png)
+![图像翻转3](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_3.png)
 
 ## 坐标系统的矩阵变换
 前文介绍了 2D 绘制上下文变形（transform）变换，实际是直接修改变换的矩阵，它可以实现前面介绍的平移（translate）／旋转（rotate）／缩放（ scale）变换，还可以实现切变/镜像反射变换等。矩阵计算遵循数学矩阵公式规则：
-![矩阵变换](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matrix.gif)
+![矩阵变换](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matrix.gif)
 由上公式可得：
 ```mathematica
 x' = ax + cy + e
@@ -141,25 +141,25 @@ y' = bx + dy + f
     x' = 1x+0y+tx = x+tx
     y' = 0x+1y+ty = y+ty
     ```
-    ![平移](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_translate.png)
+    ![平移](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_translate.png)
 2. 旋转 rotate：
     ```mathematica
     x' = x*cosθ-y*sinθ+0 = x*cosθ-y*sinθ
     y' = x*sinθ+y*cosθ+0 = x*sinθ+y*cosθ
     ```
-    ![旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_rotate.png)
+    ![旋转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_rotate.png)
 3. 缩放 scale：
     ```mathematica
     x' = Sx*x+0y+0 = Sx*x
     y' = 0x+Sy*y+0 = Sy*y
     ```
-    ![缩放和拉伸](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_scale.png)
+    ![缩放和拉伸](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_scale.png)
 4. 切变
     ```mathematica
     x' = x+y*tan(θx)+0 = x+y*tan(θx)
     y' = x*tan(θy)+y+0 = x*tan(θy)+y
     ```
-    ![切变](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_skew.png)
+    ![切变](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_skew.png)
 5. 镜像反射
     ```mathematica
     // 定义(ux,uy)为直线(y=kx)方向的单位向量
@@ -168,15 +168,15 @@ y' = bx + dy + f
     x' = (2*ux^2-1)*x+2*ux*uy*y
     y' = 2*ux*uy*x+(2*uy^2-1)*y
     ```
-    ![镜像反射](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_flip.png)
+    ![镜像反射](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_flip.png)
 
 结合上述公式，可推导出图像旋转和翻转的矩阵变换实现：
 1. 图像旋转：
-![图像旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_rotate_coke.png)
+![图像旋转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_rotate_coke.png)
 2. 图像翻转：
-![图像翻转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_flip_coke.png)
+![图像翻转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_flip_coke.png)
 3. 图像镜像反射（翻转+旋转）：
-![图像旋转&翻转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_rotate_flip_coke.png)
+![图像旋转&翻转](//misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/matirix_rotate_flip_coke.png)
 
 
 ## 像素操作实现图像翻转
