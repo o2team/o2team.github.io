@@ -1,4 +1,4 @@
-title: canvas 图片旋转与翻转姿势解锁
+title: canvas 图像旋转与翻转姿势解锁
 subtitle: 多图预警，数学不好可直接跳至文末小结。
 date: 2017-05-25 23:00:00
 cover: //o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/cover_900x500.png
@@ -103,11 +103,11 @@ d | 垂直缩放绘图
 e | 水平移动绘图
 f | 垂直移动绘图
 
-## 图片旋转的实现
-![图片旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke.png)
+## 图像旋转的实现
+![图像旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke.png)
 上图所示“气泡”，宽为 160，高为 192，x 轴方向距离原点 512，y 轴方向距离原点 220，逆时针旋转 35 度。
 要绘制该“气泡”，需要先将坐标系平移（translate），再旋转（rotate）。具体实现步骤如下：
-![图片旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke_join.png)
+![图像旋转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/rotate_coke_join.png)
 
 > save() 方法与 restore() 方法：
 1. save() 方法用来保存 Canvas 状态的，没有参数。每一次调用 save() 方法，当前的状态就会被推入栈中保存起来。当前状态包括：
@@ -117,15 +117,15 @@ f | 垂直移动绘图
 2. restore() 方法用来恢复 Canvas 状态，没有参数。每一次调用 restore() 方法，上一个保存的状态就从栈中弹出，所有设定都恢复。
 3. 状态保存在栈中，可以嵌套使用 save() 与 restore()。
 
-## 图片翻转的实现
-![图片翻转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke.png)
+## 图像翻转的实现
+![图像翻转](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke.png)
 上图所示“气泡”，宽为 160，高为 192，x 轴方向距离原点 172，y 轴方向距离原点 365，顺时针旋转 35 度。
 要绘制该“气泡”，需要先将坐标系统平移（translate），翻转（scale），平移（translate），再旋转（rotate）。具体实现步骤如下：
-![图片翻转1](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_1.png)
-至此，实现了“气泡”的镜像翻转，但翻转后的“气泡”还需要旋转特定的角度，因此继续对坐标系统进行变换：
-![图片翻转2](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_2.png)
+![图像翻转1](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_1.png)
+至此，实现了“气泡”的镜像翻转，但翻转后的“气泡”还需要旋转特定的角度，在方法一的基础上继续对坐标系统进行变换：
+![图像翻转2](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_2.png)
 以上操作中进行了两次平移（translate）操作，可以进行合并简化：
-![图片翻转3](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_3.png)
+![图像翻转3](//o2team.github.io/misc/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/flip_coke_join_3.png)
 
 ## 坐标系统的矩阵变换
 前文介绍了 2D 绘制上下文变形（transform）变换，实际是直接修改变换的矩阵，它可以实现前面介绍的平移（translate）／旋转（rotate）／缩放（ scale）变换，还可以实现切变/镜像反射变换等。矩阵计算遵循数学矩阵公式规则：
@@ -253,7 +253,7 @@ ctx.putImageData(img_data, x, y)
     // 方法二
     ctx.save()
     ctx.scale(-1, 1)
-    ctx.drawImage(img2, -width-x, y, width, height)
+    ctx.drawImage(img, -width-x, y, width, height)
     ctx.restore()
     ```
     - 矩阵变换法：
@@ -268,7 +268,7 @@ ctx.putImageData(img_data, x, y)
     // 方法二
     ctx.save()
     ctx.transform(-1, 0, 0, 1, 0, 0)
-    ctx.drawImage(img2, -width-x, y, width, height)
+    ctx.drawImage(img, -width-x, y, width, height)
     ctx.restore()
     ```
     - 像素操作法：
