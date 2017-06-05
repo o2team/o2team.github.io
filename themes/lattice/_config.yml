@@ -30,15 +30,13 @@ fancybox: false
 # https://github.com/chriskempson/tomorrow-theme
 highlight_theme: normal
 
-# Make duoshuo show UA
-# user_id must NOT be null when admin_enable is true!
-# you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo:
-  shortname: aotu
-  ua_enable: true
-  admin_enable: false
-  user_id: 0
-  #admin_nickname: ROOT
+# Gitment
+# you can visit https://github.com/imsun/gitment for more details
+gitment:
+  owner: o2team
+  repo: o2team.github.io
+  client_id: 3c4d153e6874260f9c7e
+  client_secret: dd44012504c6168bc05b9266e0554bb28c62ce15
 
 # Wechat
 wechat:
