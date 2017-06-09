@@ -1,8 +1,8 @@
 
-{% if page.comments and theme.duoshuo.shortname and theme.duoshuo.ua_disable %}
-<!-- build:js /js/bundle/duoshuo.js -->
+{% if page.comments and theme.gitment and theme.gitment.client_id %}
+<!-- build:js /js/bundle/gitment.js -->
 {{ js('js/libs/ua-parser') }}
-{{ js('js/mods/duoshuo') }}
+{{ js('js/mods/gitment') }}
 <!-- endbuild -->
 {% endif %}
 
@@ -29,6 +29,6 @@
 {% endif %}
 
 {% include 'baidu_analytics.swig' %}
-{% include 'cnzz_analytics.swig' %}
-
+{% include 'ta_analytics.swig' %}
+{% include 'aotu_analytics.swig' %}
 
