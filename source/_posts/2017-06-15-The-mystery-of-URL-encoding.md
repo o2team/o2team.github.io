@@ -116,7 +116,7 @@ RFC 3986 section 2.2 保留字符(18个)：
 2个不安全的保留字符`[]`
 
 
-## 3、encodeURI与encodeURIComponent
+## 4、encodeURI与encodeURIComponent
 
 了解了encodeURI的不编码集合的由来，再来看看encodeURI与encodeURIComponent的区别。
 其实看一下名字，大概已经知道两者的区别了。
@@ -136,7 +136,7 @@ encodeURI('https://aotu.io/')
 // "https://aotu.io/"
 ```
 
-## 4、字符编码
+## 5、字符编码
 
 有没有人好奇 汉字有多少个字 ？ 具体数字小编也说不上。。谁能告诉我。。
 不同编码收录的汉字数目也不一样。
