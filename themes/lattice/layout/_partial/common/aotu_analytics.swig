@@ -1,7 +1,6 @@
 {% if config.aotu_analytics %}
 <script>
-    (function(e,t,n,a,o,i,m){
-    e.alogObjectName=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=e[o].l||+new Date,i=t.createElement(n),i.asyn=1,i.src=a,m=t.getElementsByTagName(n)[0],m.parentNode.insertBefore(i,m)
-    })(window,document,"script","//wq.360buyimg.com/data/ppms/movie/atlogs.1.0.3.min.js","aotulog");
+    (function(h,g,c,e,f,d,b){h.alogObjectName=f;h[f]=h[f]||function(){(h[f].q=h[f].q||[]).push(arguments)};h[f].l=1*new Date();d=g.createElement(c),b=g.getElementsByTagName(c)[0];d.async=1;d.src=e;b.parentNode.insertBefore(d,b)})(window,document,"script","//wqs.jd.com/promote/quark/atlogs.2.0.min.js","ATlog");
+    ATlog("init","aotu-blog-aotu.io-011",false,true,true);
 </script>
 {% endif %}
