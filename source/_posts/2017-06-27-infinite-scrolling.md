@@ -193,6 +193,7 @@ Model.find({id: {$gt: cursor}}).limit(pageSize)
 ```
 http://xw.qq.com/service/api/proxy?key=Xw@2017Mmd&charset=GBK&url=http://openapi.inews.qq.com/getQQNewsIndexAndItems?chlid=news_news_top&refer=mobilewwwqqcom&otype=jsonp&t=1498706343475
 ```
+
 返回数据如下：
 ![qq新闻接口数据](//misc.aotu.io/Yettyzyt/2017-06-27-infinite-scrolling/qq_news_data1.png)
 
@@ -200,6 +201,7 @@ http://xw.qq.com/service/api/proxy?key=Xw@2017Mmd&charset=GBK&url=http://openapi
 ```
 http://xw.qq.com/service/api/proxy?key=Xw@2017Mmd&charset=GBK&url=http://openapi.inews.qq.com/getQQNewsNormalContent?ids=20170604A063AG00,20170604A05SKQ00,20170604A05PBT00,NEW2017060403772906,NEW2017060403765707,NEW2017060403278705,20170604A06CMP00,20170604A03ZEU00,20170604A04P5900,NEW2017060402106202,20170603A07E0700,20170604A04WBM00,NEW2017060403031208,20170604A02X9900,20170604A03U6600,20170604A040JX00,20170604A04TE200,NEW2017060403727300,NEW2017060403727800,20170604A03I8200&refer=mobilewwwqqcom&otype=jsonp&t=1496603487427
 ```
+
 返回数据如下：
 ![qq新闻接口数据](//misc.aotu.io/Yettyzyt/2017-06-27-infinite-scrolling/qq_news_data2.png)
 
