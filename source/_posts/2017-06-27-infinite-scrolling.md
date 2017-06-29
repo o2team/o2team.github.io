@@ -12,6 +12,7 @@ tags:
   - 接口设计
   - 架构设计
   - mongo
+  - 数据库
 author:
   nick: Yetty 
   github_name: Yettyzyt
