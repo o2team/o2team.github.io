@@ -4,7 +4,13 @@ date: 2017-06-27 21:00:00
 cover: //misc.aotu.io/Yettyzyt/2017-06-27-infinite-scrolling/cover_900x500.png
 categories: Web开发
 tags:
-  - 数据库
+  - 分页
+  - 瀑布流
+  - 流式分页
+  - 前端分页
+  - 后端分页
+  - 接口设计
+  - 架构设计
   - mongo
 author:
   nick: Yetty 

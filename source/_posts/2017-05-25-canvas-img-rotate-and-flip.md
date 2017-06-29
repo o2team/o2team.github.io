@@ -5,6 +5,11 @@ cover: //misc.aotu.io/Yettyzyt/2017-05-25-canvas-img-rotate-and-flip/cover_900x5
 categories: Web开发
 tags:
   - canvas
+  - 图像旋转
+  - 图像翻转
+  - 矩阵变换
+  - 坐标系
+  - transform
 author:
   nick: Yetty 
   github_name: Yettyzyt
