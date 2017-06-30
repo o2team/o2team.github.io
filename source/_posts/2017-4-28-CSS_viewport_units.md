@@ -161,8 +161,7 @@ $vm_base: 375;
 由此，我们能够实现一个常见布局的页面效果如下：
 
 <div style="margin:0 auto;width:fit-content;">![layout.png](//misc.aotu.io/Tingglelaoo/layout.jpg)</div>
-<small style="display:block;text-align:center;">体验地址[点击此处](//jdc.jd.com/demo/ting/vw_layout.html)：</small>
-<small style="display:block;text-align:center;">http://jdc.jd.com/demo/ting/vw_layout.html</small>
+<small style="display:block;text-align:center;">体验地址[点击此处](//jdc.jd.com/demo/ting/vw_layout.html)</small>
 
 
 ### 做法二：搭配vw和rem，布局更优化
@@ -205,7 +204,7 @@ body {
 }
 ```
 
-这里就不再给出截图，但你可以[点击此处在线地址](//jdc.jd.com/demo/ting/vw_rem_layout.html)(http://jdc.jd.com/demo/ting/vw_rem_layout.html)进行体验。
+这里就不再给出截图，但你可以[点击此处在线地址](//jdc.jd.com/demo/ting/vw_rem_layout.html)进行体验。
 
 ### 小结
 
