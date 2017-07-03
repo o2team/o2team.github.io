@@ -1,5 +1,5 @@
-title: “动次打次！”——用Web技术实现移动监测
-subtitle: 动次打次...动一次打一次。本文将阐述如何通过 Web 技术实现简易的运动监测效果，并附上一些有意思的案例。
+title: 用Web技术实现移动监测
+subtitle: 动次打次...动一次打一次。本文将阐述如何通过 Web 技术实现简易的移动监测效果，并附上一些有意思的案例。
 cover: //misc.aotu.io/JChehe/2017-06-29-motion-detection/cover.jpg
 date: 2017-06-29 12:00
 categories: Web开发
