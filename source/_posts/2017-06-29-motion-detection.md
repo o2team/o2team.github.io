@@ -280,7 +280,7 @@ const motionCanvas // 展示给用户看
 const backgroundCanvas // offscreen canvas 背后处理数据
 
 motionCanvas.width = 640
-motionCanvas.height = 48
+motionCanvas.height = 480
 
 backgroundCanvas.width = 64
 backgroundCanvas.height = 48
