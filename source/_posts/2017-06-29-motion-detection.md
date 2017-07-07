@@ -248,7 +248,7 @@ function calcCoord(i) {
 }
 ```
 
-在得到左上角和右下角的坐标值后，通过 `ctx.strokeRect(x, y, width, height)` [API][17]。 绘制出矩形即可。
+在得到左上角和右下角的坐标值后，通过 `ctx.strokeRect(x, y, width, height)` [API][17] 绘制出矩形即可。
 
 ```
 ctx.lineWidth = 6
