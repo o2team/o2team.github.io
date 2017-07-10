@@ -55,7 +55,7 @@ coeditor:
 ---
 ```
 
-关于联合编辑更为详细的说明，轻参考文档：[Co-Editor](https://github.com/o2team/o2team.github.io/wiki/Z3-Co-Editor)
+关于联合编辑更为详细的说明，请参考文档：[Co-Editor](https://github.com/o2team/o2team.github.io/wiki/Z3-Co-Editor)
 
 ### 关注公众号
 
