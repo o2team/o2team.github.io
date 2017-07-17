@@ -17,10 +17,10 @@ wechat:
 
 <!-- more -->
 
-设计一个五图的 Swipe，设计稿如下：
+设计一个五图的 Swiper，设计稿如下：
 ![插图](//misc.aotu.io/leeenx/swiper/swiper.png)
 
-Swipe 的功能如下： 
+Swiper 的功能如下： 
 1. 左右切换
 2. 无限轮播
 3.  任意图片数 
