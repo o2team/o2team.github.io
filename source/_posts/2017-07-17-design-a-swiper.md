@@ -327,7 +327,7 @@ function swap(orientation) {
 | count | 效果图 | 地址 |
 | :-- | :-- | :-- |
 | 2 | <img src="//misc.aotu.io/leeenx/swiper/20170717_6.gif?v=2"> | [https://leeenx.github.io/mobile-swiper/index.html?count=2](https://leeenx.github.io/mobile-swiper/index.html?count=2) |
-| 4 | <img src="//misc.aotu.io/leeenx/swiper/20170717_7.gif?v=2"> | [https://leeenx.github.io/mobile-swiper/index.html?count=4](https://leeenx.github.io/mobile-swiper/index.html?count=4) |
+| 4 | <img src="//misc.aotu.io/leeenx/swiper/20170717_8.gif"> | [https://leeenx.github.io/mobile-swiper/index.html?count=4](https://leeenx.github.io/mobile-swiper/index.html?count=4) |
 
 ## 总结
 
