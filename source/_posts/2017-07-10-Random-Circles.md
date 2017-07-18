@@ -144,7 +144,7 @@ function testAvailable (pointArr, newPoint) {
 
 将碰撞检测的流程加进去，就是这样子的——
 
-![随机算法完整流程图](https://misc.aotu.io/lyxuncle/20170710_random_circles/random_circles_diagram_random_algorithm_2.png)
+![随机算法完整流程图](https://misc.aotu.io/lyxuncle/20170710_random_circles/random_circles_diagram_random_algorithm_3.png)
 
 按照这个流程图撸代码，思路清晰到飞起哦～
 
