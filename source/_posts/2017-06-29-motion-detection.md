@@ -27,17 +27,18 @@ wechat:
 
 由上述引用语句可得出“移动监测”需要以下要素：
 
- 1. 一个拥有美拍功能的“摄像头”（啪啪啪）
- 2. 用于判断移动的算法（这部分交给我）
- 3. 移动后的处理（你说了算）
+ 1. 一个拥有摄像头的计算机
+ 2. 用于判断移动的算法
+ 3. 移动后的处理
 
-**注：本文涉及的所有案例均基于 PC/Mac 较新版本的 Chrome / Firefox 浏览器。**
+**注：本文涉及的所有案例均基于 PC/Mac 较新版本的 Chrome / Firefox 浏览器，部分案例需配合摄像头完成，所有截图均保存在本地。**
 
 对方不想和你说话，并向你扔来一个链接：
 
 [体验链接>>][1]
 
-![综合案例][2]
+![综合案例][2]  
+综合案例
 
 该案例有以下两个功能：
 
@@ -48,7 +49,8 @@ wechat:
 
 [体验链接>>][3]
 
-![像素差异][4]
+![像素差异][4]  
+像素差异
 
 案例的左侧是视频源，而右侧则是移动后的像素处理（像素化、判断移动和只保留绿色等）。
 
@@ -126,7 +128,8 @@ function diffTwoImage () {
 }
 ```
 
-![两张图像的差异][11]
+![两张图像的差异][11]  
+两张图的差异
 
 体验上述案例后，是否有种当年玩“QQ游戏《大家来找茬》”的感觉。另外，这个案例可能还适用于以下两种情况：
 
@@ -137,9 +140,10 @@ function diffTwoImage () {
 
 由上述“两张图像差异”的案例中可得：黑色代表该位置上的像素未发生改变，而像素越明亮则代表该点的“动作”越大。因此，当连续两帧截图合成后有明亮的像素存在时，即为一个“动作”的产生。但为了让程序不那么“敏感”，我们可以设定一个阈值。当明亮像素的个数大于该阈值时，才认为产生了一个“动作”。当然，我们也可以剔除“不足够明亮”的像素，以尽可能避免外界环境（如灯光等）的影响。
 
-想要获取 Canvas 的像素信息，需要通过 `ctx.getImageData(sx, sy, sw, sh)`，该 [API][12] 会返回你所指定画布区域的像素对象。该对象包含 `data`、`width`、`height`。其中 `data` 是一个含有每个像素点 rgba 信息的一维数组，如下图所示。
+想要获取 Canvas 的像素信息，需要通过 `ctx.getImageData(sx, sy, sw, sh)`，该 [API][12] 会返回你所指定画布区域的像素对象。该对象包含 `data`、`width`、`height`。其中 `data` 是一个含有每个像素点 RGBA 信息的一维数组，如下图所示。
 
-![getImageData 图像][13]
+![getImageData 图像][13]  
+含有 RGBA 信息的一维数组
 
 获取到特定区域的像素后，我们就能对每个像素进行处理（如各种滤镜效果）。处理完后，则可通过 `ctx.putImageData()` 将其渲染在指定的 Canvas 上。
 
@@ -169,7 +173,7 @@ if (imageScore >= IMAGE_SCORE_THRESHOLD) {
 }
 ```
 
-在上述案例中，你也许会注意到画面是『绿色』的。其实，我们只需将每个像素的红和蓝设置为 0，即将 rgba 的 `r = 0; b = 0` 即可。这样就会像电影的某些镜头一样，增加了科技感和神秘感。
+在上述案例中，你也许会注意到画面是『绿色』的。其实，我们只需将每个像素的红和蓝设置为 0，即将 RGBA 的 `r = 0; b = 0` 即可。这样就会像电影的某些镜头一样，增加了科技感和神秘感。
 
 [体验地址>>][14]
 
@@ -186,13 +190,16 @@ ctx.putImageData(imageData, 0, 0)
 ```
 
 ![将 rgba 中的 r 和 b 置为 0][15]   
-将 rgba 中的 r 和 b 置为 0
+将 RGBA 中的 R 和 B 置为 0
 
 #### 跟踪“移动物体”
 
-有了明亮的像素后，我们可以取其最左上角和最右下角的两点，绘制成一个能包围所有明亮像素的矩形。这样就可以实现跟踪移动物体的效果了。
+有了明亮的像素后，我们就要找出其 x 坐标的最小值与 y 坐标的最小值，以表示跟踪矩形的左上角。同理，x 坐标的最大值与 y 坐标的最大值则表示跟踪矩形的右下角。至此，我们就能绘制出一个能包围所有明亮像素的矩形，从而实现跟踪移动物体的效果。
 
-[体验链接>>][16]
+![找出跟踪矩形的左上角和右下角][16]
+找出跟踪矩形的左上角和右下角
+
+[体验链接>>][17]
 
 示例代码：
 
@@ -248,7 +255,7 @@ function calcCoord(i) {
 }
 ```
 
-在得到左上角和右下角的坐标值后，通过 `ctx.strokeRect(x, y, width, height)` [API][17]。 绘制出矩形即可。
+在得到跟踪矩形的左上角和右下角的坐标值后，通过 `ctx.strokeRect(x, y, width, height)` [API][18] 绘制出矩形即可。
 
 ```
 ctx.lineWidth = 6
@@ -260,11 +267,11 @@ ctx.strokeRect(
 )
 ```
 
-![JOY在动][18]    
-这是理想效果，实际效果请打开 [体验链接][19]
+![JOY在动][19]   
+这是理想效果，实际效果请打开 [体验链接][20]
 
 > 扩展：为什么上述绘制矩形的代码中的 `x、y` 要加 `0.5` 呢？一图胜千言：    
-![0.5 像素][20]
+![0.5 像素][21]
 
 ### 性能
 
@@ -272,7 +279,7 @@ ctx.strokeRect(
 
 在上一个章节提到，我们需要通过对 Canvas 每个像素进行处理，假设 Canvas 的宽为 `640`，高为 `480`，那么就需要遍历 `640 * 480 = 307200` 个像素。而在监测效果可接受的前提下，我们可以将需要进行像素处理的 Canvas 缩小尺寸，如缩小 10 倍。这样需要遍历的像素数量就降低 `100` 倍，从而提升性能。
 
-[体验地址>>][21]
+[体验地址>>][22]
 
 示例代码：
 ```
@@ -280,13 +287,13 @@ const motionCanvas // 展示给用户看
 const backgroundCanvas // offscreen canvas 背后处理数据
 
 motionCanvas.width = 640
-motionCanvas.height = 48
+motionCanvas.height = 480
 
 backgroundCanvas.width = 64
 backgroundCanvas.height = 48
 ```
 
-![像素化][22]
+![像素化][23]  
 尺寸缩小 10 倍
 
 
@@ -303,20 +310,20 @@ backgroundCanvas.height = 48
 
 下面几个是通过 Web 使用 Kinect 的库：
 
- - [DepthJS][23]：以浏览器插件形式提供数据访问。
- - [Node-Kinect2][24]： 以 Nodejs 搭建服务器端，提供数据比较完整，实例较多。
- - [ZigFu][25]：支持 H5、U3D、Flash，API较为完整。
- - [Kinect-HTML5][26]：Kinect-HTML5 用 C# 搭建服务端，提供色彩数据、深度数据和骨骼数据。
+ - [DepthJS][24]：以浏览器插件形式提供数据访问。
+ - [Node-Kinect2][25]： 以 Nodejs 搭建服务器端，提供数据比较完整，实例较多。
+ - [ZigFu][26]：支持 H5、U3D、Flash，API较为完整。
+ - [Kinect-HTML5][27]：Kinect-HTML5 用 C# 搭建服务端，提供色彩数据、深度数据和骨骼数据。
 
-![通过 Web 访问 Kinect][27]    
+![通过 Web 访问 Kinect][28]    
 通过 Node-Kinect2 获取骨骼数据
 
-文章至此就真的要结束了，如果你想知道更多玩法，请关注 [凹凸实验室][28]。同时，也希望大家发掘更多玩法。
+文章至此就真的要结束了，如果你想知道更多玩法，请关注 [凹凸实验室][29]。同时，也希望大家发掘更多玩法。
 
 ### 参考资料
 
- - [使用HTML5开发Kinect体感游戏][29]
- - [MOTION DETECTION WITH JAVASCRIPT][30]
+ - [使用HTML5开发Kinect体感游戏][30]
+ - [MOTION DETECTION WITH JAVASCRIPT][31]
 
 
   [1]: https://jdc.jd.com/lab/motion-detection/cam-diff-show-music/
@@ -334,18 +341,19 @@ backgroundCanvas.height = 48
   [13]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/motion-pixel-data.png
   [14]: http://jdc.jd.com/lab/motion-detection/image-green/
   [15]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/green.png
-  [16]: https://jdc.jd.com/lab/motion-detection/cam-diff-rect/
-  [17]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect
-  [18]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/move.jpg
-  [19]: https://jdc.jd.com/lab/motion-detection/cam-diff-rect/
-  [20]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/half-pixel.png
-  [21]: http://jdc.jd.com/lab/motion-detection/image-pixel/
-  [22]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/pixel.png
-  [23]: https://github.com/doug/depthjs
-  [24]: https://github.com/wouterverweirder/kinect2
-  [25]: http://zigfu.com/en/zdk/overview/
-  [26]: https://github.com/LightBuzz/Kinect-HTML5
-  [27]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/node-kinect2-skeleton.png
-  [28]: https://aotu.io/
-  [29]: http://www.cnblogs.com/wanbo/p/6222993.html?utm_source=debugrun&utm_medium=referral
-  [30]: http://codersblock.com/blog/motion-detection-with-javascript/
+  [16]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/rect.png
+  [17]: https://jdc.jd.com/lab/motion-detection/cam-diff-rect/
+  [18]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect
+  [19]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/move.jpg
+  [20]: https://jdc.jd.com/lab/motion-detection/cam-diff-rect/
+  [21]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/half-pixel.png
+  [22]: http://jdc.jd.com/lab/motion-detection/image-pixel/
+  [23]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/pixel.png
+  [24]: https://github.com/doug/depthjs
+  [25]: https://github.com/wouterverweirder/kinect2
+  [26]: http://zigfu.com/en/zdk/overview/
+  [27]: https://github.com/LightBuzz/Kinect-HTML5
+  [28]: https://misc.aotu.io/JChehe/2017-06-29-motion-detection/node-kinect2-skeleton.png
+  [29]: https://aotu.io/
+  [30]: http://www.cnblogs.com/wanbo/p/6222993.html?utm_source=debugrun&utm_medium=referral
+  [31]: http://codersblock.com/blog/motion-detection-with-javascript/
