@@ -164,7 +164,7 @@ function testAvailable (pointArr, newPoint) {
 
 这个时候，再到画布范围随机生成一个点，然后重复上一步。直到画布没有位置了为止。
 
-![广搜算法与随机算法结合流程图](https://misc.aotu.io/lyxuncle/20170710_random_circles/radom_circles_diagram_random_and_bfs_algorithm.png)
+![广搜算法与随机算法结合流程图](https://misc.aotu.io/lyxuncle/20170710_random_circles/radom_circles_diagram_random_and_bfs_algorithm_2.png)
 
 这种算法我们暂且将之称为广搜算法（[广度优先搜索](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2)，Breadth First Search，BFS）与随机算法的结合。
 
