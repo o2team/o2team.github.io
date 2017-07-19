@@ -29,6 +29,8 @@ wechat:
  - 外接图形判别法
     - 轴对称包围盒（Axis-Aligned Bounding Box），即无旋转矩形。
     - 圆形碰撞
+    - 圆形与矩形（无旋转）
+    - 圆形与旋转矩形（以矩形中心点为旋转轴）
  - 光线投射法
  - 分离轴定理
  - 其他
@@ -51,7 +53,7 @@ if(ball.top  < 0 || ball.bottom > rect.height) ball.velocityY = -ball.velocityY
 
 再例如当一个人走到 `100px` 位置时不进行跳跃，就会碰到石头等等。
 
-因此，某些场景只需通过设定到适当的参数即可。
+因此，某些场景只需通过设定到适当的参数即可实现碰撞检测。
 
 ## 外接图形判别法
 ### 轴对称包围盒（Axis-Aligned Bounding Box）
@@ -114,6 +116,101 @@ Math.sqrt(Math.pow(circleA.x - circleB.x, 2) +
 
  - （类）圆形的物体，如各种球类碰撞。
 
+### 圆形与矩形（无旋转）
+概念：通过找出矩形上离圆心最近的点，然后通过判断该点与圆心的距离是否小于圆的半径，若小于则为碰撞。
+
+那如何找出矩形上离圆心最近的点呢？下面我们从 x 轴、y 轴两个方向分别进行寻找。为了方便描述，我们先约定以下变量：
+
+```
+ 矩形上离圆心最近的点为变量：closestPoint = {x, y};
+ 矩形 rect = {x, y, w, h}; // 左上角与宽高
+ 圆形 circle = {x, y, r}; // 圆心与半径
+```
+
+首先是 x 轴：
+
+如果圆心在矩形的左侧（`if(circle.x < rect.x)`），那么 `closestPoint.x = rect.x`。   
+![圆心在矩形的左侧][4]
+
+如果圆心在矩形的右侧（`else if(circle.x > rect.x + rect.w)`），那么 `closestPoint.x = rect.x + rect.w`。   
+![圆心在矩形的右侧][5]
+
+如果圆心在矩形的正上下方（`else`），那么 `closestPoint.x = circle.x`。   
+![圆心在矩形的正上下方][6]
+
+同理，对于 y 轴（此处不列举图例）：
+
+如果圆心在矩形的上方（`if(circle.y < rect.y)`），那么 `closestPoint.y = rect.y`。
+
+如果圆心在矩形的下方（`else if(circle.y < rect.y + rect.h)`），那么 `closestPoint.y = rect.y + rect.h`。
+
+圆形圆心在矩形的正左右两侧（`else`），那么 `closestPoint.y = circle.y`。
+
+
+因此，通过上述方法即可找出矩形上离圆心最近的点了，然后通过『两点之间的距离公式』得出『最近点』与『圆心』的距离，最后将其与圆的半径相比，即可判断是否发生碰撞。
+
+```
+var distance = Math.sqrt(Math.pow(closestPoint.x - circle.x, 2) + Math.pow(closestPoint.y - circle.y, 2))
+
+if(distance < circle.r) return true // 发生碰撞
+else return false // 未发生碰撞
+```
+
+在线运行示例：  
+<p data-height="277" data-theme-id="0" data-slug-hash="aWqpdo" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="Circle and Rectangle" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/aWqpdo/">Circle and Rectangle</a> by Jc (<a href="http://codepen.io/JChehe">@JChehe</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+缺点：
+
+ - 矩形需是轴对称的，即不能旋转。
+
+### 圆形与旋转矩形（以矩形中心为旋转轴）
+概念：即使矩形以其中心为旋转轴进行了旋转，但是判断它与圆形是否发生碰撞的本质还是找出矩形上离圆心的最近点。
+
+对于旋转后的矩形，要找出其离圆心最近的点，视乎有些困难。其实，我们可以将我们思想的范围进行扩大：将矩形的旋转看作是整个画布的旋转。那么我们将画布（即 Canvas）反向旋转『矩形旋转的角度』后，所看到的结果就是上一个方法“圆形与矩形（无旋转）”的情形。因此，我们只需求出画布旋转后的圆心位置，即可使用『圆形与矩形（无旋转）』的判断方法了。
+
+![绕矩形中心旋转后的画布][7]
+
+先给出可直接套用的公式，从而得出旋转后的圆心坐标：
+```
+x’ = cos(β) * (cx – centerX) – sin(β) * (cy – centerY) + centerX
+y’ = sin(β) * (cx – centerX) + cos(β) * (cy – centerY) + centerY
+```
+
+下面给出该公式的推导过程：
+
+根据下图，计算某个点绕另外一个点旋转一定角度后的坐标。我们设 A(x,y) 绕 B(a,b) 旋转 β 度后的位置为 C(c,d)。
+
+![某个点绕另外一个点旋转一定角度后的坐标的公式推导][8]
+
+1. 设 A 点旋转前的角度为 δ，则旋转（逆时针）到 C 点后的角度为(δ+β)
+2. 由于 |AB| 与 |CB| 相等（即长度），且
+    1. |AB| = y/sin(δ) = x / cos(δ)
+    2. |CB| = d/sin(δ + β) = c / cos(δ + β)
+3. 半径 r = x / cos(δ) = y / sin(δ) = d / sin(δ + β) = c / cos(δ + β)
+4. 由以下三角函数两角和差公式：
+    -  sin(δ + β) = sin(δ)cos(β) + cos(δ)sin(β)
+    -  cos(δ + β) = cos(δ)cos(β) - sin(δ)sin(β)
+5. 可得出旋转后的坐标：
+    - c = r \* cos(δ + β) = r \* cos(δ)cos(β) - r \* sin(δ)sin(β) = x \* cos(β) - y \* sin(β)
+    - d = r \* sin(δ + β) = r \* sin(δ)cos(β) + r \* cos(δ)sin(β) = y \* cos(β) + x \* sin(β)
+
+由上述公式推导后可得：旋转后的坐标 (c,d) 只与旋转前的坐标 (x,y) 及旋转的角度 β 有关。
+
+当然，(c,d) 是旋转一定角度后『相对于旋转点（轴）的坐标』。因此，前面提到的『可直接套用的公式』中加上了矩形的中心点的坐标值。
+
+从图中也可以得出以下结论：A 点旋转后的 C 点总是在圆周（半径为 |AB|）上运动，利用这点可让物体绕旋转点（轴）做圆周运动。
+
+得到旋转后的圆心坐标值后，即可使用『圆形与矩形（无旋转）』方法进行碰撞检测了。
+
+在线运行案例：  
+<p data-height="313" data-theme-id="0" data-slug-hash="dWmYjO" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="Circle and Rotated Rectangle Collision Detection" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/dWmYjO/">Circle and Rotated Rectangle Collision Detection</a> by Jc (<a href="http://codepen.io/JChehe">@JChehe</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+优点：
+
+ - 相对于圆形与矩形（未旋转）的方法，适用范围更广。
 
 ## 其他
 
@@ -122,7 +219,7 @@ Math.sqrt(Math.pow(circleA.x - circleB.x, 2) +
 
 
 `蓝色X` 为障碍物：  
-![地图格子碰撞检测][4]
+![地图格子碰撞检测][9]
 
 
 实现方法：
@@ -168,7 +265,7 @@ player = {left: 2, top: 2}
 
 注意，当待检测碰撞物体为两个时，第一种方法需要两个 offscreen canvas，而第二种只需一个。
 
- > offscreen canvas：与之相关的是 offscreen rendering。正如其名，它会在某个地方进行渲染，但不是屏幕。“某个地方”其实是**内存**。渲染到内存比渲染到屏幕更快。—— [Offscreen Rendering][5]
+ > offscreen canvas：与之相关的是 offscreen rendering。正如其名，它会在某个地方进行渲染，但不是屏幕。“某个地方”其实是**内存**。渲染到内存比渲染到屏幕更快。—— [Offscreen Rendering][10]
  
 当然，我们这里并不是利用 `offscreen render` 的性能优势，而是利用 `offscreen canvas` 保存独立物体的像素。换句话说：**onscreen canvas 只是起展示作用，碰撞检测是在 offscreen canvas 中进行**。
 
@@ -176,7 +273,7 @@ player = {left: 2, top: 2}
 
 
 图例：  
-![像素检测][6]
+![像素检测][11]
 
 下面示例展示了第一种实现方式：
 <p data-height="307" data-theme-id="0" data-slug-hash="qRLLzB" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="pixel collision detection" class="codepen">See the Pen <a href="http://codepen.io/JChehe/pen/qRLLzB/">pixel collision detection</a> by Jc (<a href="http://codepen.io/JChehe">@JChehe</a>) on <a href="http://codepen.io">CodePen</a>.</p>
@@ -197,7 +294,7 @@ player = {left: 2, top: 2}
 对于下述抛小球入桶的案例：画一条与物体的速度向量相重合的线(`#1`)，然后再从另一个待检测物体出发，连线到前一个物体，绘制第二条线(`#2`)，根据两条线的交点位置来判定是否发生碰撞。
 
 抛球进桶图例：   
-![光线投射法][7]
+![光线投射法][12]
 
 在小球飞行的过程中，需要不断计算两直线的交点。
 
@@ -229,11 +326,11 @@ player = {left: 2, top: 2}
 概念：通过判断任意两个 `凸多边形` 在任意角度下的投影是否均存在重叠，来判断是否发生碰撞。若在某一角度光源下，两物体的投影存在间隙，则为不碰撞，否则为发生碰撞。
 
 图例：   
-![分离轴定理][8]
+![分离轴定理][13]
 
 在程序中，遍历所有角度是不现实的。那如何确定 `投影轴` 呢？其实**投影轴的数量与多边形的边数相等即可。**
 
-![https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_two.png][9]
+![https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_two.png][14]
 
 以较高抽象层次判断两个凸多边形是否碰撞：
 
@@ -269,7 +366,7 @@ function polygonsCollide(polygon1, polygon2) {
 
 **投影轴**平行于边缘法向量。投影轴的位置不限，因为其长度是无限的，故而多边形在该轴上的投影是一样的。该轴的方向才是关键的。
 
-![投影轴][10]
+![投影轴][15]
 
 
 ```js
@@ -337,7 +434,7 @@ Vector.prototype = {
 }
 ```
 
-![此处输入图片的描述][11]    
+![此处输入图片的描述][16]    
 向量相减
 
 
@@ -349,7 +446,7 @@ Vector.prototype = {
 
 判断两多边形的投影是否重合：`projection1.max > projection2.min && project2.max > projection.min`
 
-![此处输入图片的描述][12]    
+![此处输入图片的描述][17]    
 为了易于理解，示例图将坐标轴`原点(0,0)`放置于三角形`边1`投影轴的适当位置。
 
 由上述可得投影对象：
@@ -373,7 +470,7 @@ projection.prototype = {
 向量的点积的其中一个几何含义是：一个向量在平行于另一个向量方向上的投影的数值乘积。  
 由于**投影轴**是单位向量（长度为`1`），投影的长度为 `x1 * x2 + y1 * y2`
 
-![点积][13]
+![点积][18]
 
 ```js
 // 根据多边形的每个定点，得到投影的最大和最小值，以表示投影。
@@ -393,7 +490,7 @@ function project = function (axis) {
 #### 圆形与多边形之间的碰撞检测
 由于圆形可近似地看成一个有无数条边的正多边形，而我们不可能按照这些边一一进行投影与测试。我们只需将圆形投射到一条投影轴上即可，这条轴就是圆心与多边形顶点中最近的一点的连线，如图所示：
 
-![圆形与多边形的投影轴][14]
+![圆形与多边形的投影轴][19]
 
 因此，该投影轴和多边形自身的投影轴就组成了一组待检测的投影轴了。
 
@@ -420,17 +517,17 @@ function project = function (axis) {
 
 更多关于分离轴定理的资料： 
 
- - [Separating Axis Theorem (SAT) explanation][15]
- - [Collision detection and response][16]
- - [Collision detection Using the Separating Axis Theorem][17]
- - [SAT (Separating Axis Theorem)][18]
- - [Separation of Axis Theorem (SAT) for Collision Detection][19]
+ - [Separating Axis Theorem (SAT) explanation][20]
+ - [Collision detection and response][21]
+ - [Collision detection Using the Separating Axis Theorem][22]
+ - [SAT (Separating Axis Theorem)][23]
+ - [Separation of Axis Theorem (SAT) for Collision Detection][24]
 
 #### 延伸：最小平移向量（MIT）
 
 通常来说，如果碰撞之后，相撞的双方依然存在，那么就需要将两者分开。分开之后，可以使原来相撞的两物体彼此弹开，也可以让他们黏在一起，还可以根据具体需要来实现其他行为。不过首先要做的是，还是将两者分开，这就需要用到最小平移向量（Minimum Translation Vector, MIT）。
 
-![最小平移向量][20]
+![最小平移向量][25]
 
 
 ### 碰撞性能优化
@@ -449,35 +546,46 @@ Broad phase 能为你提供有可能碰撞的实体列表。这可通过一些�
 
 
 ### 最后
-无论你碰不碰，我都会自摸🀄️✌️。
+碰撞检测有多种，选择合适最重要。
 
 完！
 
 ### 参考资料
 
- - [MDN：2D collision detection][21]
- - [《HTML5 Canvas 核心技术：图形、动画与游戏开发》][22]
+ - [MDN：2D collision detection][26]
+ - [《HTML5 Canvas 核心技术：图形、动画与游戏开发》][27]
+ - [Circular Collision Detection][28]
+ - [Circle and Rotated Rectangle Collision Detection][29]
+ - [推导坐标旋转公式][30]
 
 
   [1]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/rectangle_collision.png
   [2]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/two_point_distance.png
   [3]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/circle_collision.png
-  [4]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/map_cell_collision.png
-  [5]: http://devbutze.blogspot.com/2014/02/html5-canvas-offscreen-rendering.html
-  [6]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/pixel_collision.png
-  [7]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/ray_casting_collision.png
-  [8]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_base.png
-  [9]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_two.png
-  [10]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_one.png
-  [11]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/vector_subtract.png
-  [12]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_project_length.png
-  [13]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/dot_product.png
-  [14]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_circle.png
-  [15]: http://www.sevenson.com.au/actionscript/sat/
-  [16]: http://www.metanetsoftware.com/technique/tutorialA.html
-  [17]: http://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169
-  [18]: http://www.codezealot.org/archives/55
-  [19]: http://rocketmandevelopment.com/blog/separation-of-axis-theorem-for-collision-detection/
-  [20]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/mit.png
-  [21]: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-  [22]: https://item.jd.com/11231175.html?dist=jd
+  [4]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/cicle_rectangle_left.png
+  [5]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/circle_rectangle_right.png
+  [6]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/circle_rectangle_center.png
+  [7]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/circle_and_rotated_rect.png
+  [8]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/circle_and_rotated_rect_formula.png
+  [9]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/map_cell_collision.png
+  [10]: http://devbutze.blogspot.com/2014/02/html5-canvas-offscreen-rendering.html
+  [11]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/pixel_collision.png
+  [12]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/ray_casting_collision.png
+  [13]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_base.png
+  [14]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_two.png
+  [15]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_one.png
+  [16]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/vector_subtract.png
+  [17]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_project_length.png
+  [18]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/dot_product.png
+  [19]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/sat_projection_circle.png
+  [20]: http://www.sevenson.com.au/actionscript/sat/
+  [21]: http://www.metanetsoftware.com/technique/tutorialA.html
+  [22]: http://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169
+  [23]: http://www.codezealot.org/archives/55
+  [24]: http://rocketmandevelopment.com/blog/separation-of-axis-theorem-for-collision-detection/
+  [25]: https://misc.aotu.io/JChehe/2017-02-13-2d-collision-detection/mit.png
+  [26]: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+  [27]: https://item.jd.com/11231175.html?dist=jd
+  [28]: http://lazyfoo.net/SDL_tutorials/lesson19/index.php
+  [29]: http://www.migapro.com/circle-and-rotated-rectangle-collision-detection/
+  [30]: http://www.cnblogs.com/ywxgod/archive/2010/08/06/1793609.html

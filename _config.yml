@@ -89,8 +89,8 @@ theme: lattice
 
 
 # Feeds
-## https://www.npmjs.com/package/hexo-generator-feed
-feed:
+## https://www.npmjs.com/package/hexo-generator-xfeed
+xfeed:
   type: atom
   path: atom.xml
   limit: false
@@ -129,7 +129,8 @@ disqus_shortname:
 # Analytics
 baidu_analytics: e850b980d029480b092fdd7503c3f8de
 google_analytics:
-cnzz_analytics: 1258539944
+ta_analytics: 53685723
+aotu_analytics: true
 
 # Social
 twitter: o2circle

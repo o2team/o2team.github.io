@@ -31,6 +31,7 @@
 {{ js('js/libs/jquery.scrollPager') }}
 {{ js('js/libs/hogan-3.0.2') }}
 {{ js('js/libs/base64') }}
+{{ js('js/libs/gitment.browser') }}
 {{ js('js/mods/util') }}
 {{ js('js/mods/common') }}
 {{ js('js/mods/console') }}

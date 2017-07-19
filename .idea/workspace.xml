@@ -2,8 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8e40e1-fb2f-4475-b7df-ea6873858910" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/source/_posts/2017-07-12-createjs.md" afterPath="$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-04-10-githooks.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-04-13-Sticky-footer.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-04-17-Matter-js.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-04-22-an-update-on-es6-modules-in-node-js.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-05-04-example-for-svg-animation.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-05-25-canvas-img-rotate-and-flip.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-06-09-ps-tricks.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-06-15-The-mystery-of-URL-encoding.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-06-27-infinite-scrolling.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-06-29-motion-detection.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-07-10-Random-Circles.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-07-17-The-Exploration-and-Practice-of-Vue.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-07-17-design-a-swiper.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/2017-4-28-CSS_viewport_units.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/_posts/暖.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/aotu_analytics.swig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/ta_analytics.swig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/lattice/source/css/_base/gitment.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/lattice/source/js/libs/gitment.browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/lattice/source/js/mods/gitment.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/o2team.github.io.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/cnzz_analytics.swig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/themes/lattice/source/css/_base/duoshuo.styl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/themes/lattice/source/js/mods/duoshuo.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.nvmrc" afterPath="$PROJECT_DIR$/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_data/links.yml" afterPath="$PROJECT_DIR$/source/_data/links.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2016-02-27-docker.md" afterPath="$PROJECT_DIR$/source/_posts/2016-02-27-docker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2016-11-02-border-image.md" afterPath="$PROJECT_DIR$/source/_posts/2016-11-02-border-image.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2016-11-15-xcel.md" afterPath="$PROJECT_DIR$/source/_posts/2016-11-15-xcel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2016-12-08-vim-4.md" afterPath="$PROJECT_DIR$/source/_posts/2016-12-08-vim-4.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2017-01-31-detect-orientation.md" afterPath="$PROJECT_DIR$/source/_posts/2017-01-31-detect-orientation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2017-02-14-2d-collision-detection.md" afterPath="$PROJECT_DIR$/source/_posts/2017-02-14-2d-collision-detection.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2017-02-24-Mobile-debug.md" afterPath="$PROJECT_DIR$/source/_posts/2017-02-24-Mobile-debug.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2017-03-24-webar.md" afterPath="$PROJECT_DIR$/source/_posts/2017-03-24-webar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2017-04-11-GPU.md" afterPath="$PROJECT_DIR$/source/_posts/2017-04-11-GPU.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md" afterPath="$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/lattice/_config.yml" afterPath="$PROJECT_DIR$/themes/lattice/_config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/after_footer.swig" afterPath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/after_footer.swig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/comment.swig" afterPath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/comment.swig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/footer.swig" afterPath="$PROJECT_DIR$/themes/lattice/layout/_partial/common/footer.swig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/lattice/source/css/_base/index.styl" afterPath="$PROJECT_DIR$/themes/lattice/source/css/_base/index.styl" />
     </list>
     <ignored path="o2team.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +77,8 @@
       <file leaf-file-name="2017-04-11-GPU.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/2017-04-11-GPU.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            <state relative-caret-position="135">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -39,45 +87,15 @@
       <file leaf-file-name="2017-07-19-createjs.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="187">
+              <caret line="283" column="21" selection-start-line="283" selection-start-column="21" selection-end-line="283" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-03-24-webar.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-24-webar.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db.json">
+      <file leaf-file-name="2017-4-28-CSS_viewport_units.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/2017-4-28-CSS_viewport_units.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -97,6 +115,7 @@
         <option value="$PROJECT_DIR$/source/_posts/2016-12-30-vue2.0.md" />
         <option value="$PROJECT_DIR$/source/_posts/2017-04-10-GPU.md" />
         <option value="$PROJECT_DIR$/source/_posts/2017-04-11-GPU.md" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md" />
       </list>
     </option>
   </component>
@@ -112,10 +131,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-151" />
-    <option name="y" value="-957" />
-    <option name="width" value="1392" />
-    <option name="height" value="828" />
+    <option name="x" value="134" />
+    <option name="y" value="91" />
+    <option name="width" value="1124" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -130,7 +149,7 @@
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
-      <showMembers />
+      <showMembers ProjectPane="false" />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
@@ -149,9 +168,6 @@
         <subPane subId="Default" />
         <subPane subId="Tests" />
       </pane>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,49 +176,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="o2team.github.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="o2team.github.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="o2team.github.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="o2team.github.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="o2team.github.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="o2team.github.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -296,11 +273,12 @@
       <workItem from="1491876238162" duration="67000" />
       <workItem from="1491876329299" duration="233000" />
       <workItem from="1491876582545" duration="570000" />
+      <workItem from="1500451994113" duration="199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12737000" />
+    <option name="totallyTimeSpent" value="12978000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -312,10 +290,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-151" y="-957" width="1392" height="828" extended-state="0" />
+    <frame x="134" y="91" width="1124" height="754" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2297593" sideWeight="0.49423632" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2030825" sideWeight="0.49423632" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19661734" sideWeight="0.5057637" order="2" side_tool="true" content_ui="tabs" />
@@ -350,57 +328,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-30-vue2.0.md" />
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-02-jcloud.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-08-vim-4.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-30-vue2.0.md" />
-    <entry file="file://$PROJECT_DIR$/source/_posts/2015-10-08-aotu-blog-v1.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1367">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2015-10-13-start-postcss.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4967">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-02-jcloud.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-04-firewatcher-appreciation.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-07-regexp-practice.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5340">
-          <caret line="356" column="9" selection-start-line="356" selection-start-column="9" selection-end-line="356" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-30-vue2.0.md" />
     <entry file="file://$PROJECT_DIR$/.eslintrc">
       <provider selected="true" editor-type-id="text-editor">
@@ -447,20 +374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.nvmrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -476,26 +389,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2017-04-11-GPU.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -594,13 +491,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2016-12-30-vue2.0.md" />
-    <entry file="file://$PROJECT_DIR$/.eslintrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2016-11-07-AdobeMax2016.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -609,26 +499,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2017-04-10-GPU.md" />
-    <entry file="file://$PROJECT_DIR$/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.npmrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,18 +513,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.nvmrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-06-15-The-mystery-of-URL-encoding.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="195" column="16" selection-start-line="195" selection-start-column="16" selection-end-line="195" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-17-design-a-swiper.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-17-The-Exploration-and-Practice-of-Vue.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5813">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/暖.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-04-17-Matter-js.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="382" column="20" selection-start-line="382" selection-start-column="20" selection-end-line="382" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-24-webar.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2017-04-11-GPU.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        <state relative-caret-position="135">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-4-28-CSS_viewport_units.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-19-createjs.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="283" column="21" selection-start-line="283" selection-start-column="21" selection-end-line="283" selection-end-column="21" />
           <folding />
         </state>
       </provider>
