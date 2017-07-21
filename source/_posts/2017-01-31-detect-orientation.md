@@ -10,7 +10,7 @@ author:
     nick: Tingglelaoo
     github_name: Tingglelaoo
 wechat:
-    share_cover: //misc.aotu.io/Tingglelaoo/detect-orientation_200x200.png
+    share_cover: http://misc.aotu.io/Tingglelaoo/detect-orientation_200x200.png
     share_title: 探讨判断横竖屏的最佳实现
     share_desc: 简述多种横竖屏判断的实现方式以及其中的优缺点，并探讨最佳的实现方式
 
@@ -182,7 +182,7 @@ window.addEventListener('orientationchange',detectOrient);
 
 那么，我们可以确定为：
 
-假如屏幕分辨率固定值为：`screen.width` 和 `screen.height`（需要注意，这里很重要的一点是：**在移动端，屏幕翻转时，`screen.width` 和 `screen.height` 的值依然是不变的**）
+假如屏幕分辨率固定值为：`screen.width` 和 `screen.height`（需要注意，这里很重要的一点是：<del>**在移动端，屏幕翻转时，`screen.width` 和 `screen.height` 的值依然是不变的**</del>**后面有补充修正，可以直接跳到下一个章节阅读**）
 
 - 若获取 当前页面的宽（`document.documentElement.clientWidth`），等于屏幕分辨率的宽(`screen.width`)，则可认定当前属于**竖屏**。
 
@@ -237,6 +237,118 @@ window.addEventListener('resize',detectOrient);
 目前，W3C 引入[Screen Orientation API](https://www.w3.org/TR/screen-orientation/)，该标准能够帮助 Web 应用获得屏幕方向的状态，在状态改变时获得通知，并能够从应用程序中将屏幕状态锁定到特定状态。
 但截止目前，该标准仍在 W3C 草案阶段。在移动端，它在 Android 和 iOS 平台上仍未得到支持，仅仅在 Chrome for Android 39 版本及以上才得到实现，所以对目前的开发来说意义不大。只能期待它能够尽快通过并得到广泛支持，这样的检测屏幕方向的问题就能够得到规范化的解决。
 
+## 20170425更新
+感谢各位读者的反馈，笔者的自测确实是没有覆盖全面，有些读者反馈的以下几点问题确实存在：
+1.在 华为P9 的微信（6.5.4）、华为荣耀的微信（6.5.7）和 Chrome 浏览器上，`screen.width` 与 `screen.height` 均会随着横竖屏的切换而变。
+2.另外，笔者也发现在移动端还有一点很重要的点会影响到 `document.documentElement.clientWidth/clientHeight` 的值 —— Meta Viewport的设置。
+3.在微信内（其他移动浏览器也会），会多次触发resize事件。
+
+然而，以上三个问题都是不影响本文所提出的方法的核心思想，而只需要将方法进行bug的修正即可。
+这里先丢出[体验地址](http://jdc.jd.com/demo/ting/detectOrientation.html)，其中，修正后的源码如下：
+
+```javascript
+// 判断横竖屏
+var utils = {
+    debounce: function(func,delay){
+        var timer = null;
+        return function(){
+            var context = this,
+                args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function(){
+                func.apply(context,args);
+            },delay);
+        }
+    }
+}
+
+var detectRes = document.getElementById('J_detectRes');
+var detectData = document.getElementById('J_detectData');
+
+function detectOrient() {
+    var storage = localStorage; // 不一定要使用localStorage，其他存储数据的手段都可以
+    var data = storage.getItem('J-recordOrientX');
+    var cw = document.documentElement.clientWidth;
+
+    var _Width = 0,
+        _Height = 0;
+    if(!data) {
+        sw = window.screen.width;
+        sh = window.screen.height;
+        // 2.在某些机型（如华为P9）下出现 srceen.width/height 值交换，所以进行大小值比较判断
+        _Width = sw < sh ? sw : sh;
+        _Height = sw >= sh ? sw : sh;
+        storage.setItem('J-recordOrientX',_Width + ',' + _Height);
+    }else {
+        var str = data.split(',');
+        _Width = str[0];
+        _Height = str[1];
+    }
+
+    if(cw == _Width) {
+        // 竖屏
+        return;
+    }
+    if(cw == _Height){
+        // 横屏
+        return;
+    }
+
+}
+
+// 3.函数去抖处理
+window.onresize = utils.debounce(detectOrient,300);
+detectOrient();
+```
+
+然后，下面则讲诉如何针对性逐一突破。
+
+### 1.横竖屏切换时，`screen.width`与`screen.height`的值可能会改变
+
+随着横竖屏幕的切换，`screen.width`与`screen.height`在大部分机型上会维持不变，而在一些机型上如@Jc、@百思不得姐夫
+提出的华为 P9 微信内置浏览器(6.5.4版本)、Chrome桌面端浏览器模拟器中会出现值交换的现象。
+
+例如，在Chome上 iPhone 6 模拟器中，竖屏时`screen.width`与`screen.height`等于375px、667px，而横屏时，`sreen.width`与`screen.height`等于 667px 、 375px，两者属性值出现了值交换现象。
+
+这个问题很容易解决，虽然出现了值交换，但是值大小还是不变的，那么我们可以先通过比较大小来判断出属性值较小的是`screen.width`，而属性值较大的是`screen.height`，然后再用来与`document.documentElement.clientWidth/clientHeight`进行比较，从而判断出横竖屏。
+
+### 2.Meta Viewport的设置会影响`document.documentElement.clientWidth/clientHeight`
+
+Peter-Paul Koch 的[《两个 Viewport 的故事》](http://weizhifeng.net/viewports.html)的一文中提出的关于 Viewport 的理论被认为是业界的主流论调，它指出 Layout Viewport 的尺寸可以通过`document.documentElement.clientWidth/clientHeight`进行度量。而通过设置 Meta Viewport （也就是 viewport meta 标签）是可以改变 Layout Viewport 的尺寸。
+
+所以，Meta Viewport的属性设置如何是会影响到`document.documentElement.clientWidth/clientHeight`的值，这就是一部分读者迷惑到”为什么会我测量`document.documentElement.clientWidth/clientHeight`的值与`screen.width/height`的值不相同？“的原因所在。
+
+因此，在这里也补充一点，在笔者提出的方法中，有个忘记跟大家说明的前提——页面设置了以下属性以保证页面的适配：
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+```
+这句语句的设置就保证了页面是始终适配屏幕的，在横竖屏切换的场景中`document.documentElement.clientWidth/clientHeight`必然与`screen.width/height`其中一值相等，并且这也是本文提出的横竖屏检测方法的核心。
+
+
+### 3.resize事件的多次触发
+
+笔者是通过绑定监听resize事件来响应执行横竖屏检测方法的，而在实际应用中确实出现了resize事件触发两次的情况。
+
+虽然并没有影响到事件的判断结果，但是这也算个值得优化的点，而且问题也不大，我们只要通过**函数去抖（ Debounce Function )** 办法来进行简单的解决就好。
+
+```javascript
+// 函数去抖的简单封装
+var utils = {
+    debounce: function(func,delay){
+        var timer = null;
+        return function(){
+            var context = this,
+                args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function(){
+                func.apply(context,args);
+            },delay);
+        }
+    },
+    ...
+}
+```
 
 ## 参考文档
 

@@ -8,7 +8,7 @@ author:
   nick: TH
   github_name: ONE-SUNDAY
 wechat:
-  share_cover: //misc.aotu.io/ONE-SUNDAY/MobileDebug/MobileDebug_200x200.jpg
+  share_cover: http://misc.aotu.io/ONE-SUNDAY/MobileDebug/MobileDebug_200x200.jpg
   share_title: 移动端真机调试指南
   share_desc: 图文并茂介绍了几种常用的移动端真机调试方案
 date: 2017-02-24 14:45:36

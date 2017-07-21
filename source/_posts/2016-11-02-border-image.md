@@ -13,7 +13,7 @@ coeditor:
     name: leeenx
     url: https://github.com/leeenx
 wechat:
-    share_cover: //misc.aotu.io/leeenx/border-image/share.png
+    share_cover: http://misc.aotu.io/leeenx/border-image/share.png
     share_title: border-image 的正确用法
     share_desc: 尽管经常使用 border-image，但我们真的了解它的吗？
 date: 2016-11-02 21:22:23
