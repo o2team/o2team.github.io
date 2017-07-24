@@ -59,14 +59,13 @@
 {% include 'prefetch.swig' %}
 
 <!-- CSS -->
+{% if theme.gitalk %}
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/>
+{% endif %}
 {{ css('css/style') }}
 
 {% if theme.fancybox %}
 {{ css('assets/fancybox/jquery.fancybox.css') }}
-{% endif %}
-
-{% if theme.gitalk %}
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/>
 {% endif %}
 
 <!-- RSS -->
