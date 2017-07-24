@@ -65,6 +65,10 @@
 {{ css('assets/fancybox/jquery.fancybox.css') }}
 {% endif %}
 
+{% if theme.gitalk %}
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/>
+{% endif %}
+
 <!-- RSS -->
 {{ feed_tag('atom.xml') }}
 <!-- Open Graph -->

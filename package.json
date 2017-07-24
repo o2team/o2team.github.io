@@ -10,7 +10,7 @@
     "clean": "rm -rf public/js/libs && rm -rf public/js/mods"
   },
   "hexo": {
-    "version": "3.3.7"
+    "version": "3.3.8"
   },
   "dependencies": {
     "cheerio": "^0.22.0",

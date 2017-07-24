@@ -17,20 +17,18 @@
 </script>
 {% endif %}
 
-{% if page.comments && theme.gitment && theme.gitment.client_id %}
+{% if page.comments && theme.gitalk && theme.gitalk.client_id %}
 <div class="post-comments" id="comments"></div>
 <script>
-  var gitmentOpts = {
+  var gitalkOpts = {
     id: '{{ post_key(page.path, page.ckey) }}',
-    owner: '{{ theme.gitment.owner }}',
-    repo: '{{ theme.gitment.repo }}',
-    link: '{{ url }}',
+    owner: '{{ theme.gitalk.owner }}',
+    repo: '{{ theme.gitalk.repo }}',
     title: '{{ page.title }}',
-    desc: '{{ page.subtitle }}',
-    oauth: {
-      client_id: '{{ theme.gitment.client_id }}',
-      client_secret: '{{ theme.gitment.client_secret }}'
-    }
+    body: '{{url}}\n\n{{ page.subtitle }}',
+    clientID: '{{ theme.gitalk.client_id }}',
+    clientSecret: '{{ theme.gitalk.client_secret }}',
+    admin: ['mamboer', 'waileung', 'yevolcn']
   };
 </script>
 {% endif %}

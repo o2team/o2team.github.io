@@ -1,8 +1,8 @@
 
-{% if page.comments and theme.gitment and theme.gitment.client_id %}
-<!-- build:js /js/bundle/gitment.js -->
+{% if page.comments and theme.gitalk and theme.gitalk.client_id %}
+<!-- build:js /js/bundle/gitalk.js -->
 {{ js('js/libs/ua-parser') }}
-{{ js('js/mods/gitment') }}
+{{ js('js/mods/gitalk') }}
 <!-- endbuild -->
 {% endif %}
 
