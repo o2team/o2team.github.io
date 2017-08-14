@@ -1,0 +1,225 @@
+title: CSS技巧：逐帧动画抖动解决方案
+subtitle: 详细分析抖动的原因和寻找终极解决方案
+cover: https://misc.aotu.io/leeenx/sprite/cover.jpg
+categories: Web开发
+tags:
+  - sprite
+  - 逐帧
+  - 抖动
+  - svg
+author:
+  nick: leeenx
+  github_name: leeenx
+date: 2017-08-14 21:09:53
+wechat:
+    share_cover: https://misc.aotu.io/leeenx/sprite/share_icon.jpg
+    share_title: 逐帧动画抖动解决方案
+    share_desc: 详细分析抖动的原因和寻找终极解决方案
+---
+
+<!-- more -->
+
+笔者所在的前端团队主要从事移动端的H5页面开发，而团队使用的适配方案是: `viewport units + rem`。具体可以参见凹凸实验室的文章 -- [利用视口单位实现适配布局](https://aotu.io/notes/2017/04/28/2017-4-28-CSS-viewport-units/) 。
+
+笔者目前（2017.08.12）接触到的移动端适配方案中，「利用视口单位实现适配布局」是最好的方案。不过使用 `rem` 作为单位会遇到以下两个难点：
+
+- 微观尺寸（20px左右）定位不准
+- 逐帧动画容易有抖动
+
+第一个难点的通常出现在 `icon` 绘制过程，可以使用**图片**或者 **svg-icon** 解决这个问题，笔者强烈建议使用 **svg-icon**，具体理由可以参见：「[拥抱Web设计新趋势：SVG Sprites实践应用](https://aotu.io/notes/2016/07/09/SVG-Symbol-component-practice/)」。
+
+第二个难点笔者举个例子来分析抖动的原因和寻找解决方案。
+
+## 一个抖动的例子
+
+做一个8帧的逐帧动画，每帧的尺寸为：450x450。
+
+```css
+.steps_anim {
+  position: absolute;
+  width: 11.25rem;
+  height: 11.25rem;
+  background: url("//misc.aotu.io/leeenx/sprite/sprite.png") 0 0 no-repeat;
+  background-size: 90rem 11.25rem;
+  top: 50%;
+  left: 50%;
+  margin: -5.625rem 0 0 -5.625rem; 
+  animation: step 6s steps(8) infinite;
+}
+@keyframes step {
+  100% {
+    background-position: -90rem;
+  }
+}
+```
+
+观察在主流（手机）分辨率下的播放情况：
+
+| iPhone 6 (375x667) | iPhone 6+ (414x736) | iPhone 5 (320x568) | Android (360x640) | 
+| :----: |  :----: |  :----: |  :----: |
+| <img src="//misc.aotu.io/leeenx/sprite/20170811_ip6.gif" width="320" > | <img src="//misc.aotu.io/leeenx/sprite/20170811_6plus.gif" width="320"> | <img src="//misc.aotu.io/leeenx/sprite/20170811_ip5.gif" width="320"> | <img src="//misc.aotu.io/leeenx/sprite/20170811_android.gif" width="320"> |
+
+四种分辨率下，很容易可以看到 `iPhone6+` 有明显的抖动，但是实际的情况是除了 `ip6` 其它的三种分辨率都发生了抖动。
+
+## 分析抖动
+
+图像由终端（屏幕）显示，而终端则是一个个光点（物理像素）组成的矩阵，换句话说图片也一组光点矩阵。为了方便描述，笔者假设终端上的一个光点代表css中的1px。
+
+以下是一张 `9px * 3px` 的sprite:
+![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-1.png)
+
+每帧的尺寸为 `3px * 3px`，逐帧的取位过程如下：
+![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-2.gif)
+
+把 sprite 的 background-size 的宽度取一半，那么终端会怎么处理？
+9  / 2 = 4.5
+终端的光点都是以自然数的形式出现的，这里需要做取整处理。取整一般是三种方式：`round/ceil/floor`。假设是 round ，那么 `background-size: 5px`，sprite 会是以下三种的一个：
+
+| 情况一 | 情况二 | 情况三 |
+| :----: | :----: | :----: |
+| ![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-3.png) | ![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-4.png) | ![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-5.png) |
+
+
+理论上，`5 / 3 = 1.666...`。但实际上光点取整后，三个帧的宽度都不可能等于 `1.666...`，而是有一个帧的宽度降级为 `1px`（亏），另外两个宽度升级为 `2px`（盈），笔者把这个现象称作「盈亏互补」。
+
+再看一下盈亏互补后，逐帧的取位过程：
+
+| 情况一 | 情况二 | 情况三 |
+| :----: | :----: | :----: |
+| ![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-3.gif) | ![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-4.gif) | ![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-5.gif) |
+
+可以看到由于盈亏互补导致了三个帧的宽度不一致，亏的那一帧在动画中的表示就是**抖动**。
+
+笔者总结抖动的原因是：**sprite在尺寸缩放后，帧与帧之间的盈亏互补现象导致动画抖动**
+
+*附注：1px 由几个光点表示是由以终端的 dpr 决定*
+
+## 解决方案
+
+「盈亏互补」也可以说是「盈亏不一致」，也就是说如果尺寸在缩放后「盈亏一致」那么抖动现象可以解决，于是笔者设计了「解决构想一」：
+
+![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-6.gif)
+
+根据上图，其实很容易就联想到一个简单的方案：**不用雪碧图（即一帧对应一张图片）**。
+这个方案确实是可以解决抖问题，不过笔者并不推荐使用它，因为它有两个负面的东西：
+
+- KB变大与请求数增多
+- 多余的 animation 代码
+
+这个方案很简单，这里就不赘述了。
+
+如果把逐帧取位与图像缩放拆分成两个独立的过程，得到「解决构想二」：
+![9px * 3px](//misc.aotu.io/leeenx/sprite/20170814-7.gif)
+
+想实现「构想二」，笔者首先想到的是使用 `transform: scale()`，于是整理了一个实现方案A： 
+
+```css
+.steps_anim {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  backgr//misc.aotu.io/leeenx/sprite") 0 0 no-repeat;
+  background-size: 3600px 450px;
+  top: 50%;
+  left: 50%; 
+  transform-origin: left top; 
+  margin: -5.625rem 0 0 -5.625rem; 
+  transform: scale(.5); 
+  animation: step 6s steps(8) infinite;
+}
+@keyframes step {
+  100% {
+    background-position: -3600px;
+  }
+}
+/* 写断点 */
+@media screen and (width: 320px) {
+	.steps_anim {
+		transform: scale(0.4266666667); 
+	}
+}
+@media screen and (width: 360px) {
+	.steps_anim {
+		transform: scale(0.48); 
+	}
+}
+@media screen and (width: 414px) {
+	.steps_anim {
+		transform: scale(0.552); 
+	}
+}
+```
+
+这个实现方案A存在明显的缺陷：**scale 的值需要写很多断点代码**。于是笔者结全一段 js 代码来改善这个实现方案B：
+
+css: 
+```css
+.steps_anim {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: url("//misc.aotu.io/leeenx/sprite/sprite.png") 0 0 no-repeat;
+  background-size: 3600px 450px;
+  top: 50%;
+  left: 50%; 
+  transform-origin: left top; 
+  margin: -5.625rem 0 0 -5.625rem; 
+  animation: step 6s steps(8) infinite;
+}
+@keyframes step {
+  100% {
+    background-position: -3600px;
+  }
+}
+```
+javascript: 
+```javascript
+// 以下代码放到 <head></head> 中
+<script>
+document.write("<style id='scaleStyleSheet'>.steps_anim {scale(.5); }</style>"); 
+function doResize() {
+  scaleStyleSheet.innerHTML = ".steps_anim {-webkit-transform: scale(" + (document.documentElement.clientWidth / 750) + ")}"; 
+}
+window.onresize = doResize; 
+doResize(); 
+</script>
+```
+
+通过改善后的方案 css 的断点没了，感觉是不错了，不过笔者觉得这个方案不是个纯粹的构建方案。
+
+我们知道 `<img>` 是可以根据指定的尺寸自适应缩放尺寸的，如果逐帧动画也能与 `<img>` 自适应缩放，那就可以从纯构建角度实现「构想二」。
+
+`SVG`刚好可以解决难题！！！`SVG` 的表现与 `<img>` 类似同时可以做动画。以下是笔者的实现方案C。
+
+html: 
+```html
+<svg viewBox="0, 0, 450, 450" class="steps_anim">
+  <image xlink:href="//misc.aotu.io/leeenx/sprite/sprite.png" width="3600" height="450" />
+</svg>
+```
+css: 
+```css
+.steps_anim {
+  position: absolute;
+  width: rem(450 / 2);
+  height: rem(450 / 2); 
+  top: 50%;
+  left: 50%; 
+  margin: -5.625rem 0 0 -5.625rem; 
+  image {
+  	animation: step 6s steps(8) infinite; 
+  }
+}
+
+@keyframes step {
+  100% {
+    transform: translate3d(-3600px, 0, 0);
+  }
+}
+```
+
+实现方案C很好地解决了方案A和方案B的缺陷，所以方案C是笔者推荐的终极方案。
+
+## 总结
+
+感谢阅读完本文章的读者。本文是笔者的个人想法，希望能帮助到有相关问题的朋友，如果本文有不妥之处请不吝赐教。
