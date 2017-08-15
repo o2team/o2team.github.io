@@ -58,7 +58,7 @@ wechat:
 
 | iPhone 6 (375x667) | iPhone 6+ (414x736) | iPhone 5 (320x568) | Android (360x640) | 
 | :----: |  :----: |  :----: |  :----: |
-| <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6.gif" width="178" > | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6+.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip5.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-android.gif" width="178"> |
+| <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6.gif" width="178" > | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6+.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip5-2.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-android.gif" width="178"> |
 
 四种分辨率下，可以看到除了 `ip6` 其它的三种分辨率都发生了抖动。*（`ip6` 不抖动的原因是适配方案是基本于 `ip6` 的分辨率订制的。）*
 
