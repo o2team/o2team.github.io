@@ -192,7 +192,7 @@ doResize();
 </script>
 ```
 
-通过改善后的方案 css 的断点没了，感觉是不错了，不过笔者觉得这个方案不是个纯粹的构建方案。
+通过改善后的方案 CSS 的断点没了，感觉是不错了，不过笔者觉得这个方案不是个纯粹的构建方案。
 
 我们知道 `<img>` 是可以根据指定的尺寸自适应缩放尺寸的，如果逐帧动画也能与 `<img>` 自适应缩放，那就可以从纯构建角度实现「构想二」。
 
@@ -225,8 +225,70 @@ css:
 }
 ```
 
-实现方案C很好地解决了方案A和方案B的缺陷，所以方案C是笔者推荐的终极方案。
+## 方案C的改良
+
+实现方案C很好地解决了方案A和方案B的缺陷，不过方案C也有它的问题：**不利于构建工具去处理图片**。
+
+构建工具一般是怎么处理图片的？
+构建工具一般是扫描 CSS 文件找出所有的 `url(...)` 语句，然后再处理这些语句指向的图片文件。
+
+如果 `<image>` 可以改用 CSS 的 `background-image` 就可以解决这个问题，不过 `SVG` 不支持 CSS 的 `background-image`。但是，`SVG`有一个扩展标签：`foreignObject`，它允许向 `<svg></svg>` 插入 `html` 代码。在使用它前，先看一下它的兼容情况：
+
+![caniuse](//misc.aotu.io/leeenx/sprite/caniuse.png)
+
+iOS 与 Android 4.3 一片草绿兼容情况算是良好，笔者实机测试腾讯 `X5` 内核的浏览器兼容仍旧良好。以下是改良后的方案。 
+
+html: 
+```html
+<svg viewBox="0, 0, 360, 540" class="steps_anim">
+  <foreignObject class="html" width="360" height="540">
+    <div class="img"></div>
+  </foreignObject>
+</svg>
+```
+
+css:
+```css
+.steps_anim {
+  position: absolute;
+  width: 9rem;
+  height: 13.5rem;
+  top: 50%;
+  left: 50%; 
+  margin: -5.625rem 0 0 -5.625rem; 
+}
+.html {
+	width: 360px; 
+	height: 540px; 
+}
+.img { 
+	width: 1800px; 
+	height: 540px; 
+	background: url(//misc.aotu.io/leeenx/sprite/m.png) 0 0 no-repeat; 
+	background-size: 1800px 540px; 
+	animation: step 1.2s steps(5) infinite; 
+}
+
+@keyframes step {
+  100% {
+    background-position: -1800px 0;
+  }
+}
+```
+
+
 
 ## 总结
 
 感谢阅读完本文章的读者。本文是笔者的个人想法，希望能帮助到有相关问题的朋友，如果本文有不妥之处请不吝赐教。
+
+
+-------
+
+## 参考资料：
+
+https://stackoverflow.com/questions/9946604/insert-html-code-inside-svg-text-element
+https://www.w3.org/TR/SVG/extend.html
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject
+
+
