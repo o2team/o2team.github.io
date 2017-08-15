@@ -32,23 +32,24 @@ wechat:
 
 ## 一个抖动的例子
 
-做一个8帧的逐帧动画，每帧的尺寸为：450x450。
+做一个8帧的逐帧动画，每帧的尺寸为：360x540。
 
 ```css
 .steps_anim {
   position: absolute;
-  width: 11.25rem;
-  height: 11.25rem;
-  background: url("//misc.aotu.io/leeenx/sprite/sprite.png") 0 0 no-repeat;
-  background-size: 90rem 11.25rem;
+  width: 9rem;
+  height: 13.5rem;
+  background: url(//misc.aotu.io/leeenx/sprite/m.png) 0 0 no-repeat;
+  background-size: 45rem 13.5rem;
   top: 50%;
   left: 50%;
-  margin: -5.625rem 0 0 -5.625rem; 
-  animation: step 6s steps(8) infinite;
+  margin: -5.625rem 0 0 -5.625rem;
+  animation: step 1.2s steps(5) infinite; 
 }
+
 @keyframes step {
   100% {
-    background-position: -90rem;
+    background-position: -45rem;
   }
 }
 ```
@@ -57,9 +58,9 @@ wechat:
 
 | iPhone 6 (375x667) | iPhone 6+ (414x736) | iPhone 5 (320x568) | Android (360x640) | 
 | :----: |  :----: |  :----: |  :----: |
-| <img src="//misc.aotu.io/leeenx/sprite/20170811_ip6.gif" width="320" > | <img src="//misc.aotu.io/leeenx/sprite/20170811_6plus.gif" width="320"> | <img src="//misc.aotu.io/leeenx/sprite/20170811_ip5.gif" width="320"> | <img src="//misc.aotu.io/leeenx/sprite/20170811_android.gif" width="320"> |
+| <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6.gif" width="178" > | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6+.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip5.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-android.gif" width="178"> |
 
-四种分辨率下，很容易可以看到 `iPhone6+` 有明显的抖动，但是实际的情况是除了 `ip6` 其它的三种分辨率都发生了抖动。
+四种分辨率下，可以看到除了 `ip6` 其它的三种分辨率都发生了抖动。*（`ip6` 不抖动的原因是适配方案是基本于 `ip6` 的分辨率订制的。）*
 
 ## 分析抖动
 
@@ -122,20 +123,20 @@ wechat:
 ```css
 .steps_anim {
   position: absolute;
-  width: 450px;
-  height: 450px;
-  backgr//misc.aotu.io/leeenx/sprite") 0 0 no-repeat;
-  background-size: 3600px 450px;
+  width: 360px;
+  height: 540px;
+  background: url(//misc.aotu.io/leeenx/sprite/m.png) 0 0 no-repeat;
+  background-size: 1800px 540px;
   top: 50%;
   left: 50%; 
   transform-origin: left top; 
   margin: -5.625rem 0 0 -5.625rem; 
   transform: scale(.5); 
-  animation: step 6s steps(8) infinite;
+  animation: step 1.2s steps(5) infinite;
 }
 @keyframes step {
   100% {
-    background-position: -3600px;
+    background-position: -1800px;
   }
 }
 /* 写断点 */
@@ -162,19 +163,19 @@ css:
 ```css
 .steps_anim {
   position: absolute;
-  width: 450px;
-  height: 450px;
-  background: url("//misc.aotu.io/leeenx/sprite/sprite.png") 0 0 no-repeat;
-  background-size: 3600px 450px;
+  width: 360px;
+  height: 540px;
+  background: url("//misc.aotu.io/leeenx/sprite/m.png") 0 0 no-repeat;
+  background-size: 1800 540px;
   top: 50%;
   left: 50%; 
   transform-origin: left top; 
   margin: -5.625rem 0 0 -5.625rem; 
-  animation: step 6s steps(8) infinite;
+  animation: step 1.2s steps(5) infinite;
 }
 @keyframes step {
   100% {
-    background-position: -3600px;
+    background-position: -1800px;
   }
 }
 ```
@@ -199,27 +200,27 @@ doResize();
 
 html: 
 ```html
-<svg viewBox="0, 0, 450, 450" class="steps_anim">
-  <image xlink:href="//misc.aotu.io/leeenx/sprite/sprite.png" width="3600" height="450" />
+<svg viewBox="0, 0, 360, 540" class="steps_anim">
+  <image xlink:href="//misc.aotu.io/leeenx/sprite/m.png" width="1800" height="540" />
 </svg>
 ```
 css: 
 ```css
 .steps_anim {
   position: absolute;
-  width: rem(450 / 2);
-  height: rem(450 / 2); 
+  width: 9rem;
+  height: 13.5rem;
   top: 50%;
   left: 50%; 
   margin: -5.625rem 0 0 -5.625rem; 
   image {
-  	animation: step 6s steps(8) infinite; 
+  	animation: step 1.2s steps(5) infinite; 
   }
 }
 
 @keyframes step {
   100% {
-    transform: translate3d(-3600px, 0, 0);
+    transform: translate3d(-1800px, 0, 0);
   }
 }
 ```
