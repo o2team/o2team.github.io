@@ -56,9 +56,26 @@ wechat:
 
 观察在主流（手机）分辨率下的播放情况：
 
-| iPhone 6 (375x667) | iPhone 6+ (414x736) | iPhone 5 (320x568) | Android (360x640) | 
-| :----: |  :----: |  :----: |  :----: |
-| <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6.gif" width="178" > | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip6+.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-ip5-3.gif" width="178"> | <img src="//misc.aotu.io/leeenx/sprite/20170815-android.gif" width="178"> |
+<table id="J_table1" style="margin: 0;"><thead><th style="text-align: center;">iPhone 6<br />(375x667)</th><th style="text-align: center;">iPhone 6+<br />(414x736)</th><th style="text-align: center;">iPhone 5<br />(320x568)</th><th style="text-align: center;">Android<br />(360x640)</th></thead><tbody><tr><td><img src="//misc.aotu.io/leeenx/sprite/20170815-ip6.gif" width="178" ></td><td><img src="//misc.aotu.io/leeenx/sprite/20170815-ip6+.gif" width="178" ></td><td><img src="//misc.aotu.io/leeenx/sprite/20170815-ip5-3.gif" width="178" ></td><td><img src="//misc.aotu.io/leeenx/sprite/20170815-android.gif" width="178" ></td></tr></tbody></table>
+
+<table style="max-width: 420px; text-align: center; margin: 0; display: none;" id="J_table2"><tr><td><img src="//misc.aotu.io/leeenx/sprite/20170815-ip6.gif" width="178"><br />iPhone 6 (375x667)</td><td><img src="//misc.aotu.io/leeenx/sprite/20170815-ip6+.gif" width="178"><br /> iPhone 6+ (414x736)</td></tr><tr><td><img src="//misc.aotu.io/leeenx/sprite/20170815-ip5-3.gif" width="178"><br />iPhone 5 (320x568)</td><td><img src="//misc.aotu.io/leeenx/sprite/20170815-android.gif" width="178"><br />Android (360x640)</td></tr></table>
+
+<script type="text/javascript">
+~function() {
+	var _resize = function() {
+		var w = document.body.clientWidth; 
+		if(w < 540) {
+			J_table1.style.display = "none"; 
+			J_table2.style.display = "block"; 
+		} else {
+			J_table1.style.display = "block"; 
+			J_table2.style.display = "none"; 
+		}
+	}
+	_resize(); 
+	window.addEventListener("resize", _resize); 
+}(); 
+</script>
 
 四种分辨率下，可以看到除了 `ip6` 其它的三种分辨率都发生了抖动。*（`ip6` 不抖动的原因是适配方案是基本于 `ip6` 的分辨率订制的。）*
 
@@ -276,11 +293,13 @@ css:
 }
 ```
 
+改良后的方案DEMO: [http://jdc.jd.com/fd/promote/leeenx/201708/svg-sprite.html](http://jdc.jd.com/fd/promote/leeenx/201708/svg-sprite.html)
+
 
 
 ## 总结
 
-感谢阅读完本文章的读者。本文是笔者的个人想法，希望能帮助到有相关问题的朋友，如果本文有不妥之处请不吝赐教。
+感谢阅读完本文章的读者。本文是笔者的个人观点，希望能帮助到有相关问题的朋友，如果本文有不妥之处请不吝赐教。
 
 
 -------
