@@ -329,7 +329,7 @@ function swap(orientation) {
 | 2 | <img src="//misc.aotu.io/leeenx/swiper/20170717_6.gif?v=2"> | [https://leeenx.github.io/mobile-swiper/index.html?count=2](https://leeenx.github.io/mobile-swiper/index.html?count=2) |
 | 4 | <img src="//misc.aotu.io/leeenx/swiper/20170717_8.gif"> | [https://leeenx.github.io/mobile-swiper/index.html?count=4](https://leeenx.github.io/mobile-swiper/index.html?count=4) |
 
-## 总结
+## 结语
 
 感谢阅读完本文章的读者。本文最终实现的 swiper 笔者托管在 Github 仓库，有兴趣的读者可以看一下：[https://github.com/leeenx/mobile-swiper](https://github.com/leeenx/mobile-swiper)
 
