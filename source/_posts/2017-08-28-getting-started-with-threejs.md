@@ -385,6 +385,9 @@ var material = new THREE.Material({
 })
 ```
 
+查看不同位置的立方体：
+<p data-height="265" data-theme-id="0" data-slug-hash="Bdqoeb" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="fog" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/Bdqoeb/">fog</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### Low Poly
 
