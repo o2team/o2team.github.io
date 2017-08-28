@@ -23,7 +23,7 @@ wechat:
 ## 引言
  > 三维计算机图形和二维计算机图形的不同之处在于计算机存储了几何数据的三维表示，其用于计算和绘制最终的二维图像。——[《3D computer graphics》][1]
 
-随着 WebGL 标准的快速普及，越来越多团队尝试在浏览器上推出可交互式的 3D 作品。相较于二维场景，它更能为用户带来真实和沉浸的体验。
+随着 WebGL 标准的快速推进，越来越多团队尝试在浏览器上推出可交互的 3D 作品。相较于二维场景，它更能为用户带来真实和沉浸的体验。
 
 然而 OpenGL 和 WebGL（基于 OpenGL ES） 都比较复杂，Three.js 则更适合初学者。本文将分享一些 Three.js 的基础知识，希望能让你能有所收获。
 
@@ -34,7 +34,7 @@ wechat:
 ![Three.js开发指南（原书第2版）][2]
 Three.js开发指南（原书第2版） [购买链接>>][3]
 
-尽管由于 Three.js 的不断迭代，书本上的某些 API 已改变（或弃用），甚至难免还有一些错误的知识点，但这些并不影响整体的阅读。
+尽管由于 Three.js 的不断迭代，书本上的某些 API 已改变（或弃用），甚至难免还有一些错误，但这些并不影响整体的阅读。
 
 ## Canvas 2D
 如引言中说道，3D 图像在计算机中最终以 2D 图像呈现。因此，渲染模式只是作为一个载体。下面我们用 JavaScript（无依赖） 在 Canvas 2D 渲染一个在正视图/透视图中的立方体。
@@ -54,7 +54,7 @@ Three.js开发指南（原书第2版） [购买链接>>][3]
 另外，想了解上述两个案例的实现原理，可查看译文：[《用 JavaScript 构建一个3D引擎》][4]。
 
 ## WebGL
-[WebGL][5]（Web Graphics Library）在 GPU 中运行。因此需要使用能够在 GPU 上运行的代码。这样的代码需要提供成对的方法（其中一个叫顶点着色器， 另一个叫片段着色器），并且使用一种类 C/C++ 的强类型语言 GLSL（OpenGL Shading Language)。 每一对组合起来称为一个 program（着色程序）。
+[WebGL][5]（Web Graphics Library）在 GPU 中运行。因此需要使用能够在 GPU 上运行的代码。这样的代码需要提供成对的方法（其中一个叫顶点着色器， 另一个叫片段着色器），并且使用一种类 C/C++ 的强类型语言 GLSL（OpenGL Shading Language)。 每一对方法组合起来称为一个 program（着色程序）。
 
 顶点着色器的作用是计算顶点的位置。根据计算出的一系列顶点位置，WebGL 可以对点、线和三角形在内的一些图元进行光栅化处理。当对这些图元进行光栅化处理时需要使用片段着色器方法。片段着色器的作用是计算出当前绘制图元中每个像素的颜色值。
 
@@ -64,13 +64,13 @@ Three.js开发指南（原书第2版） [购买链接>>][3]
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 
-查看上述实现代码后，我们发现绘制一个看似简单的三角形并不简单，它需要我们学习更多额外的知识。
+查看上述案例的代码实现后，我们发现绘制一个看似简单的三角形其实并不简单，它需要我们学习更多额外的知识。
 
-因此，对于刚入门的开发者来说，直接使用 WebGL 来绘制并拼装出几何体是不现实的。但我们可以在了解 WebGL 的基础知识后，通过 Three.js 这类封装后的库来现实我们的需求。
+因此，对于刚入门的开发者来说，直接使用 WebGL 来绘制并拼装出几何体是不现实的。但我们可以在了解 WebGL 的基础知识后，再通过 Three.js 这类封装后的库来现实我们的需求。
 
 ## Three.js
 
-打开 [Three.js 官方文档][6] 并阅览左侧的目录，发现该文档对初学者并不友好。但相对于其他资料，它提供了最新的 API 说明，尽管有些描述并不详细（甚至需要懂 WebGL 等其他知识）。下面提供两个 Three.js 相关的图片，希望能让你对 Three.js 有个整体的认识：
+打开 [Three.js 官方文档][6] 并阅览左侧的目录，发现该文档对初学者并不友好。但相对于其他资料，它提供了最新的 API 说明，尽管有些描述并不详细（甚至需要在懂 WebGL 等其他知识的前提下，才能了解某个术语的意思）。下面提供两个 Three.js 的相关图片资料，希望它们能让你对 Three.js 有个整体的认识：
 
 ![Three.js 文档的结构][7]
 Three.js 文档结构：[图片来自>>][8]
@@ -141,7 +141,6 @@ init()
 <p data-height="212" data-theme-id="0" data-slug-hash="YxvXOe" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="threejs-blog-01-hello-world" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/YxvXOe/">threejs-blog-01-hello-world</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-#### 场景
 看完上述案例代码后，你可能会产生以下几个疑问：
 
  1. Three.js 的单位是什么？
@@ -156,7 +155,7 @@ init()
  "The preceding paragraph mentions inches and millimeters - do these really have anything to do with OpenGL? The answer is, in a word, no. The projection and other transformations are inherently unitless. If you want to think of the near and far clipping planes as located at 1.0 and 20.0 meters, inches, kilometers, or leagues, it's up to you. The only rule is that you have to use a consistent unit of measurement. Then the resulting image is drawn to scale." ——[《OpenGL Programming Guide》][11]
 中文：前面段落提及的英寸和毫米真的和 OpenGL 有关系吗？**没有**。投影和其它变换在本质上都是无单位的。如果你想把近距离和远距离的裁剪平面分别放置在 1.0 和 20.0 米/英寸/千米/里格，这取决于你。这里唯一的要求是你必须使用统一的测量单位，然后按比例绘制最终图像。
 
-##### 2. 坐标系的位置和指向？
+##### 2. 坐标系的位置和指向是？
  答：Three.js 的坐标系是遵循右手坐标系，如下图：
  ![右手坐标系][12]
  右手坐标系
@@ -193,7 +192,7 @@ Three.js 还提供了其他 3 种摄像机：[CubeCamera][14]、[OrthographicCam
 <p data-height="265" data-theme-id="0" data-slug-hash="rzZgmQ" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="switchCamera" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/rzZgmQ/">switchCamera</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-##### 4. Mesh 的作用？
+##### 4. Mesh 的作用是？
  答：Mesh 好比一个包装工，它将『可视化的材质』粘合在一个『数学世界里的几何体』上，形成一个『可添加到场景的对象』。   
 当然，创建的材质和几何体可以多次使用（若需要）。而且，包装工不止一种，还有 `Points`（点集）、`Line`（线/虚线） 等。
 
@@ -202,7 +201,7 @@ Three.js 还提供了其他 3 种摄像机：[CubeCamera][14]、[OrthographicCam
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 
-##### Three.js 提供的所有物体
+#### Three.js 提供的所有物体
 
 从 Three.js 文档目录的 `Geometries` 可看到，Three.js 已为我们提供了很多现成的几何体，但如果对几何知识不常接触，可能就很难从它的英文名字联想到其实际的形状。下面我们将它们一次性罗列出来：
 
@@ -231,19 +230,19 @@ Three.js 提供的 18 个几何体：
 
 如案例所示，EdgesGeometry 和 WireframeGeometry 更多地可能作为辅助功能去查看几何体的边和线框（三角形图元）。
 
-ExtrudeGeometry 则是将一个二维图形沿 z 轴拉伸出一个三维图形。
+ExtrudeGeometry 则是按照指定参数将一个二维图形沿 z 轴拉伸出一个三维图形。
 
 TextGeometry 则需要从外部加载特定格式的字体文件（可在 [typeface.js][17] 网站上进行转换）进行渲染，其内部依然使用 ExtrudeGeometry 对字体进行拉伸，从而形成三维字体。另外，该类字体的本质是一系列类似 SVG 的指令。所以，字体越简单（如直线越多），就越容易被正确渲染。
 
 
 以上就是目前 Three.js 提供的几何体，当然，这些几何体的形状也不仅于此，通过改变参数即能生成更多种类的形状，如 `THREE.CircleGeometry` 可生成扇形。
 
-另外，通过 `console.log` 查看任意一个 `geometry` 对象可发现，在 Three.js 中的几何体基本上是三维空间中的点集（即顶点）和这些顶点连接起来的面组成的。以立方体为例：
+另外，通过 `console.log` 查看任意一个 `geometry` 对象可发现，在 Three.js 中的几何体基本上是三维空间中的点集（即顶点）和这些顶点连接起来的面组成的。以立方体为例（widthSegments、heightSegments、depthSegments 均为 1 时）：
 
  - 一个立方体有 8 个顶点，每个顶点通过 x、y 和 z 坐标来定义。
  - 一个立方体有 6 个面，而每个面都包含两个由 3 个顶点组成的三角形。
 
-对于 Three.js 提供的几何体，我们不需要自己定义这些几何体的顶点和面。你只需提供 API 指定的参数即可（如长方体的长宽高）。当然，你仍然可以通过定义顶点和面来创建自定义的几何体。如：
+对于 Three.js 提供的几何体，我们不需要自己定义这些几何体的顶点和面，只需提供 API 指定的参数即可（如长方体的长宽高）。当然，你仍然可以通过定义顶点和面来创建自定义的几何体。如：
 
 ```
 var vertices = [
@@ -285,10 +284,10 @@ geomtry.computeFaceNormals()
 
 
 #### 声音
-我们从文档目录中竟然发现有 `Audio` 音频对象，为什么 Three.js 不是游戏引擎，却带个音频呢？原来这个音频也是 3D 的，它会受到摄像机的距离影响：
+我们从文档目录中竟然发现有 `Audio` 音频对象，为什么 Three.js 不是游戏引擎，却带个音频组件呢？原来这个音频也是 3D 的，它会受到摄像机的距离影响：
 
  1. 声源离摄像机的距离决定着声音的大小。
- 2. 摄像机左右侧的位置分布决定着左右扬声器声音的大小。
+ 2. 声源在摄像机左右侧的位置分别决定着左右扬声器声音的大小。
 
 我们可以到 [官方案例][19] 亲自体验一下 `Audio` 的效果。
 
