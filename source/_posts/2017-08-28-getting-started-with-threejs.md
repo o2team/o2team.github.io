@@ -31,7 +31,7 @@ wechat:
 
 若想系统学习，笔者认为看书是一个不错的选择：
 
-![Three.js开发指南（原书第2版）][2]
+![Three.js开发指南（原书第2版）][2]  
 Three.js开发指南（原书第2版） [购买链接>>][3]
 
 尽管由于 Three.js 的不断迭代，书本上的某些 API 已改变（或弃用），甚至难免还有一些错误，但这些并不影响整体的阅读。
@@ -72,10 +72,10 @@ Three.js开发指南（原书第2版） [购买链接>>][3]
 
 打开 [Three.js 官方文档][6] 并阅览左侧的目录，发现该文档对初学者并不友好。但相对于其他资料，它提供了最新的 API 说明，尽管有些描述并不详细（甚至需要在懂 WebGL 等其他知识的前提下，才能了解某个术语的意思）。下面提供两个 Three.js 的相关图片资料，希望它们能让你对 Three.js 有个整体的认识：
 
-![Three.js 文档的结构][7]
+![Three.js 文档的结构][7]  
 Three.js 文档结构：[图片来自>>][8]
 
-![Three.js 核心对象结构和基本的渲染流程][9]
+![Three.js 核心对象结构和基本的渲染流程][9]  
 Three.js 核心对象结构和基本的渲染流程：[图片来自>>][10]
 
 ### Three.js 的基本要素
@@ -156,8 +156,8 @@ init()
 中文：前面段落提及的英寸和毫米真的和 OpenGL 有关系吗？**没有**。投影和其它变换在本质上都是无单位的。如果你想把近距离和远距离的裁剪平面分别放置在 1.0 和 20.0 米/英寸/千米/里格，这取决于你。这里唯一的要求是你必须使用统一的测量单位，然后按比例绘制最终图像。
 
 ##### 2. 坐标系的位置和指向是？
- 答：Three.js 的坐标系是遵循右手坐标系，如下图：
- ![右手坐标系][12]
+ 答：Three.js 的坐标系是遵循右手坐标系，如下图：  
+ ![右手坐标系][12]  
  右手坐标系
 
  坐标系的原点在画布中心（`canvas.width / 2`, `canvas.height / 2`）。我们可以通过 Three.js 提供的 `THREE.AxisHelper()` 辅助方法将坐标系可视化。
@@ -180,7 +180,8 @@ init()
 | near | 指定从距离摄像机多近的距离开始渲染。<br>推荐默认值：0.1 |
 | far | 指定摄像机从它所处的位置开始能看到多远。若过小，那么场景中的远处不会被渲染；若过大，可能会影响性能。<br>推荐默认值：1000 |
 
-![PerspectiverCamera][13]
+![PerspectiverCamera][13]     
+透视摄像机的参数图示
 
 摄像机的 `fov` 属性指定了横向视场。基于 `aspect` 属性，纵向视场也就相应确定了。而近面和远面则指定了可视化区域的前后边界，即两者之间的元素才可能被渲染。
 
@@ -303,11 +304,11 @@ stats.js 为开发者提供了易用的性能监测功能，它目前支持四�
  - 内存占用量
  - 用户自定义
 
-![FPS][22] ![每帧渲染时间][23] ![内存占用量][24] ![用户自定义][25]
+![FPS][22] ![每帧渲染时间][23] ![内存占用量][24] ![用户自定义][25]  
 
 #### dat.GUI
 [dat.GUI][26] 为开发者提供了可视化调参的面板，对参数调整的操作提供了极大的便利。
-![dat.gui][27]
+![dat.gui][27]  
 
 关于这两个插件的使用，请查看他们的官方文档或 Three.js 官方案例中的代码。
 
@@ -365,7 +366,7 @@ spotLight.shadow.mapSize.height = 1024
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### 雾化效果
-雾化效果是指：场景中的物体离得越远就会变得越模糊。
+雾化效果是指：场景中的物体离摄像机越远就会变得越模糊。
 
 目前，Three.js 提供两种雾化效果：
 ```
@@ -416,7 +417,7 @@ var material = new THREE.MeshBasicMaterial({
 
 可你是否见过或想到过这样的一个应用场景：
 
-![3D 看房][28]
+![3D 看房][28]  
 3D 看房
 
 当你旋转时，面向用户的墙都会变得透明，从而实现 360 度查看房子内部结构的效果。
@@ -450,7 +451,7 @@ var material = new THREE.MeshBasicMaterial({
 <p data-height="265" data-theme-id="0" data-slug-hash="qXMzEZ" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="sprite" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/qXMzEZ/">sprite</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-当粒子数量较小时，一般不会存在性能问题。但随着数量的增长，就会很快遇到性能问题。此时，使用 `THREE.Points` 更为合适。因为 Three.js 不在需要管理大量 `THREE.Sprite` 对象，而只需管理一个 `THREE.Points` 对象。
+当粒子数量较小时，一般不会存在性能问题。但随着数量的增长，就会很快遇到性能瓶颈。此时，使用 `THREE.Points` 更为合适。因为 Three.js 不在需要管理大量 `THREE.Sprite` 对象，而只需管理一个 `THREE.Points` 对象。
 
 下面我们用 `THREE.Points` 实现上一个案例的效果：
 <p data-height="265" data-theme-id="0" data-slug-hash="wqELBj" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="points" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/wqELBj/">points</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
@@ -466,7 +467,7 @@ Canvas 2D 画布：
 <p data-height="265" data-theme-id="0" data-slug-hash="ayagvv" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="points-img" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/ayagvv/">points-img</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-上一个案例中，我们加载了两个不同的纹理。由于 `THREE.Points` 的局限性（一个材质只能对应一种纹理），若想添加多种纹理，则需要创建相应个数的 `THREE.Points` 实例，而 `THREE.Sprite` 在此方面显得更灵活一些。
+上一个案例中，我们加载了两个不同的纹理。由于 `THREE.Points` 的局限性（一个材质只能对应一种纹理），若想添加多个纹理，则需要创建相应个数的 `THREE.Points` 实例，而 `THREE.Sprite` 在此方面显得更灵活一些。
 
 上述粒子效果都是我们手动设置各个粒子的具体位置，若想将特定形状通过粒子效果显示，则可以直接将该几何体（geometry）传入 `THREE.Points( geometry, material )` 的第一个参数即可。
 
