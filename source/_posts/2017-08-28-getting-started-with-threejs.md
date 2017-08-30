@@ -105,8 +105,9 @@ function init () {
     // 创建一个 WebGL 渲染器，Three.js 还提供 <canvas>, <svg>, CSS3D 渲染器。
     var renderer = new THREE.WebGLRenderer()
 
-    // 设置渲染器的清除颜色（即背景色）和尺寸
-    renderer.setClearColor(0xffffff)
+    // 设置渲染器的清除颜色（即背景色）和尺寸。
+    // 若想用 body 作为背景，则可以不设置 clearColor，然后在创建渲染器时设置 alpha: true，即 new THREE.WebGLRenderer({ alpha: true })
+    renderer.setClearColor(0xffffff)
     renderer.setSize(width, height)
 
     // 创建一个长宽高均为 4 个单位长度的立方体（几何体）
