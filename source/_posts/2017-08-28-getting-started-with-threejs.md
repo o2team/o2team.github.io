@@ -1,5 +1,5 @@
 title: Three.js 现学现卖
-subtitle: 听说七夕过后再看，效果比较好（相信我）。
+subtitle: 聊聊 Web 的“三维”。
 cover: https://misc.aotu.io/JChehe/2017-08-28-getting-started-with-threejs/cover.png
 date: 2017-08-28 12:00
 categories: Web开发
@@ -372,8 +372,8 @@ spotLight.shadow.mapSize.height = 1024
 目前，Three.js 提供两种雾化效果：
 ```
 // Fog( hex, near, far )，线性雾化。
-// near 表示哪里开始应用雾化效果
-// far 表示雾化效果在哪里结束
+// near 表示哪里开始应用雾化效果（摄像机为 0）
+// far 表示哪里的雾化浓度为 1。若某物体在该距离后，则其表现为雾的颜色。当雾的颜色和渲染器的背景色相同时，则表现为消失（实为颜色相同）。
 scene.fog = new THREE.Fog( 0xffffff, 0.015, 100 )
 
 // FogExp2( hex, density )，指数雾化
