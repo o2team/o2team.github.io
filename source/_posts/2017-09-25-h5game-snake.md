@@ -12,6 +12,10 @@ author:
   nick: leeenx
   github_name: leeenx
 date: 2017-09-25 10:19:06
+wechat:
+    share_cover: https://misc.aotu.io/leeenx/snake/share.jpg
+    share_title: H5游戏开发：贪吃蛇
+    share_desc: 介绍经典游戏贪吃蛇的开发思路和性能上的优化
 ---
 
 <!-- more -->
