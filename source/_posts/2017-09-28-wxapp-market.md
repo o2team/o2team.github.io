@@ -82,7 +82,7 @@ git clone git@github.com:o2team/wxapp-market.git
 
 ## 结语
 
-[wxapp-market](https://github.com/o2team/wxapp-market) 是希望帮助开发者能够更快、更低门槛地开发出含营销功能的微信小程序，同时希望与众多开发者一起打造维护好用、易扩展的小程序营销组件库。
+[wxapp-market](https://github.com/o2team/wxapp-market) 是希望帮助开发者能够更快、更低门槛地开发出含营销功能的微信小程序，同时希望与众多开发者一起打造维护好用、易扩展的小程序营销组件库。
 
 欢迎各位端友使用 [wxapp-market](https://github.com/o2team/wxapp-market)，如果你在使用过程中遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/o2team/wxapp-market/issues) 或者 [Pull Request](https://github.com/o2team/wxapp-market/pulls)。
 
