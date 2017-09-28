@@ -10,7 +10,7 @@ tags:
   - 刮刮乐
 author:
   nick: 高大师
-  github_name: o2team
+  github_name: pfan123
 date: 2017-09-28 20:03:25
 ---
 
