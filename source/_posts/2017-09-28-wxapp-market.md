@@ -1,5 +1,5 @@
 title: wxapp-market 小程序营销组件
-subtitle: wxapp-market 小程序营销组件
+subtitle: wxapp-market 是凹凸实验室推出的一款基于微信小程序的营销组件
 cover: //misc.aotu.io/pfan123/wxapp-market/wxapp-market_900x500.png
 categories: Web开发
 tags:
@@ -15,8 +15,6 @@ date: 2017-09-28 20:03:25
 ---
 
 <!-- more -->
-
-一直以来，JS都没有比较好的可以直接处理二进制的方法。而Blob的存在，允许我们可以通过JS直接操作二进制数据。
 
 ## 介绍
 
