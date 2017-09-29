@@ -203,7 +203,7 @@ Three.js 还提供了其他 3 种摄像机：[CubeCamera][14]、[OrthographicCam
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 
-#### Three.js 提供的所有物体
+#### Three.js 提供的几何体
 
 从 Three.js 文档目录的 `Geometries` 可看到，Three.js 已为我们提供了很多现成的几何体，但如果对几何知识不常接触，可能就很难从它的英文名字联想到其实际的形状。下面我们将它们一次性罗列出来：
 
