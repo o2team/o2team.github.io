@@ -1,5 +1,5 @@
 title: setTimeout & setInterval 暂停方案
-subtitle: 对原生 setTimeout & setInterval 进行扩展，使其具体有暂停和恢复暂停的功能
+subtitle: 定制一套 setTimeout & setInterval ，使其具体有暂停和恢复暂停的功能
 cover: https://misc.aotu.io/leeenx/timer/cover.jpg
 categories: Web开发
 tags:
@@ -17,7 +17,7 @@ date: 2017-09-25 16:04:51
 wechat:
     share_cover: https://misc.aotu.io/leeenx/timer/share.gif
     share_title: 管理页面的 setTimeout & setInterval
-    share_desc: 对原生 setTimeout & setInterval 进行扩展，使其具体有暂停和恢复暂停的功能
+    share_desc: 定制一套 setTimeout & setInterval ，使其具体有暂停和恢复暂停的功能
 ---
 
 <!-- more -->
