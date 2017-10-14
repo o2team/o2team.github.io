@@ -1,5 +1,5 @@
-title: 用 javascript 写一个链表
-subtitle: 创建一个通用的双向链表
+title: js创建一条通用链表
+subtitle: js 开发中你会用到链表来提高性能吗？
 cover: https://misc.aotu.io/leeenx/chain/cover.png
 categories: Web开发
 tags:
@@ -12,12 +12,11 @@ author:
 date: 2017-10-13 22:30:48
 wechat:
     share_cover: https://misc.aotu.io/leeenx/chain/share.jpg
-    share_title: 用 javascript 写一个链表
+    share_title: 你会用到链表来提高性能吗？
     share_desc: 老司机带你用 javascript 制作双向链表
 ---
 
 <!-- more -->
-
 **什么是「链表<sup>[科普](https://baike.baidu.com/item/%E9%93%BE%E8%A1%A8/9794473?fr=aladdin)</sup>」？**
 > 链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。
 
@@ -154,4 +153,9 @@ for(let i = 0; i < 20; ++i) {
 
 感谢耐心阅读完本文章的读者。本文仅代表笔者的个人观点，如有不妥之处请不吝赐教。
 
+<style>
+	.post-content sup a {
+		vertical-align: unset; 
+	}
+</style>
 
