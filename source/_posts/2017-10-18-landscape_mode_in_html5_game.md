@@ -19,7 +19,6 @@ wechat:
 
 ---
 <!-- more -->
-
 对于移动端的轻量级 HTML5 互动小游戏（简称为 H5 轻互动)，如果从屏幕呈现模式来划分的话，可以归类为：竖屏式和横屏式。
 
 <div style="margin:0 auto;width:fit-content;">![cases.jpg](//misc.aotu.io/Tingglelaoo/cases.jpg)</div>
@@ -186,6 +185,7 @@ Canvas可以类比为一张图，而图片的适配，我们可以联想到经�
 <small style="display:block;text-align:center;">Contain 模式下的缩放比例推导图</small>
 
 根据推导结论，简单代码实现如下：
+
 ```javascript
 // Contain模式核心原理函数
 CONTAIN: function(){
