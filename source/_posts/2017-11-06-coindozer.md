@@ -12,7 +12,7 @@ tags:
   - matter.js
 author:
   nick: 三桂
-  github_name: and1coder
+  github_name: aNd1coder
 date: 2017-11-06 19:53:08
 wechat:
     share_cover: https://misc.aotu.io/samgui/coindozer/share.png
