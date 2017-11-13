@@ -59,3 +59,11 @@
   preview: //aotu.jd.com/share/
   tags:
     - share
+- name: AT-UI
+  desc: 一款轻量级、模块化的前端UI组件库
+  link: https://github.com/AT-UI/at-ui
+  preview: //at.aotu.io
+  tags:
+    - 前端组件
+    - UI
+    - Vue
