@@ -1,7 +1,7 @@
 title: H5游戏开发：贪吃蛇
 subtitle: 介绍经典游戏贪吃蛇的开发思路和性能上的优化
 cover: https://misc.aotu.io/leeenx/snake/cover.jpg
-categories: Web开发
+categories: H5游戏开发
 tags:
   - h5
   - game

@@ -1,7 +1,7 @@
 title: H5游戏开发：推金币
 subtitle: 一款让人欲罢不能，根本停不下来的小游戏及其技术实现思路和细节
 cover: https://misc.aotu.io/samgui/coindozer/cover.jpg?v=1
-categories: Web开发
+categories: H5游戏开发
 tags:
   - h5
   - game

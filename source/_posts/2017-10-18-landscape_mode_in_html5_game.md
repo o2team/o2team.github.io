@@ -2,7 +2,7 @@ title: H5游戏开发：横屏适配
 subtitle: 横屏场景对于H5轻互动来说并不少见，让我们来探讨横屏的处理点与解决方案吧。
 cover: http://misc.aotu.io/Tingglelaoo/landscape_in_h5_900x500.png
 date: 2017-10-18 9:10
-categories: Web开发
+categories: H5游戏开发
 tags:
   - H5
   - 游戏

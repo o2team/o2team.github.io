@@ -1,7 +1,7 @@
 title: H5游戏开发：一笔画
 subtitle: 一笔画游戏与自动识别连通图插件的实现
 cover: https://misc.aotu.io/leeenx/onestroke/cover.jpg
-categories: Web开发
+categories: H5游戏开发
 tags:
   - H5
   - game
