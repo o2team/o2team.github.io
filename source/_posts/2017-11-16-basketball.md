@@ -11,7 +11,7 @@ author:
   nick: TH
   github_name: ONE-SUNDAY
 wechat:
-    share_cover: //misc.aotu.io/ONE-SUNDAY/basketball/basketball_200x200.png
+    share_cover: http://misc.aotu.io/ONE-SUNDAY/basketball/basketball_200x200.png
     share_title: H5游戏开发：决胜三分球
     share_desc: 结合 Matter.js 物理引擎实现的投篮游戏
 
