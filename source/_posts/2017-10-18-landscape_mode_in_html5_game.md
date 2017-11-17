@@ -29,9 +29,9 @@ wechat:
 对于 H5 轻互动游戏来说，要实现横屏的话，主要是解决两点：
 1.无论用户手持方向如何，都需要保证屏幕横向显示。
 2.由于屏幕分辨率的多样化，因此就算是横屏下也是需要进行横屏适配，保证画面在所有分辨率下都能够合理适配。
-  
+
 下面，我们针对这两点分别阐述如何解决。
-  
+
 ## 强制横屏显示
 
 页面内容显示方向可分为竖排方向和横排方向，如下图所示。
@@ -69,8 +69,8 @@ var detectOrient = function() {
       style += "transform-origin: 0 0;";
   }
   else{ // 竖屏
-      style += "width:" + height + "px;"; 
-      style += "height:" + width + "px;"; 
+      style += "width:" + height + "px;";
+      style += "height:" + width + "px;";
       style += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
       // 注意旋转中点的处理
       style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;";
@@ -344,7 +344,7 @@ _adjustPosition: function(item){
 // 暴露方法：提供给开发者记录需要重定位的贴边元素
 adjustPosition: function(item){
   var self = this;
-  self._adjustPosition(item);        
+  self._adjustPosition(item);
 }
 ```
 
@@ -369,7 +369,7 @@ _adjustFullSize: function(item){
 // 暴露方法：提供给开发者记录需要重绘制的全显图形
 adjustPosition: function(item){
   var self = this;
-  self._adjustPosition(item);        
+  self._adjustPosition(item);
 }
 ```
 
@@ -387,6 +387,8 @@ adjustPosition: function(item){
 ## 后话
 
 本文主要的核心在于探讨横屏游戏中的处理点与解决方案，因此如果实现代码方面有任何错漏之处，请大胆地提出纠正吧！又或者读者们有更好的见解之处，也欢迎留言分享噢。
+
+如果对「H5游戏开发」感兴趣，欢迎关注我们的[专栏](https://zhuanlan.zhihu.com/snsgame)。
 
 ## 参考资料
 [《如何打造一个高效适配的H5》](http://isux.tencent.com/how-to-make-webpage-fit-screen.html)
