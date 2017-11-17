@@ -78,7 +78,7 @@ wechat:
   <g id="cray" transform="translate(0, -24)" stroke="#979797">
   	<image id="cray-img" xlink:href="http://7xt5iu.com1.z0.glb.clouddn.com/img/cray.png" x="0" y="0" width="100px"/>
   </g>
-  <animateMotion 
+  <animateMotion
     xlink:href="#cray"
     dur="5s"
     begin="0s"
@@ -104,11 +104,11 @@ var path = MorphSVGPlugin.pathDataToBezier("#motionPath");
 
 TweenMax.to(hill, 5, {
   bezier:{
-    values:path, 
-    type:"cubic", 
+    values:path,
+    type:"cubic",
     autoRotate: 180
   },
-  ease:Linear.easeNone, 
+  ease:Linear.easeNone,
   repeat: -1
 })
 ```
@@ -136,6 +136,8 @@ TweenMax.to(hill, 5, {
 
 
 最后，总结一下，移动动画就是用一种合适的方式把时间和位置的变化关系展示出来。除了上面方法，肯定还有很多其他的方法和帮助工具，欢迎留言交流讨论。
+
+如果对「H5游戏开发」感兴趣，欢迎关注我们的[专栏](https://zhuanlan.zhihu.com/snsgame)。
 
 
   [curved-path-animations-in-css]: http://tobiasahlin.com/blog/curved-path-animations-in-css/

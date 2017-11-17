@@ -50,13 +50,13 @@ wechat:
 levels: [
 	// 当前关卡
 	{
-		name: "五角星", 
+		name: "五角星",
 		coords: [
-			{x: Ax, y: Ay}, 
-			{x: Bx, y: By}, 
-			{x: Cx, y: Cy}, 
-			{x: Dx, y: Dy}, 
-			{x: Ex, y: Ey}, 
+			{x: Ax, y: Ay},
+			{x: Bx, y: By},
+			{x: Cx, y: Cy},
+			{x: Dx, y: Dy},
+			{x: Ex, y: Ey},
 			{x: Ax, y: Ay}
 		]
 	}
@@ -68,13 +68,13 @@ levels: [
 levels: [
 	// 当前关卡
 	{
-		name: "五角星", 
+		name: "五角星",
 		lines: [
-			{x1: Ax, y1: Ay, x2: Bx, y2: By}, 
-			{x1: Bx, y1: By, x2: Cx, y2: Cy}, 
-			{x1: Cx, y1: Cy, x2: Dx, y2: Dy}, 
-			{x1: Dx, y1: Dy, x2: Ex, y2: Ey}, 
-			{x1: Ex, y1: Ey, x2: Ax, y2: Ay} 
+			{x1: Ax, y1: Ay, x2: Bx, y2: By},
+			{x1: Bx, y1: By, x2: Cx, y2: Cy},
+			{x1: Cx, y1: Cy, x2: Dx, y2: Dy},
+			{x1: Dx, y1: Dy, x2: Ex, y2: Ey},
+			{x1: Ex, y1: Ey, x2: Ax, y2: Ay}
 		]
 	}
 ]
@@ -87,36 +87,36 @@ levels: [
 在画布上绘制路径，从视觉上说是「选择或连接连通图端点」的过程，这个过程需要解决2个问题：
 
 - 手指下是否有端点
-- 选中点到待选中点之间能否成线 
+- 选中点到待选中点之间能否成线
 
 收集连通图端点的坐标，再监听手指滑过的坐标可以知道「手指下是否有点」。以下伪代码是收集端点坐标：
 
 ```javascript
 // 端点坐标信息
-let coords = []; 
+let coords = [];
 lines.forEach(({x1, y1, x2, y2}) => {
 	// (x1, y1) 在 coords 数组不存在
-	if(!isExist(x1, y1)) coords.push([x1, y1]); 
+	if(!isExist(x1, y1)) coords.push([x1, y1]);
 	// (x2, y2) 在 coords 数组不存在
-	if(!isExist(x2, y2)) coords.push([x2, y2]); 
-}); 
+	if(!isExist(x2, y2)) coords.push([x2, y2]);
+});
 ```
 
 以下伪代码是监听手指滑动：
 ```javascript
 easel.addEventListener("touchmove", e => {
-	let x0 = e.targetTouches[0].pageX, y0 = e.targetTouches[0].pageY; 
+	let x0 = e.targetTouches[0].pageX, y0 = e.targetTouches[0].pageY;
 	// 端点半径 ------ 取连通图端点半径的2倍，提升移动端体验
-	let r = radius * 2; 
-	for(let [x, y] of coords){ 
+	let r = radius * 2;
+	for(let [x, y] of coords){
 		if(Math.sqrt(Math.pow(x - x0, 2) + Math.pow(y - y0), 2) <= r){
 			// 手指下有端点，判断能否连线
 			if(canConnect(x, y)) {
 				// todo
 			}
-			break; 
+			break;
 		}
-	} 
+	}
 })
 ```
 在未绘制任何线段或端点之前，手指滑过的任意端点都会被视作「一笔画」的起始点；在绘制了线段（或有选中点）后，手指滑过的端点能否与选中点串连成线段需要依据现有条件进行判断。
@@ -127,15 +127,15 @@ easel.addEventListener("touchmove", e => {
 ```javascript
 coords.forEach(coord => {
 	// 有效连接点（坐标）挂载在端点坐标下
-	coord.validCoords = []; 
+	coord.validCoords = [];
 	lines.forEach(({x1, y1, x2, y2}) => {
 		// 坐标是当前线段的起点
 		if(coord.x === x1 && coord.y === y1) {
-			coord.validCoords.push([x2, y2]); 
+			coord.validCoords.push([x2, y2]);
 		}
 		// 坐标是当前线段的终点
 		else if(coord.x === x2 && coord.y === y2) {
-			coord.validCoords.push([x1, y1]); 
+			coord.validCoords.push([x1, y1]);
 		}
 	})
 })
@@ -156,9 +156,9 @@ But...有效连接点只能判断两个点是否为底图的线段，这只是�
 
 回头本节内容开头提的两个问题「手指下是否有端点」 与 「选中点到待选中点之间能否成线」，其实可合并为一个问题：**手指下是否存在「未成线的有效连接点」**。只须把监听手指滑动遍历的数组由连通图所有的端点坐标 `coords` 替换为当前选中点的「未成线的有效连接点」即可。
 
-至此「一笔画」的主要功能已经实现。可以抢先体验一下：  
+至此「一笔画」的主要功能已经实现。可以抢先体验一下：
 
-![demo](https://misc.aotu.io/leeenx/onestroke/2017-10-31-qr.png?v=2) 
+![demo](https://misc.aotu.io/leeenx/onestroke/2017-10-31-qr.png?v=2)
 
 [https://leeenx.github.io/OneStroke/src/onestroke.html](https://leeenx.github.io/OneStroke/src/onestroke.html)
 
@@ -178,14 +178,14 @@ But...有效连接点只能判断两个点是否为底图的线段，这只是�
 并且这三种颜色在「底图」的面积大小顺序是：白底 > 线段颜色 >  端点颜色。底图的「采集色值表算法」很简单，如下伪代码：
 
 ```javascript
-let imageData = ctx.getImageData(); 
-let data = imageData.data; 
+let imageData = ctx.getImageData();
+let data = imageData.data;
 // 色值表
-let clrs = new Map(); 
-for(let i = 0, len = data.length; i < len; i += 4) { 
-	let [r, g, b, a] = [data[i], data[i + 1], data[i + 2], data[i + 3]]; 
-	let key = `rgba(${r}, ${g}, ${b}, ${a})`; 
-	let value = clrs.get(key) || {r, g, b, a, count: 0}; 
+let clrs = new Map();
+for(let i = 0, len = data.length; i < len; i += 4) {
+	let [r, g, b, a] = [data[i], data[i + 1], data[i + 2], data[i + 3]];
+	let key = `rgba(${r}, ${g}, ${b}, ${a})`;
+	let value = clrs.get(key) || {r, g, b, a, count: 0};
 	clrs.has(key) ? ++value.count : clrs.set(rgba, {r, g, b, a, count});
 }
 ```
@@ -201,13 +201,13 @@ for(let i = 0, len = data.length; i < len; i += 4) {
 伪代码如下：
 ```javascript
 for(let i = 0, len = data.length; i < len; i += 4) {
-	let [r, g, b, a] = [data[i], data[i + 1], data[i + 2], data[i + 3]]; 
+	let [r, g, b, a] = [data[i], data[i + 1], data[i + 2], data[i + 3]];
 	// 当前像素颜色属于端点
-	if(isBelongVertex(r, g, b, a)) { 
+	if(isBelongVertex(r, g, b, a)) {
 		// 在 data 中清空端点
 		vertex = clearVertex(i);
-		// 记录端点信息 
-		vertexes.push(vertext); 
+		// 记录端点信息
+		vertexes.push(vertext);
 	}
 }
 ```
@@ -217,10 +217,10 @@ But... 上面的算法只能跑无损图。笔者在使用了一张手机截屏�
 经过分析，可以发现「色值表」里绝大多数色值都是相近的，也就是在原来的「采集色值表算法」的基础上添加一个近似颜色过滤即可以找出端点和线段的主色。伪代码实现如下：
 
 ```javascript
-let lineColor = vertexColor = {count: 0}; 
+let lineColor = vertexColor = {count: 0};
 for(let clr of clrs) {
 	// 与底色相近，跳过
-	if(isBelongBackground(clr)) continue; 
+	if(isBelongBackground(clr)) continue;
 	// 线段是数量第二多的颜色，端点是第三多的颜色
 	if(clr.count > lineColor.count) {
 		[vertexColor, lineColor] = [lineColor, clr]
@@ -242,16 +242,16 @@ for(let clr of clrs) {
 
 ```javascript
 for(let i = 0, len = vertexes.length; i < len - 1; ++i) {
-	let vertexA = vertexes[i]; 
-	if(vertextA === undefined) continue; 
+	let vertexA = vertexes[i];
+	if(vertextA === undefined) continue;
 	// 注意这里 j = 0 而不是 j = i +1
 	for(let j = 0; j < len; ++j) {
-		let vertexB = vertexes[j]; 
-		if(vertextB === undefined) continue; 
+		let vertexB = vertexes[j];
+		if(vertextB === undefined) continue;
 		// 点A与点B有叠加，点B合并到点A并删除点B
 		if(isCross(vertexA, vertexB)) {
-			vertexA = merge(vertexA, vertexB); 
-			delete vertexA; 
+			vertexA = merge(vertexA, vertexB);
+			delete vertexA;
 		}
 	}
 }
@@ -275,23 +275,23 @@ for(let i = 0, len = vertexes.length; i < len - 1; ++i) {
 
 上图，会识别出三条线段：AB, BC 和 AC。而事实上，AC不能成线，它只是因为 AB 和 BC 视觉上共一线的结果。当然把 N 值向上提高可以解决这个问题，不过 N 作为常量的话，这个常量的取量需要靠经验来判断，果然放弃。
 
-为了避免 AB 与 BC 同处一直线时 AC 被识别成线段，其实很简单 ------ **两个「样本点」的间隔小于或等于端点直径**。 
+为了避免 AB 与 BC 同处一直线时 AC 被识别成线段，其实很简单 ------ **两个「样本点」的间隔小于或等于端点直径**。
 假设 `N = S / (2 * R)`，S 表示两点的距离，R 表示端点半径。局部提取「样式点」如下：
 
 ![局部](https://misc.aotu.io/leeenx/onestroke/2017-11-01-pattern-2.gif)
 
 如上图，成功地绕过了 AC。「线段识别算法」的伪代码实现如下：
 ```javascript
-for(let i = 0, len = vertexes.length; i < len - 1; ++i) { 
-	let {x: x1, y: y1} = vertexes[i]; 
+for(let i = 0, len = vertexes.length; i < len - 1; ++i) {
+	let {x: x1, y: y1} = vertexes[i];
 	for(let j = i + 1; j < len; ++j) {
-		let {x: x2, y: y2} = vertexes[j]; 
-		let S = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); 
-		let N = S / (R * 2); 
+		let {x: x2, y: y2} = vertexes[j];
+		let S = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+		let N = S / (R * 2);
 		let stepX = (x1 - x2) / N, stepY = (y1 - y2) / n;
 		while(--N) {
 			// 样本点不是线段色
-			if(!isBelongLine(x1 + N * stepX, y1 + N * stepY)) break; 
+			if(!isBelongLine(x1 + N * stepX, y1 + N * stepY)) break;
 		}
 		// 样本点都合格 ---- 表示两点成线，保存
 		if(0 === N) lines.push({x1, y1, x2, y2})
@@ -308,10 +308,10 @@ for(let i = 0, len = vertexes.length; i < len - 1; ++i) {
 
 ```javascript
 // 要压缩的倍数
-let resolution = 4; 
+let resolution = 4;
 let [width, height] = [img.width / resolution >> 0, img.height / resolution >> 0];
-ctx.drawImage(img, 0, 0, width, height); 
-let imageData = ctx.getImageData(), data = imageData; 
+ctx.drawImage(img, 0, 0, width, height);
+let imageData = ctx.getImageData(), data = imageData;
 ```
 把源图片缩小4倍后，得到的图片像素数组只有原来的 `4^2 = 16倍`。这在性能上是很大的提升。
 
@@ -324,9 +324,9 @@ let imageData = ctx.getImageData(), data = imageData;
 
 ## 结语
 
-下面是本文介绍的「一笔画」的线上 [DEMO](https://leeenx.github.io/OneStroke/src/onestroke.html) 的二维码： 
+下面是本文介绍的「一笔画」的线上 [DEMO](https://leeenx.github.io/OneStroke/src/onestroke.html) 的二维码：
 
-![demo](https://misc.aotu.io/leeenx/onestroke/2017-10-31-qr.png?v=2) 
+![demo](https://misc.aotu.io/leeenx/onestroke/2017-10-31-qr.png?v=2)
 
 游戏的源码托管在：[https://github.com/leeenx/OneStroke](https://github.com/leeenx/OneStroke)
 其中游戏实现的主体代码在：[https://github.com/leeenx/OneStroke/blob/master/src/script/onestroke.es6](https://github.com/leeenx/OneStroke/blob/master/src/script/onestroke.es6)
@@ -335,8 +335,10 @@ let imageData = ctx.getImageData(), data = imageData;
 
 感谢耐心阅读完本文章的读者。本文仅代表笔者的个人观点，如有不妥之处请不吝赐教。
 
+如果对「H5游戏开发」感兴趣，欢迎关注我们的[专栏](https://zhuanlan.zhihu.com/snsgame)。
+
 <style>
 	.post-content sup a {
-		vertical-align: unset; 
+		vertical-align: unset;
 	}
 </style>

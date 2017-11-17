@@ -231,7 +231,7 @@ Matter.Events.on(ball, 'sleepStart', function() {
 
 最后，此次项目中只做了一些小尝试，Matter.js 能实现的远不止这些，移步官网发现更多的惊喜吧，文章的完整 Demo 代码可[【点击这里】](http://jdc.jd.com/demo/ball-demo/)。
 
-感谢你的阅读，我们会定期更新关于「H5游戏开发」的文章，欢迎关注我们的[知乎专栏](https://zhuanlan.zhihu.com/snsgame)。
+如果对「H5游戏开发」感兴趣，欢迎关注我们的[专栏](https://zhuanlan.zhihu.com/snsgame)。
 
 
 ## 参考

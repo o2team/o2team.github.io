@@ -36,7 +36,7 @@ wechat:
 
 由于时间紧迫，需要在短时间内敲定方案可行性，否则项目延期人头不保。在快速尝试了 `Three.js + Ammo.js` 方案后，发现不尽人意，最终因为各方面原因放弃了 3D 方案，主要是不可控因素太多：时间上、设计及技术经验上、移动端 WebGL 性能表现上，主要还是业务上需要对游戏有绝对的控制，加上是第一次接手复杂的小游戏，担心项目无法正常上线，有点保守，此方案遂卒。
 
-如果读者有兴趣的话可以尝试下 3D 实现，在建模方面，首推 [Three.js](http://threejs.org/) ，入手非常简单，文档和案例也非常详实。当然入门的话必推这篇 [Three.js入门指南](https://read.douban.com/ebook/7412854/)，另外同事分享的这篇 [Three.js 现学现卖](https://aotu.io/notes/2017/08/28/getting-started-with-threejs/) 也可以看看，这里奉上粗糙的 [推金币 3D 版 Demo](http://samgui.com/coindozer-3d/) 
+如果读者有兴趣的话可以尝试下 3D 实现，在建模方面，首推 [Three.js](http://threejs.org/) ，入手非常简单，文档和案例也非常详实。当然入门的话必推这篇 [Three.js入门指南](https://read.douban.com/ebook/7412854/)，另外同事分享的这篇 [Three.js 现学现卖](https://aotu.io/notes/2017/08/28/getting-started-with-threejs/) 也可以看看，这里奉上粗糙的 [推金币 3D 版 Demo](http://samgui.com/coindozer-3d/)
 
 ### 技术选型
 
@@ -57,7 +57,7 @@ wechat:
 
 ``` js
 World.add(this.world, [
-  Bodies.fromVertices(282, 332,[ 
+  Bodies.fromVertices(282, 332,[
     // 顶点坐标
     { x: 0, y: 0 },
     { x: 0, y: 890 },
@@ -300,6 +300,8 @@ createjs.Tween.removeTweens(this.coin);
 
 感谢各位耐心读完，希望能有所收获，有考虑不足的地方欢迎留言指出。
 
+如果对「H5游戏开发」感兴趣，欢迎关注我们的[专栏](https://zhuanlan.zhihu.com/snsgame)。
+
 ### 相关资源
 
 [Three.js 官网](http://threejs.org/)
@@ -315,6 +317,6 @@ createjs.Tween.removeTweens(this.coin);
 <style>
 	.post-content img {
 		display: block;
-    margin: 20px auto; 
+    margin: 20px auto;
 	}
 </style>
