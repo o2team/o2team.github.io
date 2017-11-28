@@ -28,4 +28,5 @@ node_modules
 public
 .o2/
 themes/o2/
-.idea
+.idea/
+*.xml
