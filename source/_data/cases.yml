@@ -53,3 +53,17 @@
   tags:
     - xcel
     - excel
+- name: 凹凸公开课
+  desc: 凹凸实验室对外公开的分享或系列课程
+  link: https://github.com/o2team/JDHot
+  preview: //aotu.jd.com/share/
+  tags:
+    - share
+- name: AT-UI
+  desc: 一款轻量级、模块化的前端UI组件库
+  link: https://github.com/AT-UI/at-ui
+  preview: //at.aotu.io
+  tags:
+    - 前端组件
+    - UI
+    - Vue
