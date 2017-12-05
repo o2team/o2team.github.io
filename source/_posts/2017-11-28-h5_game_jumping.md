@@ -179,7 +179,7 @@ for i = 0 to P.length
   k = L * P[i] + l
   while l < k
     A[l] = i;
-    j++;
+    l++;
 
 // 获取均等概率分布的随机数
 s = Math.floor(Math.random() * L);
