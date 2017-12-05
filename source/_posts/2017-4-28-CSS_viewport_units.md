@@ -53,7 +53,7 @@ wechat:
 其兼容性如下图所示，可以知道：**在移动端 iOS 8 以上以及 Android 4.4 以上获得支持，并且在微信 x5 内核中也得到完美的全面支持。**
 
 <div style="margin:0 auto;width:fit-content;">![caniuse_viewport.png](//misc.aotu.io/Tingglelaoo/caniuse_viewport.png)</div>
-<small style="display:block;text-align:center;">截图来自[Can I Use](http://caniuse.com/#search=vm)</small>
+<small style="display:block;text-align:center;">截图来自[Can I Use](http://caniuse.com/#search=vw)</small>
 
 <div style="margin:0 auto;width:100px;">![wechat.jpg](//misc.aotu.io/Tingglelaoo/wechat.jpg)</div>
 <small style="display:block;text-align:center;">截图来自[X5内核－Can I Use](http://res.imtt.qq.com/tbs/incoming20160419/home.html)</small>
@@ -78,7 +78,7 @@ wechat:
 
 ```scss
 //iPhone 6尺寸作为设计稿基准
-$vm_base: 375; 
+$vw_base: 375; 
 @function vw($px) {
     @return ($px / 375) * 100vw;
 }
@@ -91,16 +91,16 @@ $vm_base: 375;
     background-color: #fff;
     &_list {
         display: flex;
-        padding: vm(15) vm(10) vm(10); // 内间距
+        padding: vw(15) vw(10) vw(10); // 内间距
         &_item {
             flex: 1;
             text-align: center;
-            font-size: vm(10); // 字体大小
+            font-size: vw(10); // 字体大小
             &_logo {
                 display: block;
                 margin: 0 auto;
-                width: vm(40); // 宽度
-                height: vm(40); // 高度
+                width: vw(40); // 宽度
+                height: vw(40); // 高度
                 img {
                     display: block;
                     margin: 0 auto;
@@ -108,7 +108,7 @@ $vm_base: 375;
                 }
             }
             &_name {
-                margin-top: vm(2);
+                margin-top: vw(2);
             }
         }
     }
@@ -179,15 +179,15 @@ $vm_base: 375;
 
 ```scss
 // rem 单位换算：定为 75px 只是方便运算，750px-75px、640-64px、1080px-108px，如此类推
-$vm_fontsize: 75; // iPhone 6尺寸的根元素大小基准值
+$vw_fontsize: 75; // iPhone 6尺寸的根元素大小基准值
 @function rem($px) {
-     @return ($px / $vm_fontsize ) * 1rem;
+     @return ($px / $vw_fontsize ) * 1rem;
 }
 
 // 根元素大小使用 vw 单位
-$vm_design: 750;
+$vw_design: 750;
 html {
-    font-size: ($vm_fontsize / ($vm_design / 2)) * 100vw; 
+    font-size: ($vw_fontsize / ($vw_design / 2)) * 100vw; 
     // 同时，通过Media Queries 限制根元素最大最小值
     @media screen and (max-width: 320px) {
         font-size: 64px;
