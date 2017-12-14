@@ -382,7 +382,7 @@ adjustPosition: function(item){
 - **加入重定位和重绘制策略**。
   为了保证贴边元素不被裁剪以及舞台元素动态渲染大小以适应舞台区域的动态变化。
 
-> 最终的整体效果可前往[体验地址](http://jdc.jd.com/demo/ting/landscape/index.html)进行体验，体验时可点击文本元素进行切换模式。另外，整体的实现方案是基于 CreateJS 框架进行实现的，文中的实现方案的代码会托管笔者[github](https://github.com/Tingglelaoo/landscapeforh5)上。
+> 最终的整体效果可前往[体验地址](http://jdc.jd.com/demo/ting/landscape/index.html)进行体验，体验时可点击文本元素进行切换模式。另外，整体的实现方案是基于 CreateJS 框架进行实现的，文中的实现方案的代码会托管笔者[github](https://github.com/Tingglelaoo/CreateJSView)上。
 
 ## 后话
 
