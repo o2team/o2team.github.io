@@ -145,7 +145,7 @@ $vw_base: 375;
 ```scss
 .mod_banner {
     position: relative;
-    padding-top: percentage(100/700); // 使用padding-top
+    padding-top: percentage(100/750); // 使用padding-top
     height: 0;
     overflow: hidden;
     img {
