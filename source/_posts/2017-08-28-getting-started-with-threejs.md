@@ -455,7 +455,7 @@ var material = new THREE.MeshBasicMaterial({
 <p data-height="265" data-theme-id="0" data-slug-hash="qXMzEZ" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="sprite" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/qXMzEZ/">sprite</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-当粒子数量较小时，一般不会存在性能问题。但随着数量的增长，就会很快遇到性能瓶颈。此时，使用 `THREE.Points` 更为合适。因为 Three.js 不在需要管理大量 `THREE.Sprite` 对象，而只需管理一个 `THREE.Points` 对象。
+当粒子数量较小时，一般不会存在性能问题。但随着数量的增长，就会很快遇到性能瓶颈。此时，使用 `THREE.Points` 更为合适。因为 Three.js 不再需要管理大量 `THREE.Sprite` 对象，而只需管理一个 `THREE.Points` 对象。
 
 下面我们用 `THREE.Points` 实现上一个案例的效果：
 <p data-height="265" data-theme-id="0" data-slug-hash="wqELBj" data-default-tab="result" data-user="JChehe" data-embed-version="2" data-pen-title="points" class="codepen">See the Pen <a href="https://codepen.io/JChehe/pen/wqELBj/">points</a> by Jc (<a href="https://codepen.io/JChehe">@JChehe</a>) on <a href="https://codepen.io">CodePen</a>.</p>
