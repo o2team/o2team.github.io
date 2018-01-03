@@ -288,5 +288,5 @@ var lib, images, createjs, ss;
 
 ## 附上最终效果
 
-[点我看效果](http://b.gengshu.net/doc/flash/people.html)
+[点我看效果](http://jdc.jd.com/demo/paul/flash_canvas/people.html)
  
