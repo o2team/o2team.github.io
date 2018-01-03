@@ -104,7 +104,7 @@ Using Bounce.js and classical animation concepts to bring life to user interface
 
 ![frames_of_flame_1](//img.aotu.io/lyxuncle/2-8_frames_of_flame_1.jpg)
 
-![frames_of_flame_2](/img/post/lyxuncle/2-9_frames_of_flame_2.jpg )
+![frames_of_flame_2](//img.aotu.io/lyxuncle/2-9_frames_of_flame_2.jpg )
 
 - A 冷空气从火的底部冲入，受热后上升。 B 一套火的循环①-⑧，标以×的漩涡一个接一个地向上升起。升得越高，速度越慢。
 
