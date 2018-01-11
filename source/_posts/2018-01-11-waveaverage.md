@@ -9,7 +9,7 @@ tags:
   - 算法
 author:
   nick: leeenx
-  github_name: o2team
+  github_name: leeenx
 date: 2018-01-11 11:49:03
 wechat:
     share_cover: https://misc.aotu.io/leeenx/waveAverage/share.jpg
