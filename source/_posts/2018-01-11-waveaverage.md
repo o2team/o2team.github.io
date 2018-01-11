@@ -1,5 +1,5 @@
 title: 波动均分算法
-subtitle: 一种非完全均分的算法
+subtitle: 波动均分不是严格意义上的「均分」，但它却跟「均分」很相似。
 cover: https://misc.aotu.io/leeenx/waveAverage/cover.jpg
 categories: Web开发
 tags:
@@ -14,7 +14,7 @@ date: 2018-01-11 11:49:03
 wechat:
     share_cover: https://misc.aotu.io/leeenx/waveAverage/share.jpg
     share_title: 波动均分算法
-    share_desc: 一种非完全均分的算法
+    share_desc: 波动均分不是严格意义上的「均分」，但它却跟「均分」很相似。
 ---
 
 「波动」和「均分」大部分读者朋友是知道的，但看到「波动均分」应该是一头雾水的。其实，这个名词是笔者拼凑出来的。
