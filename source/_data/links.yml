@@ -1,6 +1,9 @@
 - name: JDC京东设计中心
   desc: 京东设计中心
   link: https://jdc.jd.com
+- name: Deep Ocean
+  desc: 腾讯 Deep Ocean
+  link: http://dopro.io/
 - name: 百度FEX
   desc: 百度Web前端研发部
   link: http://fex.baidu.com
