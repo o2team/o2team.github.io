@@ -90,7 +90,7 @@ magick identify goods.png
 
 默认情况下 `ImageMagick` 会读取图像中唯一标识格式的签名来确定文件格式，如果没有，则根据文件的扩展名来确定格式，如 `image.jpg` 被认为 `jpeg` 格式文件，如果都获取不到，则需要手动指定文件的格式。命令格式为 `format:input_or_output_image`。
 
-输入文件一般情况应该不需要手动指定文件格式，输出文件的时候，`png` 格式分 `png8`、`png24` 等格式，如果 `png8` 格式的文件能够满足需求，指定合理的格式可以缩小文件的大小，示例如下。
+输入文件一般情况应该不需要手动指定文件格式，输出文件的时候，`png` 格式分 `png8`、`png24` 等格式，如果 `png8` 格式的文件能够满足需求，指定合理的格式可以缩小文件的大小，示例如下。
 ```
 convert goods.png png8:goods_8.png
 convert goods.png png24:goods_24.png
@@ -292,7 +292,7 @@ convert  -coalesce  rain.gif  frame_%d.jpg
 
 解释：
 
-1. 第一种方式 `%d` 是 `C` 语言 `printf()` 中表示输出一个整数，参考 [-adjoin][13] 选项。
+1. 第一种方式 `%d` 是 `C` 语言 `printf()` 中表示输出一个整数，参考 [-adjoin](https://www.imagemagick.org/script/command-line-options.php?#adjoin) 选项。
 1. 第二种为常规方式。
     - `-set`：设置图像属性，格式为 `-set key value`
     - `filename:n '%p'`：以 `filename:` 开头的 `key` 用于设置输出文件名的相关信息，如这里使用 `filename:n`，在输出文件名时，则可以使用 `%[filename:n]` 拿到刚刚的设置，而设置的内容则是 `'%p'`。`'%p'` 表示图像在图像列表中的索引值，更多[百分比选项 ( Percent Escapes )](http://imagemagick.org/script/escape.php) 参考。
@@ -353,7 +353,7 @@ convert  -loop 0  'frame-*.jpg'  rain_animation.gif
 
 将所有与 `frame-*.jpg` 模式匹配的图像转换成一张 `GIF` 图像，如 `frame-0.jpg`，`frame-1.jpg`等。
 `-loop` 设置动画循环次数，`0` 表示无限循环。
-设置每张图像的播放速度可以使用 [-delay][15] 选项。
+设置每张图像的播放速度可以使用 [-delay](https://www.imagemagick.org/Usage/anim_basics/#gif_anim) 选项。
 
 `笔记：` 在 `IM` 读取系列文件时，`frame-10.jpg` 会排在 `frame-2.jpg` 前面，为获得图像正确的读取顺序，可以为文件名设置前导零 ( `leading zeros` )。如：`frame-000.jpg, frame-001.jpg, frame-002.jpg ... frame-010.jpg`。
 
