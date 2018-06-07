@@ -195,7 +195,7 @@ convert  'xc:[100x40!]'  -pointsize 20  -font 'cochin.ttc'  \
 -draw 'bezier  -20,30  -16,10  20,2    50,20'  \
 -draw 'bezier  50,20   78,42   138,36  140,16'  \
 +noise Impulse  \
-verification_code.jpg
+captcha.jpg
 ```
 
 结果：
