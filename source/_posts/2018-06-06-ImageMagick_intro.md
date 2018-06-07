@@ -1,5 +1,5 @@
 title: 图像处理 - ImageMagick 简单介绍与案例
-subtitle: ImageMagick 是一款强大的创建、编辑、合成，转换图像的命令行工具。支持格式超过 200 种，包括常见的 PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。本文主要介绍一下 ImageMagick 的用法与细节。
+subtitle: ImageMagick 是一款创建、编辑、合成，转换图像的命令行工具。支持格式超过 200 种，包括常见的 PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。本文主要介绍一下 ImageMagick 的用法与细节。
 cover: https://img11.360buyimg.com/ling/jfs/t21382/242/710567581/125401/630d6b14/5b161ac7N5de78bc7.jpg
 categories: Web开发
 date: 2018-06-06 20:30:35
@@ -14,7 +14,7 @@ author:
 wechat:
     share_cover: https://img11.360buyimg.com/ling/jfs/t20107/216/1156926714/50127/ef5c96dc/5b1666efN68d69000.jpg
     share_title: 图像处理 - ImageMagick 简单介绍与案例
-    share_desc:  ImageMagick 是一款强大的创建、编辑、合成，转换图像的命令行工具。支持格式超过 200 种，包括常见的 PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。本文主要介绍一下 ImageMagick 的用法与细节。
+    share_desc:  ImageMagick 是一款创建、编辑、合成，转换图像的命令行工具。支持格式超过 200 种，包括常见的 PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。本文主要介绍一下 ImageMagick 的用法与细节。
 
 ---
 
@@ -22,7 +22,7 @@ wechat:
 
 在客户端我们可以用 `PhotoShop` 等 `GUI` 工具处理静态图片或者动态 `GIF` 图片，不过在服务器端对于 `WEB` 应用程序要处理图片格式转换，缩放裁剪，翻转扭曲，PDF解析等操作， `GUI` 软件就很难下手了，所以此处需要召唤命令行工具来帮我们完成这些事。
 
-**ImageMagick:** 是一款强大的创建、编辑、合成，转换图像的命令行工具。支持格式超过 `200` 种，包括常见的 `PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG` 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。
+**ImageMagick:** 是一款创建、编辑、合成，转换图像的命令行工具。支持格式超过 `200` 种，包括常见的 `PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG` 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。
 
 官网：https://www.imagemagick.org 下面放个小标识。
 
