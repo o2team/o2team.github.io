@@ -327,11 +327,11 @@ const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
 exports.numberOfPages = async (filePath) => {
-  const { stdout, stderr } = await exec(`identify '${filePath}'`)
-  if (stderr) {
-    throw new Error(stderr)
-  } else {
+  try {
+    const { stdout } = await exec(`identify '${filePath}'`)
     return stdout.trim().split('\n').length
+  } catch (err) {
+    throw new Error(err)
   }
 }
 ```
@@ -392,11 +392,11 @@ const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
 ;(async function start () {
-  const { stderr } = await exec(`convert -resize '150x100!' -strip goods.jpg thumbnail.jpg`)
-  if (stderr) {
-    console.log('convert failed.', stderr)
-  } else {
+  try {
+    await exec(`convert -resize '150x100!' -strip goods.jpg thumbnail.jpg`)
     console.log('convert completed.')
+  } catch (err) {
+    console.log('convert failed.', err)
   }
 }())
 ```
