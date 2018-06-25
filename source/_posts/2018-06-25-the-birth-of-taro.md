@@ -274,3 +274,7 @@ Taro 从立项之初到现在已经差不多有了三个月左右的时间，从
 项目官网：https://taro.aotu.io/
 
 项目 GitHub：https://github.com/NervJS/taro
+
+**同时，有任何关于 Taro 希望沟通交流的，欢迎~**
+
+![](http://img20.360buyimg.com/uba/jfs/t20197/283/1687168874/136042/2b4d811f/5b30a65cN9d1f03f1.png)
