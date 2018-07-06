@@ -142,7 +142,7 @@ Math.sqrt(Math.pow(circleA.x - circleB.x, 2) +
 
 如果圆心在矩形的上方（`if(circle.y < rect.y)`），那么 `closestPoint.y = rect.y`。
 
-如果圆心在矩形的下方（`else if(circle.y < rect.y + rect.h)`），那么 `closestPoint.y = rect.y + rect.h`。
+如果圆心在矩形的下方（`else if(circle.y > rect.y + rect.h)`），那么 `closestPoint.y = rect.y + rect.h`。
 
 圆形圆心在矩形的正左右两侧（`else`），那么 `closestPoint.y = circle.y`。
 
