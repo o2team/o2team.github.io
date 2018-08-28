@@ -1,4 +1,4 @@
-title: 重磅！首个多端 UI 组件库 - Taro UI 发布
+title: 首个多端 UI 组件库 - Taro UI 发布
 subtitle: 一款基于 Taro 框架开发的多端 UI 组件库
 cover: https://misc.aotu.io/jimczj/2018-08-27taro-ui.jpg
 categories: 小程序
