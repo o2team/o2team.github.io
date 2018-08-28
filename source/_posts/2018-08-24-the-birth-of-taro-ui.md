@@ -1,6 +1,7 @@
 title: 首个多端 UI 组件库 - Taro UI 发布
 subtitle: 一款基于 Taro 框架开发的多端 UI 组件库
 cover: https://misc.aotu.io/jimczj/2018-08-27taro-ui.jpg
+ckey: 2018-08-24-the-birth-of-taro-ui
 categories: 小程序
 tags:
   - 小程序
@@ -13,14 +14,14 @@ author:
 date: 2018-08-27 21:53:41
 wechat:
     share_cover: https://misc.aotu.io/jimczj/taro@200x200.jpg
-    share_title: 重磅！首个多端 UI 组件库 —— Taro UI 发布
+    share_title: 首个多端 UI 组件库 —— Taro UI 发布
     share_desc: 一款基于 Taro 框架开发的多端 UI 组件库
 ---
 
 <!-- more -->
 
 ## 前言
-[Taro](https://github.com/NervJS/taro) 是由京东·凹凸实验室倾力打造的多端开发解决方案，旨在让一套代码在多端运行。Taro 1.0 版本发布后，也开始支持引用第三方的小程序组件库，如 iView、vant-weapp、echarts-for-weixin，然而目前市场仍然缺少一套由 Taro 编写而成的多端 UI 组件库。为了进一步丰富 Taro 的开发生态，让开发者有更好的开发体验和更快的开发速度，凹凸实验室自主设计了一套 UI 组件库，经过两个多月的精雕细琢，终于跟随 Taro 1.0 版本正式发布。
+[Taro](https://github.com/NervJS/taro) 是由凹凸实验室倾力打造的多端开发解决方案，旨在让一套代码在多端运行。Taro 1.0 版本发布后，也开始支持引用第三方的小程序组件库，如 iView、vant-weapp、echarts-for-weixin，然而目前市场仍然缺少一套由 Taro 编写而成的多端 UI 组件库。为了进一步丰富 Taro 的开发生态，让开发者有更好的开发体验和更快的开发速度，凹凸实验室自主设计了一套 UI 组件库，经过两个多月的精雕细琢，终于跟随 Taro 1.0 版本正式发布。
 
 ## Taro UI
 Taro UI 是一款由凹凸实验室打造、基于 Taro 编写的多端 UI 组件库。除了高颜值，Taro UI 最大的亮点就是支持多端运行。Taro UI 借助 Taro 支持多端运行的特点，只需解决不同平台 CSS 的表现差异问题，就可以在微信小程序/ H5 / ReactNative 等多端适配运行。
