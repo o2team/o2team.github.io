@@ -44,7 +44,7 @@ author:
 }
 ```
  
-- 简单的几个不同色调的图片进行替换就能做出类似效果。（[demo地址](http://labs.qiang.it/labs/EC_demo/Doing_Movie_by_CSS3.html)）
+- 简单的几个不同色调的图片进行替换就能做出类似效果。（[demo地址](http://jdc.jd.com/demo/ec/movieeye/doing_movie_by_css3.html)）
 
 二、
 
