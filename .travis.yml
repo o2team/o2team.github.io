@@ -13,6 +13,8 @@ addons:
     packages:
     - g++-4.8
   ssh_known_hosts: github.com
+install:
+  - npm install
 script:
 - npm run build
 - npm run clean
