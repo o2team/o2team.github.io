@@ -3,6 +3,7 @@ subtitle: 单屏页面响应式适配
 cover: https://img13.360buyimg.com/ling/jfs/t1/41/28/11924/322549/5bcc7032Eb10d58a1/4d2d427681ef624c.png
 categories: 项目总结
 date: 2018-10-22 19:30:00
+ckey: 2018-10-22-design
 tags:
   - 单屏页面响应式
   - 响应式适配
