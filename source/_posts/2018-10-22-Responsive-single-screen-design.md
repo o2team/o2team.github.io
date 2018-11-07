@@ -132,10 +132,6 @@ IPhone X:         375 x 812
 </video>
 
 <video autoplay preload loop muted width="1000">
-  <source src="https://storage.360buyimg.com/barrior-bucket/dngj.mp4">
-</video>
-
-<video autoplay preload loop muted width="1000">
   <source src="https://storage.360buyimg.com/barrior-bucket/uc.mp4">
 </video>
 
