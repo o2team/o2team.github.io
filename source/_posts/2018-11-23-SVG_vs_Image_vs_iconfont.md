@@ -3,6 +3,7 @@ subtitle: SVG vs Image, SVG vs Iconfont
 cover: https://img12.360buyimg.com/ling/jfs/t29044/236/578633314/57264/117a113b/5bf75130N25fbd353.jpg
 categories: WEB开发
 date: 2018-11-23 09:00:00
+ckey: 2018-11-23-svg
 tags:
   - Inline SVG
   - SVG Sprite
