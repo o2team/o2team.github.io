@@ -258,6 +258,19 @@ export default {
       width 100%
       height 100%
       fill currentColor
+      stroke currentColor
+      *[fill] {
+        fill currentColor
+      }
+      *[stroke] {
+        stroke currentColor
+      }
+      *[fill='none'] {
+        fill none
+      }
+      *[stroke='none'] {
+        stroke none
+      }
     }
   }
 }
