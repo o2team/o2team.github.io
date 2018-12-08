@@ -258,6 +258,27 @@ export default {
       width 100%
       height 100%
       fill currentColor
+      *[fill='none'] {
+        fill none
+      }
+      *[stroke='none'] {
+        stroke none
+      }
+    }
+  }
+}
+</style>
+
+<style lang="stylus">
+.svg-icon-hover {
+  &:hover {
+    svg {
+      *[fill] {
+        fill currentColor
+      }
+      *[stroke] {
+        stroke currentColor
+      }
     }
   }
 }
@@ -268,6 +289,12 @@ export default {
 
 ```
 <SvgIcon name="arrow-right" />
+
+或者
+
+<a class="svg-icon-hover" href="#">
+  <SvgIcon name="arrow-right" />
+</a>
 ```
 
 ### SVG vs Iconfont 结论
