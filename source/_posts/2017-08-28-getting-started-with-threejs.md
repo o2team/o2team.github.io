@@ -548,7 +548,7 @@ point: THREE.Vector3
   [10]: http://ushiroad.com/3j/
   [11]: http://www.glprogramming.com/red/chapter03.html
   [12]: https://misc.aotu.io/JChehe/2016-8-24-webvr/coordinate.jpg
-  [13]: http://7xq7nb.com1.z0.glb.clouddn.com/perspective_camera.png
+  [13]: https://blog-1251477229.cos.ap-chengdu.myqcloud.com/others/perspective_camera.png
   [14]: https://threejs.org/docs/index.html#api/cameras/CubeCamera
   [15]: https://threejs.org/docs/index.html#api/cameras/OrthographicCamera
   [16]: https://threejs.org/docs/index.html#api/cameras/StereoCamera
