@@ -144,7 +144,7 @@ Math.sqrt(Math.pow(circleA.x - circleB.x, 2) +
 
 如果圆心在矩形的下方（`else if(circle.y > rect.y + rect.h)`），那么 `closestPoint.y = rect.y + rect.h`。
 
-圆形圆心在矩形的正左右两侧（`else`），那么 `closestPoint.y = circle.y`。
+如果圆心在矩形的正左右两侧（`else`），那么 `closestPoint.y = circle.y`。
 
 
 因此，通过上述方法即可找出矩形上离圆心最近的点了，然后通过『两点之间的距离公式』得出『最近点』与『圆心』的距离，最后将其与圆的半径相比，即可判断是否发生碰撞。
@@ -536,7 +536,7 @@ function project = function (axis) {
 
 #### 粗略阶段（Broad Phase）
 
-Broad phase 能为你提供有可能碰撞的实体列表。这可通过一些特殊的数据结构实现，它们能为你提供信息：实体存在哪里和哪些实体在其周围。这些数据结构可以是：四叉树（Quad Trees）、R树（R-Trees）或空间哈希映射（Spatial Hashmap）等。
+Broad phase 能为你提供有可能碰撞的实体列表。这可通过一些特殊的数据结构实现，它们能为你提供这些信息：实体存在哪里和哪些实体在其周围。这些数据结构可以是：四叉树（Quad Trees）、R树（R-Trees）或空间哈希映射（Spatial Hashmap）等。
 
 读者若感兴趣，可以自行查阅相关信息。
 
