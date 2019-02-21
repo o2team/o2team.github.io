@@ -30,5 +30,3 @@
 
 {% include 'baidu_analytics.swig' %}
 {% include 'ta_analytics.swig' %}
-{% include 'aotu_analytics.swig' %}
-
