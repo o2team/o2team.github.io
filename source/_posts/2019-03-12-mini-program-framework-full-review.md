@@ -96,7 +96,7 @@ H5 方面，`chameleon` 同样是由多态协议实现支持，`uni-app` 和 `Ta
 
 所以最后一轮对比的结果是：
 
-`chameleon` > `Taro`、`uni-app` > `mpvue`、`WePY`
+`chameleon` > `Taro`、`uni-app` > `mpvue` > `WePY`
 
 ![多端支持](https://storage.jd.com/taro-resource/duoduan.png)
 
