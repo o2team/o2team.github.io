@@ -166,7 +166,7 @@ Taro 需要对依赖包做一些修改。
 
 同样，以前在发布 @tarojs/taro-h5 之前，Taro 也需要执行命令 `yarn build`，使用 Rollup 对源代码进行打包，输出为`dist/index.js`文件：
 
-![image-20190225162654885](https://m.360buyimg.com/img/jfs/t1/29124/32/8757/41440/5c77fbacEa1b2206c/fba8b10d73136327.png
+![image-20190225162654885](https://m.360buyimg.com/img/jfs/t1/29124/32/8757/41440/5c77fbacEa1b2206c/fba8b10d73136327.png)
 
 这个文件占据了 262KB 的空间。同样，只要是个 Taro 的 H5 端应用，生成的代码都会全量引入这个文件。
 
