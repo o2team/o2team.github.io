@@ -171,9 +171,13 @@ hfc_img:
   progressive: false
 
 hfc_favicons:
-  enable: false
+  enable: true
   src: img/logo.png
   target: img/
+  opts:
+    appName: Aotu.io
+    appDescription: "AotuLabs's Offical Site"
+    theme_color: "#2f83cd"
   icons:
     android: true
     appleIcon: true
