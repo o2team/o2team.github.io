@@ -1,6 +1,6 @@
 title: 探究WebP一些事儿
 subtitle: WebP图片格式是提升用户体验的一大利器，本文通过探究WebP的一些细节来说明WebP能够给我们带来的提升。
-cover: //img.aotu.io/FufVMQ_IV5Z_fGJa12AHNgs63sR2
+cover: //img11.360buyimg.com/ling/jfs/t1/50905/34/2681/25766/5d0778c2E27d589f5/023cd81fd4091207.jpg
 categories: 性能优化
 tags:
   - WebP
@@ -31,11 +31,11 @@ WebP是一种支持有损压缩和无损压缩的图片文件格式，根据Goog
 
 #### WebP兼容性
 
-![](//img.aotu.io/FmUIiSK5GnaMRnywosGR2wARtOhx)
+![](https://img12.360buyimg.com/ling/jfs/t1/55297/25/2640/160208/5d0778deEb9f44a1c/5dbf8e2ac35b64a8.jpg)
 
 WebP目前支持桌面上的Chrome和Opera浏览器，手机支持仅限于原生的Android浏览器、Android系统上的Chrome浏览器、Opera Mini浏览器。
 
-![](//img.aotu.io/FimDJyH6sC_n3qQeNQiVMHmBF831)
+![](https://img14.360buyimg.com/ling/jfs/t1/71531/5/2116/24281/5d0778f4E18301ad6/c00a39a084ae33ed.jpg)
 
 根据对目前浏览器占比与WebP的兼容性分析，如果采用WebP图片，大约有42%的用户可以直接体验到。
 
@@ -81,7 +81,7 @@ dwebp in_file [options] [-o out_file]
 
 下面我们以一张图片为例，分别用不同质量进行压缩。
 
-![](//img.aotu.io/FsK4nvnPq8-LKmgUMAyQpPVzX0Wk)
+![](https://img20.360buyimg.com/ling/jfs/t1/60187/27/2150/189830/5d077914Ec5ff095a/18ca529559d7972a.jpg)
 
 WebP图片相比于JPG，拥有：
 
@@ -102,11 +102,11 @@ WebP图片相比于JPG，拥有：
 
 下面通过同样质量的WebP与JPG图片加载的速度进行[测试](http://labs.qiang.it/wen/webp/test.html)。测试的JPG和WebP图片大小如下：
 
-![](//img.aotu.io/Fng21Plg7-00b3HKFe48nLIgP_fn)
+![](https://img10.360buyimg.com/ling/jfs/t1/57632/16/2563/87435/5d07792eE9c9938e5/e4a9657ee200e6a6.jpg)
 
 测试数据折线图如下：
 
-![](//img.aotu.io/FrvS4mf268RBStCsJSt-gbXuINrz)
+![](https://img10.360buyimg.com/ling/jfs/t1/37348/16/11775/101790/5d077942Ea7223d90/ac917adceb269c7c.jpg)
 
 从折线图可以看到，WebP虽然会增加额外的解码时间，但由于减少了文件体积，缩短了加载的时间，页面的渲染速度加快了。同时，随着图片数量的增多，WebP页面加载的速度相对JPG页面增快了。所以，使用WebP基本没有技术阻碍，还能带来性能提升以及带宽节省。
 
@@ -142,7 +142,7 @@ function check_webp_feature(feature, callback) {
 
 采用JavaScript能力检测的方式来加载WebP图片，通常的做法是通过图片懒加载的方式来完成。主要流程如下：
 
-![](//img.aotu.io/Fslo9RsJ9z99hptjl5aRIkFVrGU5)
+![](https://img10.360buyimg.com/ling/jfs/t1/49707/38/2596/40827/5d077958E517ed7d9/21e2a82eb9ef7f2d.jpg)
 
 页面加载会很快，无需等待图片加载。之后，javascript代码会动态地更新图片标签，根据浏览器支持WebP格式与否，动态生成WebP图像或JPG图像链接。
 

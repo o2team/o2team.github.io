@@ -1,6 +1,6 @@
 title: 精致化页面重构
 subtitle: "刚完成了一个项目的开发，本文将分享给大家一些项目中的一些经验与小技巧。"
-cover: //img.aotu.io/liqinuo/cover.png
+cover: //img10.360buyimg.com/ling/jfs/t1/59362/35/2181/177423/5d073aeeE49f26328/003098e78f23089b.png
 categories: 项目总结
 tags:
   - summary
@@ -49,7 +49,7 @@ date: 2015-11-24 20:23:44
 **设计规范需要包括：**
 页面背景色、文字颜色、边框颜色、各种按钮样式、图标等等全局通用样式。
 
-![设计规范](//img.aotu.io/liqinuo/1.png)
+![设计规范](//img20.360buyimg.com/ling/jfs/t1/49327/18/2677/30689/5d073b0cEb45f0a13/7af4571efb698b11.png)
 
 
 当然除了前期到设计规范，开发过程中这边也需要分离出一些可复用的组件、公共样式，包括：
@@ -64,7 +64,7 @@ date: 2015-11-24 20:23:44
 
 简单点说就是：在 Retina 屏的设备上，1px 其实相当于  2 个物理像素，所以 1 个物理像素 = 0.5px。
 
-![精致化重构](//img.aotu.io/liqinuo/2.png)
+![精致化重构](//img12.360buyimg.com/ling/jfs/t1/45565/8/2730/7318/5d073b23E2ef05c3d/25a5454b11cee855.png)
 
 实现 0.5px 有很多种方法，这里比较一下各种处理的优缺点：
 
@@ -161,7 +161,7 @@ $bor_style : 1px solid #ddd;
 
 项目哪些地方可以使用 flexbox？比如这些
 
-![精致化重构](//img.aotu.io/liqinuo/3.png)
+![精致化重构](//img13.360buyimg.com/ling/jfs/t1/70313/35/2129/16216/5d073b42E2b36f080/59c55e321ec29ef6.png)
 
 #### 基本语法：
 ```css
@@ -298,7 +298,7 @@ padding-top = 图片高度(px)/图片宽度(px) * 100%
 大多图标元素都可以使用 CSS 样式绘制，可以大大减少样式图资源请求还有增强图标可维护性。
 比如：链接箭头、圆点、优惠券点点、选择框、checkbox等等。
 
-![精致化重构](//img.aotu.io/liqinuo/4.png)
+![精致化重构](//img10.360buyimg.com/ling/jfs/t1/61524/14/2136/74516/5d073b5aEc76319f9/f2e3b8fa3d4df507.png)
 
 
 ## 五 使用 WebP 格式图片

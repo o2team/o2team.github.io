@@ -1,6 +1,6 @@
 title: js游戏开发初级入门
 subtitle: 凹凸实验室水灵通透软妹子－暖暖，手把手教你用js开发五子棋游戏！
-cover: //img.aotu.io/wangcainuan/2016-01-14-introduction-to-JS-game-development/gobang_cover.jpg
+cover: //img11.360buyimg.com/ling/jfs/t1/82905/29/2165/48213/5d0773d6E2da7396e/49b273d509671025.jpg
 categories: Web开发
 tags:
   - js
@@ -84,7 +84,7 @@ function drawGobang(n) {
 #### 3.1.2 画棋盘图示
 注意边缘的棋子的样式控制，另外鼠标经过时添加红色虚线提醒。
 
-![画棋盘](//img.aotu.io/wangcainuan/2016-01-14-introduction-to-JS-game-development/board.png)
+![画棋盘](//img11.360buyimg.com/ling/jfs/t1/56641/26/2607/10552/5d077421E94dd4c86/de8e7639177d51d7.png)
 
 ### 3.2 画棋子
 处理函数需要什么操作，只是把棋子画到相对应的棋盘即可吗？
@@ -138,7 +138,7 @@ j = +targetId.split("_")[2];
 3. 继续按顺序遍历(i,j)棋子的后四个位置是否含相同颜色的棋子，若相同，count++以及检测是否count == 5 。
 如下图所示，红色虚线为即将要下的棋子，计算count为1，向左判断使得count最后为3，遇到红色交叉的地方没有黑色棋子，则退出循环；从红色虚线的右边继续判断，最后count为5，因此判断黑棋赢：
 
-![判断输赢算法](//img.aotu.io/wangcainuan/2016-01-14-introduction-to-JS-game-development/check.jpg)
+![判断输赢算法](//img11.360buyimg.com/ling/jfs/t1/39144/37/9240/27017/5d077440E496c06f7/64ca2235d0fc7dc0.jpg)
 
 代码如下，一共检测四个方向：
 ```javascript

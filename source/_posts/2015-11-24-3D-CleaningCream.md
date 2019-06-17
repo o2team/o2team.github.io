@@ -1,6 +1,6 @@
 subtitle: 看官别走啊，这真不是软文。
 title: 使用ThreeJS在浏览器中展示3D物件
-cover: //img.aotu.io/Littly/title.png
+cover: //img20.360buyimg.com/ling/jfs/t1/81927/16/2167/55464/5d073a11Eba3687ba/6f9c3d5ed59a34fa.png
 date: 2015-11-24 13:00:35
 categories: Web开发
 tags: three.js
@@ -61,7 +61,7 @@ author:
 ```
 
 画出来就像这样子：
-![旋转立方体](//img.aotu.io/Littly/rollingCube.png)
+![旋转立方体](//img14.360buyimg.com/ling/jfs/t1/50142/12/2647/4737/5d073a34Eb24cb490/a5823b4e14f82f4b.png)
 
 ThreeJS中提供了少量基础的几何模型，如长方体(Box3)，球体(Sphere)等，但面对我们要实现的洗面奶还是太小儿科了。这是不是说明我们的洗面奶没办法做了？文章都写到这里了，办法肯定是有的。ThreeJS提供了加载外部模型的模块(Loader)，可以加载外部的Obj，json等格式的模型。另外，ThreeJS的[Github仓库](https://github.com/mrdoob/three.js/tree/master/utils/exporters)中还提供了在3ds Max、Blender等3D绘制软件中导出模型的工具。是的，我们就可以用别的3D建模软件建模再导出成ThreeJS所需要的格式了。
 
@@ -70,10 +70,10 @@ ThreeJS中提供了少量基础的几何模型，如长方体(Box3)，球体(Sph
 我们这里使用的是建模工具是Blender。我们需要先拍下物体的三视图作为建模的参考。导入Blender后，依据三视图，我们很快就可以建出洗面奶的模型。
 
 模型的样子
-![建模](//img.aotu.io/Littly/modeling.png)
+![建模](//img14.360buyimg.com/ling/jfs/t1/43038/8/6915/796366/5d073a54E891f53bd/a5de46cf9af9b722.png)
 
 在Blender中加上ThreeJS的插件之后，我们可以在Blender的文件菜单中见到Export/Three.js(.json)选项。点击之后，选择导出的目录，然后记得在左下角勾上我们要导出的元素。在这个例子中，我们需要导出的是Scene，也就是场景本身。
-![导出菜单](//img.aotu.io/Littly/exporting.jpg)
+![导出菜单](//img30.360buyimg.com/ling/jfs/t1/39915/18/9160/113542/5d073a71Ec18361a0/56ce896481ab12af.png)
 
 在ThreeJS中进行导入的操作也十分简单。ThreeJS中提供了许多种类的Loader，分别针对不同的使用需求。比如，JSONLoader针对的是.json格式的模型，OBJLoader针对的是.obj格式的模型等等。翻阅网上资料的时候还可以看到SceneLoader的踪影，这就是用来加载整个场景的.json格式文件的。可是在ThreeJS的新版本中，SceneLoader已经被废弃，取而代之的是更为牛叉更为智能的ObjectLoader。ObjectLoader可以判断导出的模型到底是什么种类，从而将它们转化为ThreeJS中的对应对象便于开发者使用。
 
@@ -119,14 +119,14 @@ ThreeJS中提供了少量基础的几何模型，如长方体(Box3)，球体(Sph
 	
 浏览器中一看，却不太对劲。形状对了，可是颜色呢？高端黑的洗面奶怎么就变成这么山寨的颜色了，而且每次刷新都变颜色。活了二十几年，小便表示还真没见到过这样的洗面奶。
 
-![跑马灯](//img.aotu.io/Littly/neverseen.png)
+![跑马灯](//img20.360buyimg.com/ling/jfs/t1/37021/30/12494/17900/5d073a8aE7b6f7b06/2fe5426747f45b64.png)
 
 出现这种情况，毫无疑问是材质的问题。原来我们在建模软件中还没给洗面奶加过材质，所以ThreeJS加载完我们的.json文件后，发现只有模型却没有材质，就给模型加上了一个随机颜色的材质。解决办法也很简单，在ThreeJS中手动贴上贴图就好了。而更简单且有效的办法是，在建模软件中上好贴图再一起导出。
 
 回到Blender中，将洗面奶的表面进行UV展开后导出展开图后，我们新建一张图片，将我们要贴的图放到展开图上的相应位置，再回到Blender中将这张新的图片设为瓶身的材质。渲染一下，检查到效果无误后，将模型导出。这次要记得将左下角的Materials勾上，另外还需要勾上texture的复选框。
 
 将这次导出的模型放到先前的目录下，我们会发现，浏览器中并没有出现想象中的场景。在控制台中可以看到，由于我们没有将贴图一起放到一个目录下，贴图加载失败了。按照要求放好后，我们会更惊奇地发现，浏览器中除了一片黑，什么都没有。这是为什么呢？
-![一片黑](//img.aotu.io/Littly/dark.png)
+![一片黑](//img14.360buyimg.com/ling/jfs/t1/40698/28/6857/7080/5d073aa3Ebb1516ad/7ce89c62672c757f.png)
 
 > 神说要有光，所以就有了光。
 
@@ -140,7 +140,7 @@ ThreeJS中提供了少量基础的几何模型，如长方体(Box3)，球体(Sph
 ```
 	
 再刷新一下，就可以看见我们的洗面奶了。大功告成!
-![成功](//img.aotu.io/Littly/completed.png)
+![成功](//img12.360buyimg.com/ling/jfs/t1/48978/4/2613/118152/5d073ac1E67e707fc/924a689fe677b1ed.png)
 
 
 ### 小结

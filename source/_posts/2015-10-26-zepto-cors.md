@@ -1,7 +1,7 @@
 title: 前方有坑，请绕道——Zepto 中使用 CORS
 subtitle: "一直以来，我们在移动端上面使用 zepto 并没有出现太大的问题。直至我们将 Ajax 跨域请求从 iframe 的方式切换成 CORS 之后。"
 date: 2015-10-26 12:24:22
-cover: //img.aotu.io/Koppthe/cors-zepto.jpg
+cover: //img12.360buyimg.com/ling/jfs/t1/51898/6/2545/140297/5d07043aE14d3c609/6cbb7838ddf76024.jpg
 categories: Web开发
 tags:
   - Zepto

@@ -40,7 +40,7 @@ Co-Editor投稿的文章，可以在MD文档头部的`front-formatter`中设定�
 ```yaml
 title: feWorkflow - 使用electron, react, redux, immutable构建桌面App
 subtitle: "使用react, redux, immutable框架做ui开发，仍然基于运行gulpfile的方案，这样可以使每个使用自己团队的gulp工作流快速接入和自由调整。"
-cover: //img.aotu.io/FqMe96r-4Spj-juPOP-rH50-oaKX
+cover: //img12.360buyimg.com/ling/jfs/t1/53860/29/2535/37986/5d07017fE74648962/7f866b67c5ae6d8a.jpg
 date: 2016-07-05 00:24:35
 categories: NodeJS
 tags:

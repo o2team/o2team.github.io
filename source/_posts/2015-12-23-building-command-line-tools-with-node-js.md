@@ -1,6 +1,6 @@
 title: 【译】使用Node.js创建命令行脚本工具
 subtitle: 通过本文将一步步带领你利用Node.js来创建命令行脚本工具
-cover: //img.aotu.io/cnt1992/command-line-tools.jpg
+cover: //img30.360buyimg.com/ling/jfs/t1/70696/17/2087/34217/5d073bc3E9ff38592/60e9bc7581e6d754.jpg
 categories: NodeJS
 tags:
   - NodeJS
@@ -33,7 +33,7 @@ date: 2015-12-23 13:19:07
 
 这是我们的最终目标成果：
 
-![snippet用法](//img.aotu.io/cnt1992/snippet-usage.gif)
+![snippet用法](//storage.360buyimg.com/mtd/home/snippet-usage1560755168725.gif)
 
 ## 封装 shell 命令
 
@@ -325,7 +325,7 @@ $ npm install --save chalk
 
 让我们旋转一下（这里我使用了截图，以便你能看到极好的颜色）。
 
-![彩色化输出](//img.aotu.io/cnt1992/terminal-colors.png)
+![彩色化输出](//img12.360buyimg.com/ling/jfs/t1/39367/30/9134/50184/5d073bfcE3b5acf4f/4922952260aa5835.png)
 
 
 ## 渲染 `ACSII` 进度条
@@ -375,7 +375,7 @@ $ npm install --save progress
 
 下面是一个比较快的网速下上传大约6MB的文件的截图：
 
-![进度条](//img.aotu.io/cnt1992/progress-bar.gif)
+![进度条](//storage.360buyimg.com/mtd/home/progress-bar1560755230444.gif)
 
 很棒！用户现在就能够看到他们上传的进度并且知道什么时候上传完成。
 

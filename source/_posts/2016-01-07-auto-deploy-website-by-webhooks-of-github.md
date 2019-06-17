@@ -1,6 +1,6 @@
 title: 使用Github的webhooks进行网站自动化部署
 subtitle: 本文介绍Github的高级功能webhooks，并通过实例帮助我们如何使用它进行网站的自动化部署
-cover: //img.aotu.io/cnt1992/webhooks-cover.jpg
+cover: //img20.360buyimg.com/ling/jfs/t1/42436/36/6777/23242/5d073c46Ec32bbcdd/ae3edeb82083683a.jpg
 date: 2016-01-07 17:05:05
 categories: Web开发
 tags:
@@ -167,7 +167,7 @@ OK，到这里整个服务已经搭建完成，下一步就只需要配置`Githu
 
 我们可以在我们的`Github`上面最右边有一个`Settings`的Tab，找到`Webhooks & services`，如下图：
 
-![Github Webhooks](//img.aotu.io/cnt1992/webhooks.png)
+![Github Webhooks](//img12.360buyimg.com/ling/jfs/t1/82174/15/2115/225580/5d073c62Eda31d57c/b53b468e4e4021eb.png)
 
 然后点击新建，输入`Payload URL`跟`Secret`，确定即可。
 
@@ -175,11 +175,11 @@ OK，到这里整个服务已经搭建完成，下一步就只需要配置`Githu
 
 绑定成功之后，我们可以试试提交一下代码，然后来到`Github`看看是否自动触发了接口，如下图：
 
-![Github Webhooks接口触发](//img.aotu.io/cnt1992/webhooks-show.png)
+![Github Webhooks接口触发](//img13.360buyimg.com/ling/jfs/t1/57839/24/2608/70131/5d073c79E7dcab02b/5b5ede40ec8b3834.png)
 
 然后随便选择一个点击一下，可以看到`200`的响应：
 
-![Github Webhooks接口触发](//img.aotu.io/cnt1992/webhook-success.png)
+![Github Webhooks接口触发](//img11.360buyimg.com/ling/jfs/t1/68042/3/2022/151311/5d073c90E5d7f73ea/97a3e022dc64fb98.png)
 
 ## 小结
 

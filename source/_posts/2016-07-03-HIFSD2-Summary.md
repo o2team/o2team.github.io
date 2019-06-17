@@ -1,6 +1,6 @@
 title: 第二界HiFSD分享会PPT讲义下载分享
 subtitle: "HiFSD, 全称Hi Full Stack Developver, 意在定期邀请不同BG、不同团队甚至不同公司的设计或开发团队进行交流，实现知识共享、经验互取等目的，为个人成为全栈工程师而努力。"
-cover: //img.aotu.io/FhrSTu6ppPfs8nqoRU-l9whgbdPB
+cover: //img12.360buyimg.com/ling/jfs/t1/49540/12/2624/21942/5d077746Edda18203/42c129dd4acad330.jpg
 date: 2016-07-03 10:24:35
 categories: 项目总结
 tags:
@@ -37,7 +37,7 @@ HiFSD全称Hi Full Stack Developver，由腾讯TGIdeas主办的全栈工程师�
 
 ## 关于直播
 
-![YY](https://img.aotu.io/Fi4G4OzGM1idinbuVDHEUm4qT3-_)
+![YY](https://img13.360buyimg.com/ling/jfs/t1/74405/28/2192/41381/5d077769Ee29567df/b6761d66b69fb0d2.jpg)
 
 其实利用YY、映客做现场直播只是我们临时加进去的内容，应该是业界首次利用当红的直播APP做技术分享会的直播，效果虽然说不算完美，但最终还是有几乎近千位网友通过直播的方式观看了本次分享会的内容。
 感谢伙伴们的支持，请期待凹凸实验室在下一次同类的分享会中做更给力的线上直播。
@@ -46,6 +46,6 @@ HiFSD全称Hi Full Stack Developver，由腾讯TGIdeas主办的全栈工程师�
 
 或扫描二维码进行观看：
 
-![YY](https://img.aotu.io/FtpJiOi-IAzwxu1L3RJ8nhz_Jdlh)
+![YY](https://img12.360buyimg.com/ling/jfs/t1/63278/10/2240/10516/5d077788E99bb3385/2f1b83f08ce5d879.png)
 
 

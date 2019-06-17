@@ -1,7 +1,7 @@
 title: 探究transform动画元素的z-index
 subtitle: transform 变换的时候会让 z-index “临时失效”，其实并非 z-index 失效了，只是 z-index 被用在不同的 `stacking context` 上。
 date: 2015-10-21 10:24:35
-cover: //img.aotu.io/Manjiz/2015/manjiz-151116-cover.png
+cover: //img20.360buyimg.com/ling/jfs/t1/84441/38/2530/39585/5d0703b9Eac796197/08404d066abc58cf.png
 categories: Web开发
 tags:
     - translate3d
@@ -15,7 +15,7 @@ author:
 
 在一次需求中，需要做出三张卡牌走马灯式滚动的效果，由于在前面的一张卡牌需要挡住后面的卡牌，自然而然地就用 z-index 使前面的卡牌显示在最上面，配以 transform 动画让“走马灯”滚起来，在开发过程中，在 PC 侧 Chrome 中表现良好，在本人手机浏览器中也表现良好，最后测试时却发现，在微信客户端或 QQ 客户端中打开页面出现问题，“走马灯”滚动时，卡牌先通过 transform 就位后，才把 z-index 设置较大的卡牌置于上面，感觉上非常的不流畅。
 
-![](//img.aotu.io/Manjiz/2015/151116_card.png)
+![](//img30.360buyimg.com/ling/jfs/t1/45965/15/2570/1955/5d0703d5Ebfa1477e/90bb60743c8cc3be.png)
 
 究其原因，发现这是某些浏览器的渲染规则，涉及到 `stacking context` 的概念，transform 的元素会创建新的 DOM，层级会在普通元素的上面，除了 transform ,还有哪些情况会创建新 `stacking context`呢？
 
@@ -31,7 +31,7 @@ MDN 上有相关介绍：
 
 下图是对 transform 和 opacity 的测试结果：
 
-![](//img.aotu.io/Manjiz/2015/151117_twotest.png)
+![](//img20.360buyimg.com/ling/jfs/t1/74633/14/2147/30282/5d0703f6E49cadba6/625a71774ae5addc.png)
 
 很明显，红色 div 都在绿色 div 上面了，说明真的有创建了个更高层级的 `stacking context`。再做进一步测试，我给两组的 div 都加了 `position:relative;z-index:1;`，结果绿色的都在上面了，手机微信上也一样，这能不能说明 z-index 对层级的影响大于 transform 和 opacity 呢。
 
@@ -46,7 +46,7 @@ MDN 上有相关介绍：
 
 现在可以来理解下 perspective 和 translate3d 的关系，perspective 可以比作镜头和 DOM 的距离，实际上设置多少都没影响，因为它通过跟 z-axis 上的数值比例来影响样式，它更像是一个刻度，而 translate3d 的 z-axis 则表示了 DOM 和屏幕的距离。假定镜头跟屏幕的距离固定了，z-axis 越大，DOM 逐渐远离屏幕，靠近镜头，这时 DOM 看起来也就越大，当 z-axis 大于或等于 perspective 时，DOM元素已经在我们镜头的后面了，所以也就看不到它了。
 
-![](//img.aotu.io/Manjiz/2015/151116_perspective.png)
+![](//img20.360buyimg.com/ling/jfs/t1/84441/38/2530/39585/5d0703b9Eac796197/08404d066abc58cf.png)
 
 现在也就好理解为什么 perspective 和 translate3d 能够影响 DOM 的层级了，它们在屏幕和镜头之间的距离不同，所以就有了层次，移动端设备很好地表现了这个结论，但在 PC 的 Chrome 上测试则不然，我们仍需要 z-index 才会表现出我们需要的 层次关系。
 

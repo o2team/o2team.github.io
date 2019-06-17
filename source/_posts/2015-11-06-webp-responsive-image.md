@@ -4,7 +4,7 @@ date: 2015-11-06 18:44:25
 categories: 性能优化
 tags:
   - WebP
-cover: //img.aotu.io/wengeek/responsive-image.png
+cover: //img11.360buyimg.com/ling/jfs/t1/74387/17/2091/85402/5d070791E25117dfc/52fac7950107d4f9.png
 author:
   nick: WEN
   github_name: wengeek
@@ -33,7 +33,7 @@ author:
 
 你可能听过**WebP**图片格式。相比于PNG图片，其文件大小能够节省26％；相比于JPEG图片，能够节省大约25％-34%。目前，Chrome、Opera以及Android能够支持WebP格式，但Safari和IE尚未支持。既然我们能够用picture标签来处理响应式图片，我们也能够使用WebP格式的图片并且允许浏览器在不支持WebP时进行回退。
 
-![webp](http://a43d55f6a02c4be185ce-9cfa4cf7c673a59966ad8296f4c88804.r44.cf3.rackcdn.com/WebP/logo-webp.png)
+![webp](//img20.360buyimg.com/ling/jfs/t1/55132/19/2636/6268/5d0707b8E4984a2c2/2e4254dfdd2f0cb9.png)
 
 让我们在上面代码的基础上，添加WebP图片的支持。同时，我们要确保能够根据不同的DPR使用最佳视觉效果的图片。
 
