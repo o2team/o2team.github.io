@@ -1,6 +1,6 @@
 title: createjs开发入门
 subtitle: 通过实例浅析createjs
-cover: //img.aotu.io/youing/20160229/createjs-get-started-cover.jpg
+cover: https://img11.360buyimg.com/ling/jfs/t1/70077/31/2212/33092/5d084ee4Eaf799859/c0450ef75961e683.jpg 
 categories: Web开发
 tags:
   - createjs
@@ -220,7 +220,7 @@ TweenJS类库主要用来调整和动画HTML5和Javascript属性。提供了简�
 
 ### 示例
 
-![img](//img.aotu.io/youing/20160229/tweenjs.gif)
+![img](http://storage.360buyimg.com/mtd/home/tweenjs1560826322038.gif)
 
 
 ### 使用方法
@@ -259,7 +259,7 @@ graphics.moveTo(0,0).curveTo(0,200,200,200).curveTo(200,0,0,0);
 - 例子
 
 
-![img](//img.aotu.io/youing/20160229/guidemotion.gif)
+![img](http://storage.360buyimg.com/mtd/home/guidemotion1560826348089.gif)
 
 
 
@@ -270,13 +270,13 @@ EaselJS 是一个用以与 HTML5 canvas 协作的库。它包含一个完整的�
 
 ### 先看例子
 
-![img](//img.aotu.io/youing/20160229/grantrun.gif)
+![img](http://storage.360buyimg.com/mtd/home/grantrun1560826376422.gif)
 
 下面介绍这个例子的制作过程
 
 ### 素材准备
 
-![img](//img.aotu.io/youing/20160229/1.pic.jpg)
+![img](https://img10.360buyimg.com/ling/jfs/t1/77988/10/2237/61071/5d08521fE54264ab6/68cb2958fb998753.jpg)
 
 
 人物精灵图会用到**flash**+**zoe**来生成
@@ -284,9 +284,9 @@ EaselJS 是一个用以与 HTML5 canvas 协作的库。它包含一个完整的�
 
 打开flash，新建一个新的as3项目，导入图片，只要文件名是有序的，会自动导入到每一帧，如下图
 
-![img](//img.aotu.io/youing/20160229/2.pic.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/36779/33/12188/16679/5d085233E7cbd484f/a70c42f6cdb62eec.png)
 
-![img](//img.aotu.io/youing/20160229/3.pic.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/80841/8/2277/33186/5d085245Efddca92d/411a74a2ebd930e9.png)
 
 
 导入完之后，新建一个图层，来放动作标签，如上面的`run`和`jump`
@@ -298,7 +298,7 @@ EaselJS 是一个用以与 HTML5 canvas 协作的库。它包含一个完整的�
 然后用快捷键`Ctrl + enter`发布成swf格式，并把它导入到**zoe**工具,效果如下
 
 
-![img](//img.aotu.io/youing/20160229/4.pic.png)
+![img](https://img14.360buyimg.com/ling/jfs/t1/63500/37/2212/67298/5d085259Ead38f241/cd0a96e702dd6c91.png)
 
 
 tab选项卡切换到`Animations` 可以预览和设置刚才在flash设置的动作。

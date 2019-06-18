@@ -1,6 +1,6 @@
 title: 使用npm scripts替代gulp
 subtitle: 利用npm run高效地实现前端自动化任务
-cover: //img.aotu.io/cnt1992/npm-instead-of-gulp-cover.png
+cover: //img20.360buyimg.com/ling/jfs/t1/52619/26/2712/170236/5d084bfcE2ff6a5aa/5676a8dcc47fd7f5.png
 categories: Web开发
 tags:
   - npm
@@ -54,7 +54,7 @@ gulp.task('clean', function() {
 
 就目前插件数量来说，没有什么可以打败`npm`包：
 
-![img](//img.aotu.io/cnt1992/npm-compare-width-gulp.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/80490/39/2174/35797/5d084c18Eb9af74db/1ce88d338772cb68.png)
 
 ### 调试很不方便
 

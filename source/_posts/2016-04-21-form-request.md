@@ -1,6 +1,6 @@
 title: 如何用ArrayBuffer构造一个form请求
 subtitle: form表单数据编码类型为multi/formdata的分析
-cover: //img.aotu.io/FrwIQ0XqdLlbyozfiGE8Jblf4SFy
+cover: https://img13.360buyimg.com/ling/jfs/t1/33148/11/13983/105008/5d085746E75a9b561/0ef257fb0be881e9.png
 categories: Web开发
 date: 2016-04-21 10:53:03
 tags:
@@ -53,7 +53,7 @@ boundary的字符应该是随机的，防止提交的数据里有相同字符而
 
 2、request body的部分，规律可看下面的图解：
 
-![request body说明](//img.aotu.io/FqTCYAQuN8OeV8yFvva4_TUvCgxs)
+![request body说明](https://img20.360buyimg.com/ling/jfs/t1/45706/36/2684/29378/5d08575dE6c24341a/a85318ddb6a41e0a.png)
 
 可以看出：
 - body里的boundary总比Content-Type声明的boundary前面多两个中划线；

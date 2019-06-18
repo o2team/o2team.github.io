@@ -1,6 +1,6 @@
 title: Node 生产环境调试
 subtitle: "本文以问答的形式，介绍生产环境中该如何去调试 Node 应用。"
-cover: //img.aotu.io/chuyik/node_debug_in_production_cover.png
+cover: //img14.360buyimg.com/ling/jfs/t1/34264/4/12462/218564/5d084be1E68db1ff4/fc5bce93df93cc81.png
 date: 2016-02-24 12:25:35
 categories: NodeJS
 tags:

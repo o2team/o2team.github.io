@@ -1,6 +1,6 @@
 title: Node读写Excel文件探究实践
 subtitle: "本文介绍用 Node.js 中的依赖库来处理 Excel 文件，主要阐述用js-xlsx、excel-export 库来处理 Excel 文件。"
-cover: //img.aotu.io/pfan/excel/n_excel.png
+cover: https://img30.360buyimg.com/ling/jfs/t1/43845/18/6878/48372/5d0856d1Ef76392ea/8b485a3ad42b173f.png
 categories: NodeJS
 tags:
   - node 

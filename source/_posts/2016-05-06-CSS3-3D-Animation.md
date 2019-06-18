@@ -1,6 +1,6 @@
 title: CSS3动画之3D动画
 subtitle: CSS3动画开发指南第三弹
-cover: //img.aotu.io/FrYNVc2GU23S0lHWu4xwzQtd7PR5
+cover: https://img20.360buyimg.com/ling/jfs/t1/39626/26/9127/40842/5d08579eE0cd5165a/1a587e735132fa29.png
 categories: Web开发
 tags:
   - CSS3
@@ -61,7 +61,7 @@ date: 2016-05-06 10:00:00
 
 但是放浏览器一看，这不对呀，为什么用3D的代码写出了2D的效果。
 
-![说起来你可能不信，这是一个延Y轴旋转了45的牌](//img.aotu.io/FnsJjBpYlSYLBuEe0icU12X37rzk)
+![说起来你可能不信，这是一个延Y轴旋转了45的牌](https://img20.360buyimg.com/ling/jfs/t1/69235/29/2241/5127/5d085945Ea6c90c46/7fede6cc45ee29fd.png)
 
 这个时候有请我们的perspective透视君。
 
@@ -73,17 +73,17 @@ CSS3中的perspetive在这样一个体系里就代表着元素与观者之间的
 
 这里有个图或许能帮助我们想象3D效果强度这个概念——
 
-![perspective(graphic)](//img.aotu.io/FrPCDSbOxepqWV8JrDRIzamARiP9)
+![perspective(graphic)](https://img30.360buyimg.com/ling/jfs/t1/71362/20/2229/13189/5d085a90Eefe0e386/e13cb632c5c87e25.png)
 
 *（图片来源：[维基百科](https://en.wikipedia.org/wiki/Perspective_%28graphical%29)）*
 
 如果还是不懂，还有一个办法，就是在浏览器中边调整perspective数值边观察3D效果。
 
-![浏览器中的perspective](//img.aotu.io/FvxF4EoQ7xliwof1HArQO_0UKAZn)
+![浏览器中的perspective](http://storage.360buyimg.com/mtd/home/fvxf4eoq7xliwof1harqo_0ukazn1560828591724.gif)
 
 ## 消失点
 
-![perspective-children01](//img.aotu.io/FnvhLwboKDByIz9skLKAifm-TbVZ)
+![perspective-children01](https://img13.360buyimg.com/ling/jfs/t1/66813/32/2262/5042/5d085ad5E1d30c3bb/45b9abbf190407bc.png)
 
 *（图片来源：[Intro to CSS 3D transforms - Perspective](https://desandro.github.io/3dtransforms/docs/perspective.html)）*
 
@@ -95,7 +95,7 @@ CSS3中的perspetive在这样一个体系里就代表着元素与观者之间的
 
 ## 建立三维空间体系
 
-![你所期待的正方体，浏览器给你的“正方体”](//img.aotu.io/Fp3RHvtFL4VVmPE09kkdVPALrgcP)
+![你所期待的正方体，浏览器给你的“正方体”](https://img11.360buyimg.com/ling/jfs/t1/61958/23/2185/55534/5d085aeeE3ac848e2/0d2a22ba2a14d5c4.png)
 
 *现实总是乳齿残酷*
 
@@ -111,7 +111,7 @@ CSS3中的perspetive在这样一个体系里就代表着元素与观者之间的
 
 阴影的使用能让翻书效果变得更真实
 
-![带阴影的翻书demo](//img.aotu.io/FnW5R4z2f1Ho3BobCx_yC1uH3PNe)
+![带阴影的翻书demo](https://img11.360buyimg.com/ling/jfs/t1/68382/39/2228/9157/5d08ae6cEcba4090e/961a5593073d9c4d.png)
 
 *（[猛戳查看demo](http://lyxuncle.github.io/pageturning/demo/demo2.html)）*
 
@@ -119,7 +119,7 @@ CSS3中的perspetive在这样一个体系里就代表着元素与观者之间的
 
 立体书在外国叫Pop-Up Book，满满的“Surprise!”感。这种超越传统平面书籍的阅读模式常被用于儿童书籍。
 
-![A Guided Tour of THE MEL BIRNKRANT COLLECTION](//img.aotu.io/FkhE7EbeXLorH_KIyPT6p5BMW9BJ)
+![A Guided Tour of THE MEL BIRNKRANT COLLECTION](https://img13.360buyimg.com/ling/jfs/t1/40738/5/6839/105713/5d08ae88E28138b41/425922138feaccea.png)
 
 *（图片来源：[A Guided Tour of THE MEL BIRNKRANT COLLECTION](http://melbirnkrant.com/collection/page48.html)）*
 
@@ -133,7 +133,7 @@ CSS3中的perspetive在这样一个体系里就代表着元素与观者之间的
 > 元素层叠关系不可反自然
 > 剩下的事也就水到渠成，无非是在每一页建立3D体系、立体元素从rotateX(90deg)转换到rotateX(0deg)的事儿。
 
-![Mozzilla的小demo](//img.aotu.io/Fu3qwoFnTKfxqsvE_p3MX_1Vsrl7)
+![Mozzilla的小demo](http://storage.360buyimg.com/mtd/home/fu3qwofntkfxqsve_p3mx_1vsrl71560850108749.gif)
 
 *（[Mozzilla的小demo](http://www.html5tricks.com/demo/css3-3d-book/index.html)）*
 
@@ -145,7 +145,7 @@ CSS3中的perspetive在这样一个体系里就代表着元素与观者之间的
 
 由于截至目前为止，CSS3的3D功能还止于炫技的阶段，安卓机与iOS的支持效果存在差异且难以调和，从上面那个案例中肉眼可见的坑就能看出，因此除了简单的3D转换，不建议在大项目中大面积使用3D深层功能。
 
-![3D在浏览器中的支持情况](//img.aotu.io/Fvr8c6UqAazgEMtw4HtO-tBrhGn9)
+![3D在浏览器中的支持情况](https://img11.360buyimg.com/ling/jfs/t1/47252/19/2732/30011/5d08aeddE46e242e0/b70f06114e49705c.png)
 
 ## 3D与硬件加速
 

@@ -1,6 +1,6 @@
 title: 如何制作cocoaPods依赖库
 subtitle: 本文介绍如何制作cocoaPods依赖库
-cover: //img.aotu.io/MarkLin/cocoaPods/CocoaPods.png
+cover: //img13.360buyimg.com/ling/jfs/t1/54904/26/2664/29459/5d084b01E67d36bf9/59effde2bf59a4f7.png
 date: 2016-01-27 19:40:49
 categories: 移动开发
 tags:
@@ -20,7 +20,7 @@ author:
 
 [**CocoaPods**](https://github.com/CocoaPods) 是托管在 **github** 上的，所有的 **Pods** 也都是托管在 **github** 上，因此我们首先需要创建一个属于自己的 github 仓库，如下图所示：
 
-![github](//img.aotu.io/MarkLin/cocoaPods/1-1githubRepo.png)
+![github](https://img20.360buyimg.com/ling/jfs/t1/53702/27/2683/254119/5d084b1aE312b4a83/509eb2e47521064f.jpg)
 
 上图中标识出了6处地方
 
@@ -33,7 +33,7 @@ author:
 
 上面各项根据大家需要填写完毕后，点击 **Create repository** 按钮即可，创建成功后如下所示：
 
-![github](//img.aotu.io/MarkLin/cocoaPods/1-2githubO2View.png)
+![github](https://img13.360buyimg.com/ling/jfs/t1/36783/35/12555/201425/5d084b2eEa9c43dd9/0eba65f906193dac.jpg)
 
 ### 2.clone 仓库到本地
 为了方便向仓库中删减内容，需要将仓库 **clone** 到本地，这里有多种操作方式，可以选择你喜欢的一种，但是为了方便这边选择使用命令行。首先需要切换到你想在本地存储的目录，然后再 **clone** ，假设你放在用户的根目录上：
@@ -58,7 +58,7 @@ git clone https://github.com/marklin2012/O2View.git
 
 创建 **Pods** 依赖库就是为了方便别人使用我们的成果，比如我想共享给大家的O2View类，那这个类自然必不可少，我们把这个类放入一个 **O2View** 的目录中：
 
-![主类](//img.aotu.io/MarkLin/cocoaPods/1-3O2ViewClassDoc.jpeg)
+![主类](https://img11.360buyimg.com/ling/jfs/t1/40782/7/6847/51404/5d084b44Edf5230b1/2e5469108e97c8ec.jpg)
 
 顺便看看 **O2View.swift** 主要内容：
 
@@ -134,7 +134,7 @@ end
 为了快速教会别人使用我们的 **Pods** 依赖库，通常需要提供一个 demo 工程。我们创建了一个名为 **O2ViewDemo** 的工程来演示 **O2View** 的使用，如下图所示：
 
 
-![demo](//img.aotu.io/MarkLin/cocoaPods/1-4O2ViewDemo.jpeg)
+![demo](https://img13.360buyimg.com/ling/jfs/t1/75905/24/2169/93716/5d084b5dEa3ba702e/fe088d28262c3519.jpg)
 
 
 #### 4）README.md
@@ -147,7 +147,7 @@ end
 
 以上的5个文件是创建 **Pods** 依赖库所需的基础文件，当然 **Demo** 工程没有添加也没关系。添加完这些内容后，我们本地仓库目录就变成这个样子：
 
-![license](//img.aotu.io/MarkLin/cocoaPods/1-5O2ViewDoc.jpeg)
+![license](https://img30.360buyimg.com/ling/jfs/t1/77957/9/2203/70609/5d084b75Edf7faaa8/d4b82a4526e05ea6.jpg)
 
 ### 4.提交修改到 **github**
 
@@ -190,7 +190,7 @@ git push origin master
 ```
 这里主要是 **git** 的范畴，不做过多叙述。如果前面操作都没有问题的话，**github** 上应该能看到类似如下内容：
 
-![push](//img.aotu.io/MarkLin/cocoaPods/1-6githubO2ViewPush.png)
+![push](https://img12.360buyimg.com/ling/jfs/t1/33960/32/14046/157828/5d084b8bEfdaa2205/be22e4f2c7282630.jpg)
 
 ### 5.接下来做什么？
 

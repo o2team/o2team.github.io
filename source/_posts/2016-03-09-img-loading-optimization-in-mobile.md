@@ -1,7 +1,7 @@
 title: "让图片加载这件事儿变得更美好"
 subtitle: "图片是触屏页面让人赏心悦目的重要元素之一。而对图片资源的加载渲染将影响页面呈现，处理好图片加载才能给用户更好的体验。"
 date: 2016-03-09 17:38:02
-cover: //img.aotu.io/Tingglelaoo/20160302/load_cover_840x340.png
+cover: https://img30.360buyimg.com/ling/jfs/t1/42715/16/6913/5475/5d085271Ebadb3707/ea2ee649077af52b.png
 categories: 性能优化
 tags: 
  - Images
@@ -61,9 +61,9 @@ author:
 譬如，我厂的触屏页面案例《点燃你心中的野兽》，在预加载过程提示加载的进度，让用户有个心理预期，减少等待的烦躁感。
 
 >以下截图来源自京东的[《点燃你心中的野兽》](http://wqs.jd.com/promote/CH77/2015/paper/index.html)
-<img src="//img.aotu.io/Tingglelaoo/20160302/yeshou.png" alt="img" style="display:inline-block;max-width:200px;max-height:200px;width:100%;"/>
+<img src="https://img12.360buyimg.com/ling/jfs/t1/43969/6/6838/2414/5d085289E41b03113/4e3abe1d82a94d10.png" alt="img" style="display:inline-block;max-width:200px;max-height:200px;width:100%;"/>
 
-<img src="//img.aotu.io/Tingglelaoo/20160302/paper.png" alt="img" style="display:block;width:100%;max-width:320px;margin:0 auto;"/>
+<img src="https://img11.360buyimg.com/ling/jfs/t1/55421/19/2712/48783/5d0852a3E716cacff/9420b2bed180db25.png" alt="img" style="display:block;width:100%;max-width:320px;margin:0 auto;"/>
 这个案例下的预加载处理技术是，先把页面DOM结构放入JS模版中，预加载完成后再把页面从JS模版拎出来，页面渲染完后能够完整地呈现页面给用户。
 其中，图片资源相关预加载处理代码段为：
 ```javascript
@@ -78,22 +78,22 @@ author:
 通过创建image元素，设置其src，就简单方便可以预先发起HTTP请求，实现预加载图片。
 除了对png/jpg等格式图片能够利用以上方法实现预加载，对于DataURL转换图片为base64编码的字符串也能够实现预加载。
   在Adidas的《罗斯·决不凋谢》中，利用DataURL协议将图片转换成base64编码的字符串写入JS中，预加载JS文件完成后通过JS来进行内联在DOM元素中。
-> 以下截图来自案例[《Adidas：罗斯·决不凋谢》](http://drose6.adidasevent.com/])![img](//img.aotu.io/Tingglelaoo/20160302/rose.png '示例图片' '{"style":"display:inline-block;max-width:200px;max-height:200px;width:100%;"}' %}
+> 以下截图来自案例[《Adidas：罗斯·决不凋谢》](http://drose6.adidasevent.com/])![img](https://img11.360buyimg.com/ling/jfs/t1/66484/30/2193/2173/5d085430E86b4235d/4d6398822a573276.png '示例图片' '{"style":"display:inline-block;max-width:200px;max-height:200px;width:100%;"}' %}
 
-<img src="//img.aotu.io/Tingglelaoo/20160302/drose6.png" alt="img" style="display:block;width:100%;max-width:320px;margin:0 auto;"/>
+<img src="https://img14.360buyimg.com/ling/jfs/t1/79669/34/2234/20154/5d085445E7de87279/5a3442417f22435d.png" alt="img" style="display:block;width:100%;max-width:320px;margin:0 auto;"/>
 
 这里贴出该案例中部分预加载处理代码代码，有兴趣的可以详见0.main.js、2.main.js、3.main.js处深入研究。
 > 以下为Chrome Dev Tool 对案例资源查看的界面截图
 
-<img src="//img.aotu.io/Tingglelaoo/20160302/drose6-code.png" alt="img" style="display:block;width:100%;" />
+<img src="https://img11.360buyimg.com/ling/jfs/t1/80889/31/2162/976886/5d085565E9755c328/85389fa8d3d993db.jpg" alt="img" style="display:block;width:100%;" />
 
 虽然，业界有一种说法是不建议在移动端开发中使用DataURL转换图片为base64编码的做法，因为对大量的base64图片解码比较损耗内存和性能，但是使用base64在一定条件下是有助于页面加载速度提升，具体的原由可以前往[《图片资源Base64化在H5页面里有用武之地吗？》](http://aotu.io/notes/2016/03/04/can-we-use-base64-in-h5-webapps/)阅读。
 ### 隐性预加载
 除了明确的预加载提示，还有一种是通过推进触屏页面进度的趣味互动的方式，笔者称之此种类似的情况为隐性预加载。
   
-> 截图来自案例[《大众点评：阿惠故事1 - 吃饭别带姥爷》](http://evt.dianping.com/market/20151207/)![img](//img.aotu.io/Tingglelaoo/20160302/ahui.png '示例图片' '{"style":"display:inline-block;max-width:200px;max-height:200px;width:100%;"}' %}
+> 截图来自案例[《大众点评：阿惠故事1 - 吃饭别带姥爷》](http://evt.dianping.com/market/20151207/)![img](https://img20.360buyimg.com/ling/jfs/t1/40350/17/9226/2411/5d08557eEc379b4a0/376f3fe83a34ea9c.png '示例图片' '{"style":"display:inline-block;max-width:200px;max-height:200px;width:100%;"}' %}
 
-<img src="//img.aotu.io/Tingglelaoo/20160302/hui-loading.png" alt='示例图片' style="display:block;width:100%;max-width:640px;margin:0 auto;" />
+<img src="https://img12.360buyimg.com/ling/jfs/t1/57603/16/2702/1978686/5d08559cEff53f912/c460948a70984d16.png" alt='示例图片' style="display:block;width:100%;max-width:640px;margin:0 auto;" />
 
 
 在大众点评的《阿惠故事1 - 吃饭别带姥爷》的预加载中，先是显性预加载(钱币小图标Loding)快速地呈现部分画面(截图右部分)给用户，再通过互动(向上滑动数钱)来继续分段加载资源。这样的做法一改用户往日沉闷的等待，能够给予用户更好的体验。
@@ -101,9 +101,9 @@ author:
 还有一个比较特别的案例是大众点评和欧莱雅合作的《好年从头开始》，笔者也将之归纳为隐性预加载。
   
 >截图来源于案例[《大众点评：好年从头开始》](http://evt.dianping.com/midas/160108-loreal/index.html)
-<img src="//img.aotu.io/Tingglelaoo/20160302/oulaiya.png" alt='示例图片' style="display:inline-block;max-width:200px;max-height:200px;width:100%;" />
+<img src="https://img10.360buyimg.com/ling/jfs/t1/47435/25/2792/2594/5d08561cE7aa23a5b/423ccd47572fb298.png" alt='示例图片' style="display:inline-block;max-width:200px;max-height:200px;width:100%;" />
 
-<img src="//img.aotu.io/Tingglelaoo/20160302/head-loading.png" alt='示例图片' style="display:block;width:100%;max-width:640px;margin:0 auto;" />
+<img src="https://img20.360buyimg.com/ling/jfs/t1/43691/3/6876/691119/5d085630E1495c368/9578c3255476ed84.png" alt='示例图片' style="display:block;width:100%;max-width:640px;margin:0 auto;" />
 
 
 在这里，开发者先预加载了部分图片以呈现首屏画面给用户，同时图片预加载依然在进行，当用户触发的页面内的图片资源还未加载完时则会显示进度条，加载完毕则可以进入下一个画面。

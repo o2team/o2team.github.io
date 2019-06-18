@@ -1,6 +1,6 @@
 title: JavaScript中Math.random的种子设定方法
 subtitle: 曾为JS中无法设定种子随机数而苦恼吧？实例讲解了JS中种子随机数的设定方法
-cover: //img.aotu.io/panxinwu/mathrandom_cover.png
+cover: https://img30.360buyimg.com/ling/jfs/t1/66110/5/2147/144781/5d08572dEf165d12a/377dd424b31a4047.png
 categories: Web开发
 tags:
   - JavaScript

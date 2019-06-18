@@ -1,7 +1,7 @@
 title: CSS3动画之逐帧动画
 subtitle: CSS3动画开发指南第二弹
 date: 2016-05-17 10:00:00
-cover: //img.aotu.io/Yettyzyt/css3-animation-frame/840.png
+cover: https://img30.360buyimg.com/ling/jfs/t1/44526/10/3357/45924/5d08af20E9c6e16e4/8a0ffc38790f7639.png
 categories: Web开发
 tags:
   - 动画
@@ -25,7 +25,7 @@ author:
 
 我们儿时的记忆，手翻书，他所实现的就是逐帧动画：
 
-![逐帧动画](//img.aotu.io/Yettyzyt/css3-animation-frame/sfs.jpg)
+![逐帧动画](https://img12.360buyimg.com/ling/jfs/t1/68408/39/2338/118723/5d08af35Eecaaef8b/28a365ba65fb80fa.png)
 
 （图片来源：[知乎](http://zhuanlan.zhihu.com/p/19855108)）
 
@@ -42,7 +42,7 @@ author:
 ### （1）gif
 在触屏页中，gif 常被用来做加载动画。如[《陌陌不孤独饭局》](http://w.benbun.com/momo/shaibingxiang/?from=timeline&isappinstalled=0)的加载动画：
 
-![gif](//img.aotu.io/Yettyzyt/css3-animation-frame/momo_loading.gif)
+![gif](http://storage.360buyimg.com/mtd/home/momo_loading1560850256317.gif)
 
 **gif 可以有多个动画帧，连续播放是其自身属性，是否循环也是由其本身决定的。**它往往用来实现小细节动画，成本较低、使用方便。
 
@@ -83,7 +83,7 @@ author:
 
 ```
 
-![sprite](//img.aotu.io/Yettyzyt/css3-animation-frame/momo_rice.jpg)
+![sprite](https://img14.360buyimg.com/ling/jfs/t1/78320/34/2244/318161/5d08af6bEab8db13e/1d3264856491fdb5.jpg)
 
 使用 JS 的优点是兼容性佳，交互灵活。
 
@@ -110,7 +110,7 @@ author:
 
 这个动画一个有三帧，将3个动画帧合并，并放到 `.p8 .page_key` 的背景中：
 
-![](//img.aotu.io/Yettyzyt/css3-animation-frame/p8.png)
+![](https://img20.360buyimg.com/ling/jfs/t1/38267/40/9304/124132/5d08af81Ee8365cb3/b83c1d0836e04c13.png)
 
 ```
 .p8 .page_key {
@@ -132,7 +132,7 @@ steps 指定了一个阶梯函数，包含两个参数：
 
 通过[W3C](https://www.w3.org/TR/css3-transitions/)中的这张图片来理解 steps 的工作机制：
 
-![steps](//img.aotu.io/Yettyzyt/css3-animation-frame/1-2.png)
+![steps](https://img12.360buyimg.com/ling/jfs/t1/76833/39/2270/11321/5d08af97Ea8628351/cc4b972e192ab455.png)
 
 
 回到上述的例子，我们在 keyframes 中定义好每个动画帧：

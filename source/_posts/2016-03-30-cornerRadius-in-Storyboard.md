@@ -1,6 +1,6 @@
 title: 如何优雅地在Storyboard中设置圆角
 subtitle: 在Storyboard中设置圆角的正确打开方式~
-cover: //img.aotu.io/MarkLin/cornerRadius/CornerRadius.png
+cover: https://img20.360buyimg.com/ling/jfs/t1/76440/31/2263/57312/5d084c36Ee9198643/6f174681ca119650.png
 categories: 移动开发
 tags:
   - iOS
@@ -34,7 +34,7 @@ date: 2016-03-30 16:56:03
 
 但是对代码有一定洁癖的强迫症患者来说，这样的做法经常是要命的！实在无法忍受一个小小圆角都不能在IB中设置，需要另外单独加一行代码来完成，违背了低耦合，高内聚的原则。有人马上提出建议，那就使用IB的运行时属性（Runtime Attributes），有些新手可能对它还不太熟悉：
 
-![IB的运行时属性设置](http://mark2012.qiniudn.com/runtime_attributes.png)
+![IB的运行时属性设置](https://img14.360buyimg.com/ling/jfs/t1/49976/31/2635/26730/5d084d60Ea25c8ff5/f39f8ff5712298da.jpg)
 
 这的确也是个不错的方法，可以达到高内聚的效果。不过用过的人都知道，很容易就把 keyPath 拼写错，而且由于这个设置和其他属性的设置分开，可读性可以说很差很差。那有没有什么好的方法呢？
 
@@ -48,7 +48,7 @@ Xcode6之后运行时属性升级到了 **@IBInspectable** ，利用这个我们
 ```
 然后我们就能在属性检查器上看到如图所示内容，很容易地对数值进行设置:
 
-![自定义属性设置](http://mark2012.qiniudn.com/custom_number.png)
+![自定义属性设置](https://img20.360buyimg.com/ling/jfs/t1/72421/19/2219/26592/5d084d60Efe842709/3bb0637604c1d3b4.jpg)
 
 
 > **@IBInspectable** 还支持以下类型属性：
@@ -89,7 +89,7 @@ extension UIView {
 只需要如此简单地添加一个扩展，不需要 **import** ，不必任何多余代码，我们就可以非常非常方便地在任意IB的属性检查器中对圆角进行设置了！这不就是我们梦寐以求的解耦吗？！！:)
 
 
-![自定义圆角属性设置](http://mark2012.qiniudn.com/corner_radius.png)
+![自定义圆角属性设置](https://img11.360buyimg.com/ling/jfs/t1/55491/32/2710/7876/5d084d60Efc4c6207/371c72446a108520.jpg)
 
 实际上， **@IBInspectable** 是对运行时的一种扩展，你所有的设置都会在上述提到的运行时属性（Runtime Attributes）有所体现。
 
