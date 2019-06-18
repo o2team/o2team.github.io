@@ -1,6 +1,6 @@
 title: 神奇的Shadow DOM
 subtitle: Shadow DOM可以做什么，好奇就看过来！
-cover: //img.aotu.io/FgHV3-D9eRTz1L6CNQht0jo6a4lt
+cover: https://img10.360buyimg.com/ling/jfs/t1/37603/21/11988/56698/5d08dab5E0c87b8dc/3ac0c556f2f8d5ab.jpg
 tags:
   - Dom
   - ShadowDom
@@ -42,16 +42,16 @@ Shadow DOM它允许在文档（document）渲染时插入一棵DOM元素子树�
 
 页面完成了，在浏览器chrome中打开，然后打开 Chrome 的开发者工具，点击右上角的“Settings”按钮，勾选“Show user agent shadow DOM”。
 
-![Show user agent shadow DOM](//img.aotu.io/Fq09xC-qD04z43WYyVb4P0tPC-NC)
+![Show user agent shadow DOM](https://img13.360buyimg.com/ling/jfs/t1/83573/16/2249/119576/5d08dad1E2cea4770/0f7e592b0a711ab0.png)
 
 浏览器截图：
 
-![Video Shadow DOM](//img.aotu.io/FhgQ2ofckuyoCPD8RlAd3INcGRAx)
+![Video Shadow DOM](https://img12.360buyimg.com/ling/jfs/t1/81507/35/2246/707337/5d08dae9Ebd24720a/9fcb85b72ad33789.png)
 
 
 #shadow-root称为影子根，可以看到它在video里面，换句话说，#shadow-root寄生在video上，所以video此时称为影子宿主。可以看到上图有两个#shadow-root，这是因为#shadow-root可以嵌套，形成节点树，即称为影子树（shadow trees）。影子树对其中的内容进行了封装，有选择性的进行渲染。这就意味着我们可以插入文本、重新安排内容、添加样式等等。如下所示：
 
-![影子树](//img.aotu.io/FoF1XzsX8voCu3Gh9mJKBXkHeQDC)
+![影子树](https://img20.360buyimg.com/ling/jfs/t1/48853/20/2735/152521/5d08db01E203c4f37/f3c6ebb3e6865c68.jpg)
 
 ## 2. 怎样创建Shadow DOM
 
@@ -89,7 +89,7 @@ Shadow DOM它允许在文档（document）渲染时插入一棵DOM元素子树�
 
 浏览器截图：
 
-![创建Shadow DOM](//img.aotu.io/FtgCUt4VAb4Y5JemQFBXnI3tvo4W)
+![创建Shadow DOM](https://img12.360buyimg.com/ling/jfs/t1/82773/9/2263/13338/5d08db25Ea680fb80/676c6cb44d0c8a8a.png)
 
 有没有注意到.shadowroot_son的样式color: #f00;不生效？！那是因为影子宿主和影子根之间存在影子边界（shadow boundary），影子边界保证主 DOM写的 CSS 选择器和 JavaScript 代码都不会影响到Shadow DOM，当然也保护主文档不受 shadow DOM 样式的侵袭。
 
@@ -161,7 +161,7 @@ Shadow DOM它允许在文档（document）渲染时插入一棵DOM元素子树�
 
 浏览器截图：
 
-![content&template](//img.aotu.io/FswaNQUdHF17XfTya9wO4ZnKIryN)
+![content&template](https://img30.360buyimg.com/ling/jfs/t1/70292/39/2261/17909/5d08db60E797bbbd0/7a81448a523f2a42.png)
 
 我们来看一下下面三个属性的用途：
 
@@ -173,7 +173,7 @@ console.log(template.childNodes);  // 返回[]，说明childNodes无效
 
 **贪心插入点**：如果把select=".shadowhost_content1"改成select=""或者select="*"，那么会有不一样的结果。因为贪心选择器放在了模板的第一个，他会将所有内容都抓取，不给其他select 选择器留一点内容。浏览器截图如下：
 
-![贪心插入点](//img.aotu.io/FgnGjHYb8sI1_jns_CViHrsXgc6n)
+![贪心插入点](https://img14.360buyimg.com/ling/jfs/t1/63377/18/2324/18363/5d08db79E21bdc8d0/b744e7544e389f3f.png)
 
 ## 4. 关于样式
 
@@ -276,7 +276,7 @@ console.log(template.childNodes);  // 返回[]，说明childNodes无效
 
 浏览器截图如下：
 
-![::content&::shadow&/deep/](//img.aotu.io/FojZYP5WW1JAGN-3fyW9jnFLGiuN)
+![::content&::shadow&/deep/](https://img11.360buyimg.com/ling/jfs/t1/52877/38/2758/28775/5d08db93E1ac41623/1e8e2656180bcf5b.png)
 
 ## 5. JavaScript
 
@@ -329,7 +329,7 @@ Shadow DOM 里的 JS 与传统的 JS 一个真正不同的点在于事件调度�
 
 分别单击每个输入框，控制台打印截图如下：
 
-![事件重定向](//img.aotu.io/FuPYA7rXQnnK78gC75QnvhRkzpqN)
+![事件重定向](https://img12.360buyimg.com/ling/jfs/t1/33335/31/13969/34284/5d08dbafE97b99873/4e55c53adf058c62.jpg)
 
 
 
@@ -347,14 +347,14 @@ document.addEventListener('select', function(e) {
 
 分别双击每个输入框，你会发现，shadow text的输入框没有打印，就是没有发生select事件。
 
-![被阻塞的事件](//img.aotu.io/FpPbkUQKdtodVkllgCc3K4-5miOe)
+![被阻塞的事件](https://img30.360buyimg.com/ling/jfs/t1/37268/2/12572/19568/5d08dbc5E0f858bb5/4e2ec2ff15cae6fd.jpg)
 
 
 ### 6. 兼容性
 
-![template兼容性](//img.aotu.io/FpSHZHqQtxYyUIO2vdUCRaVnJyaA)
+![template兼容性](https://img10.360buyimg.com/ling/jfs/t1/47768/6/2700/160781/5d08dbd9Ece1aa109/8997132a7bee5678.png)
 
-![Shadow DOM兼容性](//img.aotu.io/FuAGMDQSFdBe_xEdSolSbU-avlpd)
+![Shadow DOM兼容性](https://img20.360buyimg.com/ling/jfs/t1/60341/35/2293/236123/5d08dbeeE48da7e88/4c976885f5002ba1.png)
 
 看上去只能在chrome中愉快地玩耍。
 
