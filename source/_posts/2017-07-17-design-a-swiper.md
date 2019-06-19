@@ -1,6 +1,6 @@
 title: 实现一个 Swiper
 subtitle: 前方多图慎入！！！！！
-cover: https://cdn.rawgit.com/o2team/misc/gh-pages/leeenx/swiper/cover.png
+cover: https://misc.aotu.io/leeenx/swiper/cover.png
 categories: Web开发
 tags:
   - swiper
@@ -10,7 +10,7 @@ author:
   github_name: leeenx
 date: 2017-07-17 13:23:19
 wechat:
-    share_cover: https://cdn.rawgit.com/o2team/misc/gh-pages/leeenx/swiper/share_cover.png
+    share_cover: https://misc.aotu.io/leeenx/swiper/share_cover.png
     share_title: 实现一个 Swiper
     share_desc: 老司机手把手教你如何实现一个无限循环的 swiper
 ---
