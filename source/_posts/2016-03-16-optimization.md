@@ -1,6 +1,6 @@
 title:  前端优化不完全指南
 subtitle: 暖妹子の前端优化不完全指南来袭,救赎众生啦～～快来瞧瞧～
-cover: //img.aotu.io/wangcainuan/2016-03-16-optimization/optimization_cover.png
+cover: https://img20.360buyimg.com/ling/jfs/t1/47851/1/2756/122055/5d09d6b9Ee91298f5/8cc92eb6311cc7a6.png
 categories: 资源合集
 tags:
   - 工作效率
@@ -39,9 +39,9 @@ date: 2016-03-16 15:26:12
 ### 1.1 时间管理
 凡是时间管理，都会联想到计划这个词。我们先看看别人家的月计划表和周计划表，之所以周计划表为空，是希望你能把它下载并打印出来，行动从计划开始：
 月计划表：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/月计划.jpg)
+![img](https://img10.360buyimg.com/ling/jfs/t1/70053/22/2277/373292/5d09d6cfEa18e7916/72facd8d82d240f3.jpg)
 周计划表：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/周计划.jpg)
+![img](https://img12.360buyimg.com/ling/jfs/t1/75638/8/2340/238968/5d09d6e8E5dbc524c/133d711a56cf60db.jpg)
 
 当然计划不要做得过于琐碎，且不要占用自己太多时间。做好计划之余，在执行过程中需要注意几点：
 * **正确的时间点做正确的事，比如早上比较精神，可选择比较难的项目开展，可容易达到高效率**。
@@ -49,7 +49,7 @@ date: 2016-03-16 15:26:12
 
 ### 1.2 利用工具
 第一样工具，比如程序员杯子：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/git马克杯.jpg)
+![img](https://img12.360buyimg.com/ling/jfs/t1/57850/27/2864/109717/5d09d6fbE82192e63/ad0330a27b300c5f.jpg)
 
 利用工具有什么好处呢？
 * 减少重复性工作。
@@ -101,7 +101,7 @@ sublime目前还是不错的选择，可以安装插件，比如BracketHighlight
 我们一般通过三种方式来检验我们的网页性能：
 * 通过浏览器开发者工具或浏览器插件、Fiddler、Charles等查看页面加载情况。原理是通过追踪HTTP请求与响应的时间，以图形的方式列出所有资源的下载情况。缺点是人为操作，难以实现批量测试与统计。
 * 在页面中引入额外的代码钩子来记录时间等相关数据。缺点是加重了开发者与测试人员的负担，还有可能因为检测代码本身的潜在问题影响页面的性能。如果好一点的话，会接入一个性能数据收集系统，采取并分析数据。
-* 使用第三方的工具如Page Speed、YSlow和WebPagetest，能够选择在不同浏览器和不同地域进行测试，并且给出各方面的评分以及提供一些优化建议。但某些服务需要排队等待，并且难以实现批量测试与统计。下面是使用WebPagetest测试京东首页的情况：<br>![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/webpagetest.jpg)
+* 使用第三方的工具如Page Speed、YSlow和WebPagetest，能够选择在不同浏览器和不同地域进行测试，并且给出各方面的评分以及提供一些优化建议。但某些服务需要排队等待，并且难以实现批量测试与统计。下面是使用WebPagetest测试京东首页的情况：<br>![img](https://img14.360buyimg.com/ling/jfs/t1/81684/34/2313/532922/5d09d728E6f3e9f9f/2d00ded0488a5eff.jpg)
 
 可喜可贺，W3C推出了一套**[性能API标准](https://www.w3.org/wiki/Web_Performance/Publications)**，目的是简化开发者对网站性能进行精确分析与控制的过程，最终实现性能的提高。比如通过Navigation Timing记录的关键时间点来统计页面完成所用的时间，部分使用方法：    
 
@@ -118,7 +118,7 @@ timing.domComplete //网页上所有资源（图片等）下载完成,且准备�
 
 人人都知道雅虎军规，那我就来个截图吧！
 
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/雅虎35条军规.jpg)
+![img](https://img30.360buyimg.com/ling/jfs/t1/84204/9/2321/230017/5d09d711Eff5a26cf/929193b046d0daf4.jpg)
 
 以下，我们从服务端、网络、客户端三个方面来一一突破速度性能的提升。
 
@@ -133,7 +133,7 @@ timing.domComplete //网页上所有资源（图片等）下载完成,且准备�
 * 添加 Expires 头：服务端通过响应头告诉浏览器，在什么时间之前（Expires）或在多长时间之内（Cache-Control: Max-age=xxx），不要再请求服务器了。这个机制我们通常称之为 HTTP 的强缓存。一般会对 CSS、JS、图片等资源使用强缓存，而入口文件（HTML）一般使用协商缓存或不缓存。
 * AppCache：
 
-	AppCache主要利用manifest 文本文件，告知浏览器被缓存的内容以及不缓存的内容。<br>![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/离线存储.jpg)
+	AppCache主要利用manifest 文本文件，告知浏览器被缓存的内容以及不缓存的内容。<br>![img](https://img10.360buyimg.com/ling/jfs/t1/65709/30/2316/36620/5d09d73fEcaaa1db6/3010e79a9f6853d7.jpg)
 	
 	manifest 文件可分为三个部分：
 	（1） CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存，等价于CACHE
@@ -170,7 +170,7 @@ timing.domComplete //网页上所有资源（图片等）下载完成,且准备�
 #### 2.2.4 使用HTTP 2
 HTTP 2 相比 HTTP 1.1 的更新大部分集中于：
 * **多路复用**：多路复用很好地解决如何让重要资源尽快加载这个问题。同域名下或者不同域但是同时满足同一个 IP以及使用同一个证书的这两个条件中的所有通信都在**单个连接**上完成，此连接上同时打开任意数量的双向数据流（ HTTP 1.1 有连接数限制）。使用多域名加上相同的 IP 和证书部署 Web 服务有特殊的意义：让支持 HTTP/2 的终端只建立一个连接，用上 HTTP/2 协议带来的各种好处；而只支持 HTTP/1.1 的终端则会建立多个连接，达到同时更多并发请求的目的。
-* **HEAD 压缩**：HTTP/2 将请求和响应数据分割为更小的帧，并对它们采用二进制编码（ Binary Framing ）。在 HTTP/1 中，HTTP 请求和响应都是由「状态行、请求 / 响应头部、消息主体」三部分组成，状态行和头部却没有经过任何压缩，直接以纯文本传输。如下图的比较：<br> ![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/http2.png)
+* **HEAD 压缩**：HTTP/2 将请求和响应数据分割为更小的帧，并对它们采用二进制编码（ Binary Framing ）。在 HTTP/1 中，HTTP 请求和响应都是由「状态行、请求 / 响应头部、消息主体」三部分组成，状态行和头部却没有经过任何压缩，直接以纯文本传输。如下图的比较：<br> ![img](https://img13.360buyimg.com/ling/jfs/t1/50694/33/2417/93544/5d09d755E6d5dc809/81685ded8bbf318f.png)
 在 HTTP/2 中，每个数据流都以消息的形式发送，而消息又由一个或多个帧组成。多个帧之间可以乱序发送，因为根据帧首部的流标识可以重新组装。
 * **请求优先级**：服务器可以根据流的优先级，控制资源分配(CPU、内存、带宽)，而在响应数据准备好之后，优先将最高优先级的帧发送给客户端。
 * **服务器推送**：启动Server Push，意味着服务端可以在发送页面HTML时主动推送其它资源，有自己独立的URL，可以被浏览器缓存；如果服务端推送的资源已经被浏览器缓存过，浏览器可以通过发送 RST_STREAM 帧来拒收。
@@ -204,7 +204,7 @@ HTTP 2 相比 HTTP 1.1 的更新大部分集中于：
 	* Dom Ready后加载
 	* onLoad后加载
 	* 滚动加载
-* 减少DNS 查询：DNS 查询一般需要几毫秒到几百毫秒，移动环境下会更慢。我们可以预先读取DNS，减少用户等待时间。<br>![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/dns_prefetch.jpg)
+* 减少DNS 查询：DNS 查询一般需要几毫秒到几百毫秒，移动环境下会更慢。我们可以预先读取DNS，减少用户等待时间。<br>![img](https://img30.360buyimg.com/ling/jfs/t1/51363/7/2775/54256/5d09d769E64a580f6/8e92c867d3e622e9.jpg)
 
 ## 3 稳定性
 稳定性的第一要求是可用。最起码的要求是页面得出来，要不然没法用了。
@@ -313,20 +313,20 @@ HTML5 对xss的影响主要体现在:
 
 比如[凹凸实验室博客](http://aotu.io/notes/)页面在PC端、iPad、手机端的排版：
 PC端：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/凹凸实验室1.jpg)
+![img](https://img10.360buyimg.com/ling/jfs/t1/51258/20/2867/82678/5d09d77eEd3ad7ca0/b631c70e9bd2eb50.jpg)
 
 iPad：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/凹凸实验室2.jpg)
+![img](https://img30.360buyimg.com/ling/jfs/t1/35586/34/12805/65520/5d09d79aE9689d9d2/349efabb128c72ed.jpg)
 
 手机端：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/凹凸实验室3.jpg)
+![img](https://img20.360buyimg.com/ling/jfs/t1/46744/36/2767/25005/5d09d7acE73ca34ce/e212f0b49003bdc2.jpg)
 
 
 ## 5 兼容性
 估计很多人对这句话都有体会：IE虐我千百遍，我待IE如初恋。当然，除了 IE 上有兼容性问题，其他浏览器比如 Android 上的低版本浏览器也有较多问题。
 是否继续保持对低端浏览器的兼容性，我们可以用数据跟产品经理或者老板说话，减少我们的工作量，最好在项目之前就定下来支持最低支持的版本是什么，然后设计一个对应兼容方案。以下是百度统计的2015年的浏览器市场份额数据：
 
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/浏览器市场份额报告_2015.01-2015.12.jpg)
+![img](https://img11.360buyimg.com/ling/jfs/t1/41460/11/7088/159203/5d09d7c0Ec1f14769/26f6a81f3e2a48a7.png)
 
 兼容性的原则：**渐进增强与平稳退化**。就是说，在低级浏览器能够保证其可用性和可访问性；渐进增强，在保证代码、页面在低级浏览器中的可用性及可访问性的基础上，逐步增加功能及用户体验。
 如果出现兼容性问题了，怎么处理：
@@ -341,7 +341,7 @@ iPad：
 * 能快速定位并修复某个浏览器下的特定bug。
 
 淘宝首页html钩子：
-![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/淘宝首页浏览器类.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/60386/11/2266/8268/5d09d7d4Eebe28c37/f9fb16c127cc29a1.png)
 
 兼容性问题是老生常谈的问题了，团队之间共同努力形成一个bug兼容性积累文档，是最好不过的了。
 
@@ -372,7 +372,7 @@ iPad：
 
 ### 7.1 信息无障碍
 信息无障碍一般可以从以下几点入手：
-* 添加landmark角色，在页面主要操作区域（搜索框、登录框、列表内容）添加“role”标签加以说明。landmark值一般有：banner（banner）、complementary（辅助内容区）、contentinfo（网站信息和版权）、form（表单）、main（主内容区）、navigation（导航区）、search（搜索区），如：<br> ![img](//img.aotu.io/wangcainuan/2016-03-16-optimization/role.jpg)
+* 添加landmark角色，在页面主要操作区域（搜索框、登录框、列表内容）添加“role”标签加以说明。landmark值一般有：banner（banner）、complementary（辅助内容区）、contentinfo（网站信息和版权）、form（表单）、main（主内容区）、navigation（导航区）、search（搜索区），如：<br> ![img](https://img13.360buyimg.com/ling/jfs/t1/84571/2/2712/28068/5d09d7e8E0cc0de58/52fa09e447100064.jpg)
 * 提供文字替代方案。比如给图片或其他元素提供适当的alt属性或者title属性的值。
 * 表单使用label标签。
 * 使用heading做信息架构。读屏软件提供了快捷键切换heading，相关用户可通过读屏软件了解我们的网站信息架构。

@@ -1,6 +1,6 @@
 title: 前端优化实践总结
 subtitle: 结合项目总结优化过程中如何寻找优化点以及收益比较大的常见方法，希望可以对遇到相似问题的同学有帮助，前端大神可轻轻淡笑而过。
-cover: //img.aotu.io/mihanX/jcloud-opt/banner3.png
+cover: https://img14.360buyimg.com/ling/jfs/t1/65037/16/2324/86301/5d09ce30Ea44a0a46/36baea38fd0b45ee.png
 categories: 项目总结
 tags:
   - 项目总结
@@ -15,7 +15,7 @@ date: 2016-04-12 15:50:35
 
 记得前百度工程师张云龙说过，页面前端优化问题绝对不仅仅是为页面提速的问题，更是工程的问题，有兴趣的同学可以阅读《[前端工程与性能优化](https://github.com/fouber/blog/issues/3)》。里面有提到根据雅虎14条优化原则，《高性能网站建设指南》以及《高性能网站建设进阶指南》中提到的优化点梳理出来的优化方向：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_31.png)
+![img](https://img20.360buyimg.com/ling/jfs/t1/35493/6/12675/112636/5d09ce43Ebf9de617/8a3cf124256a65a6.jpg)
 
 张云龙先生提及到的优化方向从提出到现在虽已相隔两年时间，前端技术也在飞速发展，但其提到的工程化思想仍是前端优化的一个大方向，亦有很大的指导意义。
 
@@ -29,23 +29,23 @@ date: 2016-04-12 15:50:35
 
 纯色图一般应用到装饰性的小 icon，如侧导航的标题 icon：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_1.jpg) 
+![img](https://img30.360buyimg.com/ling/jfs/t1/46090/39/2837/321078/5d09ce57Ee4f0cc10/3544c3d023a25f43.jpg) 
 
 此类图标由单色组成，可以根据一定的绘制规则制成 iconfont 图标，iconfont 的图标具有矢量性，其大小和颜色可以都可以通过样式来控制。
 
 新版首页出现了 33 个单色图标，这些图标复用性很强，同一个图标在不同页面都有出现，而且同一个图标还有不一样的尺寸，如果用传统方法做成图片的话图片数量会很多，即使全部合并成 sprite 图，图片的 K 数也会很大，而且后期如果有修改的话还得重新合并 sprite 图，因此这次首页改版所有的纯色图标的高清适配全部使用 iconfont 图标：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_4.jpg) 
+![img](https://img10.360buyimg.com/ling/jfs/t1/80928/20/2316/288105/5d09ce6aE2ffdcdc7/a04e7b69e020655b.jpg) 
 
 #### ICONFONT图标管理
 
 改版所用到的 ICONFONT 图标生成以及管理选择了『[阿里巴巴矢量图标库](http://iconfont.cn/)』线上服务，在上面通过上传图标的 SVG 文件生成对应的字体文件，还可以根据图标分项目管理：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_7.jpg)
+![img](https://img30.360buyimg.com/ling/jfs/t1/69908/35/2345/110786/5d09ce80E31b59272/0085d31736112e18.jpg)
 
 图标生成后，该服务还会自动打包好所需文件，并制成 DEMO 网页，供本地预览查找图标对应的字体编码以及使用方法：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_8.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/51132/32/2724/405110/5d09ce94E14974f83/6fa5a714edd52779.png)
 
 相信前端的同学很早就使用过 ICONFONT 服务，笔者衷心感谢提供 ICONFONT 服务的 [THX](http://thx.github.io/) 组织，除了 ICONFONT 服务，THX 还提供了不少业界良心的前端精品工具服务，感谢他们为业界作出的贡献。
 
@@ -55,7 +55,7 @@ date: 2016-04-12 15:50:35
 
 媒体查询、srcset属性 和 image-set属性成功匹配的基本是高端浏览器，兼容性略差，脚本控制兼容性更佳，项目具体用哪一种要看『国情』了：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_32.png) 
+![img](https://img20.360buyimg.com/ling/jfs/t1/54867/2/2832/98767/5d09cea7Edf420520/5a0606a1536584bf.jpg) 
 
 上图是我国PC端操作系统市场份额的大概分布情况，可以看出 95% 以上的用户都是使用 Windows 系统的，使用 Windows 系统的用户设备屏幕大部分都是普清屏，而使用高清屏的用户基本都是使用 Mac OS 系统，Mac OS 系统的浏览器又以『高富帅』Chrome 和 Safari 为主，因此只考虑适配 Mac OS 设备，最终选择比媒体查询更为方便的『srcset属性』和『image-set属性』方案：内容图使用 srcset 属性适配，背景图使用 image-set 属性适配高清图：
 
@@ -74,7 +74,7 @@ date: 2016-04-12 15:50:35
 
 新版京东云出现了很多设计类字体，也就是我们平时所说的非系统字体，如新版京东云首页版块标题用的字体 ----『方正兰亭超细黑体』
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_9.png)
+![img](https://img14.360buyimg.com/ling/jfs/t1/33062/32/14145/188694/5d09cec0Eba28d4a5/b0b9747b214040c2.jpg)
 
 对于设计类字体，前端和视觉会达成共识不会大面积使用，因为该类字体的实现只能用图片或通过样式 `@font-face` 属性去实现：
 
@@ -88,15 +88,15 @@ date: 2016-04-12 15:50:35
 
 Junmer 出品的 [Fontmin](http://ecomfe.github.io/fontmin/tw#feature) 工具可以大大满足这个需求，只需要将用到了字体源以及需要生成的文字内容加入到工具中，就可以生成相应的字体文件：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_10.png)
+![img](https://img13.360buyimg.com/ling/jfs/t1/57095/3/2755/142111/5d09ced5E83300136/e9eb2a0999c435dd.jpg)
 
 原来 2MB 的字体
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_12.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/64817/40/2300/14821/5d09cee8E5f0b3e09/8340ff0d606fde8b.jpg)
 
 生成的字体文件只有 11KB，字体文件体积减少达到了 99%
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_11.png)
+![img](https://img12.360buyimg.com/ling/jfs/t1/64199/3/2296/52158/5d09cefaEe42d8d64/e77492d2b3d9dadf.jpg)
 
 ## 图片资源优化
 
@@ -106,11 +106,11 @@ Junmer 出品的 [Fontmin](http://ecomfe.github.io/fontmin/tw#feature) 工具可
 
 旧版首页加载的时候，一共有40个请求，其中图片的请求就有 31 个，占总请求数的 77%
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_14.png)
+![img](https://img14.360buyimg.com/ling/jfs/t1/37578/21/12570/668823/5d09cf11Ef69e40a4/199c7237189e1083.jpg)
 
 有些可以合并的图片并没有做处理：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_16.png) 
+![img](https://img12.360buyimg.com/ling/jfs/t1/50551/16/2799/203598/5d09cf23Efee194c2/fa94eb60dfb7e369.jpg) 
 
 其中至少有 11 张图片是可以合并成一张图片的，也就是至少多了 27% 的额外请求数
 
@@ -118,7 +118,7 @@ Junmer 出品的 [Fontmin](http://ecomfe.github.io/fontmin/tw#feature) 工具可
 
 首屏的图片资源加载了 31个，但其可见的图片只有 2 张，加载了 100% 的图片资源，首屏图片资源利用率只有 6%
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_15.png)
+![img](https://img12.360buyimg.com/ling/jfs/t1/50757/14/2701/102818/5d09cf37E0e9c9a0c/df8a32fb1fad8ddb.jpg)
 
 只要用户没有完全浏览完网页就跳到其它页面的话，都会造成资源浪费。
 
@@ -126,13 +126,13 @@ Junmer 出品的 [Fontmin](http://ecomfe.github.io/fontmin/tw#feature) 工具可
 
 首屏耗时较长的大图加载过程并没有做 Loading占位图 提示，有机会出现轮播图区域空白时间过长：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_17.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/54189/4/2773/54126/5d09cf4aE8f15273a/ce8201fbf1c9ec1e.jpg)
 
 上图显示页面加载 1.8s 后，Banner 背景图还是没有出来，虽然网速飞快的用户有可能不出现这种情况，但是不排除网络慢的用户会碰上。
 
 除此之外，图片加载失败的时候也没有做容错处理，就有机会出现图片加载失败的系统默认图标样式，会影响页面的美观性：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_18.png) 
+![img](https://img20.360buyimg.com/ling/jfs/t1/73013/30/2358/85153/5d09cf5eE5bced785/c632aff0efcd717e.jpg) 
 
 ### 优化方案
 
@@ -170,7 +170,7 @@ Junmer 出品的 [Fontmin](http://ecomfe.github.io/fontmin/tw#feature) 工具可
 
 49 个纯色图标全部使用了 Iconfont 方法处理，13 个低色位非纯色图使用了合并方法，一共有 62 个图片做了减少额外请求处理，最终图片资源请求数一共只有 14 个，其中纯色图的请求数占 2 个，低色位非纯色图请求数占 6 个，**图片总请求数减少了 80% ，图片合并和 Iconfont 的额外请求处理率分别达到了 56% 和 96%**
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_19.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/68949/13/2345/426152/5d09cf73E291d313a/c1ef9aaa98d2296c.jpg)
 
 可以看到 Iconfont 的额外请求处理率相当出色，因为适合应用他的对象特点比较简单，而图片合并会受到合并图片的格式、资源分布、模块分布等情况影响，其额外请求处理率会相对低于 Iconfont。
 
@@ -180,22 +180,22 @@ Junmer 出品的 [Fontmin](http://ecomfe.github.io/fontmin/tw#feature) 工具可
 
 新版首页需要加载的图片资源一共有 14个，其中首屏的图片资源有 8 个，可见图片有 5 个，如果不作处理，那么首屏图片资源的利用率只有 35%
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_20.png)
+![img](https://img30.360buyimg.com/ling/jfs/t1/53850/36/2739/265239/5d09cf86Ed664ac17/e4c71eb94a909fbb.jpg)
 
 如果进行资源按需加载，在非首屏的图片资源实行懒加载，将轮播图不可见的两张图片做触发加载处理，这样首屏的加载图片资源只有 8 个，首屏图片资源利用率则可达到 60%，提高了 70% 的图片资源利用率，**资源按需加载不失为一种避免资源浪费的最挂实践方法**
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_21.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/72681/6/2386/396668/5d09cf97E0d1c5949/15eaeedcf596bc98.jpg)
 
 
 #### 占位提示图提高加载体验
 
 图片加载的时间长短由很多因素决定，如服务器响应时间、用户所用网络带宽、图片大小等，但无论是哪一种情况，总有一个等待的过程，在这过程总会有一个空白时间，特别是占屏面积比较大的首屏轮播大图和采取懒加载的图片，即使图片空白时间很短，用户也会有不同程度的感知，会给用户带来一种唐突或漫长等待的感觉，如果加载过程给图片加上体积比较小的占位提示图，则会让用户有一个图片加载预知，当图片加载完成后再呈现给用户看，这样用户在图片加载过程中看到的都是完整的图片
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_24.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/80113/36/2298/55977/5d09cfa9E4dd1c77a/135f68290576524c.jpg)
 
 当图片加载失败的时候，展示占位图，避免系统默认的图片加载失败图标出现
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_23.png) 
+![img](https://img14.360buyimg.com/ling/jfs/t1/64557/28/2232/191012/5d09cfbaE37ff5243/64689e9971260ca2.jpg) 
 
 ## 渐进增强优化
 
@@ -263,34 +263,34 @@ JQ 动画虽然兼容性好，但其动画性能远远不及 CSS3 动画，**因
 
 支持 CSS3 动画的 SexyGuy
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_25.gif)
+![img](http://storage.360buyimg.com/mtd/home/img_251560924116360.gif)
 
 不支持 CSS3 动画的 PoorGuy
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_33.gif)  
+![img](http://storage.360buyimg.com/mtd/home/img_331560924140213.gif)  
 
 
 ## Tab 键锚点聚焦优化
 
 浏览页面的时候，通过 Tab 键可以聚焦页面上的链接锚点，这时候浏览器会在锚点增加一个系统默认边框样式告诉用户锚点已选中，按 `Enter` 就可以打开选中的锚点，如 Chrome 浏览器上 google 首页的语音搜索按钮：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_26.png) 
+![img](https://img12.360buyimg.com/ling/jfs/t1/42176/5/7025/52208/5d09cffeE118d2d96/1059e914599d9f06.jpg) 
 
 即使用户在浏览页面的时候鼠标突然失灵了也可以通过键盘操作继续完成浏览网页，这样的设计显然是为了增强页面的可用性。
 
 但很多时候，在一些重要位置的内容，如全站的导航，产品经理或视觉设计师会要求将这个系统的样式去掉，于是很多同学可能会选择设置`outline:none`去掉边框样式，有些甚至会在全局 a 标签上设置，如旧版的京东云首页：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_27.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/66433/12/2289/70674/5d09d011E3b3ca765/a9c8184ec8270c90.jpg)
 
 `outline:none`设置之后，页面上的所有链接虽然能通过`Tab`键聚焦，但链接并没有被选中的样式，没有办法直观辨出选中的链接
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_28.gif)
+![img](http://storage.360buyimg.com/mtd/home/img_281560924200383.gif)
 
 虽然并非所有用户都会用到 Tab 键，但还是会有少数用户会用到，如键盘党，而这种降低可用性的体验存在表明页面并没有健全，因此并不建议去掉`outline`样式。
 
 如果真的有去掉 `outline`样式的需求怎么办？其实，页面链接一般都会被设计为多态的，利用链接的多态样式，为链接加上`:focus`伪类选中样式，Tab 选中链接后就会展示 `:focus`伪类样式了，如新版首页的导航：
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_29.png)
+![img](https://img11.360buyimg.com/ling/jfs/t1/75064/36/2355/109284/5d09d03cE7ee0362e/29dacd4abde69111.jpg)
 
 可以为链接加上`:focus`伪类样式
 
@@ -336,7 +336,7 @@ $navBox.on({
 
 处理完，虽然 `outline`样式去掉了，但依然可以用 Tab 键完成链接的选中
 
-![img](//img.aotu.io/mihanX/jcloud-opt/img_30.gif)
+![img](http://storage.360buyimg.com/mtd/home/img_301560924243695.gif)
 
 ## 静态资源更新发布
 

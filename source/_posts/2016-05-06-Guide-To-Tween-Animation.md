@@ -1,6 +1,6 @@
 title: CSS3动画之补间动画
 subtitle: CSS3动画开发指南第一弹
-cover: //img.aotu.io/Tingglelaoo/20160506/TweenAnimation_cover.png
+cover: https://img12.360buyimg.com/ling/jfs/t1/79037/35/2274/50475/5d09cc6bEe11abb45/3a3a31e6a7ed08c7.png
 categories: Web开发
 tags:
   - CSS3
@@ -46,11 +46,11 @@ transition的优点在于简单易用，但是它有几个很大的局限。
 囿于这样的局限，在触屏页面中很少见到Transition动画的身影，但是并不意味着没有，譬如翻页动画的实现可以利用Javascript脚本配合transition与transform属性来实现。
 > 案例截图来源于[《京东：2015JDC燃爆事件》](<http://wqs.jd.com/promote//2015/paper/index.html>)
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/1.gif" alt="《京东：2015JDC燃爆事件》截图" style="display:block;margin: 0 auto;" />
+<img src="//storage.360buyimg.com/mtd/home/11560923364286.gif" alt="《京东：2015JDC燃爆事件》截图" style="display:block;margin: 0 auto;" />
 
 >对应的 Chrome Dev Tool 代码调试截图
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/2.png" alt="《京东：2015JDC燃爆事件》Chrome Dev Tool 代码调试截图" style="display:block;max-width:640px;margin:0 auto;" />
+<img src="//img14.360buyimg.com/ling/jfs/t1/47331/27/2751/55432/5d09ccfcEc308512c/898cfe0032dc4ffe.png" alt="《京东：2015JDC燃爆事件》Chrome Dev Tool 代码调试截图" style="display:block;max-width:640px;margin:0 auto;" />
 
 
 所以，利用CSS3实现动画的重头戏都在于**Animation**的运用。
@@ -62,7 +62,7 @@ transition的优点在于简单易用，但是它有几个很大的局限。
 
  > 动画属性分解表示例，来源于[《常见动效制作手法》](<http://isux.tencent.com/h5active.html>)
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/3.png" alt="《动画属性分解表示例》" style="display:block;max-width:640px;margin: 0 auto;" />
+<img src="https://img20.360buyimg.com/ling/jfs/t1/83503/32/2345/13580/5d09cd1bE50fdb02f/49008ef5ec9fbcd3.png" alt="《动画属性分解表示例》" style="display:block;max-width:640px;margin: 0 auto;" />
 
 
 
@@ -70,7 +70,7 @@ transition的优点在于简单易用，但是它有几个很大的局限。
 
 > 动画时间轴，来源于[《CSS3动画实践》](<http://aotu.io/notes/2016/01/04/css3-animation/>)
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/4.png" alt="《动画时间轴示例》" style="display:block;margin: 0 auto;" />
+<img src="https://img12.360buyimg.com/ling/jfs/t1/56217/5/2766/57411/5d09cd30E3d7daa3d/a5b31b0dfc91e6df.png" alt="《动画时间轴示例》" style="display:block;margin: 0 auto;" />
 
 
 
@@ -82,8 +82,8 @@ transition的优点在于简单易用，但是它有几个很大的局限。
 在一些优秀的触屏页面案例里，可以追寻到它的踪迹。
 > 案例截图来源于《腾讯：微众银行》中的摩托车[demo](<http://www.sunnyzhen.com/course/demo/motorcycle/index.html?from=message&isappinstalled=0>)
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/5.gif" alt="《腾讯：微众银行》截图" style="display:block;max-width:320px;margin: 0 auto;" />
-<img src="//img.aotu.io/Tingglelaoo/20160506/5.png" alt="《腾讯：微众银行》截图" style="display:block;max-width:320px;margin: 0 auto;" />
+<img src="http://storage.360buyimg.com/mtd/home/51560923465982.gif" alt="《腾讯：微众银行》截图" style="display:block;max-width:320px;margin: 0 auto;" />
+<img src="https://img13.360buyimg.com/ling/jfs/t1/80133/13/2282/27054/5d09cd5eE5947df0d/333fe7aab984522f.png" alt="《腾讯：微众银行》截图" style="display:block;max-width:320px;margin: 0 auto;" />
 
 作者对轮子和摩托车的处理就体现出“挤压和拉伸”的法则，带出颠簸的现实感。
 
@@ -95,13 +95,13 @@ transition的优点在于简单易用，但是它有几个很大的局限。
 
 > 案例截图来源于[《拍拍小店全新上线》](http://jdc.jd.com/fd/pp/weixiaodian_welcome/index.html)
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/6.gif" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
-<img src="//img.aotu.io/Tingglelaoo/20160506/6.png" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
+<img src="http://storage.360buyimg.com/mtd/home/61560923506705.gif" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
+<img src="https://img30.360buyimg.com/ling/jfs/t1/70054/21/2284/39132/5d09cd85Ed87087a5/df48434267c56b56.png" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
 
 盒子的打开过程就带有一个往上展开预备动作(ANTICIPATION)，并且展开撒开的碎彩纸带有慢出(SLOW OUT)的效果，拍拍小店的logo弹出符合弧形(ARCS)的运动轨迹。
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/7.gif" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
-<img src="//img.aotu.io/Tingglelaoo/20160506/7.png" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
+<img src="http://storage.360buyimg.com/mtd/home/71560923549206.gif" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
+<img src="https://img14.360buyimg.com/ling/jfs/t1/77019/19/2322/40165/5d09cdb1E9108576a/7855ade33503e4ce.png" alt="《拍拍小店全新上线》截图1" style="display:block;max-width:320px;margin: 0 auto;" />
 
 除此之外弧形运动轨迹最为明显的地方就是页面切换的过程。
 
@@ -121,16 +121,16 @@ Google在有关动画性能渲染优化的文章[《动画 | Web Fundamentals - 
 
 页面渲染的一般过程为JS > CSS > 计算样式 > 布局 > 绘制 > 渲染层合并。
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/8.png" alt="《页面渲染的一般过程》" style="display:block;max-width:640px;margin: 0 auto;" />
+<img src="https://img12.360buyimg.com/ling/jfs/t1/58550/7/2768/33641/5d09cdc6E3a8e37d5/f454d54230a7bc66.png" alt="《页面渲染的一般过程》" style="display:block;max-width:640px;margin: 0 auto;" />
 
 其中，**Layout(重排)和Paint(重绘)是整个环节中最为耗时的两环**，所以我们尽量避免着这两个环节。从性能方面考虑，最理想的渲染流水线是没有布局和绘制环节的，只需要做渲染层的合并即可。
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/9.png" alt="《页面渲染的一般过程》" style="display:block;max-width:640px;margin: 0 auto;" />
+<img src="https://img12.360buyimg.com/ling/jfs/t1/62552/34/2232/29521/5d09cdd9E76e61008/b900bc08761dde28.png" alt="《页面渲染的一般过程》" style="display:block;max-width:640px;margin: 0 auto;" />
 
 那怎么知道哪些CSS属性的改变是会影响这两个环节的呢？诺，下面就是各CSS属性与其影响的环节。
 > 截图来源于[CSS Triggers](http://csstriggers.com/)，更为详细地翻墙去拿吧
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/10.png" alt="《各种CSS属性影响的渲染环节》" style="display:block;max-width:640px;margin: 0 auto;" />
+<img src="https://img20.360buyimg.com/ling/jfs/t1/45662/5/2750/27073/5d09cdecE007b8e55/26444fb48ed50a1a.png" alt="《各种CSS属性影响的渲染环节》" style="display:block;max-width:640px;margin: 0 auto;" />
 
 在实际的应用里，最为简单的一个注意点就是，触发动画的开始不要用diaplay:none属性值，因为它会引起Layout、Paint环节，通过切换类名就已经是一种很好的办法。
 
@@ -154,7 +154,7 @@ Google在有关动画性能渲染优化的文章[《动画 | Web Fundamentals - 
 
 > 总结来源于@登平登平的[《H5动画60fps之路》](http://weibo.com/p/1001603865643593165786)
 
-<img src="//img.aotu.io/Tingglelaoo/20160506/12.png" alt="《H5动画60fps之路》" style="display:block;max-width:640px;margin: 0 auto;" />
+<img src="https://img12.360buyimg.com/ling/jfs/t1/58196/39/2886/375991/5d09ce04Eb4325f00/05def995278ae756.png" alt="《H5动画60fps之路》" style="display:block;max-width:640px;margin: 0 auto;" />
 
 最后总结下要点就是
 - 事先做好规划

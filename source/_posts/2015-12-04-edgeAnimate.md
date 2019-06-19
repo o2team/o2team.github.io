@@ -1,6 +1,6 @@
 title: Adobe edge animate制作HTML5动画
 subtitle: "Edge Animate是Adobe出品的制作HTML5动画的可视化工具，简单的可以理解为HTML5版本的Flash Pro。"
-cover: //img.aotu.io/pfan/edge/edgeanimate.jpg
+cover: https://img11.360buyimg.com/ling/jfs/t1/83778/11/2399/605840/5d09d344E5f7d42a4/7838325243685d09.jpg
 categories: Web开发
 tags:
   - edge animate
@@ -43,9 +43,9 @@ Edge Animate使用JSON来存储元素的定义和属性。相关的动画内容�
 
 创建edge animation 工程
 启动Edge Animate，创建一个新项目ctrl＋N/command+N。
-![edge](//img.aotu.io/pfan/edge/1.jpg)
+![edge](https://img14.360buyimg.com/ling/jfs/t1/51962/13/2815/56863/5d09d35cE23844193/f32de730c0241365.jpg)
 设定Stage（舞台）宽度为640px, 高度为1136px。Ctrl+S保存为demo.html。打开我们保存的项目目录，一个标准的Edge Animate项目是由一系列html,css,js和相关资源文件组成的。如下图所示：
-![edge](//img.aotu.io/pfan/edge/2.jpg)
+![edge](https://img20.360buyimg.com/ling/jfs/t1/62616/2/2267/39335/5d09d36dE9cacfc70/8216f72e662c72a6.jpg)
 1)Edge Animate的工程文件: .an 格式文件更像一个空壳文件或者索引文件，标明了项目的必要信息。你可以使用记事本打开.an文件了解其中具体内容。
 2)edge_includes目录：该目录下是Edge制作的html5所依赖的JS类库：edge.6.0.0.min.js 115kb,还是蛮大的。(之前的版本有依赖jquery，再5.0之后就去掉了，产生了自有库，写法参展jquery)。
 3)其他.js文件：诸如demo1_edgeActions.js，demo1_edge.js等js文件是专门针对当前动画所生成js文件。
@@ -55,12 +55,12 @@ Edge Animate的工具界面默认情况下包含了7个Window面板，均可以�
 
 edge animation 属性面板
 Adobe Edge Animate的强大之处在于它能获得舞台中元素的标签（即ID）和这个元素样式属性（CSS）的变化，并将这些变化在时间线上以关键帧的形式“标记”。这样必然导致关键帧之间属性值的变化，这个中间阶段会被转化为一个过渡阶段，或者说一段动画（如图片透明度Opacity的变化，淡入淡出、一个元件的移动Location和缩放Scale等等）。
-![edge](//img.aotu.io/pfan/edge/3.jpg)
+![edge](https://img10.360buyimg.com/ling/jfs/t1/43964/20/7037/46811/5d09d380Eaf05207d/b22636753f285a13.jpg)
 
 edge animation 元素面板
 Adobe Edge Animate元素面板显示的是节点式的树形结构，表示元素与父元件Stage的联系。这点与ps，flash都比较类似。
 放置（或堆叠）在上方的元素具有更高的Z-index值，会显示在其他元素（堆叠在下方的元素）上方。
-![edge](//img.aotu.io/pfan/edge/4.jpg)
+![edge](https://img11.360buyimg.com/ling/jfs/t1/44221/7/6979/34270/5d09d390E12f29ea2/56596684d1345b99.jpg)
 
 edge animation 时间轴runtime
 Adobe Edge Animate的时间线融合了元素的节点式树状结构和与元素属性关联的关键帧，这些信息显示在时间线左侧，而右侧则显示时间信息表。元素属性值（关键帧）被标记在时间线确切的时间点，当属性值发生改变时，过渡阶段会产生动画。
@@ -71,18 +71,18 @@ Adobe Edge Animate的时间线融合了元素的节点式树状结构和与元�
 5.自动记录关键帧模式（Auto Keyframe Mode（K））：开启模式下，设计者对元素所做的属性值修改都会以关键帧的形式记录在时间线上。
 6.自动生成动画模式（Auto Transition Mode（X））：开启模式下，在两个关键帧之间会自动生成动画，默认开启。
 7.播放标记（Toggle Pin（P））：可以设置播放的起始和终止位置。
-![edge](//img.aotu.io/pfan/edge/5.jpg)
+![edge](https://img11.360buyimg.com/ling/jfs/t1/72965/22/2290/31553/5d09d3a2E99781f8f/f601cfc1d5759652.jpg)
 
 edge animation 代码管理
 代码管理器使用一个单独完整的窗口界面来展示所有事件控制代码和时间线触发器。（快捷键Ctrl/Command + E或者通过菜单Window-Code打开）所被编辑的控制代码或触发器会被高亮显示。
 1.点击“+”图标添加全局、局部、时间线控制代码或者触发器；
 2.点击“Full Code”按钮可以显示并编辑单个文件的全部代码，而不仅仅是单个功能函数内部代码；
 3.可以通过下方的代码错误提示窗进行错误快速排除检测。
-![edge](//img.aotu.io/pfan/edge/6.jpg)
+![edge](https://img11.360buyimg.com/ling/jfs/t1/66984/33/2305/48654/5d09d3b6E51f60392/19cf68c20d2e4e46.jpg)
 
 ## 实例操作
 当我们了解以上这些知识点，之后，我们来做一下简单的实例，实现顶部图片我们所看到的界面，人物跑动，背景向前移动。
-![edge](//img.aotu.io/pfan/edge/7.jpg)
+![edge](https://img10.360buyimg.com/ling/jfs/t1/71783/16/2166/75822/5d09d3c5E2b4f3a29/a1bbef83018a80ec.jpg)
 ## 第一部分 使用SpriteSheet在Edge Animate中制作人物跑动的动画
 1.启动Edge Animate，创建一个新项目blackfriday，设置stage大小为640*1136；
 
@@ -93,21 +93,21 @@ edge animation 代码管理
 我们导入的蓝精灵Spritesheet是320*480大小的透明背景png图片，一共描绘了32个蓝精灵行走的姿态。通过序列播放这32个行走姿态，就可以制作一个完整蓝精灵行走动画。
 首先，要在舞台上只显示一个Sprite元素，比如最左上角的第一个蓝精灵。在Edge Animate左侧属性面板中，倒数第二个栏目是clip子面板。顾名思义，clip功能区可以帮助我们“切割”舞台上的元素，比如图片。该功能区实际上利用了CSS的clip属性。
 点击clip子面板的开关按钮，可以激活clip功能。使用鼠标，可以在clip属性设定面板上的上、下、左、右属性值上滑动，你可以在舞台上实时看到“切割”的图片情况。如下图。 在本例中，请设定clip的top，right，bottom，left属性值分别为0, 320,480,0。
-![edge](//img.aotu.io/pfan/edge/8.jpg)
+![edge](https://img20.360buyimg.com/ling/jfs/t1/61779/27/2267/99639/5d09d3d6Ec9273ebe/d80fe0785e395d11.jpg)
 
 4. 创建32个Keyframe，实现行走动作
 接下来，我们创建32个帧来完成蓝精灵行走的动作。
 1) 调整帧间隔
 在舞台下方的时间轴上，Edge Animate用竖线网格标记了每帧间距。在Smurf行走动画中，我们希望在1毫秒的时间左右完成一个行走动作，即32帧。因此，我们需要通过时间轴下方的Gird Size图标调整时间轴为30帧/秒。如下图：
-![edge](//img.aotu.io/pfan/edge/9.png)
+![edge](https://img14.360buyimg.com/ling/jfs/t1/67225/11/2270/113099/5d09d3e8E875d9bb0/d551c28b0186f5be.png)
 2) 激活“Auto-Keyframe Mode (自动创建帧)”
 Edge Animate有三个非常重要的按钮分别开启Auto-Keyframe Mode（自动创建关键帧）、Auto-Transition Mode和Toggle Pin（大头针）。图标如下图：
-![edge](//img.aotu.io/pfan/edge/10.png)
+![edge](https://img30.360buyimg.com/ling/jfs/t1/36667/26/12588/63744/5d09d3f8E1f35f4f3/22f0ec64487f3223.png)
 Edge Animate Buttons
 本例中，我们将启用Auto-Keyframe Mode，而关闭Auto-Transition Mode和Pin。在启用Auto-Keyframe Mode的情况下，每当我们在新的一帧修改舞台中元素的属性，Edge Animate会自动在此创建关键帧。由于我们关闭了Auto-Transition Mode，因此Edge Animate将不会自动在关键帧之间创建过渡效果。
 3) 创建第一个关键帧
 在时间轴上，把播放头移到0:00秒位置，选中舞台中的蓝精灵，在左边属性面板中的Image子面板下，确认Background Image的x和y属性值为0，然后点击x和y属性边上的小菱形符号（当鼠标移到该菱形符号时，其变为黄色，并显示tips：“Add Keyframe for Background Position”），此时Edge Animate将在时间轴的0:00秒出创建第一个关键帧。如下图
-![edge](//img.aotu.io/pfan/edge/11.jpg)
+![edge](https://img14.360buyimg.com/ling/jfs/t1/45508/14/2831/117365/5d09d409Eb9e1e21c/af5866a70f81a3f7.jpg)
 依此方法，在gard线上接着做31个帧。
 
 5。创建完成后，预览：
@@ -116,8 +116,8 @@ Edge Animate Buttons
 
 6.转换为元件在最后一帧，设置trigger触发器，达到帧循环动画
 在舞台上选中该图片后，快捷键Cmd+Y/Ctrl+Y将其转换成一个元件(Symbol)，叫us，然后删除stage舞台上面的元素，从library面板里面拖动stage舞台上面 。双击元件，进入元件舞台区域，如图，insert trigger：
-![edge](//img.aotu.io/pfan/edge/12.jpg)
-![edge](//img.aotu.io/pfan/edge/13.png)
+![edge](https://img11.360buyimg.com/ling/jfs/t1/55433/27/2762/46108/5d09d418Ec0311f2c/9c3b06de63295185.jpg)
+![edge](https://img14.360buyimg.com/ling/jfs/t1/70593/40/2313/96936/5d09d42aEad4e9684/22838dec8be3e26c.png)
 
 ## 第二部分 实现背景的滚动
 1.倒入背景图片，生成元件
@@ -126,7 +126,7 @@ Edge Animate Buttons
 但是当背景向左移出舞台的时候，会看到舞台空出了部分
 3.实现背景图循环滚动的效果
 再次向舞台导入元件，命名为americanbg4.拷贝americanbg2的运动动画，到americanbg2左移舞台出现空白的临界点帧时间，给americanbg4粘贴动画效果。因为我们不需要americanbg4整体效果，所以需要删除americanbg4运动帧超出americanbg2运动帧的结束点。
-![edge](//img.aotu.io/pfan/edge/14.jpg)
+![edge](https://img30.360buyimg.com/ling/jfs/t1/61858/17/2284/115868/5d09d43cEebcf98d1/d41953fda3acdb2a.jpg)
 4.最后一帧，设置trigger触发器，形成循环动效
 
 ## 第三部分 增加音乐，闪烁星空
@@ -141,7 +141,7 @@ Edge Animate Buttons
 
 [demo演示效果](http://jdc.jd.com/fd/promote/201512/blackfriday/index.html)
 手机扫描：
-![edge](//img.aotu.io/pfan/edge/15.jpg)
+![edge](https://img13.360buyimg.com/ling/jfs/t1/45224/16/2748/47045/5d09d452Ec066d58e/388846c95860e702.jpg)
 ios，android亲测，效果还是比较流畅的。
 
 #### 参考资料：
