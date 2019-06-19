@@ -1,7 +1,7 @@
 title: CSS3动画实践
 subtitle: 总结CSS3动画实现的方法，并进一步提出润色与优化的方案。
 date: 2016-01-04 15:58:00
-cover: //img.aotu.io/Yettyzyt/css3-animation/840.png
+cover: https://img14.360buyimg.com/ling/jfs/t1/45738/18/2829/20308/5d09e79aE77f0d085/a1cf43293d914e15.png
 categories: Web开发
 tags:
   - CSS3
@@ -30,7 +30,7 @@ author:
 	逐帧动画可用于**loading动画**，但更多的用于**Sprite精灵动画（人物运动）**。精灵动画把所有帧都放在一起，通过CSS3的`animation`控制`background-position`。
 
 	下面看一个精灵动画的例子：
-	![逐帧动画示例](//img.aotu.io/Yettyzyt/css3-animation/1-1.gif)
+	![逐帧动画示例](http://storage.360buyimg.com/mtd/home/1-11560930223843.gif)
 	（案例：拍拍无聊者联盟宣传页）
 
 	steps的参数有几个坑，需要特别留意：
@@ -55,11 +55,11 @@ author:
 		-webkit-animation: wave steps(1,end) 2s forwards infinite;
 	}
 	```
-	![steps中的坑](//img.aotu.io/Yettyzyt/css3-animation/1-4.gif)
+	![steps中的坑](http://storage.360buyimg.com/mtd/home/1-41560930251176.gif)
 	（左图：`number`为2；右图：`number`为1）
 
 	第二个参数可选，接受`start`和`end`两个值：指定在每个间隔的**起点**或是**终点**发生阶跃变化。通过[W3C](http://www.w3.org/)中的一张step的工作机制图可以理解：
-	![steps中的坑](//img.aotu.io/Yettyzyt/css3-animation/1-2.png)（图片来源：[W3C](http://www.w3.org/TR/css3-transitions/)）
+	![steps中的坑](https://img30.360buyimg.com/ling/jfs/t1/72122/5/2272/11321/5d09e7fbEa83b87d6/891556b1d398cb88.png)（图片来源：[W3C](http://www.w3.org/TR/css3-transitions/)）
 
 	TIPS：
 > `step-start`等同于`steps(1,start)`：动画执行时为开始左侧端点的部分为开始；
@@ -81,7 +81,7 @@ author:
 
 ## 简单做动画：
 总结一下在之前做动画需求时的经验，归纳为以下7个步骤。以此需求为例：
-![简单做动画](//img.aotu.io/Yettyzyt/css3-animation/3-1.jpg) （案例：iphone6s推广游戏）
+![简单做动画](https://img30.360buyimg.com/ling/jfs/t1/43974/16/7026/99979/5d09e810E7d3d9070/52b1e76159f35bb1.jpg) （案例：iphone6s推广游戏）
 
 1. **观察**——哪些元素可以动？元素可以怎么动？
 	
@@ -90,13 +90,13 @@ author:
 2. **沟通**——了解设计师的想法，并提出自己的想法。
 
 	这是设计师给出的大致动画过程，具体的过渡及动效没有明确给出，因此可以根据自己的想法与设计师进行沟通。
-	![沟通](//img.aotu.io/Yettyzyt/css3-animation/3-2.JPG)
+	![沟通](https://img30.360buyimg.com/ling/jfs/t1/70894/1/2373/61708/5d09e822E70f3837b/be61e60e54f847ac.jpg)
 
 3. **分析**——分析动画元素的层次（出现顺序）；画出动画时间轴；根据时间轴写出CSS动画时间轴。
 	分析该页面动画的出现可以分为四个层次：
-	![分析](//img.aotu.io/Yettyzyt/css3-animation/3-3.jpg)
+	![分析](https://img11.360buyimg.com/ling/jfs/t1/39048/36/9140/90000/5d09e834E2ebcdad6/d77aadda7cff0174.jpg)
 	根据前面的分析画出动画时间轴：
-	![分析](//img.aotu.io/Yettyzyt/css3-animation/3-4.jpg)
+	![分析](https://img10.360buyimg.com/ling/jfs/t1/61337/32/2327/26104/5d09e848E8ad3d31e/876a63b4863edb2f.jpg)
 	根据时间轴写出CSS动画时间轴：
 	**方法一：**将所有动画元素放在一个时间轴上（适合于元素较少的情况）。
 	```css
@@ -147,7 +147,7 @@ author:
 
 4. **切图**——PS CC 2015修改组/图层名为“***.png”，生成图像资源。
 	使用PS CSS 2015切图具体步骤如下：
-	![切图](//img.aotu.io/Yettyzyt/css3-animation/3-5.png)
+	![切图](https://img13.360buyimg.com/ling/jfs/t1/34191/7/12592/109878/5d09e861Ecfb5e898/2825a3b243853389.png)
 
 5. **定位**——适当使用绝对定位；适当使用rem。
 	安利一款sublime插件：[PX转REM插件](https://github.com/youing/PxRemTranslate)。
@@ -174,13 +174,13 @@ TIPS：不要在before,after里加动画！
 	物体没有停在本应该停止的位置上而是靠惯性**继续摆动一段时间然后反方向摆回来**。
 	惯性在日常的动画需求中应用相当普遍，元素的高速进入都涉及惯性。
 	- 示例：标题快速从左侧划入屏幕中，标题本应停在屏幕左右居中位置，由于惯性的作用，标题到达居中位置后又向右滑行一小段，再反方向滑回。
-	![惯性](//img.aotu.io/Yettyzyt/css3-animation/4-2.gif) （案例：618 APP返场页H5）
+	![惯性](http://storage.360buyimg.com/mtd/home/4-21560930476746.gif) （案例：618 APP返场页H5）
 
 2. **透视**
 
 	物体与观察者的距离远近在静态时通过**物体的大小**来体现。
 	当物体运动时，通过**远近物体不同的运动速度**来体现，从而形成层次感。**近处的物体运动快，远处的物体运动慢**。
-	![透视](//img.aotu.io/Yettyzyt/css3-animation/4-7.jpg)
+	![透视](https://img30.360buyimg.com/ling/jfs/t1/60645/12/2269/15697/5d09e8c1E2d038883/e534743148b32bb7.jpg)
 	（透视原理图）
 	- 示例：云朵与观察者的距离有远近之分（不可能所有的云都在一个平面上），设置云朵的飘动动画时，可根据云朵的大小（远近）设置不同的运动速度，近处的云朵飘动的速度比远处的快，从而形成透视。
 	```
@@ -198,7 +198,7 @@ TIPS：不要在before,after里加动画！
 	    -webkit-animation: cloudFloat linear 10s infinite;
 	}
 	```
-	![透视](//img.aotu.io/Yettyzyt/css3-animation/4-9.gif) （案例：iphone6s推广游戏）
+	![透视](http://storage.360buyimg.com/mtd/home/4-91560930521855.gif) （案例：iphone6s推广游戏）
 
 3. **节奏**
 
@@ -217,10 +217,10 @@ TIPS：不要在before,after里加动画！
 		    breath 6s cubic-bezier(.2,.73,.71,.44) infinite;
 		}
 		```
-		![节奏](//img.aotu.io/Yettyzyt/css3-animation/4-11.gif)
+		![节奏](http://storage.360buyimg.com/mtd/home/4-111560930546258.gif)
 		(左图：匀速呼吸效果图；右图：缓动呼吸效果图)
 	跟随动画进行呼吸，可以明显感觉到缓动的呼吸更贴近我们实际的呼吸情况。呼吸函数如下：
-		![节奏](//img.aotu.io/Yettyzyt/css3-animation/4-12.png)
+		![节奏](https://img30.360buyimg.com/ling/jfs/t1/72748/3/2351/15842/5d09e90aE0b8f34ec/24c0a07d78bbf799.png)
 		（图片来源：[让界面动画更自然——ISUX](http://isux.tencent.com/animation-factor.html)）
 
 4. **跟随**
@@ -229,7 +229,7 @@ TIPS：不要在before,after里加动画！
 	附属物的动作取决于：**主体的动作**，**附属物本身的重量和质地**，以及**空气的阻力**。
 	**主体与附属物之间动作的重叠和追随**，就是鉴定动作流畅性与自然度好坏的标准。
 	- 示例：首页主体人物动作触发后，进行小范围的四向运动以模拟人物身体颤动的效果。人物头饰（花及骨头）与运动主体（人）并非一体，属于附属物。附属物的运动受主体的运动影响出现同向、延时的运动。
-	![跟随](//img.aotu.io/Yettyzyt/css3-animation/4-18.gif) （案例：拍拍七夕活动页—七叻个夕）
+	![跟随](http://storage.360buyimg.com/mtd/home/4-181560930593480.gif) （案例：拍拍七夕活动页—七叻个夕）
 
 ## 优化
 1. 不用left/right/width/height/margin-top等

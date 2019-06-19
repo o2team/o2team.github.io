@@ -1,6 +1,6 @@
 title: 图片资源Base64化在H5页面里有用武之地吗？
 subtitle: 本文使用performance接口和Timeline工具，测试和分析了不同场景下引用base64化的图片资源对渲染性能的影响，旨在抛砖引玉，找出图片资源的base64化在H5应用中使用的可行性。
-cover: //img.aotu.io/Simbachen/base64/cover.jpg
+cover: https://img12.360buyimg.com/ling/jfs/t1/84687/37/2706/41340/5d09e939Efd413a9f/4ca7b50baedd3fbb.jpg
 categories: 性能优化
 tags:
   - base64
@@ -38,18 +38,18 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 #### 1、原生引入图片链接做背景图
 
 一张大小为**50kb**的**jpg格式**图片，应用到9x15=135个dom做背景图，模拟雪碧图的模式，多个节点引用同一张图片做背景，（示例）如图。
-![img](//img.aotu.io/Simbachen/base64/1455676041355.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/60942/35/2315/506501/5d09e94fEcf00b0ee/026ef7ade10bfc77.png)
 `测试环境`：Mac OS X EI Capitan 10.xx + Chrome 48.xx  
 `其它辅助测试机器`：  iPhone 6 plus iOS 9.xx； 魅族Note Android 4.xx
 >实际使用过程中，其它版本和机型的Android手机还有待测试
 
 
 关闭缓存状态下，build:150ms | complete: 200ms（总时间受网络状态等因素影响，数据做比较用）
-![img](//img.aotu.io/Simbachen/base64/1455624301638.png)
+![img](https://img14.360buyimg.com/ling/jfs/t1/40929/14/6963/34473/5d09e967Ead9ecea2/4a2924c60152afb3.png)
 
 开启缓存状态下，build: 7ms |  complete: 59ms（包括以下稳定状态下多次测试的平均值，截图为最接近平均值的状态，默认数据来自Mac+Chrome[48.XX版本]）
 
-![img](//img.aotu.io/Simbachen/base64/1455624345624.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/64822/24/2328/33611/5d09e981E98c27128/6640b7872ee33c70.png)
 
 | 测试环境      |    build(单位:ms) | complete(单位:ms)  |
 | :-------- | :--:| :--: |
@@ -63,10 +63,10 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 
 关闭缓存状态下，build:80ms | complete: 280ms
 
-![img](//img.aotu.io/Simbachen/base64/1455629551042.png)
+![img](https://img14.360buyimg.com/ling/jfs/t1/47665/35/2809/35245/5d09e99cE727ed7b9/a74dee014fdbb6d8.png)
 开启缓存状态下，build: 160ms |  complete: 210ms
 
-![img](//img.aotu.io/Simbachen/base64/1455629572545.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/37113/3/12618/34429/5d09e9aeEe8d8bd6d/60029ff04aa43c5c.png)
 
 
 | 测试环境      |    build(单位:ms) | complete(单位:ms)  |
@@ -84,7 +84,7 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 | :-------- | :--------:| :--: |:--: |:--: |:--: |
 | 对应css文件大小  | 27kb |  42kb | 76kb | 150kb | 260kb
 | Rendering时间     |   30ms| 46ms | 81ms | 156ms | 258ms|
-![img](//img.aotu.io/Simbachen/base64/data1.png)
+![img](https://img13.360buyimg.com/ling/jfs/t1/50988/36/2826/32577/5d09e9c2E6e60566e/4b3823c5550e3e95.png)
 
 #### 4、调整引用次数
 
@@ -93,14 +93,14 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 | 引用次数     |   10 | 20 |50 | 100|135|
 | :-------- | :--:| :--: |:--: |:--: |:--: |
 | Rendering时间     |   15ms| 19ms | 44ms | 74ms | 83ms|
-![img](//img.aotu.io/Simbachen/base64/data2.png)
+![img](https://img14.360buyimg.com/ling/jfs/t1/67837/13/2312/28633/5d09e9d6Ed242232d/cc7a68c662172862.png)
 
 #### 分析和小结：
 
 在OSX+Chrome环境下，将50kb的图片base64后放入样式中，build过程拉长了约20倍，使用Timeline工具可以看到，计算样式阻塞了整个过程。
 
 
-![img](//img.aotu.io/Simbachen/base64/1455634381569.png)
+![img](https://img13.360buyimg.com/ling/jfs/t1/44335/24/6976/44212/5d09e9ebEc794676b/741d84bef8e6b762.png)
 
 
 
@@ -118,10 +118,10 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 
 关闭缓存：build: 300ms |  complete: 310ms
 
-![img](//img.aotu.io/Simbachen/base64/1455634756427.png)
+![img](https://img30.360buyimg.com/ling/jfs/t1/83973/8/2300/68259/5d09ea08Ee9a00498/2c7ef6abbab64452.png)
 开启缓存：build: 110ms |  complete: 120ms
 
-![img](//img.aotu.io/Simbachen/base64/1455634772411.png)
+![img](https://img20.360buyimg.com/ling/jfs/t1/80762/39/2369/68288/5d09ea1eEc24db889/eb1630b74fb7cf74.png)
 
 | 测试环境      |    build(单位:ms) | complete(单位:ms)  |
 | :-------- | :--:| :--: |
@@ -136,11 +136,11 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 
 关闭缓存：build: 0ms |  complete: 400ms
 
-![img](//img.aotu.io/Simbachen/base64/1455634859983.png)
+![img](https://img12.360buyimg.com/ling/jfs/t1/75863/30/2285/87027/5d09ea32E5ab77220/129a8c98f2e044ac.png)
 
 开启缓存：build: 0ms |  complete: 80ms
 
-![img](//img.aotu.io/Simbachen/base64/1455634882064.png)
+![img](https://img20.360buyimg.com/ling/jfs/t1/48464/32/2768/84493/5d09ea44E15fbc8b8/ab8ec033c28ac6b4.png)
 
 | 测试环境      |    build(单位:ms) | complete(单位:ms)  |
 | :--------: | :--:| :--: |
@@ -159,14 +159,14 @@ timing.domComplete //网页上所有资源（图片等） 下载完成,且准备
 | 3G         | 6000 | 4500 |
 | 4G         |   450 | 400 |
 | WIFI       |   320 | 340 |
-![img](//img.aotu.io/Simbachen/base64/data3.png)
+![img](https://img12.360buyimg.com/ling/jfs/t1/49305/12/2852/29446/5d09ea59E5b71c578/b19029313815f1cf.png)
 #### 分析和小结：
 base64后的的js资源达381kb，在一个线程里加载，消耗大量时间，从统计结果看，在渲染性能差异上并没有场景1那么明显。
 但有缓存的情况下，页面渲染完成的速度甚至更快。
 从Timeline里看到细节，解析这个近400kb的js文件对整个渲染过程造成了一定压力，不过总共40ms的解析时间是完全可以接受的。
 
 
-![img](//img.aotu.io/Simbachen/base64/1455635010603.png)
+![img](https://img10.360buyimg.com/ling/jfs/t1/77240/40/2229/63120/5d09ea6eE133b4fe4/3d310d7007ce1754.png)
 
 1. 从html里直直接引用图片链接和base64图片对渲染性能的影响几乎没有区别，在网络条件差的情况下，合并请求却能大大提高加载效率；
 2.  直接引用至html，无法缓存，将base64后的图片资源放在js文件中管理，方便设置缓存。
