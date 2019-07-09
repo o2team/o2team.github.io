@@ -1,4 +1,32 @@
 - type: case
+  name: Taro
+  desc: 多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在微信/百度/支付宝/字节跳动小程序、H5、React Native 等的应用。 
+  link: https://taro.jd.com
+  preview: //taro.jd.com
+  tags:
+    - Taro
+- type: case
+  name: Taro-UI
+  desc: 一款基于 Taro 框架开发的多端 UI 组件库
+  link: https://taro-ui.jd.com
+  preview: //taro-ui.jd.com
+  tags:
+    - Taro
+- type: case
+  name: Taro 物料市场
+  desc: Taro 物料市场，让每一个 Taro 轮子产生价值
+  link: https://taro-ext.jd.com
+  preview: //taro-ext.jd.com
+  tags:
+    - Taro
+- type: case
+  name: Taro 官方论坛
+  desc: Taro 官方社区让每一次交流被沉淀
+  link: https://taro-club.jd.com
+  preview: //taro-club.jd.com
+  tags:
+    - Taro
+- type: case
   name: 拇指期刊
   desc: 由凹凸实验室3个美少女精心整理的HTML5案例期刊，每个案例附带创意、技术分析，开阔你的专业视界。
   link: https://github.com/o2team/cases
