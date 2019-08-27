@@ -122,7 +122,7 @@ handler.on('push', function (event) {
   });
 });
 
-function rumCommand( cmd, args, callback ){
+function runCommand( cmd, args, callback ){
     var child = spawn( cmd, args );
     var response = '';
     child.stdout.on('data', function( buffer ){ resp += buffer.toString(); });
