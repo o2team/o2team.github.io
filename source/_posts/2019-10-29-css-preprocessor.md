@@ -18,11 +18,11 @@ wechat:
 
 ---
 
-随着前端工程化的不断完善，CSS 预处理器已经成为项目中不可缺少的部分，很多人在项目技术选型阶段就会先选择一个 CSS 预处理器，绝大部分前端工程的脚手架也内置里一系列的 CSS 预处理的模版，大家已经习惯了享受 CSS 预处理器带来的书写代码的灵活流畅，反而是原生的 CSS 被冷落在一旁。
+随着前端工程化的不断完善，CSS 预处理器已经成为项目中不可缺少的部分，很多人在项目技术选型阶段就会先选择一个 CSS 预处理器，绝大部分前端工程的脚手架也内置了一系列的 CSS 预处理的模版，大家已经习惯了享受 CSS 预处理器带来的书写代码的灵活流畅，反而将原生的 CSS 冷落在一旁。
 
 可能许多前端开发人员依然觉得 CSS 预处理器属于比较新的技术，其实不然，最早的 CSS 预处理器 Sass 从 07 年诞生距今已有 12 年，相对较新的的 Stylus 也已发布 9 年了。
 
-前端的技术栈发展突飞猛进，W3C 的 CSS 工作组也一直从社区汲取营养，加快 CSS 的迭代。那么到现在为止，CSS 是否可以取代 CSS 预处理器的地位？CSS 预处理器会不会成为 CSS 过渡时期的产物呢？
+前端的技术栈发展突飞猛进，W3C 的 CSS 工作组也一直在持续从社区汲取营养，加快 CSS 的迭代。那么到现在为止，CSS 是否可以取代 CSS 预处理器的地位？CSS 预处理器会不会成为 CSS 过渡时期的产物呢？
 
 ## W3C 介绍
 
@@ -34,7 +34,7 @@ W3C 制定了一系列标准并督促网络应用开发者和内容提供者遵�
 
 ### W3C 规范制定流程
 
-因为接下来我们需要谈到一些不同阶段的 CSS 规范，因此这里有必要提一下 W3C 的规范指定流程。
+因为接下来我们需要谈到一些不同阶段的 CSS 规范，因此这里有必要简单介绍一下 W3C 的规范制定流程。
 
 按照 W3C 的 [Process Document](https://www.w3.org/2019/Process-20190301/)，一个推荐标准的发展需要通过不同的阶段。
 
@@ -47,7 +47,7 @@ W3C 制定了一系列标准并督促网络应用开发者和内容提供者遵�
 * PR 提案推荐标准（recommendation）
 * REC W3C推荐标准（W3C recommendation）
 
-如果想了解更多关于 W3C 标准流程与组织架构 的信息，可以查看[W3C标准流程与组织架构](https://zhuanlan.zhihu.com/p/36103933)。
+篇幅有限，这里就不详细展开讲解 W3C 的标准流程了，如果想了解更多关于 W3C 标准流程与组织架构 的信息，可以查看[W3C标准流程与组织架构](https://zhuanlan.zhihu.com/p/36103933)。
 
 ## CSS 的历史
 
@@ -55,7 +55,7 @@ HTML 和 CSS 是那么密不可分，以至于你可能会觉得它们是一起�
 
 HTML 规范虽然规定了网页中的标题、段落应该使用的标签，但是没有涉及这些内容应该以何种样式(比如大小、位置、间距、缩进等属性)呈现在浏览器中。
 
-不过，在随后仅短短10年后，CSS就被一个现代的 Web 社区全面采用，这期间的发生了一系列有的故事，有兴趣的可以看一下 [A Look Back at the History of CSS](https://css-tricks.com/look-back-history-css/?imm_mid=0f79f3&cmp=em-web-na-na-newsltr_20171101)。
+不过，在随后仅短短10年后，CSS就被一个现代的 Web 社区全面采用，这期间的发生了一系列有趣的故事，有兴趣的可以看一下 [A Look Back at the History of CSS](https://css-tricks.com/look-back-history-css/?imm_mid=0f79f3&cmp=em-web-na-na-newsltr_20171101)。
 
 ### CSS1
 
@@ -77,7 +77,7 @@ CSS3 是层叠样式表（Cascading Style Sheets）语言的最新版本，旨�
 
 CSS Level 2 经历了 9 年的时间（从 2002 年 8 月到 2011 年 6 月）才达到 Recommendation（推荐） 状态，主要原因是被一些次要特性拖了后腿。为了加快那些已经确认没有问题的特性的标准化速度，W3C 的 [CSS Working Group](http://www.w3.org/blog/CSS/)  作出了一项被称为 [Beijing doctrine](http://fantasai.inkedblade.net/weblog/2011/inside-csswg/modules) 的决定，将 CSS 划分为许多小组件，称之为模块。这些模块彼此独立，按照各自的进度来进行标准化。其中一些已经是 W3C Recommendation 状态，也有一些仍是 Early Working Drafts（早期工作草案）。当新的需求被肯定后， 新的模块也会同样地添加进来。
 
-![image](https://developer.mozilla.org/@api/deki/files/6120/=CSS_Modules_and_Snapshots.png)
+![image](https://img11.360buyimg.com/jdphoto/s1139x521_jfs/t1/98178/23/1020/124704/5db82d6cE21dd966b/c4c0be6b53174a10.png)
 
 从形式上来说，**CSS3 标准自身已经不存在了**。每个模块都被独立的标准化，现在标准 CSS 包括了修订后的 CSS2.1 以及完整模块对它的扩充，模块的 level（级别）数并不一致。可以在每个时间点上为 CSS 标准定义一个 snapshots（快照），列出 CSS 2.1 和成熟的模块。
 
@@ -347,7 +347,7 @@ document.documentElement.setAttribute('data-theme', 'dark')
 document.documentElement.setAttribute('data-theme', 'light')
 ```
 
-![image](https://miro.medium.com/max/5288/1*n5EzGYBTnh5twaVKqr398w.gif)
+![image](https://wq.360buyimg.com/data/ppms/picture/1_n5EzGYBTnh5twaVKqr398w.gif)
 
 更多高级用法可以参考：[CSS custom properties (native variables) In-Depth](https://hospodarets.com/css_properties_in_depth)
 
@@ -355,7 +355,7 @@ document.documentElement.setAttribute('data-theme', 'light')
 
 ### Mixins in CSS
 
-CSS 的有一个提案：[CSS @apply Rule](http://tabatkins.github.io/specs/css-apply-rule/)，按照该草案描述，用户可直接使用 CSS 变量存放声明块，然后通过 @apply rule 使用。
+CSS 的有一个提案：[CSS @apply Rule](http://tabatkins.github.io/specs/css-apply-rule/)，按照该草案描述，用户可直接使用 CSS 变量存放声明块，然后通过 `@apply rule` 使用。
 
 ```css
 :root {
@@ -378,7 +378,7 @@ body{
 
 CSS 里已经有 Nesting 的规范出现，尽管现在只处于 Editor’s Draft 阶段：[CSS Nesting Module Level 3](https://tabatkins.github.io/specs/css-nesting/)
 
-可以看到按照 CSS Nesting Module ，Nesting 规范基本和预处理器一模一样。
+可以看到按照 `CSS Nesting Module` ，Nesting 规范基本和预处理器一模一样。
 
 ```css
 /* Dropdown menu on hover */
