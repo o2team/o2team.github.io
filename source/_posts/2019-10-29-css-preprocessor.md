@@ -203,7 +203,7 @@ $images: "../img";
 }
 body {
   color: $color;
-  background: url("#{img}/1.png");
+  background: url("#{images}/1.png");
   @include clearfix;
 }
 ```
@@ -221,7 +221,7 @@ body {
 }
 body {
   color: @color;
-  background: url("@{img}/1.png");
+  background: url("@{images}/1.png");
   .clearfix;
 }
 ```
