@@ -2,6 +2,20 @@
 
 前端只是我们的正餐，其实我们还有许多的甜点！
 
+## Blog
+
+### 格式
+
+请参考 [阮一峰——中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+
+## 发布流程
+
+1. [安装使用](https://github.com/o2team/o2team.github.io/wiki/A0-How-to-use)
+1. [新建文章](https://github.com/o2team/o2team.github.io/wiki/A1-New-Post)
+1. [文章发布](https://github.com/o2team/o2team.github.io/wiki/Z0-Publish)
+1. [审核校对](https://github.com/o2team/o2team.github.io/wiki/%E5%AE%A1%E6%A0%B8%E6%A0%A1%E5%AF%B9)
+
+
 ## Co-Editor
 
 ### 关于联合编辑
@@ -9,10 +23,6 @@
 凹凸实验室的宗旨是`面向开发(Open Oriented)`，所以我们支持`开源`和`创作共用`的精神，欢迎其他优秀的个人、团队来凹凸实验室投稿。
 
 我们在收到你的投稿之后，会第一时间进行审核，审核通过后即发布官网进行安利推广。除此之外，凹凸实验室会利用自己的公众号来安利推送您的文章，同时发布到`掘金`APP。
-
-### 文章格式
-
-请参考 [阮一峰——中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
 
 ### 如何投稿？
 
