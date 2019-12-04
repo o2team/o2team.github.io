@@ -1,6 +1,6 @@
 title: 前端也要懂一点 MongoDB Schema 设计
 subtitle: 当前技术分界线日益模糊，许多前端同学也免不了接触到 MongoDB 开发和 Schema 设计，本文翻译自 MongoDB 优质博客：6 Rules of Thumb for MongoDB Schema Design，为你提供全面的 MongoDB Schema 设计原则指导。
-cover: https://user-images.githubusercontent.com/9441951/70128622-28a64400-16b8-11ea-833e-0a7380c436ee.png
+cover: https://img13.360buyimg.com/ling/jfs/t1/106937/23/4598/518907/5de78f6eEb9ee1c9c/0a8e1f7d821b7089.png
 categories: 全栈开发
 tags:
   - MongoDB
