@@ -2,13 +2,16 @@
 
 前端只是我们的正餐，其实我们还有许多的甜点！
 
-## Blog
+## Blog 相关
 
-### 格式
+### 写作方向
+请参考 [写作方向建议](https://github.com/o2team/o2team.github.io/wiki/Z4-Post-Advices)
+
+### 文章格式
 
 请参考 [阮一峰——中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
 
-## 发布流程
+### 发布流程
 
 1. [安装使用](https://github.com/o2team/o2team.github.io/wiki/A0-How-to-use)
 1. [新建文章](https://github.com/o2team/o2team.github.io/wiki/A1-New-Post)
