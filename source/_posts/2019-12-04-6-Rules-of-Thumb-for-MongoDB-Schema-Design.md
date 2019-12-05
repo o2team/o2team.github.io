@@ -1,6 +1,6 @@
 title: 前端也要懂一点 MongoDB Schema 设计
 subtitle: 当前技术分界线日益模糊，许多前端同学也免不了接触到 MongoDB 开发和 Schema 设计，本文翻译自 MongoDB 优质博客：6 Rules of Thumb for MongoDB Schema Design，为你提供全面的 MongoDB Schema 设计原则指导。
-cover: https://img13.360buyimg.com/ling/jfs/t1/106937/23/4598/518907/5de78f6eEb9ee1c9c/0a8e1f7d821b7089.png
+cover: https://img10.360buyimg.com/ling/jfs/t1/99448/34/4765/520287/5de8c6baE223fd4c1/e9b776288bc4fcf3.png
 categories: 全栈开发
 tags:
   - MongoDB
@@ -9,12 +9,12 @@ author:
   github_name: Pines-Cheng
 date: 2019-12-04 16:35:59
 ---
-
 > 翻译自 MongoDB 官方博客：
 > * [6 Rules of Thumb for MongoDB Schema Design: Part 1](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
 > * [6 Rules of Thumb for MongoDB Schema Design: Part 2](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2)
 > * [6 Rules of Thumb for MongoDB Schema Design: Part 3](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3)
-> 时间仓促，水平有限，难免有遗漏和不足，还请大家不吝指正。
+>
+> 时间仓促，水平有限，难免有遗漏和不足，还请不吝指正。
 
 “我有很多 SQL 的开发经验，但是对于 MongoDB 来说，我只是个初学者。 我该如何在数据库里实现 `One-to-N` 的关系? ” 这是我从参加 MongoDB office hours 的用户那里得到的最常见的问题之一。
 
@@ -23,7 +23,7 @@ date: 2019-12-04 16:35:59
 这一块涉及到的内容很多，因此我把它分成三部分。
 
 * 在第一部分中，我将讨论建立 `One-to-N` 关系模型的三种基本方法。
-* 在第二部分中，我将介绍更复杂的模式设计（schema designs），包括 反规范化（denormalization）和 双向引用（two-way referencing）。
+* 在第二部分中，我将介绍更复杂的模式设计（schema designs），包括 `反规范化（denormalization）`和 `双向引用（two-way referencing）`。
 * 在最后一部分，我将回顾一系列的选型，并给出一些建议和原则，保证你在创建 `One-to-N` 关系时，从成千上万的选择中做出正确的选择。
 
 许多初学者认为，在 MongoDB 中建立 `One-to-N` 模型的唯一方法是在父文档中嵌入一组 子文档（sub-documents），但事实并非如此。 **你可以嵌入一个文档，并不意味着你应该嵌入一个文档**。（PS：这也是我们写代码的原则之一：You can doesn’t mean you should ）
@@ -32,7 +32,7 @@ date: 2019-12-04 16:35:59
 
 ## Basics: Modeling One-to-Few
 
-`one-to-few` 的一个例子通常是一个人的地址。 这是一个典型的使用 嵌入（embedding）的例子 -- 你可以把地址放在 Person 对象的数组中：
+`one-to-few` 的一个例子通常是一个人的地址。 这是一个典型的使用 `嵌入（embedding）`的例子 -- 你可以把地址放在 Person 对象的数组中：
 
 ```sh
 > db.person.findOne()
@@ -52,7 +52,7 @@ date: 2019-12-04 16:35:59
 
 ## Basics: One-to-Many
 
-“one-to-many” 的一个例子可能是替换零件（parts）订购系统中的产品（products）的零部件。 每个产品可能有多达几百个替换零件，但从来没有超过几千（所有不同尺寸的螺栓、垫圈和垫圈加起来）。 这是一个很好的使用 引用（referencing）的例子 —— 您可以将零件的 ObjectIDs 放在产品文档的数组中。 (示例使用 2 字节的 ObjectIDs，以方便阅读)
+“one-to-many” 的一个例子可能是替换零件（parts）订购系统中的产品（products）的零部件。 每个产品可能有多达几百个替换零件，但从来没有超过几千（所有不同尺寸的螺栓、垫圈和垫圈加起来）。 这是一个很好的使用 `引用（referencing）`的例子 —— 您可以将零件的 ObjectIDs 放在产品文档的数组中。 (示例使用 2 字节的 ObjectIDs，以方便阅读)
 
 每个零件都有自己的 document:
 
@@ -85,7 +85,7 @@ date: 2019-12-04 16:35:59
     ...
 ```
 
-然后，您可以使用 应用程序级别的联接（application-level join）来检索特定产品的零件：
+然后，您可以使用 `应用程序级别的联接（application-level join）`来检索特定产品的零件：
 
 ```sh
  // Fetch the Product document identified by this catalog number
@@ -96,13 +96,13 @@ date: 2019-12-04 16:35:59
 
 为了高效运行，您需要在 `products.catalog_number` 上添加索引。 注意，零件上总是有一个索引 `parts._id`，这样查询通常效率很高。
 
-这种类型的 引用（referencing）和 嵌入（embedding）相比有一系列的优点和缺点：**每个零件都是一个独立的文档，因此很容易对它们进行搜索和单独更新。 使用这个模式的一个弊端是必须执行两次查询来获取有关产品零件的详细信息**。 (但是在我们进入第二部分的 反规范化（denormalizing）之前，请保持这种想法。)
+这种类型的 `引用（referencing）`和 `嵌入（embedding）`相比有一系列的优点和缺点：**每个零件都是一个独立的文档，因此很容易对它们进行搜索和单独更新。 使用这个模式的一个弊端是必须执行两次查询来获取有关产品零件的详细信息**。 (但是在我们进入第二部分的 反规范化（denormalizing）之前，请保持这种想法。)
 
-作为一个额外的好处，这个模式允许一个单独的零件被多个产品 使用，因此您的 `One-to-N` 模式就变成了 `N-to-N` 模式，而不需要任何 联接表（join table）！
+作为一个额外的好处，这个模式允许一个单独的零件被多个产品 使用，因此您的 `One-to-N` 模式就变成了 `N-to-N` 模式，而不需要任何 `联接表（join table）`！
 
 ## Basics: One-to-Squillions
 
-`one-to-squillions` 的一个典型例子是为不同机器收集日志消息的事件日志系统。 任何给定的 主机（hosts）都可以生成足够的日志信息（logmsg），从而超过溢出 document 16 MB 的限制，即使数组中存储的所有内容都是 `ObjectID`。这就是 "父引用"(parent-referencing) 的经典用例 —— 你有一个 `host document`，然后将主机的 `ObjectID` 存储在日志信息的 document 中。
+`one-to-squillions` 的一个典型例子是为不同机器收集日志消息的事件日志系统。 任何给定的 主机（hosts）都可以生成足够的日志信息（logmsg），从而超过溢出 document 16 MB 的限制，即使数组中存储的所有内容都是 `ObjectID`。这就是 `父引用(parent-referencing)` 的经典案例 —— 你有一个 `host document`，然后将主机的 `ObjectID` 存储在日志信息的 document 中。
 
 ```sh
 > db.hosts.findOne()
@@ -187,7 +187,7 @@ db.tasks.findOne()
 
 这种设计具有 `One-to-Many` 模式的所有优点和缺点，但添加了一些内容。 在 Task document 中添加额外的 owner 引用意味着可以快速简单地找到任务的所有者，但是这也意味着如果你需要将任务重新分配给其他人，你需要执行两个更新而不是一个。
 
-具体来说，您必须同时更新从 Person 到 Task 文档的引用，以及从 Task 到 Person 的引用。 (对于正在阅读这篇文章的关系专家来说，您是对的: 使用这种模式设计意味着不再可能通过单个 原子更新（atomic update）将一个任务重新分配给一个新的 Person。 这对于我们的任务跟踪系统来说是可行的: 您需要考虑这是否适用于您的特定场景。)
+具体来说，您必须同时更新从 Person 到 Task 文档的引用，以及从 Task 到 Person 的引用。 (对于正在阅读这篇文章的关系专家来说，您是对的: 使用这种模式设计意味着不再可能通过单个 `原子更新（atomic update）`将一个任务重新分配给一个新的 Person。 这对于我们的任务跟踪系统来说是可行的: 您需要考虑这是否适用于您的特定场景。)
 
 ## Intermediate: Denormalizing With “One-To-Many” Relationships
 
@@ -242,13 +242,13 @@ db.tasks.findOne()
 
 只有当读取和更新的比例很高时，反规范化（Denormalizing）才有意义。 **如果你经常阅读非标准化（denormalized）的数据，但是很少更新，那么为了得到更有效的查询，付出更慢的更新和更复杂的更新的代价是有意义的。 随着相对于查询的更新变得越来越频繁，非规范化节省的开销会越来越少**。
 
-例如: 假设零件名称不经常更改，但手头的数量经常更改。 这意味着，尽管在 Product document 中对零件名称进行 非规范化（Denormalizing）是有意义的，但是对数量进行 反规范化（Denormalizing） 是没有意义的。
+例如: 假设零件名称不经常更改，但手头的数量经常更改。 这意味着，尽管在 Product document 中对零件名称进行 反规范化（Denormalizing）是有意义的，但是对数量进行 反规范化（Denormalizing） 是没有意义的。
 
-还要注意，如果对 字段（field）进行 反规范化（Denormalizing），将失去对该 字段（field）执行原子（atomic）更新和 独立（isolated）更新的能力。 就像上面的 双向引用（two-way referencing）示例一样，如果你先在 Part document 中更新零件名称，然后在 Product 文档中更新零件名称，那么将会有一个 sub-second 的时间间隔，在这个间隔中，Product document 中 反规范化（Denormalizing）的 “name”将不会是 Part document 中新的更新值。
+还要注意，如果对 字段（field）进行 `反规范化（Denormalizing）`，将失去对该 字段（field）执行原子（atomic）更新和 独立（isolated）更新的能力。 就像上面的 `双向引用（two-way referencing）`示例一样，如果你先在 Part document 中更新零件名称，然后在 Product 文档中更新零件名称，那么将会有一个 `sub-second` 的时间间隔，在这个间隔中，Product document 中 反规范化（Denormalizing）的 “name”将不会是 Part document 中新的更新值。
 
 ## Denormalizing from One -> Many
 
-你还可以将字段从 “One” 到 “Many” 进行 反规范化（denormalize）:
+你还可以将字段从 “One” 到 “Many” 进行 `反规范化（denormalize）`:
 
 ```sh
 > db.parts.findOne()
@@ -264,13 +264,13 @@ db.tasks.findOne()
 }
 ```
 
-但是，如果您已经将 Product 名称 反规范化（denormalize）到 Part document 中，那么在更新 Product 名称时，您还必须更新 ‘parts' collection 中出现的所有位置。 这可能是一个更昂贵的更新，因为您正在更新多个零件，而不是单个产品。 因此，在这种方式去规范化时，考虑 **读写比（ read-to-write ratio ）** 显得更为重要。
+但是，如果您已经将 Product 名称 `反规范化（denormalize）`到 Part document 中，那么在更新 Product 名称时，您还必须更新 ‘parts' collection 中出现的所有位置。 这可能是一个更昂贵的更新，因为您正在更新多个零件，而不是单个产品。 因此，在这种方式去规范化时，考虑 **读写比（ read-to-write ratio ）** 显得更为重要。
 
 ## Intermediate: Denormalizing With “One-To-Squillions” Relationships
 
-你还可以对“one-to-squillions”示例进行 反规范化（denormalize）。 这可以通过两种方式之一来实现: 您可以将关于 “one” side 的信息('hosts’ document)放入“squillions” side(log entries) ，或者将来自 “squillions” side 的摘要信息放入 “one” side。
+你还可以对“one-to-squillions”示例进行 `反规范化（denormalize）`。 这可以通过两种方式之一来实现: 您可以将关于 “one” side 的信息('hosts’ document)放入“squillions” side(log entries) ，或者将来自 “squillions” side 的摘要信息放入 “one” side。
 
-下面是一个将 反规范化（denormalize）转化为“squillions”的例子。 我将把主机的 IP 地址(from the ‘one’ side)添加到单独的日志消息中:
+下面是一个将 `反规范化（denormalize）`转化为“squillions”的例子。 我将把主机的 IP 地址(from the ‘one’ side)添加到单独的日志消息中:
 
 ```sh
 > db.logmsg.findOne()
@@ -288,7 +288,7 @@ db.tasks.findOne()
 > last_5k_msg = db.logmsg.find({ipaddr : '127.66.66.66'}).sort({time : -1}).limit(5000).toArray()
 ```
 
-事实上，如果你只想在 “one” side 存储有限数量的信息，你可以把它们全部 反规范化（denormalize）为 “squillions” side ，从而完全摆脱 “one” collection：
+事实上，如果你只想在 “one” side 存储有限数量的信息，你可以把它们全部 `反规范化（denormalize）`为 “squillions” side ，从而完全摆脱 “one” collection：
 
 ```sh
 > db.logmsg.findOne()
@@ -300,7 +300,7 @@ db.tasks.findOne()
 }
 ```
 
-另一方面，你也可以 反规范化（denormalize）到 “one” side。 让我们假设你希望在 'hosts’ document 中保留来自主机的最后 1000 条消息。 你可以使用 MongoDB 2.4中引入的 `$each / $slice` 功能来保持列表排序，并且只保留最后的1000条消息：
+另一方面，你也可以 `反规范化（denormalize）`到 “one” side。 让我们假设你希望在 'hosts’ document 中保留来自主机的最后 1000 条消息。 你可以使用 MongoDB 2.4中引入的 `$each / $slice` 功能来保持列表排序，并且只保留最后的1000条消息：
 
 日志消息保存在 'logmsg’ collection 中以及 'hosts’ document 中的反规范化列表中: 这样，当消息超出 ‘hosts.logmsgs' 数组时，它就不会丢失。
 
@@ -324,13 +324,13 @@ db.hosts.update( {_id: host_id },
          }} );
 ```
 
-请注意，使用 projection specification `({ _id: 1})` 可以防止 MongoDB 通过网络发布整个 ‘hosts’ document。 通过告诉 MongoDB 只返回 _id 字段，我将网络开销减少到仅存储该字段所需的几个字节（再加上一点 wire protocol 开销）。
+请注意，使用 `projection specification` `({ _id: 1})` 可以防止 MongoDB 通过网络发布整个 ‘hosts’ document。 通过告诉 MongoDB 只返回 `_id` 字段，我将网络开销减少到仅存储该字段所需的几个字节（再加上一点 `wire protocol` 开销）。
 
 正如在 “One-to-Many” 的情况下的反规范化一样，你需要考虑读取与更新的比率。 只有当日志消息的频率与应用程序查看单个主机的所有消息的次数相关时，将日志消息反规范化到 Host 文档才有意义。 如果您希望查看数据的频率低于更新数据的频率，那么这种特殊的反规范化是一个坏主意。
 
 ## 回顾
 
-在这篇文章中，我已经介绍了嵌入（embed）、子引用（child-reference）和父引用（ parent-reference）的基础知识之外的其他选择。
+在这篇文章中，我已经介绍了`嵌入（embed）`、`子引用（child-reference）`和`父引用（ parent-reference）`的基础知识之外的其他选择。
 
 * 如果使用双向引用优化了 Schema，并且愿意为不进行 原子更新（atomic updates）付出代价，那么可以使用双向引用
 * 如果正在引用，可以将数据从 “One” side 到 “N” side，或者从 “N” side 到 “One” side 进行反规范化（denormalize）
@@ -344,18 +344,18 @@ db.hosts.update( {_id: host_id },
 
 # Part 3: 6 Rules of Thumb for MongoDB Schema Design
 
-这是我们在 MongoDB 中建模 `One-to-N` 关系的最后一站。 在第一篇文章中，我介绍了建立 `One-to-N`  关系模型的三种基本方法。 上篇文章中，我介绍了这些基础知识的一些扩展: 双向引用（two-way referencing）和反规范化（denormalization）。
+这是我们在 MongoDB 中建模 `One-to-N` 关系的最后一站。 在第一篇文章中，我介绍了建立 `One-to-N`  关系模型的三种基本方法。 上篇文章中，我介绍了这些基础知识的一些扩展: `双向引用（two-way referencing）`和`反规范化（denormalization）`。
 
-反规范化（denormalization）允许你避免某些 应用程序级别的连接（ application-level joins），但代价是要进行更复杂和昂贵的更新。 如果这些字段的读取频率远高于更新频率，则对一个或多个字段进行 反规范化（denormalization）是有意义的。
+`反规范化（denormalization）`允许你避免某些 应用程序级别的连接（ application-level joins），但代价是要进行更复杂和昂贵的更新。 如果这些字段的读取频率远高于更新频率，则对一个或多个字段进行 `反规范化（denormalization）`是有意义的。
 
 那么，我们来回顾一下:
 
 * 你可以嵌入（embed）、引用（reference）“one” side，或 “N” side，或混合使用这些技术
 * 你可以将任意多的字段反规范化（denormalize）到 “one” side 或  “N” side
 
-特别是反规范化，给了你很多选择: 如果一段关系中有 8 个反规范化（denormalization）的候选字段，那么有 2 的 8 次方（1024）种不同的方法去反规范化（包括根本不去进行反规范化）。 再乘以三种不同的引用方式，你就有了 3000 多种不同的方式来建立关系模型。
+特别是反规范化，给了你很多选择: 如果一段关系中有 8 个 `反规范化（denormalization）`的候选字段，那么有 2 的 8 次方（1024）种不同的方法去反规范化（包括根本不去进行反规范化）。 再乘以三种不同的引用方式，你就有了 3000 多种不同的方式来建立关系模型。
 
-你猜怎么着？ 你现在陷入了 “选择悖论” —— 因为你有很多潜在的方法来建立 “one-to-N” 的关系模型，你选择如何建立模型只是变得更难了。。。
+你猜怎么着？ 你现在陷入了 “选择悖论” —— 因为你有很多潜在的方法来建立 `one-to-N` 的关系模型，你选择如何建立模型只是变得更难了。。。
 
 ## Rules of Thumb: Your Guide Through the Rainbow
 
@@ -364,7 +364,7 @@ db.hosts.update( {_id: host_id },
 * One：**首选嵌入（embedding）**，除非有足够的的理由不这样做
 * Two：需要**独立访问对象**是不嵌入对象的一个令人信服的理由
 * Three：数组不应该无限制地增长。 如果在 “many” side 有几百个以上的 documents，不要嵌入它们; 如果在 “many” side 有几千个以上的文档，不要使用一个 `ObjectID` 引用数组。 **高基数数组是不嵌入的一个令人信服的理由**
-* Four：不要害怕 应用程序级别的连接（application-level joins）： 如果正确地使用索引并使用 projection specifier(如第2部分所示) ，那么 应用程序级别的连接（application-level joins）几乎不会比关系数据库 的服务器端连接（server-side joins ）更昂贵
+* Four：不要害怕 应用程序级别的连接（application-level joins）： 如果正确地使用索引并使用 `projection specifier`(如第2部分所示) ，那么 应用程序级别的连接（application-level joins）几乎不会比关系数据库 的 `服务器端连接（server-side joins ）`更昂贵
 * Five：考虑反规范化时的 读/写比率。 一个大多数时候会被读取但很少更新的字段是反规范化的好候选者: 如果你对一个频繁更新的字段进行反规范化，那么查找和更新所有实例的额外工作很可能会超过你从非规范化中节省的开销
 * Six：**如何对数据建模完全取决于特定应用程序的数据访问模式**。 您希望根据应用程序查询和更新数据的方式对数据进行结构化
 
@@ -372,17 +372,17 @@ db.hosts.update( {_id: host_id },
 
 在 MongoDB 中建模 “One-to-N” 关系时，你有各种各样的选择，因此必须仔细考虑数据的结构。 你需要考虑的主要标准是:
 
-* 这种关系的基数是什么: 是 “one-to-few”, “one-to-many” 还是 “one-to-squillions”？
+* 这种关系的基数是什么: 是 `one-to-few`, `one-to-many` 还是 `one-to-squillions`？
 * 你需要单独访问 “N” side 的对象，还是仅在父对象的上下文中访问？
 * 特定字段的更新与读取的比率是多少？
 
 你的数据结构的主要选择是：
 
-* 对于 “one-to-few”，可以使用嵌入文档的数组
-* 对于 “one-to-many” ，或者在 “N” side 必须单独存在的情况下，应该使用一个引用数组。 如果优化了数据访问模式，还可以在 “N” side 使用 父引用（parent-reference）
-*  对于 "one-to-squillions"，你应该在存储 “N” side 的文档中使用 父引用（parent-reference）
+* 对于 `one-to-few`，可以使用嵌入文档的数组
+* 对于 `one-to-many` ，或者在 “N” side 必须单独存在的情况下，应该使用一个引用数组。 如果优化了数据访问模式，还可以在 “N” side 使用 `父引用（parent-reference）`
+*  对于 `one-to-squillions`，你应该在存储 “N” side 的文档中使用 `父引用（parent-reference）`
 
-一旦你确定了数据的总体结构，那么你可以通过将数据从  “One” side 反规范化到  “N” side，或者从  “N” side 反规范化到  “One” side 来反规范化跨多个文档的数据。 只有那些经常被阅读、被阅读的频率远高于被更新的频率的字段，以及那些不需要 强一致性（strong consistency）的字段，才需要这样做，因为更新非标准化的值更慢、更昂贵，而且不是原子的。
+一旦你确定了数据的总体结构，那么你可以通过将数据从  “One” side 反规范化到  “N” side，或者从  “N” side 反规范化到  “One” side 来反规范化跨多个文档的数据。 只有那些经常被阅读、被阅读的频率远高于被更新的频率的字段，以及那些不需要 `强一致性（strong consistency）`的字段，才需要这样做，因为更新非标准化的值更慢、更昂贵，而且不是原子的。
 
 ## Productivity and Flexibility
 
