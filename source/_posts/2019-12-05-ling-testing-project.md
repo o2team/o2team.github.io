@@ -4,17 +4,16 @@ cover: https://img12.360buyimg.com/ling/jfs/t1/99375/14/4555/149640/5de86ce8Ee93
 categories: Web开发
 date: 2019-12-05 10:00:00
 tags:
-
   - 自动化测试
   - 单元测试
   - 集成测试
-    author:
-      nick: Barrior
-      github_name: Barrior
-    wechat:
-    share_cover: https://img10.360buyimg.com/ling/jfs/t1/86967/14/4534/59965/5de86ce8E021c30bd/9adf902d7e0dd96a.jpg
-    share_title: 羚珑项目自动化测试方案实践
-    share_desc: Jest, SuperTest, MongoDB Memory Server, CI, TDD/BDD, etc.
+author:
+  nick: Barrior
+  github_name: Barrior
+wechat:
+  share_cover: https://img10.360buyimg.com/ling/jfs/t1/86967/14/4534/59965/5de86ce8E021c30bd/9adf902d7e0dd96a.jpg
+  share_title: 羚珑项目自动化测试方案实践
+  share_desc: Jest, SuperTest, MongoDB Memory Server, CI, TDD/BDD, etc.
 
 ---
 
