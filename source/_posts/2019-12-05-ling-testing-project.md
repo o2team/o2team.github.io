@@ -3,6 +3,7 @@ subtitle: Jest, SuperTest, MongoDB Memory Server, CI, TDD/BDD, etc.
 cover: https://img12.360buyimg.com/ling/jfs/t1/99375/14/4555/149640/5de86ce8Ee93e2291/8b9f75818c65b54c.png
 categories: Web开发
 date: 2019-12-05 10:00:00
+ckey: 2019-12-05-testing
 tags:
   - 自动化测试
   - 单元测试
