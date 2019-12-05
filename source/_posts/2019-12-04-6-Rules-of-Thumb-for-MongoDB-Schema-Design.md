@@ -26,6 +26,8 @@ date: 2019-12-04 16:35:59
 * 在第二部分中，我将介绍更复杂的模式设计（schema designs），包括 `反规范化（denormalization）`和 `双向引用（two-way referencing）`。
 * 在最后一部分，我将回顾一系列的选型，并给出一些建议和原则，保证你在创建 `One-to-N` 关系时，从成千上万的选择中做出正确的选择。
 
+# Part 1
+
 许多初学者认为，在 MongoDB 中建立 `One-to-N` 模型的唯一方法是在父文档中嵌入一组 子文档（sub-documents），但事实并非如此。 **你可以嵌入一个文档，并不意味着你应该嵌入一个文档**。（PS：这也是我们写代码的原则之一：You can doesn’t mean you should ）
 
 在设计 MongoDB 模式时，您需要先考虑在使用 SQL 时从未考虑过的问题：关系（relationship）的基数（cardinality）是什么？ 简而言之: **你需要用更细微的差别来描述你的 `One-to-N` 关系: 是 `one-to-few`、`one-to-many` 还是 `one-to-squillions` ？ 根据它是哪一个，你可以使用不同的方式来进行关系建模**。
@@ -142,7 +144,7 @@ date: 2019-12-04 16:35:59
 * 如果基数是 `one-to-many` ，或者如果 N-side 对象因为任何原因应该单独存在，则使用 N-side 对象的引用数组
 * 如果基数是 `one-to-squillions`，则使用 N-side 对象中对 One-side 的引用
 
-# Part 2: Two-way referencing and denormalization
+# Part 2
 
 这是我们在 MongoDB 中构建 `One-to-N` 关系的第二站。 上次我介绍了三种基本的模式设计: 嵌入（embedding）、子引用（child-referencing）和父引用（parent-referencing）。 我还提到了在选择这些设计时要考虑的两个因素：
 
@@ -342,7 +344,7 @@ db.hosts.update( {_id: host_id },
 
 下一次，我会给你一些指导方针，让你在所有这些选项中做出选择。
 
-# Part 3: 6 Rules of Thumb for MongoDB Schema Design
+# Part 3
 
 这是我们在 MongoDB 中建模 `One-to-N` 关系的最后一站。 在第一篇文章中，我介绍了建立 `One-to-N`  关系模型的三种基本方法。 上篇文章中，我介绍了这些基础知识的一些扩展: `双向引用（two-way referencing）`和`反规范化（denormalization）`。
 
