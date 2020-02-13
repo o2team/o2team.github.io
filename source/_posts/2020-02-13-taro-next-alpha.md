@@ -8,7 +8,7 @@ tags:
 author:
   nick: yuche
   github_name: yuche
-date: 2020-02-013 13:50:00
+date: 2020-02-03 13:50:00
 ---
 
 自 Taro 2.0 起，我们将会启动对整个 Taro 系统架构的革新，这次革新我们将其称之为 Taro Next。Taro Next 革新完成之后，Taro 本身的拓展性、稳定性、可维护性都会大幅提高，相应地，使用 Taro 的开发者也会获得更好的开发体验，降低更多开发成本和学习成本。
