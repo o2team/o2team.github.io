@@ -1,6 +1,6 @@
 title: Web 中文字体处理总结
 subtitle: Web 项目中，使用一个合适的字体能给用户带来良好的体验。但是字体文件太多，如果想要查看字体效果，只能一个个打开，非常影响工作效率。因此，需要实现一个功能，能够根据固定文字以及用户输入预览字体。
-cover: https://raw.githubusercontent.com/linzpeng/imgs/master/cover.png
+cover: http://storage.360buyimg.com/mtd/home/-30_15827820616571582877314123.png
 categories: Web开发
 tags:
   - webfonts
