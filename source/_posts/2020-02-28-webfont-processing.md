@@ -292,21 +292,19 @@ extractFontData()
 `const fontFace = new FontFace(family, source, descriptors)`
 
 - *family*
-   - 字体名称，指定一个名称作为 `CSS` 属性 `font-family` 的值，
+  - 字体名称，指定一个名称作为 `CSS` 属性 `font-family` 的值，
 
 - *source*
-
- - 字体来源，可以是一个 `url` 或者 `ArrayBuffer`
+  - 字体来源，可以是一个 `url` 或者 `ArrayBuffer`
 
 - *descriptors* `optional`
-
- - style：`font-style`
- - weight：`font-weight`
- - stretch：`font-stretch`
- - display: `font-display` *（这个值可以设置，但不会生效）*
- - unicodeRange：`@font-face` 规则的 `unicode-ranges`
- - variant：`font-variant`
- - featureSettings：`font-feature-settings`
+  - style：`font-style`
+  - weight：`font-weight`
+  - stretch：`font-stretch`
+  - display: `font-display` *（这个值可以设置，但不会生效）*
+  - unicodeRange：`@font-face` 规则的 `unicode-ranges`
+  - variant：`font-variant`
+  - featureSettings：`font-feature-settings`
 
 构造出一个 `fontFace` 后并不会加载字体，必须执行 `fontFace` 的 `load` 方法。`load` 方法返回一个 `promise`，`promise` 的 `resolve` 值就是加载成功后的字体。但是仅仅加载成功还不会使这个字体生效，还需要将返回的 `fontFace` 添加到 `fontFaceSet`。
 
