@@ -6,8 +6,8 @@ tags:
   - webfonts
   - 字体子集化
 author:
-  nick: 林林
-  github_name: linzpeng
+    nick: 林林
+    github_name: linzpeng
 date: 2020-02-28 12:00:00
 ---
 
@@ -20,7 +20,7 @@ Web 项目中，使用一个合适的字体能给用户带来良好的体验。�
 
 现在将问题的解决以及我的思考总结成文。
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/a.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38e8bcf94c11582876809412.png)
 
 ## 使用 web 自定义字体
 
@@ -59,7 +59,7 @@ Web 项目中，使用一个合适的字体能给用户带来良好的体验。�
 
 但这么做我们可以明显发现一个问题，字体体积太大导致的加载时间过长。我们打开浏览器的 Network 面板查看：
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/b.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38e8a8c6fcc1582876805861.png)
 
 可以看到字体的体积为5.5 MB，加载时间为5.13 s。而夸克平台很多的中文字体大小在20～40 MB 之间，可以预想到加载时间会进一步增长。如果用户还处于弱网环境下，这个等待时间是不能接受的。
 
@@ -74,7 +74,7 @@ Web 项目中，使用一个合适的字体能给用户带来良好的体验。�
 
 我们可以借助于 `opentype.js`，统计一个中文字体和一个英文字体在字形数量以及字形所占字节数的差异: 
 
-|  字体名称   |   字形数   |  字形所占字节数
+|  字体名称   |   字形数   |  字形所占字节数|
 |  --------   |   ------   | ------ |
 | FZQingFSJW_Cu.ttf   |  8731  | 4762272 |
 | JDZhengHT-Bold.ttf  |  122   | 18328 |
@@ -107,7 +107,7 @@ font.glyf = font.glyf.map(g => {
 
 在讨论 `fontmin` 如何进行字体截取之前，我们先来了解一下字体文件的结构：
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/c.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38e8fa696031582877166624.png)
 
 上面的结构限于字体文件只包含一种字体，且字形轮廓是基于 `TrueType` 格式（决定 `sfntVersion` 的取值）的情况，因此偏移表会从字体文件的`0字节`开始。如果字体文件包含多个字体，则每种字体的偏移表会在 TTCHeader 中指定，这种文件不在文章的讨论范围内。
 
@@ -115,7 +115,7 @@ font.glyf = font.glyf.map(g => {
 
 |   Type     |   Name          |     Description      |
 |   -------  |   ------        |     -----------      |
-|   uint32   |   sfntVersion   |     0x00010000       | 
+|   uint32   |   sfntVersion   |     0x00010000       |
 |   uint16   |   numTables     |   Number of tables   |
 |   uint16   |   searchRange   | (Maximum power of 2 <= numTables) x 16.  |
 |   uint16   |   entrySelector |  Log2(maximum power of 2 <= numTables).  |
@@ -125,7 +125,7 @@ font.glyf = font.glyf.map(g => {
 
 |   Type     |   Name          |     Description      |
 |   -------  |   --------      |     -----------      |
-|   uint32   |   tableTag      |  Table identifier    | 
+|   uint32   |   tableTag      |  Table identifier    |
 |   uint32   |   checkSum      |  CheckSum for this table  |
 |   uint32   |   offset        |  Offset from beginning of TrueType font file |
 |   uint32   |   length        | Length of this table |
@@ -136,7 +136,7 @@ font.glyf = font.glyf.map(g => {
 
 `fontmin` 内部使用了 `fonteditor-core`，核心的字体处理交给这个依赖完成，`fonteditor-core` 的主要流程如下：
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/d.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38e9767ff231582876806077.png)
 
 ##### 1. 初始化 Reader
 
@@ -146,7 +146,7 @@ font.glyf = font.glyf.map(g => {
 
 前文我们说到紧跟在 `offset table(偏移表)` 之后的结构就是 `table record(表记录)`，而多个 `table record` 叫做 `Table Directory`。`fonteditor-core` 会先读取原字体的 `Table Directory`，由上文表记录的结构我们知道，每一个 `table record` 有四个字段，每个字段占4个字节，因此可以很方便的利用 `DataView` 进行读取，最终得到一个字体文件的所有表信息如下：
 
- ![](https://raw.githubusercontent.com/linzpeng/imgs/master/e.png)
+ ![](http://storage.360buyimg.com/mtd/home/1705b38e982b086e1582877054059.png)
 
 ##### 3. 读取表数据
 
@@ -167,7 +167,7 @@ font.glyf = font.glyf.map(g => {
 
 但是仅仅知道所有字形的偏移量还不够，我们没办法认出哪个字形才是我们需要的。假设我需要`字体预览`这四个字形，而字体文件有一万个字形，同时我们通过 `loca` 表得知了所有字形的偏移量，但这一万里面哪四个数据块代表了`字体预览`四个字符呢？因此我们还需要借助 `cmap` 表来确定具体的字形位置，`cmap` 表里记录了字符代码`(unicode)`到字形索引的映射，我们拿到对应的字形索引后，就可以根据索引获得该字形在 `glyf` 表中的偏移量。
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/f.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38e97725da61582876807348.png)
 
  而一个字形的数据结构以 `Glyph Headers` 开头：
 
@@ -193,7 +193,7 @@ font.glyf = font.glyf.map(g => {
 
 在使用了 TrueType 轮廓的字体中，每个字形都提供了 `xMin`、`xMax`、`yMin` 和 `yMax` 的值，这四个值也就是下图的`Bounding Box`。除了这四个值，还需要 `advanceWidth` 和 `leftSideBearing` 两个字段，这两个字段并不在 `glyf` 表中，因此在截取字形信息的时候无法获取。在这个步骤，`fonteditor-core` 会读取字体的 `hmtx` 表获取这两个字段。
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/g.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38ecf6f7d7f1582876809572.png)
 
 ##### 5. 写入字体
 在这一步会重新计算字体文件的大小，并且更新`偏移表(Offset table)`和`表记录(Table record)`有关的值, 然后依次将`偏移表`、`表记录`、`表数据`写入文件中。有一点需要注意的是，在写入`表记录`时，必须按照表名排序进行写入。例如有四张表分别是 `prep`、`hmtx`、`glyf`、`head`、则写入的顺序应为 `glyf -> head -> hmtx -> prep`，而`表数据`没有这个要求。
@@ -202,7 +202,7 @@ font.glyf = font.glyf.map(g => {
 
 `fonteditor-core` 在截取字体的过程中只会对前文提到的十四张表进行处理，其余表丢弃。每个字体通常还会包含 `vhea` 和 `vmtx` 两张表，它们用于控制字体在垂直布局时的间距等信息，如果用 `fontmin` 进行字体截取后，会丢失这部分信息，可以在文本垂直显示时看出差异（*右边为截取后*）：
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/h.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38ed0097bd81582876806066.png)
 
 #### fontmin 使用方法
 
@@ -246,7 +246,7 @@ extractFontData()
 
 |        字体名称          |    大小   |  时间   |
 |  --------------------    |   ------  |  ----   |
-| HanyiSentyWoodcut.ttf    |   48.2MB  |  17.41s | 
+| HanyiSentyWoodcut.ttf    |   48.2MB  |  17.41s |
 | HanyiSentyWoodcut.woff   |   21.7KB  |  0.19s  |
 | HanyiSentyWoodcut.woff2  |   12.2KB  |  0.12s  |
 
@@ -281,9 +281,9 @@ extractFontData()
 
 先看看它们的兼容性：
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/i.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38f03366e841582876809582.png)
 
-![](https://raw.githubusercontent.com/linzpeng/imgs/master/j.png)
+![](http://storage.360buyimg.com/mtd/home/1705b38f119a47b51582876809537.png)
 
 > 又是 IE，IE 没有用户不用管
 
