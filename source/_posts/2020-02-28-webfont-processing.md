@@ -275,7 +275,7 @@ extractFontData()
 
 在夸克项目中，我希望的效果是字体加载完成前不展示预览内容，`FOIT` 策略最为接近。但是 `FOIT` 文本内容不可见的最长时间大约是`3s`， 如果用户网络状况不太好，那么`3s`过后还是会先显示后备字体，导致页面字体闪烁，因此 `font-display` 属性不满足要求。
 
-查阅资料得知，[CSS Font Loading API](https://drafts.csswg.org/css-font-loading/)在 `JavaScript` 层面上也提供了解决方案：
+查阅资料得知，[CSS Font Loading API](https://drafts.csswg.org/css-font-loading/) 在 `JavaScript` 层面上也提供了解决方案：
 
 ### FontFace、FontFaceSet
 
