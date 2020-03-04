@@ -5,33 +5,48 @@
             <div class="join">
                 <div class="join-sec">
                     <div class="join-sec-hd">
-                        <h3>高级Web前端开发工程师</h3>
+                        <h3>高级 Web 前端开发工程师(2020年）</h3>
                     </div>
                     <div class="join-sec-bd">
                         <section>
+                            <h4>工作职责：</h4>
+                            <ul>
+                                <li>1. 负责京东核心业务（如商城首页、特色频道等）、创新业务（如京东购物小程序、京喜等）的开发；</li>
+                                <li>2. 负责京东 S 级促销活动（如 618 / 1111 ）及刷爆朋友圈的互动创意 / 游戏开发；</li>
+                                <li>3. 负责研发效率 / 性能 / 质量 / 体验相关的系统和工具研发，完善研发体系；</li>
+                                <li>4. 建设数字化资产平台，探索页面可视化搭建及智能设计生态；</li>
+                            </ul>
+                        </section>
+                        <section>
                             <h4>基本要求：</h4>
                             <ul>
-                                <li>1. 熟练掌握 HTML、CSS、JavaScript、HTML5、CSS3 相关技术</li>
-                                <li>2. 熟练使用 Git 和 Github</li>
-                                <li>3. 熟悉移动端网页开发</li>
-                                <li>4. 掌握至少一门后端语言（NodeJS、PHP...)</li>
-                                <li>5. 热爱钻研学习新的技术和标准（es6等）</li>
+                                <li>1. 能够熟练运用 HTML、CSS、JavaScript 构建高性能的 Web 应用程序；</li>
+                                <li>2. 能够熟练运用至少一款主流的 JS 框架（ Taro / React / Nerv ），具有良好的代码风格、接口设计与程序架构；</li>
+                                <li>3. 掌握至少一门服务端编程语言（ Node.js 、PHP ）；</li>
+                                <li>4. 基础扎实，思路清晰，具备良好的沟通能力和团队协作精神；</li>
                             </ul>
                         </section>
                         <section>
-                            <h4>加分项：</h4>
+                            <h4>优先考虑：</h4>
                             <ul>
-                                <li>1. 有个人技术博客且常更新</li>
-                                <li>2. 在 Github 上有个人开源项目或给别的开源项目贡献过代码</li>
-                                <li>3. 熟练使用 AngularJS、VueJS 或 ReactJS</li>
-                                <li>4. 后台开发经验</li>
-                                <li>5. App开发经验</li>
-                                <li>6. 微信公众号开发及运营的经验</li>
+                                <li>1. 有 Node.js 后端开发经验；</li>
+                                <li>2. 有微信小程序开发经验；</li>
+                                <li>3. 有个人开源项目或技术博客且常更新；</li>
                             </ul>
                         </section>
                         <section>
-                            <p>工作地点：深圳</p>
-                            <p>请把你的简历发至：<a href="mailto:aotu@jd.com" target="_blank">aotu{AT}jd.com</a></p>
+                            <h4>你可获到</h4>
+                            <ul>
+                                <li>1. 行业内具有竞争力的薪资待遇；</li>
+                                <li>2. 享受京东作为世界 500 强企业的各种福利，如最高 100w 的免息住房贷款等等；</li>
+                                <li>3. 团队内有着各个领域的技术牛人，只要你有足够的学习热情，个人技术将会得到飞速成长；</li>
+                                <li>4. 收获千万级访问量的业务开发经验；</li>
+                                <li>5. 广阔的职业发展前景；</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <p>工作地点：深圳市宝安中心区龙光世纪大厦（深圳最大的购物中心-隔壁），地铁环中线-宝华站</p>
+                            <p>请把你的简历发至：<a href="mailto:aotu@jd.com" target="_blank">aotu{AT}jd.com </a></p>
                         </section>
                     </div>
                 </div>
