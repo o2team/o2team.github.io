@@ -61,7 +61,7 @@
                             <p>我们是一支热爱创造、不断尝试新技术、新体验、新产品的团队。</p>
                             <p>2020年实习招聘名额开放，快快加入吧！</p>
                             <ul>
-                                <li>联系邮箱：aotu[AT]jd.com</li>
+                                <li>联系邮箱：<a href="mailto:aotu@jd.com" target="_blank">aotu[AT]jd.com</a></li>
                                 <li>工作地点：深圳</li>
                             </ul>
                         </section>
