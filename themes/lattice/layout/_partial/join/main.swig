@@ -53,44 +53,42 @@
      
                 <div class="join-sec">
                     <div class="join-sec-hd">
-                        <h3>H5前端开发工程师</h3>
+                        <h3>京东凹凸实验室校园春招开始啦！</h3>
                     </div>
                     <div class="join-sec-bd">
                         <section>
+                            <p>JDC凹凸实验室 春季校园招聘开始啦！</p>
+                            <p>我们是一支热爱创造、不断尝试新技术、新体验、新产品的团队。</p>
+                            <p>2020年实习招聘名额开放，快快加入吧！</p>
+                            <ul>
+                                <li>联系邮箱：aotu[AT]jd.com</li>
+                                <li>工作地点：深圳</li>
+                            </ul>
+                        </section>
+
+                        <section>
                             <h4>基本要求：</h4>
                             <ul>
-                                <li>1. 两年以上前端开发经验（必须掌握页面重构能力）</li>
-                                <li>2. 有移动终端产品前端开发经验</li>
-                                <li>3. 掌握 JavaScript，有自己的一套心得体会</li>
-                                <li>4. 精通 HTML5、CSS3 等，能够书写优雅简洁的布局代码</li>
-                                <li>5. 懂得网站性能优化</li>
-                                <li>6. 良好的沟通能力</li>
-                                <li>7. 热爱创造，追求极致 (部门里是一群爱创造的伙伴)</li>
+                                <li>1. 2020年10月1日至2021年9月30日期间毕业，全日制本科及以上学历；</li>
+                                <li>2. 基础扎实，逻辑性强，具备良好的沟通能力和团队协作精神；</li>
+                                <li>3. 热爱计算机编程，关注新事物、新技术，有创造力，有较强的学习能力；</li>
+                                <li>4. 对 Web 标准有一定的理解，对可用性、可访问性等相关知识有所了解；</li>
+                                <li>5. 了解如何使用 HTML、CSS、JavaScript 构建高性能的 Web 应用程序；</li>
+                                <li>6. 了解主流前端框架（React / Vue / Angular 等），了解多端开发框架（Taro / uni-app / Chameleon / MpVue 等），追求良好的代码风格，对接口设计与程序架构有所了解；</li>
                             </ul>
                         </section>
 
                         <section>
-                            <h4>加分项：</h4>
+                            <h4>优先考虑：</h4>
                             <ul>
-                                <li>1. 熟悉至少一门后端语言（如 NodeJS）</li>
-                                <li>2. 熟悉使用 Zepto , Mobile jQuery 等移动端脚本库</li>
-                                <li>3. 能使用 AngularJS, Backbone, VueJS, ReactJS 等 MVC/MVVM框架</li>
-                                <li>4. 能使用 Webpack 等自动化构建工具</li>
-                                <li>5. 有 App 、NodeJS 开发经验 </li>
-                                <li>6. 主动性！责任感！爱折腾！</li>
+                                <li>1. 了解 Node.js / Java 服务端开发；</li>
+                                <li>2. 了解微信小程序 / 移动端开发；</li>
+                                <li>3. 有个人开源项目或技术博客且更新频率较高。</li>
                             </ul>
                         </section>
 
                         <section>
-                            <h4>工作职责：</h4>
-                            <ul>
-                                <li>负责京东旗下京东商城的 微信购物 / 手Q购物、开放平台、云平台等业务；</li>
-                                <li>负责新项目的研发、H5游戏开发、APP、移动端品牌宣传等。</li>
-                            </ul>
-                        </section>
-                        <section>
-                            <p>工作地点：深圳</p>
-                            <p>请把你的简历发至：<a href="mailto:aotu@jd.com" target="_blank">aotu{AT}jd.com</a></p>
+                            <p>请注明来源 [ 凹凸博客 ]</p>
                         </section>
                     </div>
                 </div>  
