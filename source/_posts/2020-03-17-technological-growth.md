@@ -1,4 +1,4 @@
-title: 来自程序媛的技术成长分享
+title: 直播回顾·程序媛的成长蜕变
 subtitle: 分享从小白时期成长为高级工程师的成长历程，探讨程序员如何提升自身的技术实力
 cover: http://img20.360buyimg.com/ling/jfs/t1/90039/4/15245/335118/5e6f814fE55d39d05/511f5958c8925e66.png
 categories: Web开发
