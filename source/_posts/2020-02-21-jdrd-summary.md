@@ -1,7 +1,7 @@
 title: JDRD开发小结
 subtitle: JDR DESIGN 是京东零售设计中台的门户站点。
 cover: http://storage.360buyimg.com/jdrd-blog/poster.png
-categories: Web开发
+categories: 项目总结
 tags:
   - web
   - JDRD
