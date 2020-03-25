@@ -1,5 +1,5 @@
 title: 如何打造高性能小程序门户
-subtitle: 在小程序开发时，我们经常会被各种性能问题所困扰，本文基于京喜小程序首页的性能优化实践经验，从小程序的底层原理出发探究性能优化的解决方案，助力打造高性能精品小程序。
+subtitle: 在小程序开发时，我们常常会被各种性能问题所困扰，本文基于京喜小程序首页的性能优化实践经验，从小程序的底层原理出发探究性能优化的解决方案，助力打造高性能的精品小程序。
 cover: https://img30.360buyimg.com/ling/jfs/t1/107441/21/10193/503864/5e7af547E709032c8/3c53683050b6ecf7.jpg
 categories: 性能优化
 tags:
@@ -22,7 +22,7 @@ date: 2020-03-25 18:00:00
 
 首页作为小程序的门户，其性能表现和用户留存率息息相关。因此，我们对京喜首页进行了一次全方位的升级改造，从加载、渲染和感知体验几大维度深挖小程序的性能可塑性。
 
-除此之外，京喜首页在微信小程序、H5、APP 三端都有落地场景，为了提高研发效率，我们使用了 Taro 框架实现多端统一，因此下文中有部分内容是和 Taro 框架息息相关的。
+除此之外，京喜首页在微信小程序、H5、APP 三端都有落地场景，为了提高研发效率，我们使用了 [Taro](https://taro.aotu.io/) 框架实现多端统一，因此下文中有部分内容是和 Taro 框架息息相关的。
 
 ## 怎么定义高性能？
 
@@ -32,17 +32,17 @@ date: 2020-03-25 18:00:00
 
 | 体验 | 指标 |
 |-----|------|
-| 页面能否正常访问？| 首次绘制 (`FP`)/首次内容绘制 (`FCP`) |
-| 页面内容是否有用？| 首次有效绘制 (`FMP`) |
-| 页面功能是否可用？| 可交互时间 (`TTI`) |
+| 页面能否正常访问？| 首次内容绘制 (First Contentful Paint, **FCP**) |
+| 页面内容是否有用？| 首次有效绘制 (First Meaningful Paint, **FMP**) |
+| 页面功能是否可用？| 可交互时间 (Time to Interactive, **TTI**) |
 
-其中，“是否有用？” 这个问题是非常主观的，对于不同场景的系统可能会有完全不一样的回答，所以 `FMP` 是一个比较模糊的概念指标，不存在规范化的数值衡量。
+其中，“是否有用？” 这个问题是非常主观的，对于不同场景的系统可能会有完全不一样的回答，所以 **FMP** 是一个比较模糊的概念指标，不存在规范化的数值衡量。
 
 小程序作为一个新的内容载体，衡量指标跟 Web 应用是非常类似的。对于大多数小程序而言，上述指标对应的含义为：
 
-- FP：白屏时间；
-- FMP：首屏渲染完成时间；
-- TTI：页面加载完成时间；
+- FCP：白屏加载结束；
+- FMP：首屏渲染完成；
+- TTI：所有内容加载完成；
 
 综上，我们已基本确定了高性能的概念指标，接下来就是如何利用数值指标来描绘性能表现。
 
@@ -109,7 +109,7 @@ date: 2020-03-25 18:00:00
 
 > 上图来自小程序官方开发指南
 
-然而，**任何线程间的数据传输都是有延时的**，这意味着逻辑层和视图层间通信是异步行为。除此之外，微信为小程序提供了很多客户端原生能力，在调用客户端原生能力的过程中，微信主线程和小程序双线层之间也会发生通信，这也是一种异步行为。这种异步延时的特性会使运行环境复杂化，稍不注意，就会产出效率低下的编码。
+然而，**任何线程间的数据传输都是有延时的**，这意味着逻辑层和视图层间通信是异步行为。除此之外，微信为小程序提供了很多客户端原生能力，在调用客户端原生能力的过程中，微信主线程和小程序双线程之间也会发生通信，这也是一种异步行为。这种异步延时的特性会使运行环境复杂化，稍不注意，就会产出效率低下的编码。
 
 作为小程序开发者，我们常常会被下面几个问题所困扰：
 
@@ -200,9 +200,9 @@ const A = require('./A')
 
 - **JS、CSS Tree-Shaking**
 
-JS Tree-Shaking 的原理就是借助 `Babel` 把代码编译成抽象语法树（AST），通过 AST 获取到函数的调用关系，从而把未被调用的函数方法剔除掉。不过这需要依赖 ES module，而小程序最开始是遵循 commonjs 规范的，这意味着是时候来一波“痛并快乐着”的改造了。
+[JS Tree-Shaking](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking) 的原理就是借助 `Babel` 把代码编译成抽象语法树（AST），通过 AST 获取到函数的调用关系，从而把未被调用的函数方法剔除掉。不过这需要依赖 ES module，而小程序最开始是遵循 CommonJS 规范的，这意味着是时候来一波“痛并快乐着”的改造了。
 
-而 CSS 的 Tree-Shaking 可以利用 PurifyCSS 插件来完成。关于这两项技术，有兴趣的可以“谷歌一下”，这里就不铺开细讲了。
+而 CSS 的 Tree-Shaking 可以利用 [PurifyCSS](https://github.com/purifycss/purifycss) 插件来完成。关于这两项技术，有兴趣的可以“谷歌一下”，这里就不铺开细讲了。
 
 题外，京东的小程序团队已经把这一系列工程化能力集成在一套 CLI 工具中，有兴趣的可以看看这篇分享：[小程序工程化探索](https://mp.weixin.qq.com/s/_NSJTQ-4-8gTnwTVK-tn0A)。
 
@@ -342,7 +342,7 @@ Component({
 
 小程序提供了 [web-view](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html) 组件，支持在小程序环境内访问网页。当实在无法在小程序代码包中腾出多余空间时，可以考虑降级方案 —— 把部分页面 h5 化。 
 
-> 小程序和 h5 的通信可以通过 JSSDK 或 postMessage 通道来实现。
+> 小程序和 h5 的通信可以通过 JSSDK 或 postMessage 通道来实现，详见 [小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html)。
   
 ## 白屏时间过长？
 
@@ -403,7 +403,7 @@ FMP 没法用标准化的指标定义，但对于大部分小程序来说，页�
 
 这是关键渲染路径优化的其中一个思路，从缩短网络请求时延的角度加快首屏渲染完成时间。
 
-> 关键渲染路径（Critical Rendering Path）是指在完成首屏渲染的过程中必须发生的事件。
+> [关键渲染路径（Critical Rendering Path）](https://developers.google.com/web/fundamentals/performance/critical-rendering-path) 是指在完成首屏渲染的过程中必须发生的事件。
 
 以京喜小程序如此庞大的小程序项目为例，每个模块背后都可能有着海量的后台服务作支撑，而这些后台服务间的通信和数据交互都会存在一定的时延。我们根据京喜首页的页面结构，把所有模块划分成两类：**主体模块**（导航、商品轮播、商品豆腐块等）和 **非主体模块**（幕帘弹窗、右侧挂件等）。
 
@@ -448,7 +448,7 @@ FMP 没法用标准化的指标定义，但对于大部分小程序来说，页�
 
 降质 70%：`https://{href}!q70`；
 
-- **图片懒加载、雪碧图优化**
+- **图片懒加载、雪碧图（CSS Sprite）优化**
 
 这两者都是比较老生常谈的图片优化技术，这里就不打算细讲了。
 
@@ -627,7 +627,7 @@ Page({
 
 ### 适当的组件颗粒度
 
-小程序的组件模型与 WebComponents 标准中的 ShadowDOM 非常类似，每个组件都有独立的节点树，拥有各自独立的逻辑空间（包括独立的数据、`setData` 调用、`createSelectorQuery` 执行域等）。
+小程序的组件模型与 [Web Components](https://developer.mozilla.org/zh-CN/docs/Web/Web_Components) 标准中的 ShadowDOM 非常类似，每个组件都有独立的节点树，拥有各自独立的逻辑空间（包括独立的数据、`setData` 调用、`createSelectorQuery` 执行域等）。
 
 不难得出，如果自定义组件的颗粒度太粗，组件逻辑过重，会影响节点树构建和新/旧节点树 diff 的效率，从而影响到组件内 `setData` 的性能。另外，如果组件内使用了 `createSelectorQuery` 来查找节点，过于庞大的节点树结构也会影响查找效率。
 
@@ -836,6 +836,7 @@ Page({
 ## 参考
 
 - [User-centric Performance Metrics](https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics)
+- [Reduce JavaScript Payloads with Tree Shaking](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking)
 - [小程序开发指南](https://developers.weixin.qq.com/ebook?action=get_post_info&docid=0008aeea9a8978ab0086a685851c0a)
 - [小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 - [Taro 官方文档](https://taro.aotu.io/home/in.html)
