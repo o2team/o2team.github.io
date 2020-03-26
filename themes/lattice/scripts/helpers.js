@@ -146,7 +146,7 @@ hexo.extend.helper.register('page_keywords', function(asStr){
  */
 hexo.extend.helper.register('post_key', function(path, customKey){
     customKey = customKey || new Buffer(path).toString('base64');
-    return customKey;
+    return customKey.slice(0, 50);
 });
 
 hexo.extend.helper.register('num_toArray', function(num) {
