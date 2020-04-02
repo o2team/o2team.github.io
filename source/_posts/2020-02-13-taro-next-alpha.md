@@ -31,7 +31,7 @@ date: 2020-02-03 13:50:00
 import { View } from '@tarojs/components'
 function Page (props) {
     const view = React.createElement(View, null, props.text)
-    return [view, React.Children.only(this.prosps.children)]
+    return [view, React.Children.only(this.props.children)]
 }
 ```
 
