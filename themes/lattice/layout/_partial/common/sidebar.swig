@@ -1,7 +1,7 @@
 <aside class="mod-side" id="sidebar">
     <div class="mod-side-sec aotuwx">
         <img  class="aotuwx-qrcode" src="{{ url_for('img/qrcode.jpg') }}" alt="{{ __('site.follow_us') }}"/> 
-        <div class="aotuwx-slogan">每周五推送精选技术文章</div>
+        <div class="aotuwx-slogan">每周推送精选技术文章</div>
     </div>
 
     <div class="mod-side-sec works"> 
