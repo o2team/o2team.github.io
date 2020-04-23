@@ -77,7 +77,7 @@ const NewsBannerLoadable = Loadable({
 ```
 
 上面的代码在首次加载时，会先展示一个 loadingBlock，然后动态加载 news_banner 的代码，组件代码加载完毕之后，便会替换掉 loadingBlock。
-[Lazyload](https://git.jd.com/taro/jdr-design/blob/master/src/home/component/utils/Lazyload.js) 通过监听 window 对象或者父级对象的 scroll 事件，触发 load，实现懒加载，让组件进入页面可视区时才加载该组件。需要注意的是 lazyload 需要设置高度，才会撑起懒加载的区域。
+Lazyload 通过监听 window 对象或者父级对象的 scroll 事件，触发 load，实现懒加载，让组件进入页面可视区时才加载该组件。需要注意的是 lazyload 需要设置高度，才会撑起懒加载的区域。
 
 ```
 <Lazyload {...this.lazyloadOptions} height={this.floorHeight.newsBanner}>
@@ -91,11 +91,11 @@ const NewsBannerLoadable = Loadable({
 ### 图片懒加载
 整站图片非常多，为了保持清晰度而且全部采用二倍图引入，消耗资源比较大，为了加快加载速度，我们选择让滚动条滚动到图片的可视区后才加载该图片。
 
-使用 [Lazyload](https://git.jd.com/taro/jdr-design/blob/master/src/home/component/utils/Lazyload.js) 实现，和上述组件懒加载介绍的一样，<Lazyload></Lazyload> 包裹着需要懒加载的图片，就可以实现图片懒加载。
+使用 Lazyload 实现，和上述组件懒加载介绍的一样，<Lazyload></Lazyload> 包裹着需要懒加载的图片，就可以实现图片懒加载。
 
 图片懒加载之外还有个优化，就是图片加载中、加载失败、加载成功的状态的判断，根据不同状态展示图片的内容。
 
-使用 [Lazyimg](https://git.jd.com/taro/jdr-design/tree/master/src/home/component/utils/lazyimg) 实现这个功能：
+使用 Lazyimg 实现这个功能：
 
 * 使用 new Image() 创建一个新的 [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement) 实例
 * img.onload()，img.onerror() 捕获到图片加载成功或者失败的状态
@@ -155,7 +155,7 @@ const NewsBannerLoadable = Loadable({
 
 2. 文档视图调整大小时判断宽窄版，修改 html 标签的 className
 
-先引入 [Events.js](https://git.jd.com/taro/jdr-design/blob/master/src/home/util/Events.js) ，然后在 componentDidMount 里生命周期函数里绑定 ' isWideChange ' 事件，在文档视图宽度达到宽窄版临界点时调用。
+先引入 Events.js ，然后在 componentDidMount 里生命周期函数里绑定 ' isWideChange ' 事件，在文档视图宽度达到宽窄版临界点时调用。
 
 ```
 componentDidMount() {
