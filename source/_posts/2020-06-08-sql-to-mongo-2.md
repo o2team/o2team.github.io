@@ -14,7 +14,7 @@ author:
 
 > 翻译原文：MongoDB 官方文档： [SQL to Aggregation Mapping Chart](https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/)
 >
-> 在上一篇翻译 [从 SQL 到 MongoDB，这一篇就够了](https://segmentfault.com/a/1190000021881022)，我们详细讲解了 SQL 和 MongoDB 的一些概念的对应关系，方便大家入门和理解，这一篇属于进阶篇，主要讲解了 SQL 和 MongoDB 和 数据聚合 的对应关系。
+> 在上一篇翻译 [从 SQL 到 MongoDB 之概念篇](https://aotu.io/notes/2020/06/07/sql-to-mongo-1/)，我们详细讲解了 SQL 和 MongoDB 的一些概念的对应关系，方便大家入门和理解，这一篇属于进阶篇，主要讲解了 SQL 和 MongoDB 和 数据聚合 的对应关系。
 
 聚合管道 （[aggregation pipeline ](https://docs.mongodb.com/manual/core/aggregation-pipeline/)） 让 MongoDB 提供与 SQL 中的许多常见数据聚合操作相对应的，原生的聚合功能。
 
