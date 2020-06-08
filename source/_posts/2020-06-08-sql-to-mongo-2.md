@@ -1,5 +1,5 @@
 title: 从 SQL 到 MongoDB 之聚合篇
-subtitle: 对于 SQL 转战 NoSQL的开发人员来说，最难的一步其实是将原有的 SQL 的概念和知识直接复用过来，最大化的减小学习的成本。
+subtitle: 聚合管道（aggregation pipeline ）让 MongoDB 提供与 SQL 中的许多常见数据聚合操作相对应的，原生的聚合功能。
 cover: https://img20.360buyimg.com/ling/jfs/t1/118385/24/9729/579901/5eddfbbcE44e1172b/c20bd5ecb954d873.png
 categories: 全栈开发
 tags:
