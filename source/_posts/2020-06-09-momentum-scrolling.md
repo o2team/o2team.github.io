@@ -1,20 +1,23 @@
-title: 应用物理模型剖析惯性滚动原理
+title: 前端也要懂物理 —— 惯性滚动篇
 subtitle: 惯性滚动最早出现在 iOS 系统中，旨在优化用户滑动页面的体验，现在已被各类终端环境所广泛应用，本文通过应用基础的物理模型来剖析惯性滚动在 web 环境的实现原理，并基于 vue 框架提供基本实现。
-cover: https://img30.360buyimg.com/ling/jfs/t1/125583/27/4454/199245/5ede6381E5fedb493/4e3d9eb00ff9cae3.jpg
+cover: https://img13.360buyimg.com/ling/jfs/t1/123424/14/4462/171235/5edf3a35Ea5c53dab/786c50df157ece8b.jpg
 categories: web 开发
 tags:
+  - 物理学
   - 惯性滚动
-  - ui 组件
-  - 移动端 h5
+  - UI 组件
+  - 移动端 H5
 author:
   nick: 吖伟
   github_name: JunreyCen
 wechat:
-    share_cover: https://img11.360buyimg.com/ling/jfs/t1/138130/1/248/65389/5ede65abE88d3e46f/983c167499fa7e26.png
-    share_title: 应用物理模型剖析惯性滚动原理
+    share_cover: https://img12.360buyimg.com/img/s400x400_jfs/t1/121890/1/4395/52691/5edf3c1cEc3f2f372/d77e336b50bc8375.png
+    share_title: 前端也要懂物理 —— 惯性滚动篇
     share_desc: 惯性滚动最早出现在 iOS 系统中，旨在优化用户滑动页面的体验，现在已被各类终端环境所广泛应用，本文通过应用基础的物理模型来剖析惯性滚动在 web 环境的实现原理，并基于 vue 框架提供基本实现。
 date:
 ---
+
+我们在平时编程开发时，除了需要关注技术实现、算法、代码效率等因素之外，更要把所学到的学科知识（如物理学、理论数学等等）灵活应用，毕竟理论和实践相辅相成、密不可分，这无论是对于我们的方案选型、还是技术实践理解都有非常大的帮助。今天就让我们一起来回顾中学物理知识，并灵活运用到惯性滚动的动效实现当中。
 
 `惯性滚动`（也叫 `滚动回弹`，`momentum-based scrolling`）最早是出现在 iOS 系统中，是指 **当用户在终端上滑动页面然后把手指挪开，页面不会马上停下而是继续保持一定时间的滚动效果，并且滚动的速度和持续时间是与滑动手势的强烈程度成正比**。抽象地理解，就像高速行驶的列车制动后依然会往前行驶一段距离才会最终停下。而且在 iOS 系统中，当页面滚动到顶/底部时，还有可能触发 “回弹” 的效果。这里录制了微信 APP 【账单】页面中的 iOS 原生时间选择器的惯性滚动效果：
 
@@ -229,89 +232,31 @@ date:
 
 ## 示例代码
 
-基于 vuejs 提供了示例代码，也可以直接访问 [codepen demo](https://codepen.io/JunreyCen/pen/arRYem) 体验。
+基于 vuejs 提供了部分关键代码，也可以直接访问 [codepen demo](https://codepen.io/JunreyCen/pen/arRYem) 体验效果（完整代码）。
 
-```js
+```html
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <style>
-      body, ul {
-        margin: 0;
-        padding: 0;
-      }
-      ul {
-        list-style: none;
-      }
-      .wrapper {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        height: 80%;
-        width: 80%;
-        max-width: 300px;
-        max-height: 500px;
-        border: 1px solid #000;
-        transform: translateY(-50%);
-        overflow: hidden;
-      }
-      .list {
-        background-color: #70f3b7;
-      }
-      .list-item {
-        height: 40px;
-        line-height: 40px;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #ccc;
-      }
-    </style>
-  </head>
   <body>
     <div id="app"></div>
-  
     <template id="tpl">
       <div
-        class="wrapper"
         ref="wrapper"
         @touchstart.prevent="onStart"
         @touchmove.prevent="onMove"
         @touchend.prevent="onEnd"
         @touchcancel.prevent="onEnd"
-        @mousedown.prevent="onStart"
-        @mousemove.prevent="onMove"
-        @mouseup.prevent="onEnd"
-        @mousecancel.prevent="onEnd"
-        @mouseleave.prevent="onEnd"
         @transitionend="onTransitionEnd">
-        <ul
-          class="list"
-          ref="scroller"
-          :style="scrollerStyle">
-          <li 
-            class="list-item"
-            v-for="item in list">
-            {{item}}
-          </li>
+        <ul ref="scroller" :style="scrollerStyle">
+          <li v-for="item in list">{{item}}</li>
         </ul>
       </div>
     </template>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
       new Vue({
         el: '#app',
         template: '#tpl',
         computed: {
-          list() {
-            const list = [];
-            for (let i = 0; i < 100; i++) {
-              list.push(i);
-            }
-            return list;
-          },
+          list() {},
           scrollerStyle() {
             return {
               'transform': `translate3d(0, ${this.offsetY}px, 0)`,
@@ -322,16 +267,14 @@ date:
         },
         data() {
           return {
-            wrapper: null,
-            scroller: null,
             minY: 0,
             maxY: 0,
             wrapperHeight: 0,
-            offsetY: 0,
             duration: 0,
             bezier: 'linear',
-            startY: 0,
-            pointY: 0,
+            pointY: 0,                    // touchStart 手势 y 坐标
+            startY: 0,                    // touchStart 元素 y 偏移值
+            offsetY: 0,                   // 元素实时 y 偏移值
             startTime: 0,                 // 惯性滑动范围内的 startTime
             momentumStartY: 0,            // 惯性滑动范围内的 startY
             momentumTimeThreshold: 300,   // 惯性滑动的启动 时间阈值
@@ -341,12 +284,8 @@ date:
         },
         mounted() {
           this.$nextTick(() => {
-            this.wrapper = this.$refs.wrapper;
-            this.scroller = this.$refs.scroller;
-            const { height: wrapperHeight } = this.wrapper.getBoundingClientRect();
-            const { height: scrollHeight } = this.scroller.getBoundingClientRect();
-            this.wrapperHeight = wrapperHeight;
-            this.minY = wrapperHeight - scrollHeight;
+            this.wrapperHeight = this.$refs.wrapper.getBoundingClientRect().height;
+            this.minY = this.wrapperHeight - this.$refs.scroller.getBoundingClientRect().height;
           });
         },
         methods: {
@@ -363,13 +302,7 @@ date:
             if (!this.isStarted) return;
             const point = e.touches ? e.touches[0] : e;
             const deltaY = point.pageY - this.pointY;
-            // 浮点数坐标会影响渲染速度
-            let offsetY = Math.round(this.startY + deltaY);
-            // 超出边界时增加阻力
-            if (offsetY < this.minY || offsetY > this.maxY) {
-              offsetY = Math.round(this.startY + deltaY / 3);
-            }
-            this.offsetY = offsetY;
+            this.offsetY = Math.round(this.startY + deltaY);
             const now = new Date().getTime();
             // 记录在触发惯性滑动条件下的偏移值和时间
             if (now - this.startTime > this.momentumTimeThreshold) {
@@ -451,9 +384,9 @@ date:
             }
             return false;
           },
+          // 停止滚动
           stop() {
-            // 获取当前 translate 的位置
-            const matrix = window.getComputedStyle(this.scroller).getPropertyValue('transform');
+            const matrix = window.getComputedStyle(this.$refs.scroller).getPropertyValue('transform');
             this.offsetY = Math.round(+matrix.split(')')[0].split(', ')[5]);
           },
         },
