@@ -68,7 +68,7 @@ SVG 可依据一定的规则，转成 iconfont 使用：
 ![SVG SMIL](https://img10.360buyimg.com/aotucms/jfs/t1/114415/30/9775/264653/5edda606E86b8315a/0bd9751c676fadf9.gif)
 
 代码如下：
-```
+```html
 <svg id="svg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
 	<text id="aotu" font-family="microsoft yahei" font-size="20" y="50" x="100">
 	  凹凸实验室
@@ -260,7 +260,6 @@ SVG 一个属性可成就一篇文章，学习 SVG 可以说是在挑战自己�
 [三看 SVG Web 动效](https://aotu.io/notes/2016/11/22/SVG_Web_Animation/)
 [URL编码的奥秘](https://aotu.io/notes/2017/06/15/The-mystery-of-URL-encoding/)
 [学习了，CSS中内联SVG图片有比Base64更好的形式](https://www.zhangxinxu.com/wordpress/2018/08/css-svg-background-image-base64-encode/)
-[sass-svg 一个内联 SVG 的 SASS 库](https://aotu.io/notes/2017/01/19/sass-svg/)
 [超级强大的SVG SMIL animation动画详解](https://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
 [详细教你微信公众号正文页SVG交互开发](https://www.jianshu.com/p/8c2e4fc26e8a)
 [SVG <foreignObject>简介与截图等应用](https://www.zhangxinxu.com/wordpress/2017/08/svg-foreignobject/)
