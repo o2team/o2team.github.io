@@ -136,14 +136,14 @@ preserveAspectRatio="[defer] <align> [<meetOrSlice>]"
 
 * `align`：由两个名词组成，分别代表 viewbox 与 viewport 的 x 方向、y方向的对齐方式。
 
-	| 值	| 含义 |
-	|-------|-------|
-	| `xMin`	|  viewport 和 viewBox 左边对齐 |
-	| `xMid`	|  viewport 和 viewBox x轴中心对齐 |
-	| `xMax`	|  viewport 和 viewBox 右边对齐 |
-	| `YMin`	|  viewport 和 viewBox 上边缘对齐。注意Y是大写。 |
-	| `YMid`	|  viewport 和 viewBox y轴中心点对齐。注意Y是大写。 |
-	| `YMax`	|  viewport 和 viewBox 下边缘对齐。注意Y是大写。 |
+| 值	| 含义 |
+|-------|-------|
+| `xMin`	|  viewport 和 viewBox 左边对齐 |
+| `xMid`	|  viewport 和 viewBox x轴中心对齐 |
+| `xMax`	|  viewport 和 viewBox 右边对齐 |
+| `YMin`	|  viewport 和 viewBox 上边缘对齐。注意Y是大写。 |
+| `YMid`	|  viewport 和 viewBox y轴中心点对齐。注意Y是大写。 |
+| `YMax`	|  viewport 和 viewBox 下边缘对齐。注意Y是大写。 |
 
 * `meetOrSlice`：表示如何维持高宽的比例，有三个值 meet、slice、none。
 	* `meet` - 默认值，保持纵横比缩放 viewBox 适应 viewport，可能会有余留的空白。
