@@ -10,8 +10,6 @@ author:
   date: 2020-06-08 16:46:08
 ---
 
-# SQL to Aggregation Mapping Chart
-
 > 翻译原文：MongoDB 官方文档： [SQL to Aggregation Mapping Chart](https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/)
 >
 > 在上一篇翻译 [从 SQL 到 MongoDB 之概念篇](https://aotu.io/notes/2020/06/07/sql-to-mongo-1/)，我们详细讲解了 SQL 和 MongoDB 的一些概念的对应关系，方便大家入门和理解，这一篇属于进阶篇，主要讲解了 SQL 和 MongoDB 和 数据聚合 的对应关系。
