@@ -61,23 +61,25 @@ SVG 可依据一定的规则，转成 iconfont 使用：
 
 #### 1.4、SVG SMIL
 
-由于微信编辑器不允许嵌入 `<style><script>` 标签，利用SVG SMIL 可进行微信公众号极具创意的图文排版设计，包括动画与交互。
+由于微信编辑器不允许嵌入 `<style><script>` 标签等，利用SVG SMIL 可进行微信公众号极具创意的图文排版设计，包括动画与交互。
+但是也要注意，标签里不允许有id，否则会被过滤或替换掉。
 
-点击 "凹凸实验室" 后，显示 "欢迎您"，显示后紧接着 放大2倍  "欢迎您"：
+点击 "凹凸实验室" 后，放大到2倍，点击2秒后紧接着 缩小到1倍 ：
 
-![SVG SMIL](https://img10.360buyimg.com/aotucms/jfs/t1/114415/30/9775/264653/5edda606E86b8315a/0bd9751c676fadf9.gif)
+![SVG SMIL](https://img30.360buyimg.com/aotucms/jfs/t1/127677/21/5100/358428/5ee8a470E667d0028/88f21dac74fdc917.gif)
 
 代码如下：
 ```html
-<svg id="svg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-	<text id="aotu" font-family="microsoft yahei" font-size="20" y="50" x="100">
-	  凹凸实验室
-	</text>
-	<text font-family="microsoft yahei" font-size="20" y="100" x="100" fill-opacity="0">
-	  欢迎您！
-    <animate id="welcome" attributeName="fill-opacity" from="0" to="1" begin="aotu.click" dur="0.5s" fill="freeze" />
-    <animateTransform attributeName="transform" begin="welcome.end" dur="2s" type="scale" from="1" to="2" fill="freeze" />
-	</text>
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <animateTransform attributeName="transform" begin="click" dur="2s" type="scale" from="1" to="2" fill="freeze" />
+        <animateTransform attributeName="transform" begin="click+2" dur="2s" type="scale" from="2" to="1" fill="freeze" />
+        <g style="transform: scale(1)">
+            <text font-family="microsoft yahei" font-size="20" y="50" x="100">
+                凹凸实验室
+            </text>
+        </g>
+    </g>
 </svg>
 ```
 
