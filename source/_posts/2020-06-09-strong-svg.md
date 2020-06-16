@@ -80,10 +80,11 @@ SVG 可依据一定的规则，转成 iconfont 使用：
             </text>
         </g>
         <g style="opacity: 0;">
+            <!-- 同一个初始位置以及大致的宽高，触发点击事件 -->
             <text font-family="microsoft yahei" font-size="20" x="50" y="80">https://aotu.io/</text>
-            <!-- 点击后 运行css的translate旋转动画，初始位置x="50" y="80"让点击事件 生效后，改变文本的位置 -->
+            <!-- 点击后 运行transform移动动画，改变文本的位置 -->
             <animateTransform attributeName="transform" type="translate" begin="click" dur="0.1s" to="0 40"  fill="freeze" restart="never" />
-            <!-- 点击0.5秒后 运行css的opacity显示动画 -->
+            <!-- 点击0.5秒后 运行opacity显示动画 -->
             <animate attributeName="opacity" begin="click+0.5s" from="0" to="1" dur="0.5s" fill="freeze" restart="never" />
         </g>
     </g>
