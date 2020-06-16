@@ -1,6 +1,6 @@
-title: 牛逼SVG之进阶扫盲
-subtitle: “牛逼是想夸夸SVG，SVG能干的事还挺多，那能干些啥事呢？”
-cover: https://img14.360buyimg.com/aotucms/jfs/t1/136478/6/1809/44886/5edf14d7Ef2ea4778/18392e551942e918.jpg
+title: 向强大的SVG迈进
+subtitle: “强大如SVG，走遍千里，海阔天空，过来瞧一瞧看一看啦，大甩卖啦！”
+cover: http://img20.360buyimg.com/aotucms/jfs/t1/115112/29/10318/58090/5ee87c4cE618547e0/3dbaa17ba41b6281.jpg
 ckey: 2020-06-09-strong-svg
 categories: Web开发 移动开发
 tags:
@@ -17,9 +17,9 @@ author:
   github_name: Newcandy
 date: 2020-06-09 14:00:00
 wechat:
-    share_cover: https://img14.360buyimg.com/aotucms/jfs/t1/136478/6/1809/44886/5edf14d7Ef2ea4778/18392e551942e918.jpg
-    share_title: 牛逼SVG之进阶扫盲
-    share_desc: “牛逼是想夸夸SVG，SVG能干的事还挺多，那能干些啥事呢？”
+    share_cover: http://img20.360buyimg.com/aotucms/jfs/t1/115112/29/10318/58090/5ee87c4cE618547e0/3dbaa17ba41b6281.jpg
+    share_title: 向强大的SVG迈进
+    share_desc: “强大如SVG，走遍千里，海阔天空，过来瞧一瞧看一看啦，大甩卖啦！”
    
 ---
 
