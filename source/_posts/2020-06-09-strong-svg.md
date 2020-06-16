@@ -61,23 +61,30 @@ SVG 可依据一定的规则，转成 iconfont 使用：
 
 #### 1.4、SVG SMIL
 
-由于微信编辑器不允许嵌入 `<style><script>` 标签等，利用SVG SMIL 可进行微信公众号极具创意的图文排版设计，包括动画与交互。
+由于微信编辑器不允许嵌入 `<style><script><a>` 标签，利用SVG SMIL 可进行微信公众号极具创意的图文排版设计，包括动画与交互。
 但是也要注意，标签里不允许有id，否则会被过滤或替换掉。
 
-点击 "凹凸实验室" 后，放大到2倍，点击2秒后紧接着 缩小到1倍 ：
+点击 "凹凸实验室" 后，围绕 "凹凸实验室" 中心旋转 360度，点击0.5秒 出现 https://aotu.io/ ，且只运行一次：
 
-![SVG SMIL](https://img30.360buyimg.com/aotucms/jfs/t1/127677/21/5100/358428/5ee8a470E667d0028/88f21dac74fdc917.gif)
+![SVG SMIL](https://img12.360buyimg.com/aotucms/jfs/t1/143214/2/840/62729/5ee8dbb5E003a30d2/c19e87be91f6bbd6.gif)
 
 代码如下：
 ```html
-<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+<svg width="360" height="300" xmlns="http://www.w3.org/2000/svg">
     <g>
-        <animateTransform attributeName="transform" begin="click" dur="2s" type="scale" from="1" to="2" fill="freeze" />
-        <animateTransform attributeName="transform" begin="click+2" dur="2s" type="scale" from="2" to="1" fill="freeze" />
-        <g style="transform: scale(1)">
-            <text font-family="microsoft yahei" font-size="20" y="50" x="100">
+        <!-- 点击后 运行transform旋转动画，restart="never"表示只运行一次 -->
+        <animateTransform attributeName="transform" type="rotate" begin="click" dur="0.5s" from="0 100 80" to="360 100 80"  fill="freeze" restart="never" />
+        <g>
+            <text font-family="microsoft yahei" font-size="20" x="50" y="80">
                 凹凸实验室
             </text>
+        </g>
+        <g style="opacity: 0;">
+            <text font-family="microsoft yahei" font-size="20" x="50" y="80">https://aotu.io/</text>
+            <!-- 点击后 运行css的translate旋转动画，初始位置x="50" y="80"让点击事件 生效后，改变文本的位置 -->
+            <animateTransform attributeName="transform" type="translate" begin="click" dur="0.1s" to="0 40"  fill="freeze" restart="never" />
+            <!-- 点击0.5秒后 运行css的opacity显示动画 -->
+            <animate attributeName="opacity" begin="click+0.5s" from="0" to="1" dur="0.5s" fill="freeze" restart="never" />
         </g>
     </g>
 </svg>
