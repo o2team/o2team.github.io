@@ -24,7 +24,7 @@ wechat:
 
 ### 猜想与答案
 
-给出两个选择：
+给出两个答案：
 
 ![猜想.jpg](https://img13.360buyimg.com/ling/jfs/t1/124324/8/5198/217837/5eec60cbE1c4ad815/1adb73985f1ca081.jpg)
 
