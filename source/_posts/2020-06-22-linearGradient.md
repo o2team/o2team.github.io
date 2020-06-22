@@ -4,8 +4,10 @@ cover: https://img13.360buyimg.com/ling/jfs/t1/112084/38/10525/348536/5eec60d9E0
 categories: Web开发
 date: 2020-06-22 10:00:00
 tags:
-  - 图形处理
   - Canvas 线性渐变
+  - Linear Gradient
+  - 图形处理
+  - 图形算法
 author:
   nick: Barrior
   github_name: Barrior
