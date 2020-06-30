@@ -211,7 +211,7 @@ preserveAspectRatio="[defer] <align> [<meetOrSlice>]"
 前言：
 
 `Data URI` 的格式中的 `<data>` 完全使用URL 编码也是可以的，如 `encodeURIComponent('<svg version="1.1" viewBox= …</svg>')`。
-但是和转义前原始SVG相比，可读性差了很多，而且占用体积也变大了。 
+但是和转义前原始SVG相比，可读性差了很多，而且占用体积也变大了。
 如果深入了解URL 编码的话，`<data>`  没必要全部编码的。
 
 正文：
