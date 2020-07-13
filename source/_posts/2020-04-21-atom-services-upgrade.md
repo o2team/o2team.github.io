@@ -1,4 +1,4 @@
-title: Atom 服务架构演变
+title: 智能可视化搭建系统 Atom 服务架构演变
 subtitle: Atom 服务端经历了三个版本的迭代，本文着重剖析第三个版本。
 cover: https://img30.360buyimg.com/ling/s640x356_jfs/t1/102437/35/18006/125281/5e902d52Ec02fb0f6/e37850516b1f1ebe.png.webp
 categories: 项目总结
