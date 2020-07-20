@@ -1,6 +1,7 @@
 title: Webpack原理浅析
 subtitle: 从Webpack设计者的角度解析内部原理
-cover: git-flow.jpg
+cover: https://o2team.github.io/misc/XHFk1nderg2rten/webpack_analize_900*500.png
+cover: https://o2team.github.io/misc/XHFk1nderg2rten/webpack_analize_200*200.png
 categories: Web开发
 tags:
   - Git
