@@ -1,7 +1,7 @@
 title: Webpack原理浅析
 subtitle: 从Webpack设计者的角度解析内部原理
-cover: https://o2team.github.io/misc/XHFk1nderg2rten/webpack_analize_900*500.png
-cover: https://o2team.github.io/misc/XHFk1nderg2rten/webpack_analize_200*200.png
+cover: ![封面](https://misc.aotu.io/XHFk1nderg2rten/webpack_analize_900*500.png)
+cover: ![封面](https://misc.aotu.io/XHFk1nderg2rten/webpack_analize_200*200.png)
 categories: Web开发
 tags:
   - Git
@@ -15,21 +15,21 @@ date: 2020-07-17 14:34:02
 
 ## 背景
 
-`webpack` 迭代到4.x版本后，其源码已经十分庞大，对各种开发场景进行了高度抽象，阅读成本也愈发昂贵。但是为了了解其内部的工作原理。让我们尝试从一个最简单的webpack配置入手，从工具设计者的角度开发一款低配版的webpack。
+`Webpack` 迭代到4.x版本后，其源码已经十分庞大，对各种开发场景进行了高度抽象，阅读成本也愈发昂贵。但是为了了解其内部的工作原理，让我们尝试从一个最简单的 webpack 配置入手，从工具设计者的角度开发一款低配版的 `Webpack`。
 
 ## 开发者视角
 
-假设某一天，我们需要开发一个react单页面,这个页面有一行文字和一个按钮，每次点击按钮的时候文字都会发生变化。于是我们在 `[项目根目录]/src` 下新建了三个简单的react文件(为了模拟 `webpack` 根据模块追踪打包的流程，我们建立了一个简单的引用关系:
+假设某一天，我们接到了需求，需要开发一个 `react` 单页面应用,页面中包含一行文字和一个按钮，需要支持每次点击按钮的时候让文字发生变化。于是我们新建了一个项目，并且在 `[根目录]/src` 下新建 JS 文件。为了模拟 `Webpack` 追踪模块依赖进行打包的过程，我们新建了 3 个 React 组件，并且在他们之间建立起一个简单的依赖关系。
 
 ```jsx
-// index.js
+// index.js 根组件
 import React from 'react'
 import ReactDom from 'react-dom'
 import App from './App'
 ReactDom.render(<App />, document.querySelector('#container'))
 ```
 ```jsx
-// App.js
+// App.js 页面组件
 import React from 'react'
 import Switch from './Switch.js'
 export default class App extends React.Component {
@@ -56,7 +56,7 @@ export default class App extends React.Component {
 }
 ```
 ```jsx
-// Switch.js
+// Switch.js 按钮组件
 import React from 'react'
 
 export default function Switch({ handleToggle }) {
@@ -66,7 +66,7 @@ export default function Switch({ handleToggle }) {
 }
 ```
 
-接着我们需要配置一个文件来告诉 `webpack` 它应该如何工作，我们在根目录下新建一个文件 `webpack.config.js` 并且向其中写入一些基础的配置
+接着我们需要一个配置文件让 `Webpack` 知道我们期望它如何工作，于是我们在根目录下新建一个文件 `webpack.config.js` 并且向其中写入一些基础的配置。（如果不太熟悉配置内容可以先学习[webpack中文文档](https://www.webpackjs.com/)）
 
 ```jsx
 // webpack.config.js
@@ -89,73 +89,25 @@ module.exports = {
         include: [
           resolve('src')
         ],
-        use: {
-          loader: BabelLoader // 通过Babel编译react代码
-        }
+        use: 'babel-loader'
       }
     ]
   },
   plugins: [
-    new TestPlugin() // 一个测试plugin
+    new HtmlWebpackPlugin()
   ]
 }
 ```
 
-其中 `module` 的作用是在test字段和文件名匹配成功时就用对应的loader对代码进行编译，webpack本身只认识 `.js` 、 `.json` 这两种类型的文件，有了loader就可以对css以及其他格式的文件进行识别和处理。而对于React文件而言，我们需要将JSX语法转换成纯JS语法，即 `React.createElement` 方法，代码才可能被浏览器所识别。而平常我们用来处理react代码的是 `babel-loader` ，但是它只有在正版webpack封装的语境下才能正常运行，但是好在 `@bable/core` 是公用的，所以我们自己封装了一个简易的BabelLoader
+其中 `module` 的作用是在 `test` 字段和文件名匹配成功时就用对应的 loader 对代码进行编译，`Webpack`本身只认识 `.js` 、 `.json` 这两种类型的文件，而通过loader，我们就可以对例如 css 等其他格式的文件进行处理。
+
+而对于 `React` 文件而言，我们需要将 JSX 语法转换成纯 JS 语法，即 `React.createElement` 方法，代码才可能被浏览器所识别。平常我们是通过 `babel-loader` 并且配置好 `react` 的解析规则来做这一步。
+
+
+经过以上处理之后。浏览器真正阅读到的按钮组件代码其实大概是这个样子的。
 
 ```jsx
-const babel = require('@babel/core')
-
-module.exports = function BabelLoader (source) {
-  const res = babel.transform(source, {
-    sourceType: 'module' // 允许使用ES6 import和export语法
-  })
-  return res.code
-}
-```
-
-当然，编译规则可以作为配置项传入，但是为了模拟真实的开发场景，我们需要配置一下 `babel.config.js`文件
-
-```jsx
-module.exports = function (api) {
-  api.cache(true)
-  return {
-    "presets": [
-      ['@babel/preset-env', {
-        targets: {
-          "ie": "8"
-        },
-      }],
-      '@babel/preset-react', // 编译JSX
-    ],
-    "plugins": [
-      ["@babel/plugin-transform-template-literals", {
-        "loose": true
-      }]
-    ],
-    "compact": true
-  }
-}
-```
-
-之前的React代码编译出来会是这个亚子
-
-```jsx
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = Switch;
-
-var _nervjs = _interopRequireDefault(__webpack_require__("./node_modules/nervjs/index.js"));
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
+...
 function Switch(_ref) {
   var handleToggle = _ref.handleToggle;
   return _nervjs["default"].createElement("button", {
@@ -164,39 +116,44 @@ function Switch(_ref) {
 }
 ```
 
-Tips: 这个 `_interopRequireDefault` 的目的是为了兼容一些不符合 `babel` 规则的模块添加 `default` 属性并指向模块本身。防止在 `export default` 时出错。
 
-而至于plugin则是一些插件，这些插件可以将函数注册在webpack的生命周期钩子上，在生成最终文件之前可以对编译的结果做一些特殊的处理，例如模块分包、插入html文件等功能。
+而至于 `plugin` 则是一些插件，这些插件可以将对编译结果的处理函数注册在 `Webpack` 的生命周期钩子上，在生成最终文件之前对编译的结果做一些处理。比如大多数场景下我们需要将生成的 JS 文件插入到 Html 文件中去。就需要使用到 `html-webpack-plugin` 这个插件，我们需要在配置中这样写。
 
-这里我们只需要写一个简单的方法，在编译开始之前，也就是 `beforeRun` 这个钩子触发的时候，输出一个log意思一下即可
+```JavaScript
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-```jsx
-/**
- * @description: 一个测试plugin
- * just4fun为函数名，第二个参数为函数体
- * 可以从compiler中获取当前的编译信息
- */
-
-class TestPlugin {
-  apply(compiler) {
-    compiler.hooks.beforeRun.tapAsync("just4fun", function(compiler) {
-      console.log('[Success] 开始编译')
-    })
-  }
-}
-
-module.exports = TestPlugin
+const webpackConfig = {
+  entry: 'index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index_bundle.js'
+  },
+  // 向plugins数组中传入一个HtmlWebpackPlugin插件的实例
+  plugins: [new HtmlWebpackPlugin()]
+};
 ```
 
-ok，写到这里，作为一个开发者需要配置的所有配置项都已经配置完毕，接下来需要的就是通过 `webpack` 将代码打包成我们希望看到的样子
+这样，`html-webpack-plugin` 会被注册在打包的完成阶段，并且会获取到最终打包完成的入口 JS 文件路径，生成一个形如 `<script src="./dist/bundle_[hash].js"></script>` 的 script 标签插入到 Html 中。这样浏览器就可以通过 html 文件来展示页面内容了。
+
+
+
+ok，写到这里，对于一个开发者而言，所有配置项和需要被打包的工程代码文件都已经准备完毕，接下来需要的就是将工作交给打包工具 `Webpack`，通过 `Webpack` 将代码打包成我们和浏览器希望看到的样子
 
 ## 工具视角
 
-接下来，我们需要了解Webpack打包的流程
+首先，我们需要了解Webpack打包的流程
 
-![](https://o2team.github.io/misc/XHFk1nderg2rten/wp_6.png)
+![](https://misc.aotu.io/XHFk1nderg2rten/wp_6.png)
 
-首先，无论如何我们要将打包方法进行输出，并且在这个打包方法中接受两个参数，一个是配置项对象，另一个则是错误回调。
+从 `Webpack` 的工作流程中可以看出，我们需要实现一个 `Compiler` 类，这个类需要收集开发者传入的所有配置信息，然后指挥整体的编译流程。我们可以把 `Compiler` 理解为公司老板，它统领全局，并且掌握了全局信息（客户需求）。在了解了所有信息后它会调用另一个类 `Compilation` 生成实例，并且将所有的信息和工作流程托付给它，`Compilation` 其实就相当于老板的秘书，需要去调动各个部门按照要求开始工作，而 `loader` 和 `plugin` 则相当于各个部门，只有在他们专长的工作（ js , css , scss , jpg , png...）出现时才会去处理
+
+
+为了既实现 `Webpack` 打包的功能，又只实现核心代码。我们对这个流程做一些简化
+
+![](https://misc.aotu.io/XHFk1nderg2rten/simple_process.png)
+
+
+首先我们新建了一个 `webpack` 函数作为对外暴露的方法，它接受两个参数，其中一个是配置项对象，另一个则是错误回调。
 
 ```jsx
 const Compiler = require('./compiler')
@@ -204,8 +161,6 @@ const Compiler = require('./compiler')
 function webpack(config, callback) {
   // 此处应有参数校验
   const compiler = new Compiler(config)
-  // 此处应有参数初始化
-  // compiler.initOptions()
   // 开始编译
   compiler.run()
 }
@@ -213,11 +168,11 @@ function webpack(config, callback) {
 module.exports = webpack
 ```
 
-从代码中可以看出，我们需要实现一个 `Compiler` 类，这个类需要收集开发者传入的所有配置信息，然后指挥整体的编译流程。我们可以把 `Compiler` 理解为公司老板，它收集了所有信息统领全局。在查阅了所有信息报告后它会生成另一个类 `Compilation` 的实例，它相当于老板秘书，需要去调动各个部门按照要求开始工作，而loader和plugin则相当于各个部门，只有在他们专长的工作出现时（js, css, scss, jpg, png...)才会去处理
+
 
 ### 1. 构建配置信息
 
-我们先在 `Compiler` 类的构造方法里面收集用户传入的信息（正版webpack中，compiler实例所需要的信息远不止我们传入的这些，所以在挂载数据之前需要对实例的数据进行初始化，此处省略了这个步骤）
+我们需要先在 `Compiler` 类的构造方法里面收集用户传入的信息
 
 ```javascript
 class Compiler {
@@ -228,22 +183,27 @@ class Compiler {
       module,
       plugins
     } = config
+    // 入口
     this.entryPath = entry
+    // 输出文件路径
     this.distPath = output.path
+    // 输出文件名称
     this.distName = output.fileName
+    // 需要使用的loader
     this.loaders = module.rules
+    // 需要挂载的plugin
     this.plugins = plugins
-    this.root = process.cwd() // 根目录
-    this.compilation = {} // 编译工具类
-    // 入口文件在module中的id
+     // 根目录
+    this.root = process.cwd()
+     // 编译工具类Compilation
+    this.compilation = {}
+    // 入口文件在module中的相对路径，也是这个模块的id
     this.entryId = getRootPath(this.root, entry, this.root)
   }
 }
 ```
 
-### 2. 管理生命周期
-
-同时，我们在构造函数中将所有的plugin挂载到实例的hooks属性中去。webpack的生命周期管理基于一个叫做 `tapable` 的库，通过这个库，我们可以创建一个发布订阅模型的钩子，然后通过将函数挂载到实例上（这些钩子事件的回调我们可以同步触发、异步触发甚至进行链式回调），在合适的时机触发钩子上的所有事件。例如我们在hooks上声明各个生命周期的钩子:
+同时，我们在构造函数中将所有的 `plugin` 挂载到实例的 `hooks` 属性中去。`Webpack` 的生命周期管理基于一个叫做 `tapable` 的库，通过这个库，我们可以非常方便的创建一个发布订阅模型的钩子，然后通过将函数挂载到实例上（钩子事件的回调支持同步触发、异步触发甚至进行链式回调），在合适的时机触发对应事件的处理函数。我们在 `hooks` 上声明一些生命周期钩子:
 
 ```javascript
 const { AsyncSeriesHook } = require('tapable') // 此处我们创建了一些异步钩子
@@ -278,11 +238,11 @@ run() {
 }
 ```
 
-如果我们声明了一个hook但是没有挂载任何方法，在call触发的时候是会报错的。但是正版webpack的每一个生命周期钩子除了挂载我们自己的plugin,还挂载了一些官方默认需要挂载的 `plugin`，所以不会有这个问题。更多关于tapable的用法也可以移步 [Tapable](https://github.com/webpack/tapable) 
+> 冷知识：<br>每一个 `plugin Class` 都必须实现一个 `apply` 方法，这个方法接收 `compiler` 实例，然后将真正的钩子函数挂载到 `compiler.hook` 的某一个声明周期上。<br> 如果我们声明了一个hook但是没有挂载任何方法，在 call 函数触发的时候是会报错的。但是实际上 `Webpack` 的每一个生命周期钩子除了挂载用户配置的 `plugin` ,都会挂载至少一个 `Webpack` 自己的 `plugin`，所以不会有这样的问题。更多关于 `tapable` 的用法也可以移步 [Tapable](https://github.com/webpack/tapable) 
 
-### 3. 编译
+### 2. 编译
 
-接下来我们需要声明一个 `Compilation` 类，这个类主要是执行编译工作
+接下来我们需要声明一个 `Compilation` 类，这个类主要是执行编译工作。在 `Compilation` 的构造函数中，我们先接收来自老板 `Compiler` 下发的信息并且挂载在自身属性中。
 
 ```jsx
 class Compilation {
@@ -298,19 +258,31 @@ class Compilation {
     this.loaders = loaders
     this.hooks = hooks
   }
+  // 开始编译
+  async make() {
+    await this.moduleWalker(this.entry)
+  }
+  // dfs遍历函数
+  moduleWalker = async () => {}
 }
+
 ```
 
-为了简化步骤，我希望在constructor中直接开始对文件进行编译。这里需要声明一个 `moduleWalker` 方法(这个名字是笔者取的，不是webpack官方取的)，顾名思义，这个方法将会从入口模块开始进行编译，并且顺藤摸瓜将构建过程中所有的模块递归进行编译。
+因为我们需要将打包过程中引用过的文件都编译到最终的代码包里，所以需要声明一个深度遍历函数 `moduleWalker` （这个名字是笔者取的，不是webpack官方取的），顾名思义，这个方法将会从入口文件开始，依次对文件进行第一步和第二步编译，并且收集引用到的其他模块，递归进行同样的处理。
 
-编译步骤主要分为两步
+编译步骤分为两步
 
-1. 第一步是使用所有满足条件的loader对其进行编译并且返回编译之后的代码
-2. 第二步相当于是webpack自己的编译步骤，其中最核心的目的是构建各个独立模块之间的调用关系。我们需要做的是将所有的 `require` 方法替换成webpack自己定义的 `__webpack_require__` 函数。因为所有被编译后的模块将被webpack存储在一个闭包的对象 `moduleMap` 中，当模块被引用时，都将从这个全局的 `moduleMap` 中获取代码。
+1. 第一步是使用所有满足条件的 `loader` 对其进行编译并且返回编译之后的源代码
+2. 第二步相当于是 `Webpack` 自己的编译步骤，目的是构建各个独立模块之间的依赖调用关系。我们需要做的是将所有的 `require` 方法替换成 `Webpack` 自己定义的 `__webpack_require__` 函数。因为所有被编译后的模块将被 `Webpack` 存储在一个闭包的对象 `moduleMap` 中，而 `__webpack_require__` 函数则是唯一一个有权限访问 `moduleMap` 的方法。
 
-在完成第二步编译的同时，会对当前模块内的引用进行收集，并且作为 `moduleWalker` 方法的回调返回到 `Compilation` 中， `moduleWalker` 方法会对这些依赖模块进行递归的编译。当然里面可能存在重复引用，我们会根据引用文件的路径生成一个独一无二的key值，在key值重复时进行跳过。
+一句话解释 `__webpack_require__`的作用就是，将模块之间原本 `文件地址 -> 文件内容` 的关系替换成了 `对象的key -> 对象的value（文件内容)` 这样的关系。
+
+在完成第二步编译的同时，会对当前模块内的引用进行收集，并且返回到 `Compilation` 中， 这样`moduleWalker` 才能对这些依赖模块进行递归的编译。当然其中大概率存在循环引用和重复引用，我们会根据引用文件的路径生成一个独一无二的 key 值，在 key 值重复时进行跳过。
 
 ### i.  `moduleWalker` 遍历函数
+
+
+![](https://misc.aotu.io/XHFk1nderg2rten/module_walker.png)
 
 ```jsx
 // 存放处理完毕的模块代码Map
@@ -337,11 +309,12 @@ async moduleWalker(sourcePath) {
 
 如果将dfs的路径给log出来，我们就可以看到这样的流程
 
-![](https://o2team.github.io/misc/XHFk1nderg2rten/wp_3.png)
+![](https://misc.aotu.io/XHFk1nderg2rten/wp_3.png)
 
-而对于第一次编译函数 `loaderParse` ，就是判断正则字段是否匹配，然后调用loader对代码进行处理，如果loader是个数组的话则按照倒序依次处理。（正序倒序倒是没有什么意义，只不过是因为webpack源码是用compose的方式来依次调用的）
 
-### ii.  `loaderParse` loader编译函数
+### ii. 第一步编译 `loaderParse`函数
+
+![](https://misc.aotu.io/XHFk1nderg2rten/loaderParser.png)
 
 ```jsx
 async loaderParse(entryPath) {
@@ -362,7 +335,6 @@ async loaderParse(entryPath) {
           const loaderHandler = 
             typeof cur.loader === 'string' 
             // loader也可能来源于package包例如babel-loader
-            // 但是这里并不可以用babel-loader,因为babel-loader需要在webpack提前生成的上下文中才能正常运行
               ? require(cur.loader)
               : (
                 typeof cur.loader === 'function'
@@ -383,15 +355,58 @@ async loaderParse(entryPath) {
 }
 ```
 
-获得了loader处理过的代码之后，理论上任何一个模块都已经可以在浏览器或者单元测试直接使用了。但是我们的代码是一个整体，还需要一种合理的方式来组织代码之间互相引用的关系。
+然而这里遇到了一个小插曲，就是我们平常使用的 `babel-loader` 似乎并不能在 `Webpack` 包以外的场景被使用，在 `babel-loader` 的文档中看到了这样一句话
 
-而我们的做法是将每个模块相对于根目录的相对路径作为key，模块的代码字符串作为value生成一个对象。只有入口文件的模块会被立即执行，而入口文件所依赖的模块都会被替换后的 `__webpack_require__` 函数从这个代码对象中取出，通过 `eval` 来获取模块真正暴露的内容。当然这只是我们当前求快的写法，众所周知对于JS这种解释型语言，eval的性能是非常糟糕的。（事实上大部分打包工具都是用对象存储一个个闭包的方式来调用，例如最近火热的 `esBuild` 打包出来的代码大概也是这个样子）
+> This package allows transpiling JavaScript files using Babel and webpack.
 
-总而言之，在第二部编译 `parse` 函数中我们需要做的事情其实很简单，就是将所有模块中的 `require` 方法的函数名称替换成 `__webpack_require__` 即可。(至于`__webpack_require__`函数我们可以在最终生成代码时再进行定义)。我们在这一步使用的是babel全家桶。babel作为当前最好的JS编译器，分析代码的步骤主要分为两步，分别是词法分析和语法分析。简单来说，就是对代码片段进行逐词分析，并且生成各个类型对应的 `babel-node` 。(在词法分析中，所有的元素，即使是字符串也必须是babel封装过的类型)。然后进行语法分析，根据上一个单词生成的语境，判断当前单词所起的作用。
+不过好在 `@babel/core` 和 `webpack` 并无联系，所以只能辛苦一下，再手写一个 loader 方法去解析 `JS` 和 `ES6` 的语法。
 
-我们在这里可以先借助 `@babel/parser` 对代码进行词法分析，将代码拆解为一棵由 `babelNode` 组成的AST抽象语法树。然后通过 `@babel/traverse` 对node进行遍历，通过这个库。我们能够在在遇到特定node类型的时候执行特定的方法，这里我们要做的就是将调用类型 `CallExpression` (函数调用表达式)且name为 `require` 的单词名称替换成name为 `__webpack_require__` 的节点，最后通过 `@babel/generator` 生成新的代码
+```javascript
+const babel = require('@babel/core')
 
-注意，在这一步中我们还可以“顺便”搜集模块的依赖项数组一同返回（用于dfs递归）
+module.exports = function BabelLoader (source) {
+  const res = babel.transform(source, {
+    sourceType: 'module' // 编译ES6 import和export语法
+  })
+  return res.code
+}
+```
+
+当然，编译规则可以作为配置项传入，但是为了模拟真实的开发场景，我们需要配置一下 `babel.config.js`文件
+
+```javascript
+module.exports = function (api) {
+  api.cache(true)
+  return {
+    "presets": [
+      ['@babel/preset-env', {
+        targets: {
+          "ie": "8"
+        },
+      }],
+      '@babel/preset-react', // 编译JSX
+    ],
+    "plugins": [
+      ["@babel/plugin-transform-template-literals", {
+        "loose": true
+      }]
+    ],
+    "compact": true
+  }
+}
+```
+
+
+于是，在获得了 `loader` 处理过的代码之后，理论上任何一个模块都已经可以在浏览器或者单元测试中直接使用了。但是我们的代码是一个整体，还需要一种合理的方式来组织代码之间互相引用的关系。
+
+上面也解释了我们为什么要使用 `__webpack_require__` 函数。这里我们得到的代码仍然是字符串的形式，为了方便我们使用 `eval` 函数将字符串解析成直接可读的代码。当然这只是求快的方式，对于 JS 这种解释型语言，如果一个一个模块去解释编译的话，速度会非常慢。事实上真正的生产环境会将模块内容封装成一个 `IIFE`（立即自执行函数表达式）
+
+总而言之，在第二部编译 `parse` 函数中我们需要做的事情其实很简单，就是将所有模块中的 `require` 方法的函数名称替换成 `__webpack_require__` 即可。我们在这一步使用的是 `babel` 全家桶。 `babel` 作为业内顶尖的JS编译器，分析代码的步骤主要分为两步，分别是词法分析和语法分析。简单来说，就是对代码片段进行逐词分析，根据当前单词生成一个上下文语境。然后进行再判断下一个单词在上下文语境中所起的作用。
+
+
+![](https://misc.aotu.io/XHFk1nderg2rten/second_parse.png)
+
+注意，在这一步中我们还可以“顺便”搜集模块的依赖项数组一同返回（用于 dfs 递归）
 
 ```jsx
 const parser = require('@babel/parser')
@@ -441,9 +456,9 @@ convertNode = (node, dirpath, relyInModule) => {
 }
 ```
 
-### 4. `emit` 生成bundle文件
+### 3. `emit` 生成bundle文件
 
-执行到这一步， `compilation` 的使命其实就已经完成了。如果我们平时有去观察dist生成的文件的话，会发现打包出来的样子是一个立即执行函数，主函数体是一个闭包，闭包中缓存了已经加载的模块 `installedModules` ，以及定义了一个 `__webpack_require__` 函数，最终返回的是函数入口所对应的模块。而函数的参数则是各个模块的key-value所组成的对象。
+执行到这一步， `compilation` 的使命其实就已经完成了。如果我们平时有去观察生成的 js 文件的话，会发现打包出来的样子是一个立即执行函数，主函数体是一个闭包，闭包中缓存了已经加载的模块 `installedModules` ，以及定义了一个 `__webpack_require__` 函数，最终返回的是函数入口所对应的模块。而函数的参数则是各个模块的 `key-value` 所组成的对象。
 
 我们在这里通过 `ejs` 模板去进行拼接，将之前收集到的 `moduleMap` 对象进行遍历，注入到ejs模板字符串中去。
 
@@ -489,6 +504,8 @@ convertNode = (node, dirpath, relyInModule) => {
 
 生成bundle.js
 
+![](https://misc.aotu.io/XHFk1nderg2rten/emitFile.png)
+
 ```jsx
 /**
  * 发射文件，生成最终的bundle.js
@@ -527,7 +544,7 @@ emitFile() { // 发射打包后的输出结果文件
 }
 ```
 
-在这一步中我们根据文件内容生成的Md5Hash去对比之前的缓存来加快打包速度，细心的同学会发现webpack每次打包都会生成一个缓存文件 `manifest.json`，形如
+在这一步中我们根据文件内容生成的 `Md5Hash` 去对比之前的缓存来加快打包速度，细心的同学会发现 `Webpack` 每次打包都会生成一个缓存文件 `manifest.json`，形如
 
 ```json
 {
@@ -548,7 +565,7 @@ emitFile() { // 发射打包后的输出结果文件
 }
 ```
 
-这也是文件上传中很常见的一个步骤，这里就不做详细的展开了
+这也是文件断点续传中常用到的一个判断，这里就不做详细的展开了
 
 ---
 
@@ -564,19 +581,19 @@ emitFile() { // 发射打包后的输出结果文件
 
 运行 `yarn build` 
 
-![](https://o2team.github.io/misc/XHFk1nderg2rten/wp_1.png)
+![](https://misc.aotu.io/XHFk1nderg2rten/wp_1.png)
 
-然后我们将bundle.js放进 `index.html` 中，打开浏览器。(*@ο@*) 哇～激动人心的时刻到了。
+(*@ο@*) 哇～激动人心的时刻到了。
 
 然而...
 
-![](https://o2team.github.io/misc/XHFk1nderg2rten/wp_2.png)
+![](https://misc.aotu.io/XHFk1nderg2rten/wp_2.png)
 
-看着打包出来的这一坨奇怪的东西报错，心里还是有点想笑的。检查了一下发现是因为反引号遇到注释中的反引号于是拼接字符串提前结束了。fine，那么我在babel traverse时加了几句代码，删除掉了代码中所有的注释。但是随之而来的又是其他的一些没完没了的问题...
+看着打包出来的这一坨奇怪的东西报错，心里还是有点想笑的。检查了一下发现是因为反引号遇到注释中的反引号于是拼接字符串提前结束了。好吧，那么我在 `babel traverse` 时加了几句代码，删除掉了代码中所有的注释。但是随之而来的又是一些其他的问题。
 
-好吧，可能我们缺少了一些实际react生产打包中必须的步骤，但是这毕竟也不在今天讨论的话题当中。这时，鬼魅的框架涌上心头。我脑中想起了凹凸实验室自研的高性能，兼容性优秀，紧跟react版本的类react框架 `NervJS` ，或许NervJS平易近人(误)的代码能够支持这款令人抱歉的打包工具
+好吧，可能在实际 `react` 生产打包中还有一些其他的步骤，但是这不在今天讨论的话题当中。此时，鬼魅的框架涌上心头。我脑中想起了京东凹凸实验室自研的高性能，兼容性优秀，紧跟 `react` 版本的类react框架 `NervJS` ，或许 `NervJS` 平易近人(误)的代码能够支持这款令人抱歉的打包工具
 
-于是我们在 `babel.config.js` 中配置alias来替换react依赖项。(React项目转NervJS就是这么简单)
+于是我们在 `babel.config.js` 中配置alias来替换 `react` 依赖项。(`React`项目转`NervJS`就是这么简单)
 
 ```jsx
 module.exports = function (api) {
@@ -604,11 +621,11 @@ module.exports = function (api) {
 
 运行 `yarn build` 
 
-![](https://o2team.github.io/misc/XHFk1nderg2rten/wp_4.png)
-![](https://o2team.github.io/misc/XHFk1nderg2rten/wp_5.png)
+![](https://misc.aotu.io/XHFk1nderg2rten/wp_4.png)
+![](https://misc.aotu.io/XHFk1nderg2rten/wp_5.png)
 
 (*@ο@*) 哇～代码终于成功运行了起来，虽然存在着许多的问题，但是至少这个 `webpack` 在设计如此简单的情况下已经有能力支持大部分JS框架了。感兴趣的同学也可以自己尝试写一写，或者直接从[这里](https://github.com/XHFkindergarten/jerkpack)clone下来看
 
-毫无疑问，webpack是一个非常优秀的代码模块打包工具（虽然它的官网非常低调的没有任何slogen）。一款非常优秀的工具，必然是在保持了自己本身的特性的同时，同时能够赋予其他开发者在其基础上拓展设想之外作品的能力。如果有能力深入学习这些工具，对于我们在代码工程领域的认知也会有很大的提升。
+毫无疑问，`Webpack` 是一个非常优秀的代码模块打包工具（虽然它的官网非常低调的没有任何slogen）。一款非常优秀的工具，必然是在保持了自己本身的特性的同时，同时能够赋予其他开发者在其基础上拓展设想之外作品的能力。如果有能力深入学习这些工具，对于我们在代码工程领域的认知也会有很大的提升。
 
 end
