@@ -1,21 +1,25 @@
 title: Webpack原理浅析
 subtitle: 从Webpack设计者的角度解析内部原理
-cover: ![封面](https://misc.aotu.io/XHFk1nderg2rten/webpack_analize_900*500.png)
-cover: ![封面](https://misc.aotu.io/XHFk1nderg2rten/webpack_analize_200*200.png)
+cover: https://misc.aotu.io/XHFk1nderg2rten/webpack_analize_900*500.png
+ckey: 2020-07-17-webpack-analize
 categories: Web开发
 tags:
-  - Git
-  - Fork
   - Webpack
 author:
-  nick: 凹凸实验室 风魔小次郎
-  github_name: o2team
+  nick: 凹凸实验室-风魔小次郎
+  github_name: XHFkindergarten
 date: 2020-07-17 14:34:02
+wechat:
+    share_cover: https://misc.aotu.io/XHFk1nderg2rten/webpack_analize_200*200.png
+    share_title: Webpack原理浅析
+    share_desc: 从Webpack设计者的角度解析内部原理
 ---
 
 ## 背景
 
 `Webpack` 迭代到4.x版本后，其源码已经十分庞大，对各种开发场景进行了高度抽象，阅读成本也愈发昂贵。但是为了了解其内部的工作原理，让我们尝试从一个最简单的 webpack 配置入手，从工具设计者的角度开发一款低配版的 `Webpack`。
+
+<!-- more -->
 
 ## 开发者视角
 
