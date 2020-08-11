@@ -1,20 +1,24 @@
----
 title: 如何使用Grid Layout
-date: 2020-07-14 10:24:35
-categories: CSS应用
-tags: [grid, layout]
-author: 何思源
+subtitle:
+cover: https://img12.360buyimg.com/imagetools/jfs/t1/137873/20/3653/119351/5f1940ecE455fd637/158c0c6eb2163b18.jpg
+category: 经验分享
+tags: 
+  - grid
+  - 布局
+author: 
+  nick: 何思源
+date: 2020-07-23 18:00:00   
 ---
 
-#如何使用Grid Layout
-##前言
+# 如何使用Grid Layout
+## 前言
 CSS Grid Layout是一种栅格布局，随着各大浏览器的兼容，在可应用范围越来越广。很多人就会问能不能代替Flexbox弹性布局？虽然他们有点相似，但值得一提的是他并不能代替Flexbox弹性布局，它可以在复杂的应用场景下与Flexbox弹性布局相辅相成。该属性的理念有点类似以往在网页设计中的栅格布局，如果以前接触过网页的栅格系统会帮助理解CSS Grid Layout。
 
-##兼容性
+## 兼容性
 截止到20年7月14日，caniuse的兼容图。如图所示： 
 ![avatar](https://img11.360buyimg.com/ling/jfs/t1/123375/21/7070/220446/5f0d5b5aE710ed109/0004d4c17daeefa8.png)
 
-##应用场景
+## 应用场景
 先来看看应用场景，个人十分推荐它用于大型页面框架构建或者电商中的sku列表摆放。具体可以来看看这两个demo图都附录了源码地址。
 
 
@@ -26,7 +30,7 @@ CSS Grid Layout是一种栅格布局，随着各大浏览器的兼容，在可�
 
 ![avatar](https://img12.360buyimg.com/ling/jfs/t1/122159/9/7091/434368/5f0d611bE53cd131a/9bb67298fd5be8b1.png)
 
-##重要属性介绍
+## 重要属性介绍
 ①.display: grid/inline-grid;
 需要在包裹子元素的父容器上做出声明，该属性声明为CSS Grid Layout有两种，一种是块状元素display: grid，一种是行内块状元素display: inline-grid。该属性声明后其他属性才会有效。如图所示：
 
@@ -80,6 +84,6 @@ rows是代指行，columns是代指列，用来声明高或宽
 
 
 
-##扩展阅读
+## 扩展阅读
 1. [CSS Grid Layout Module Level 1](https://www.w3.org/TR/css-grid-1/)
 2. [CSS Grid Layout Module Level 2](https://www.w3.org/TR/css-grid-2/)

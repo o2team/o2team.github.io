@@ -1,12 +1,14 @@
----
 title: 移动端吸顶导航组件的实现
-author: 李杰
-date: 2020-07-16 18:00:00
-tags: [组件, vue]
-category: 经验总结
-toc: true
-comments: true
-mathjax: true      
+subtitle:
+cover: https://img11.360buyimg.com/imagetools/jfs/t1/116365/37/13099/111570/5f194260E4adb747f/4650859bee37a6ca.jpg
+category: 经验分享
+tags: 
+  - 组件
+  - nav
+  - scroll
+author: 
+  nick: 李杰
+date: 2020-07-23 18:00:00   
 ---
 
 ## 前言
