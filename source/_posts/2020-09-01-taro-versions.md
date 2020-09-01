@@ -1,6 +1,6 @@
-title: 关于 Taro 版本的那些事儿
-subtitle: 你是否对 Taro 辣么多版本非常困惑？你是否对升级 Taro 感到束手无策？通过本篇文章统统为你解惑。
-cover: https://storage.360buyimg.com/taro-resource/taro_version.jpg
+title: Taro 版本升级权威指南
+subtitle: 你是否对 Taro 辣么多版本感到非常困惑？你是否对升级 Taro 感到束手无策？本篇文章将为你答疑解惑，全面解读 Taro 开发那些事儿。
+cover: https://storage.360buyimg.com/taro-resource/taro_version2.jpg
 categories: 移动开发
 tags:
   - Taro
@@ -137,7 +137,7 @@ export default App
 
 正如前文所提到的，目前有很多开发者是从 Taro 3 才开始接触 Taro，而目前市面上很多 Taro 相关的教程和项目都是 Taro 1/2 的，这对于很多开发者来说会造成不小的困惑，所以行文到此，我们希望列举一些常见问题来帮助开发者规避掉一些不必要的错误。
 
-#### Taro 多版本共存问题
+### Taro 多版本共存问题
 
 很多开发曾经使用 Taro 旧版本开发过项目，已经在全局安装了 Taro，但是想同时体验到 Taro 3，应该如何进行操作？
 
@@ -146,14 +146,14 @@ export default App
 - 如果是需要新创建 Taro 3 项目，可以使用 [nvm](https://github.com/nvm-sh/nvm) 来管理 node 版本，通过安装不同 node 版本来安装不同版本的 Taro CLI，从而解决 Taro 多版本共存的问题
 - 如果是部分已有项目需要升级到 Taro 3，可以在这些项目本地安装相应版本的 Taro CLI，这样通过 `yarn` 或者 `npm` 执行命令的话就会直接使用本地安装的 Taro CLI，安装方式 `yarn add @tarojs/cli`
 
-#### 将 Taro CLI 版本与项目中 Taro 相关依赖的版本保持一致
+### 将 Taro CLI 版本与项目中 Taro 相关依赖的版本保持一致
 请时刻注意将 Taro CLI 版本与项目中 Taro 相关依赖的版本保持一致。
 
 CLI 与项目依赖版本不一致是导致很多问题出现的源头之一。例如，Taro CLI 版本为 3.0.8，那么 Taro 相关依赖的版本也必须是 3.0.8，Taro 相关包名可以从这个[列表](https://nervjs.github.io/taro/docs/CONTRIBUTING#taro-%E7%BB%84%E6%88%90)得知，具体依赖项版本可以使用 `taro info` 命令或者通过 `package.json` 就能知晓。
 
 如果发现不一致的情况可以使用 Taro 升级命令 `taro update self [版本号]` 和 `taro update project [版本号]`来分别将 CLI 和项目依赖升级到指定版本；或者也可以手动安装相应版本 CLI，修改 `package.json` 依赖版本号，然后重装依赖来解决。
 
-#### 使用路由
+### 使用路由
 
 在 Taro 3 中使用路由在前文的版本迁移部分已有提及，同时需要了解更多内容可以前往[官方文档](https://nervjs.github.io/taro/docs/router)查看。
 
@@ -170,13 +170,13 @@ export default class C extends Component {
 }
 ```
 
-#### 如何获取页面节点信息
+### 如何获取页面节点信息
 
 由于 Taro 3 设计机制的原因，需要在新增的 `onReady` 生命周期内才能调用 Taro API 正确获取页面节点信息，小程序和 H5 都是如此。
 
 而同时，在微信小程序中当页面节点嵌套过深时，超过一定层级（默认 16 级，可以通过编译配置 `baseLevel` 来控制）时，Taro 将转而使用自定义组件，然后再开启新的循环，在这种情况要争取获取页面节点信息的话，需要使用 **跨自定义组件的后代选择器** 来进行选择，可以参见 Taro [相关 issue](https://github.com/NervJS/taro/issues/7411)。
 
-#### Taro UI 是不是不支持 Taro 3 了
+### Taro UI 是不是不支持 Taro 3 了
 
 在 Taro 3 中依然可以使用 Taro UI，目前需要安装 Taro UI 的 alpha 版本。
 
@@ -186,11 +186,11 @@ $ yarn add taro-ui@next
 
 Taro UI 作为 Taro 的官方 UI 库，依然处于维护状态，目前主要依靠社区力量在进行维护，同时也非常欢迎更多社区开发人员共同参与到 Taro UI 的迭代中来。
 
-#### Taro UI 有没有 Vue 版本
+### Taro UI 有没有 Vue 版本
 
 目前，Taro 官方没有推出 Vue 版本的 Taro UI 库，但在社区中有 Vue 版本的解决方案，如果使用 Vue 进行开发可以尝试 [taro-ui-vue](https://github.com/psaren/taro-ui-vue)。
 
-#### 为什么 Taro 3 打包出来的应用体积巨大
+### 为什么 Taro 3 打包出来的应用体积巨大
 
 很多朋友会发现 Taro 3 的项目在预览的时候打包出来的包大小相比 Taro 1/2 要大上很多，然后非常紧张用了 Taro 3 会不会导致自己的主包超限。
 
@@ -206,7 +206,7 @@ $ NODE_ENV=production taro build --type weapp --watch
 $ set NODE_ENV=production && taro build --type weapp --watch
 ```
 
-#### 在 Taro 3 中使用小程序原生页面及组件
+### 在 Taro 3 中使用小程序原生页面及组件
 
 在 Taro 3 中依然可以像 Taro 1/2 那样引入小程序原生页面及组件，且使用方式大体一致，不过在某些情况有些细微差别，比如 `slot` 的使用，在 Taro 1/2 中可以直接使用 `slot` 标签，而在 Taro 3 中则需要从 `@tarojs/components` 中引入 `Slot` 组件然后再进行使用。
 
@@ -245,7 +245,7 @@ export default class Index extends Component {
 具体使用情况可以参考项目 [taro3-vant-sample](https://github.com/NervJS/taro3-vant-sample)。
 
 
-#### 有哪些 Taro 官方的示例项目
+### 有哪些 Taro 官方的示例项目
 
 目前 Taro 3 的社区示例项目还在完善中，Taro 官方则分别针对 React 和 Vue 提供了示例的组件库项目以供参考，安装最新版本的 Taro CLI，在创建项目时选择社区优质模板源创建即可进行体验。
 
@@ -253,7 +253,7 @@ export default class Index extends Component {
 
 同时，Taro 官方还提供了一个 [TodoMVC 项目](https://github.com/NervJS/TodoMVC)以供参考学习，React 和 Vue 示例分别在 react 和 vue 分支上。
 
-#### Taro 物料市场中哪些物料能在 Taro 3 中使用
+### Taro 物料市场中哪些物料能在 Taro 3 中使用
 
 目前 Taro 物料市场没有做好针对物料的版本区分，我们会尽快启动这一项工作，为每个物料打上版本标识，当下要识别哪些物料能在 Taro 3 中使用，只能通过物料本身的 Taro 依赖项来进行识别。
 
