@@ -1,6 +1,6 @@
 title: 几种移动端多平台元素垂直居中解决方案总结
 subtitle:
-cover: https://img11.360buyimg.com/imagetools/jfs/t1/116365/37/13099/111570/5f194260E4adb747f/4650859bee37a6ca.jpg
+cover: https://img14.360buyimg.com/imagetools/jfs/t1/113801/13/17119/131569/5f5723faEc0bbd6bf/30ff6b6e71e9454f.jpg
 category: 经验分享
 tags: 
     - CSS 
