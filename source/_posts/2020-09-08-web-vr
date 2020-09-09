@@ -97,6 +97,7 @@ WebVR 有着轻便、使用门槛低的特点。最主要的挑战还是在内�
 
 CSS 3D 建立三维场景的关键点在于三维体系的设置。涉及到三个关键属性：`transform-style`、`perspective`、`transform`。将 `transform-style` 设置为 `preserve-3d`，意味着浏览器以这个容器为单位建立了一个三维空间体系，这个容器下的子元素的样式属性都将按照这个三维体系下的空间关系渲染。MDN 上的这个例子可以很好地体现二维体系与三维体系中元素空间关系的区别：[https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
 
+![](http://storage.360buyimg.com/o2-pics/transform-style.png)
 
 `perspective` 的值在三维体系中表示观察点距离 z 轴 0 坐标位置的距离，在视觉上的体现则为值越大，透视效果越弱。这么说可能很难想象，可以参考大家在坐车的时候往窗外看，近景物体与远景物体移动速度的差别，则为 `perspective` 值之间的差别，值越小意味着物体离你越近。默认值为 1000px，如果觉得透视效果不够明显，可以适当地减少 `perspective` 的值。
 
@@ -247,7 +248,7 @@ const endX = vx * 200
 
 #### CSS 3D 场景
 
-在 CSS 3D 场景中，要实现全景场景的浏览，需要做的是旋转整个三维体系容器，也就是使用 transform 中的 rotate 函数。针对交互数值变化与 rotate 数值做一个置换。
+在 CSS 3D 场景中，要实现全景场景的浏览，需要做的是旋转整个三维体系容器，也就是使用 `transform` 中的 `rotate` 函数。针对交互数值变化与 `rotate` 数值做一个置换。
 
 完整 demo：[https://codesandbox.io/s/css-3d-panorama-with-mouse-event-jp2jl?file=/src/Pano.js](https://codesandbox.io/s/css-3d-panorama-with-mouse-event-jp2jl?file=/src/Pano.js)
 
