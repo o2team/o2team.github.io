@@ -1,6 +1,6 @@
 title: 硬核看房利器——Web 全景的实现
 subtitle: "疫情期间，打破社交距离限制的交互模式被推向前台，为不少行业的传统交易提供了想象的空间。"
-cover: //img.aotu.io/mamboer/post-aotu.jpg
+cover: //storage.360buyimg.com/o2-pics/web-vr-cover-900x500.jpg
 date: 2020-09-08 21:24:35
 categories: 技术预研
 draft: false
@@ -12,7 +12,7 @@ author:
     nick: EC
     github_name: lyxuncle
 wechat:
-    share_cover: http://misc.aotu.io/pfan123/sopcast/sopcast_200x200.png
+    share_cover: https://storage.360buyimg.com/o2-pics/web-vr-cover-200x200.jpg
     share_title: 硬核看房利器——Web 全景的实现
     share_desc: 疫情期间，打破社交距离限制的交互模式被推向前台，为不少行业的传统交易提供了想象的空间。
    
