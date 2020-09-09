@@ -1,0 +1,301 @@
+title: 硬核看房利器——Web 全景的实现
+subtitle: "疫情期间，打破社交距离限制的交互模式被推向前台，为不少行业的传统交易提供了想象的空间。"
+cover: //img.aotu.io/mamboer/post-aotu.jpg
+date: 2020-09-08 21:24:35
+categories: 技术预研
+draft: false
+tags:
+  - VR
+  - Web全景
+  - 技术预研
+author:
+    nick: EC
+    github_name: lyxuncle
+wechat:
+    share_cover: http://misc.aotu.io/pfan123/sopcast/sopcast_200x200.png
+    share_title: 硬核看房利器——Web 全景的实现
+    share_desc: 疫情期间，打破社交距离限制的交互模式被推向前台，为不少行业的传统交易提供了想象的空间。
+   
+   
+title: 硬核看房利器——Web 全景的实现
+---
+疫情期间，打破社交距离限制的交互模式被推向前台，为不少行业的传统交易提供了想象的空间。
+
+疫情时期，房地产租售业受到的冲击无疑是巨大的，由于人口流动的限制，需求量大幅减少，无法现场看房更加重了这一危机。但有危就有机，倒是意外推动了一项技术的推广——VR 看房。作为 WebVR 的子集，Web 全景是多数 WebVR 需求的降级选择，例如街景地图，本文将带大家实现一个简单的 Web 全景。
+<!-- more --> 
+这里是文章的剩余部分。在hexo模版里可通过{% raw %}{{ post.more }}{% endraw %} 来引用。
+    
+<video width="375" style="margin: 0 auto;">
+	<source src="http://storage.360buyimg.com/o2-pics/%E8%B4%9D%E5%A3%B3x%E5%A6%82%E8%A7%86.mp4" type="video/mp4" />
+</video>
+
+<div style="text-align: center"><a href="https://realsee.com/website/public/demo/fwmm/ryQkazl8xKdesBhKhVTkqqxTVLX6Rn9Km.html">贝壳x如视案例</a></div>
+
+## 什么是 VR
+
+VR（Virtual Reality）是利用电脑模拟产生一个三维空间的虚拟世界，提供用户关于视觉等感官的模拟，让用户感觉仿佛身历其境，可以及时、没有限制地观察三维空间内的事物。用户进行位置移动时，电脑可以立即进行复杂的运算，将精确的三维世界视频传回产生临场感。—— 维基百科
+
+与基于现实场景进行增强效果的 AR（Augmented Reality）的区别在于，VR 的场景需要完全重建，类似于进入另一个世界。
+
+## 虚拟现实的原理
+
+人眼对世界的感知，是通过将三维世界投射至视网膜上，以二维图像建立的视觉体系。所以一张具备透视关系的图像，在特定的角度，可以使人感受到三维的空间关系，这就是人眼的深度知觉（depth perception）。VR 技术则建立在这个基础之上。
+
+广泛意义上来说，只要符合模拟三维空间这一行为，就可以称为 VR，手机、电脑、大荧幕、VR 眼镜甚至于空气，都可以成为 VR 的载体。
+
+![](http://storage.360buyimg.com/o2-pics/vr-all-range-product-line.png)
+
+图片来源：[https://www.xensorylab.com/services](https://www.xensorylab.com/services)
+
+## VR 的应用场景
+
+互联网社会的发展，本质上是促进了人与人之间信息的流动。在信息交换这件事上，通过的媒介从文字到绘画、图像、声音、影像再到虚拟现实，沉浸感逐渐增强，实现的成本也逐渐增加。但人们在沉浸感上的追求，永远不嫌多，因为高沉浸感带来的感官冲击，是任何降级手段都难以取代的。这也是虚拟现实在互联网发展路上成为必然趋势的原因。
+
+除了常见的游戏（例如吃鸡、塞尔达等）、影视、房地产领域的应用，VR 可发挥想象力的空间是巨大的，例如军事中的军事演习，体育界的沉浸式赛事直播，汽车产商可提供车辆在线虚拟配置直销的服务，医疗界的恐惧症治疗方案，教育界的新型教育模式等。
+
+WebVR 有着轻便、使用门槛低的特点。最主要的挑战还是在内容制作上——人力与设备成本太高。
+
+## WebVR 目前能做到的
+
+按照交互模式，WebVR 涉及到一个概念：dof，degree of freedom，可以理解为陀螺仪的自由度。VR 中的交互自由度分为两种：3dof 与 6dof。3dof 指设备交互方向包含3个转动角度，6dof 指在 3dof 的基础上增加了3个位置相关的自由度（上下、左右、前后）。
+
+![](http://storage.360buyimg.com/o2-pics/v2-de05e5887a577ec8e87876434f0f18fc_720w.png)
+
+<div style="text-align: center;">图片来源：<a href="https://zhuanlan.zhihu.com/p/31649178">《聊一聊VR虚拟现实（二）：VR眼镜的分类》</a></div>
+
+3dof，可以看做是定点视角模式，按体验感受来描述，就是视角主人站在一个固定的位置，对周围的景象进行探索；以计算机的角度来描述，即 camera 的位置只能在极为局限的特定轨道内移动，覆盖范围可能只有一个球面，全景的搭建内容仅需简化至一张图片即可。这一类型的常见应用场景有 VR 看房、街景地图等。
+
+6dof，可以看做移动视角模式，是较为接近现实体验的虚拟现实，视角主人可以在场景的特定空间中进行随意路线、随机视角的移动而同样能体验到合理的透视感。相比定点视角，移动视角 VR 的实现原理则可能截然不同。如果按照定点视角的实现方法，移动视角需要的则是覆盖任意位置的 360 视角的平面图，数据量是难以想象的。因此这里需要引入建模的概念，通过在计算机内建立一个 3D 的模型体系，根据 camera 所在的位置实时计算出当前视野中的图像渲染。一方面这对初始场景的建立有要求，另一方面在视角移动过程中的场景渲染的算力也有要求。因此这种类型的 VR 开发成本与体验成本相比起定点视角类型的都较高。移动视角 VR 常见的应用场景有第一视角的 3D 游戏，以及三维动画/影视。
+
+接下来我们从最为简易的 Web 全景入手，试着实现一个 3dof 平面图像全景场景。
+
+## 开发原理
+
+上面说到了 Web 全景的实现思路，细化下来，可以分成两部分：一个覆盖360度视野的三维场景供贴图使用，以及贴图。
+
+按照我们对空间方位的认知，分为前后左右上下六个方位，可以想象为一个巨大的立方体，而你就站在立方体的中心位置。
+
+![](http://storage.360buyimg.com/o2-pics/%E7%AB%8B%E6%96%B9%E4%BD%93.png)
+
+我们继续对这六个面进行切片处理，并加入适当的角度，尽量形成一个平滑的平面。当我们的切片足够多时，这个立方体最终会变成一个球形，这是一个理想的情况。
+
+![](http://storage.360buyimg.com/o2-pics/%E7%AB%8B%E6%96%B9%E4%BD%93%E5%88%B0%E7%90%83%E4%BD%93.png)
+
+如果只针对前后左右四面进行切片处理，直接拿掉上下方位的贴图，也可以模拟出一个半覆盖视野的全景场景。这种模式的最终形态会是一个没有上下面的圆柱。
+
+![](http://storage.360buyimg.com/o2-pics/%E7%AB%8B%E6%96%B9%E4%BD%93%E5%88%B0%E5%9C%86%E6%9F%B1%E4%BD%93.png)
+
+针对最基础的立方体场景，我们需要准备的贴图则分为6片，分别对应6个方位。贴图需要做到接壤位置与周围的四个贴片是图像相接的，这种类型的全景图称为「立方面片（Cube Faces）」，延伸出合成到同一张图片上的「十字型」与「T 型」。而圆柱场景对应的全景图则为「圆柱型」，球形场景对应的则为「矩形球面投影（Equirectangular）」。矩形球面投影图可以勉强用于圆柱型场景。这几种全景图可以通过算法互相转换，最简单的方法是使用 Pano2VR 软件。
+
+![](http://storage.360buyimg.com/o2-pics/PANO2VR-%E5%85%A8%E6%99%AF%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2.png)
+
+目前比较成熟的开发方案有：CSS 3D、WebGL（Threejs）。无论哪种方案，构建一个 Web 全景，都要经过四步：一，建立三维体系；二，搭建全景框架；三，贴图；四，添加用户交互。
+
+### 建立三维场景
+
+#### CSS 3D 版
+
+CSS 3D 建立三维场景的关键点在于三维体系的设置。涉及到三个关键属性：`transform-style`、`perspective`、`transform`。将 `transform-style` 设置为 `preserve-3d`，意味着浏览器以这个容器为单位建立了一个三维空间体系，这个容器下的子元素的样式属性都将按照这个三维体系下的空间关系渲染。MDN 上的这个例子可以很好地体现二维体系与三维体系中元素空间关系的区别：[https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
+
+
+`perspective` 的值在三维体系中表示观察点距离 z 轴 0 坐标位置的距离，在视觉上的体现则为值越大，透视效果越弱。这么说可能很难想象，可以参考大家在坐车的时候往窗外看，近景物体与远景物体移动速度的差别，则为 `perspective` 值之间的差别，值越小意味着物体离你越近。默认值为 1000px，如果觉得透视效果不够明显，可以适当地减少 `perspective` 的值。
+
+
+![](http://storage.360buyimg.com/o2-pics/perspective.gif)
+
+demo 来源：[https://developer.mozilla.org/en-US/docs/Web/CSS/perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
+
+需要注意的是，这里一共需要两层 `transform-style` 的设置。包裹着所有切片的容器需要设置，整个场景的 3D 旋转操作就是在这个容器上。为了让这个容器的旋转也产生 3D 的效果，需要在这个容器的外层再添加一个带 `transform-style` 属性的容器。
+
+![](http://storage.360buyimg.com/o2-pics/webvr-css3.png)
+
+三维体系与透视值设定好了之后，就可以开始对子元素进行布局了。与 3D 布局相关的属性基本集中在 `transform` 中，通过 `translateX`、`translateY`、`translateZ`、`rotateX`、`rotateY`、`rotateZ` 则可以满足我们想要建立的三维场景。
+
+以较为简单的圆柱型场景为例，我们需要确定切片的数量，然后通过计算确定切片的旋转角度与位移距离。因为我们有旋转场景的需求，因此以 `(0, 0, 0)` 为场景中心点是较为好操作的。首先大家需要明确一个点，`transform` 中的各函数值先后顺序不同所展示的样式也是不同的。因此先设定 `rotate` 与先设定 `translate`，对应的函数值也不同。如果是先设定 `rotate`，则在位移上可以统一使用一个值，这里我们使用 `translateZ`；如果先设定 `translate`，在位移的计算上则复杂了不少。因此我们采用先旋转再位移的形式来布局全景场景的切片。
+
+从 y 轴视角看切片，是一个正多边形。每一切片间的间隔角度为360度除以切片数量，而切片的宽度则需要通过三角函数来计算。
+
+![](http://storage.360buyimg.com/o2-pics/y%E8%BD%B4%E8%A7%86%E8%A7%92.png)
+
+下面的代码段中的计算，radius 值固定，因此根据边数的不同，切片的高度将发生变化。也可以固定 d 值或是切片高度来进行相应值的计算。
+
+![](http://storage.360buyimg.com/o2-pics/webvr-css3-trigonometric_functions.jpeg)
+
+圆柱型场景使用的贴图为首尾相接的『圆柱型』或『矩形球面投影』类型的，我们要做的就是将这张图平均、无缝分布到每一片切片上。这里使用 `background-image` 背景图进行贴图的话，就需要针对 `background-position` 进行计算。
+
+```javascript
+
+const position = parseInt(-width * (planeNum - i - 1), 10)
+
+```
+
+由于移动端在进行等比缩放时，会出现小数点的尺寸与定位值，因此很有可能在切片之间产生空隙，影响全景效果。这里可以通过适当扩大切片宽度，似的切片之间互相交叉摆放，来避免这种情况的发生。这个时候的背景图定位需要进行重新计算。
+
+贴图完成之后，整个圆柱型全景的场景也就搭好了。
+
+整体 demo 地址：[https://codesandbox.io/s/css-3d-panorama-oqswp?file=/src/Pano.js](https://codesandbox.io/s/css-3d-panorama-oqswp?file=/src/Pano.js)
+
+#### ThreeJS 版
+
+在开发原理部分，我们说到，立方体的每个面进行无限的切片处理，最终会形成理想的球形。理论上，球形形成的全景场景是最为接近人眼的真实感受的，视线抵达贴图的距离均等。而选择 ThreeJS（下文简称阿三） 也是看上了其完整的三维体系以及强大的几何体绘制能力。
+
+而目前在计算机中模拟弧面，只能通过切分的平面进行，切分的平面越多弧面就越平滑。因此阿三中的所有 3D 模型都是一个多面体。虽然切片的算法全权由阿三处理，但切片的分布需要做进一步的了解，以帮助我们了解球形贴图的相关细节。
+
+![](http://storage.360buyimg.com/o2-pics/threejs-spheregeometry.png)
+
+图片来源：[Creating a WebGL Earth with three.js](https://blog.mastermaps.com/2013/09/creating-webgl-earth-with-threejs.html)
+
+球体的切片方式与地球经纬度的划分方式一致，在南北纬90度的位置会出现若干个三角平面汇聚的情况，因此贴图在此处会出现放射状纹理。
+
+阿三的三维体系中有几个基本对象：场景（Scene）、镜头（Camera）、渲染器（WebGLRenderer）。整个体系的建立这三个对象缺一不可。
+
+![](http://storage.360buyimg.com/o2-pics/webvr-threejs-basic.jpeg)
+
+场景承载着所有渲染元素，通过 `add` 方法新增元素。
+
+镜头充当着“眼”的功能，放置了镜头才能“看到”场景中的元素，同时通过设置 `position` 参数调整镜头的摆放位置，通过 `lookAt` 方法调整镜头聚焦的位置。阿三提供了两种模式的摄像机——正交投影摄像机（OrthographicCamera）与透视投影摄像机（PerspectiveCamera）。区别在于针对不同距离的元素是否有做透视处理，如果需要透视处理，选择透视投影摄像机即可，这也是比较常用的摄像机。
+
+```javascript
+
+camera.position.set(camerax, cameray, cameraz)
+camera.lookAt(scene.position)
+
+```
+
+透视摄像机需要针对我们传统意义上的视野进行一些参数设置，一共4个参数，决定了摄像机的最终视野。
+
+> PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
+> fov — Camera frustum vertical field of view.
+> aspect — Camera frustum aspect ratio.
+> near — Camera frustum near plane.
+> far — Camera frustum far plane.
+
+接着就是将整个场景渲染至网页上。
+
+我们可以先获取场景容器，再将阿三画布插入容器中。
+
+```javascript
+
+document.body.appendChild(renderer.domElement)
+
+```
+
+或是直接将已有画布对象传入渲染器对象中。
+
+```javascript
+
+new THREE.WebGLRenderer({ canvas: canvasDom })
+
+```
+
+然后通过渲染器的 render 方法渲染场景与摄像机。
+
+```javascript
+
+renderer.render(scene, camera)
+
+```
+
+场景 demo 地址：[https://codesandbox.io/s/threejs-panorama-0u763?file=/src/PanoScene.js](https://codesandbox.io/s/threejs-panorama-0u763?file=/src/PanoScene.js)
+
+到这一步为止，整个三维场景其实已经建立好了，接下来我们往里放元素。在这个场景里我们需要的是球体元素，阿三中对应的对象为 `SphereGeometry`。贴图对应的是材质（Material）对象，阿三提供了若干种材质对象，我们这里仅需要用到最基础的 `MeshBasicMaterial`（网格基础材质）即可。将球体对象与材质对象结合到一起，就可以构成一个完整的 Mesh（网格）对象，这就是我们需要的全景球体。
+
+![](http://storage.360buyimg.com/o2-pics/webvr-threejs-mesh.jpeg)
+
+通过控制材质的 `opacity` 属性，可以实现元素的显隐，这一点可以应用于多全景场景之间的切换效果。
+
+```javascript
+
+sphereMaterial.transparent = true
+sphereMaterial.opacity = 0
+
+```
+
+一个基于阿三的球体全景场景就搭好了。
+
+#### 基于 WebGL 的其他框架
+
+除了阿三，市面上还存在一种框架，将三维场景的元素封装为 HTML 标签，提升代码可读性。类似 A-Frame（[http://aframe.io/](http://aframe.io/)）与 krpano（[https://krpano.com/home/](https://krpano.com/home/)）均为这种思路。区别在于 krpano 更专注于全景场景，封装了包括控制面板在内的全景相关套件，类似于全景组件，并提供了可视化桌面端软件，简单替换图片、场景缩略图等信息之后即可使用。而 A-Frame 是一个基于阿三的二次封装框架，因此阿三能做的，它也能做，它所做的就是把阿三的各种对象封装成了一个个 HTML 标签，做到了对象与逻辑的代码分离。这一类的方案原理与阿三搭建场景的类似，感兴趣的可以自行尝试，在这里就不多做介绍。
+
+### 浏览全景
+
+到这里为止，我们完成了全景场景的搭建，但目前我们只能看到全景场景的一角，没有满足 VR 概念中“可观察”这一条件。现在我们需要给场景增加一些可浏览的操作逻辑。浏览全景的效果从主视角看来，就是站在原地旋转360度。在圆柱模式的全景场景中，上下方位的旋转角度会受到边界的限制；而如果是球体模式，则可以做到三个方向的360度旋转。在 CSS 3D 的方案中，我们通过旋转整个场景容器，来实现全景场景的浏览，而在阿三的方案中，我们需要通过调整摄像机的位置来实现（我们将摄像机的聚焦点固定在球体中心）。但无论是哪种方案，都需要得到一个用户交互与场景/摄像机旋转映射的值。
+
+在 web 环境，一般的人机交互都是通过鼠标、键盘与手势进行，因此首先我们针对这些内容进行监听。以手势为例：
+
+包含三个阶段：交互起始，交互过程，交互终止。 最快速的方法，就是将交互位移差值与场景/摄像机旋转值进行对应比例的转换。
+
+尝试了这种方式之后，会很明显感受到浏览过程的生硬感。这是因为这样的动态方式违背了动画十二原则中的渐快与渐慢（Slow in and slow out）原则，在场景动画起始与结束时急起急停，缺乏过渡。因此考虑针对交互终止的位置增加一个缓出动画，就好像转圈的时候有个惯性似的，这也意味着我们需要对结尾的动作进行方向与速度上的判断。
+
+```javascript
+
+// 当前滑动速度
+const vx = (originalEndX - startX) / duration
+// 预估当前滑动终点
+const endX = vx * 200
+
+```
+
+这里我们结合 gsap 的时间轴，利用其动画计算可以基于当前状态值的特性，对整体动效进行平滑过渡处理，因为对于交互动作监听的时间间隔够短，在结束之前的数值缓动效果可以忽略不计，但起始与终止的缓动却可以保留，堪称完美。
+
+![](http://storage.360buyimg.com/o2-pics/webvr-gsap.jpeg
+)
+
+完整缓动算法 demo：[https://codesandbox.io/s/move-ani-compare-xvi26?file=/index.js](https://codesandbox.io/s/move-ani-compare-xvi26?file=/index.js)
+
+有了这个算法，我们就可以针对每一种方案进行场景的交互处理了。
+
+#### CSS 3D 场景
+
+在 CSS 3D 场景中，要实现全景场景的浏览，需要做的是旋转整个三维体系容器，也就是使用 transform 中的 rotate 函数。针对交互数值变化与 rotate 数值做一个置换。
+
+完整 demo：[https://codesandbox.io/s/css-3d-panorama-with-mouse-event-jp2jl?file=/src/Pano.js](https://codesandbox.io/s/css-3d-panorama-with-mouse-event-jp2jl?file=/src/Pano.js)
+
+#### ThreeJS 场景
+
+在阿三场景中，我们需要改变的是摄像机聚焦点的位置，又或者将摄像机聚焦点固定在球体中心，移动摄像机的位置。摄像机移动的范围就在以球体中心为球心的球面上。
+
+![](http://storage.360buyimg.com/o2-pics/webvr-threejs-camera_position.jpeg)
+
+具体的鼠标位移与球体经纬度的转化公式可查看完整 demo：[https://codesandbox.io/s/threejs-panorama-dy1lt?file=/src/event.js](https://codesandbox.io/s/threejs-panorama-dy1lt?file=/src/event.js)
+
+这样，一个完整的全景体验的 web 全景就开发完成了。
+
+### 主要挑战
+
+当我们把全景的框架搭建好之后，理论上只要替换图片，则可以实现无数场景的全景体验。但稍微上网一搜，大家会发现，这类全景图想要找到既高清又符合首尾相接标准的，真的很难，要么带水印，要么不够清晰，要么就收费。如果你想自己拍，又会发现拍摄这一类照片所需要的设备要求还蛮高，非专业机构没什么必要购置。因此此类全景场景最大的挑战就在于全景图的获取，纯体力活，需要消耗大量人力与时间。而像贝壳找房这类受疫情冲击的行业，通过推动 VR 看房，结合便利、使用门槛低的设备，既能消化闲置的人力，同时还维系了业务的运转。
+
+同时大家也能看出，文章开头的 VR 看房视频，并不是单纯的 Web 全景就能实现，其中还包含了测距、路径切换等。而这一套服务，是由如视（[https://realsee.com/](https://realsee.com/)）服务商提供的，他们售卖的方案中包含了自研硬件扫描仪与线上三维重建技术等软件的打包，解决了内容创作门槛这个痛点，同时通过 C 端设备降级方案，由保有量较少的 VR 眼镜转向了体验稳定的 PC 与手机，这或许将成为近一段时期 VR 消费端的通用推广方式。
+
+### VR 的未来
+
+一项新兴技术的成熟曲线往往要经历新技术诞生、期望膨胀、泡沫化、稳步爬升、实质生产这5个阶段，目前 VR 正处于启蒙期阶段，内容创作成本尚未降低，设备保有量尚未形成规模。
+
+![](http://storage.360buyimg.com/o2-pics/VR%E6%8A%80%E6%9C%AF%E6%88%90%E7%86%9F%E5%BA%A6%E6%9B%B2%E7%BA%BF.png)
+
+图片来源：[《聊聊 VR 虚拟现实（一）：VR 的发展史》](https://zhuanlan.zhihu.com/p/26592125)
+
+在 2016 年高盛发布的《VR 与 AR 报告：下一个通用计算平台》中，对于 2025 年 VR/AR 9大应用领域规模的预期，只有视频游戏、事件直播和视频娱乐3大领域将完全由消费者推动，占整体 VR/AR 营收预期的 60%，剩余 40% 由企业和公共部门推动。
+
+![](http://storage.360buyimg.com/o2-pics/131078784.png)
+
+正如前文提到的，从文字到图片到声音再到视频，是目前所广泛使用的信息传播途径，未来的模式一定是更加降低门槛、减少失真，虚拟化将成为必然的趋势，加上 AI 的持续推进，以及 5G 的未来，VR 的想象空间还有很大。
+
+## 参考文档
+
+浅谈 WebVR：https://aotu.io/notes/2016/08/24/2016-8-24-webvr/
+A-Frame WebVR 试玩报告：https://aotu.io/notes/2016/10/08/aframe/
+CSS 3D Panorama - 淘宝造物节技术剖析：https://aotu.io/notes/2016/08/24/2016-8-24-css-3d-panorama/
+krpano：https://krpano.com/home/ 
+使用 ThreeJS 在浏览器中展示全景图：https://aotu.io/notes/2016/01/02/3D-panorama/
+Pano2VR：https://ggnome.com/pano2vr/
+VR 看房是如何实现的？：https://cloud.tencent.com/developer/ask/142336
+十分钟打造 3D 物理世界：https://aotu.io/notes/2018/10/18/cannonjs/
+高盛 VR 与 AR 报告：下一个通用计算平台：https://tech.qq.com/a/20160202/011274.htm
+Google AR&VR：https://arvr.google.com/
+The Best VR Headsets for 2020：https://www.pcmag.com/picks/the-best-vr-headsets
+贝壳x如视案例：https://realsee.com/website/public/demo/fwmm/ryQkazl8xKdesBhKhVTkqqxTVLX6Rn9Km.html
+聊聊VR虚拟现实（一）：VR的发展史：https://zhuanlan.zhihu.com/p/26592125
+VR眼镜的分类：https://zhuanlan.zhihu.com/p/31649178
+也说5G与云VR：https://zhuanlan.zhihu.com/p/83623971
+5G专网为“江南皮革厂”带来了什么？：https://mp.weixin.qq.com/s/BBwI2_Tnp_5cO2ngr4eh1w
