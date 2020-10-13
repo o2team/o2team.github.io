@@ -270,8 +270,8 @@ void _output(Widget widget) {
 
 这篇文章是我们在提高 [Flutter Gallery](https://gallery.flutter.dev/#/) 性能中学习到的系列内容之一。希望对你有所帮助，能让你学到可以在你的 Flutter app 中用上的内容。系列文章如下：
 
-- [Flutter 性能优化系列之 tree shaking 和延迟加载](https://medium.com/flutter/optimizing-performance-in-flutter-web-apps-with-tree-shaking-and-deferred-loading-535fbe3cd674)
-- [Flutter 性能优化系列之图片占位符、预缓存和禁用导航过渡动画](https://medium.com/flutter/improving-perceived-performance-with-image-placeholders-precaching-and-disabled-navigation-6b3601087a2b)
+- [Flutter 性能优化系列之 tree shaking 和延迟加载](https://github.com/zsjie/o2team.github.io/blob/v2/source/_posts/2020-10-13-optimizing-performance-in-flutter-web-apps-with-tree-shaking-and-deferred-loading.md)
+- [Flutter 性能优化系列之图片占位符、预缓存和禁用导航过渡动画](https://github.com/zsjie/o2team.github.io/blob/v2/source/_posts/2020-10-13-improving-perceived-performance-with-image-placeholders-precaching-and-disabled-navigation.md)
 - Flutter 性能优化系列之打造高性能 widget（本文）
 
 你还可以查看适用所有水平开发者的 [Flutter UI 性能文档](https://flutter.dev/docs/perf/rendering/ui-performance)。
