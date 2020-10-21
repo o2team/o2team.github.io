@@ -149,7 +149,7 @@ setTimeout(function(){
 
 ### 动画性能最优化
 之前，我们提到了页面呈现出来所经历的渲染流水线，其实从性能方面考虑，`最理想的渲染流水线是没有布局和绘制环节的`，为了实现上述效果，就需要只使用那些仅触发 `Composite` 的属性。
-![](https://img12.360buyimg.com/img/s720x110_jfs/t1/115204/22/19900/7952/5f83b760E80bcca10/d5e9ae70adcf91d7.jpg)
+![](https://img12.360buyimg.com/img/s720x110_jfs/t1/115204/22/19900/7952/5f83b760E80bcca10/d5e9ae70adcf91d7.jpg)  
 目前，只有两个属性是满足这个条件的：`transforms` 和 `opacity`（仅部分浏览器支持）。  
 相关信息可查看：[css Triggers](https://csstriggers.com/?spm=taofed.bloginfo.blog.36.20e75ac8xZGHBo)
 
