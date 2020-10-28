@@ -74,7 +74,7 @@ wechat:
 </div>
 ```
 
-### Animation 实现回弹效果 [Online Code](https://codepen.io/awesomedevin/pen/wvMGEaY)
+### Animation 实现回弹效果 [Online Code](https://codepen.io/awesomedevin/pen/NWxNMpm)
 > 通过将过渡动画拆分为多个阶段，每个阶段的top属性停留在不同的位置来实现
 
 ![](https://img12.360buyimg.com/aotucms/jfs/t1/146808/9/2317/161560/5f048ce1Eaa2e09d6/0d5e99099481e0a9.gif)
