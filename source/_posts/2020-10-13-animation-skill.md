@@ -89,7 +89,7 @@ wechat:
 
 ![](https://img12.360buyimg.com/aotucms/jfs/t1/146808/9/2317/161560/5f048ce1Eaa2e09d6/0d5e99099481e0a9.gif)
 
-[实现回弹效果 DEMO](https://codepen.io/awesomedevin/pen/wvMGEaY)
+[实现回弹效果 DEMO](https://codepen.io/awesomedevin/pen/NWxNMpm)
 
 ```css
 /* 规定动画，改变top,opacity */
