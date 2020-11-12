@@ -1,14 +1,14 @@
-title: MongoDB 副本集之入门篇
-subtitle: 你一直在用的 MongoDB 副本集，你知道他背后的架构吗？
-cover: https://img12.360buyimg.com/ling/jfs/t1/136768/1/14633/63869/5fa14034Eb449b776/6d30e40309daa8a4.jpg
-category: 经验分享
-tags:
-  - mongodb
+title: MongoDB 副本集之入门篇  
+subtitle: 你一直在用的 MongoDB 副本集，你知道他背后的架构吗？  
+cover: https://img12.360buyimg.com/ling/jfs/t1/136768/1/14633/63869/5fa14034Eb449b776/6d30e40309daa8a4.jpg  
+category: 经验分享  
+tags:  
+  - mongodb  
   - replication
   - MongoDB 副本集
-author:
-  nick: 小唐
-date: 2020-11-12 20:10:20
+author:  
+  nick: 小唐  
+date: 2020-11-12 20:10:20  
 
 ---
 
@@ -52,7 +52,7 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
 
   隐藏节点会从主节点同步数据，但对客户端不可见，在mongo shell 执行 db.isMaster() 方法也不会展示该节点，隐藏节点必须Priority为0，即不可以被选举成为主节点。但是如果有配置选举权限的话，可以参与选举。
   
- 因为隐藏节点对客户端不可见，所以跟客户端不会互相影响，可以用来备份数据或者跑一些后端定时任务之类的操作，具体如下图，4个备份节点都从主节点同步数据，其中1个为隐藏节点：
+  因为隐藏节点对客户端不可见，所以跟客户端不会互相影响，可以用来备份数据或者跑一些后端定时任务之类的操作，具体如下图，4个备份节点都从主节点同步数据，其中1个为隐藏节点：
 
 ![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-hidden-member.bakedsvg.svg
 )
@@ -67,11 +67,11 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
 
 - tags
  
- 支持对副本集成员打标签，在查询数据时会用到，比如找到对应标签的副本节点，然后从该节点读取数据，这点也非常有用，可以根据标签对节点分类，查询数据时不同服务的客户端指定其对应的标签的节点，对某个标签的节点数量进行增加或减少，也不怕会影响到使用其他标签的服务。Tags 的具体使用，文章下面章节也会讲到。
+  支持对副本集成员打标签，在查询数据时会用到，比如找到对应标签的副本节点，然后从该节点读取数据，这点也非常有用，可以根据标签对节点分类，查询数据时不同服务的客户端指定其对应的标签的节点，对某个标签的节点数量进行增加或减少，也不怕会影响到使用其他标签的服务。Tags 的具体使用，文章下面章节也会讲到。
  
 - votes
 
- 表示节点是否有权限参与选举，最大可以配置7个副本节点参与选举。
+  表示节点是否有权限参与选举，最大可以配置7个副本节点参与选举。
  
 ## 二、副本集的搭建以及测试
 安装mongodb 教程：[https://docs.mongodb.com/manual/installation/]()
@@ -100,113 +100,113 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
 
 2. 分别启动三个mongod 进程，端口分别为：27018，27019，27020
 
- 第一个：
-`mongod --replSet rs0 --port 27018 --bind_ip localhost --dbpath /data/mongodb/rs0-0  --oplogSize 128`
+  第一个：
+    `mongod --replSet rs0 --port 27018 --bind_ip localhost --dbpath /data/mongodb/rs0-0  --oplogSize 128`
 
- 第二个：
-`mongod --replSet rs0 --port 27019 --bind_ip localhost --dbpath /data/mongodb/rs0-1  --oplogSize 128`
+  第二个：
+    `mongod --replSet rs0 --port 27019 --bind_ip localhost --dbpath /data/mongodb/rs0-1  --oplogSize 128`
 
- 第三个：
-`mongod --replSet rs0 --port 27020 --bind_ip localhost --dbpath /data/mongodb/rs0-2  --oplogSize 128`
+  第三个：
+    `mongod --replSet rs0 --port 27020 --bind_ip localhost --dbpath /data/mongodb/rs0-2  --oplogSize 128`
 
 3. 使用 mongo 进入第一个 mongod 示例，使用 rs.initiate() 进行初始化
 
- 登录到27018： mongo localhost:27018
+  登录到27018： mongo localhost:27018
  
- 执行：
+  执行：
  
- ```javascript
-rsconf = {
-		_id: "rs0",
-		members: [
-			{
-				_id: 0,
-				host: "localhost:27018"
-			},
-			{
-				_id: 1,
-				host: "localhost:27019"
-			},
-			{
-				_id: 2,
-				host: "localhost:27020"
-			}
-		]
-}
+  ```js
+  rsconf = {
+      _id: "rs0",
+      members: [
+        {
+          _id: 0,
+          host: "localhost:27018"
+        },
+        {
+          _id: 1,
+          host: "localhost:27019"
+        },
+        {
+          _id: 2,
+          host: "localhost:27020"
+        }
+      ]
+  }
 
- rs.initiate( rsconf )
-```
+  rs.initiate( rsconf )
+  ```
 
- 以上就已经完成了一个副本集的搭建，在 mongo shell 中执行 rs.conf() 可以看到每个节点中 host、arbiterOnly、hidden、priority、 votes、slaveDelay等属性，是不是超级简单。。
+  以上就已经完成了一个副本集的搭建，在 mongo shell 中执行 rs.conf() 可以看到每个节点中 host、arbiterOnly、hidden、priority、 votes、slaveDelay等属性，是不是超级简单。。
  
   执行 rs.conf()  ，结果展示如下：
 
- ``` 
-rs.conf()
-{
-	   "_id" : "rs0",
-		"version" : 1,
-		"protocolVersion" : NumberLong(1),
-		"writeConcernMajorityJournalDefault" : true,
-		"members" : [
-			{
-				"_id" : 0,
-				"host" : "localhost:27018",
-				"arbiterOnly" : false,
-				"buildIndexes" : true,
-				"hidden" : false,
-				"priority" : 1,
-				"tags" : {
-	
-				},
-				"slaveDelay" : NumberLong(0),
-				"votes" : 1
-			},
-			{
-				"_id" : 1,
-				"host" : "localhost:27019",
-				"arbiterOnly" : false,
-				"buildIndexes" : true,
-				"hidden" : false,
-				"priority" : 1,
-				"tags" : {
-	
-				},
-				"slaveDelay" : NumberLong(0),
-				"votes" : 1
-			},
-			{
-				"_id" : 2,
-				"host" : "localhost:27020",
-				"arbiterOnly" : false,
-				"buildIndexes" : true,
-				"hidden" : false,
-				"priority" : 1,
-				"tags" : {
-	
-				},
-				"slaveDelay" : NumberLong(0),
-				"votes" : 1
-			}
-		],
-		"settings" : {
-			"chainingAllowed" : true,
-			"heartbeatIntervalMillis" : 2000,
-			"heartbeatTimeoutSecs" : 10,
-			"electionTimeoutMillis" : 10000,
-			"catchUpTimeoutMillis" : -1,
-			"catchUpTakeoverDelayMillis" : 30000,
-			"getLastErrorModes" : {
-	
-			},
-			"getLastErrorDefaults" : {
-				"w" : 1,
-				"wtimeout" : 0
-			},
-			"replicaSetId" : ObjectId("5f957f12974186fc616688fb")
-		}
-}
-```
+  ```js
+  rs.conf()
+  {
+      "_id" : "rs0",
+      "version" : 1,
+      "protocolVersion" : NumberLong(1),
+      "writeConcernMajorityJournalDefault" : true,
+      "members" : [
+        {
+          "_id" : 0,
+          "host" : "localhost:27018",
+          "arbiterOnly" : false,
+          "buildIndexes" : true,
+          "hidden" : false,
+          "priority" : 1,
+          "tags" : {
+    
+          },
+          "slaveDelay" : NumberLong(0),
+          "votes" : 1
+        },
+        {
+          "_id" : 1,
+          "host" : "localhost:27019",
+          "arbiterOnly" : false,
+          "buildIndexes" : true,
+          "hidden" : false,
+          "priority" : 1,
+          "tags" : {
+    
+          },
+          "slaveDelay" : NumberLong(0),
+          "votes" : 1
+        },
+        {
+          "_id" : 2,
+          "host" : "localhost:27020",
+          "arbiterOnly" : false,
+          "buildIndexes" : true,
+          "hidden" : false,
+          "priority" : 1,
+          "tags" : {
+    
+          },
+          "slaveDelay" : NumberLong(0),
+          "votes" : 1
+        }
+      ],
+      "settings" : {
+        "chainingAllowed" : true,
+        "heartbeatIntervalMillis" : 2000,
+        "heartbeatTimeoutSecs" : 10,
+        "electionTimeoutMillis" : 10000,
+        "catchUpTimeoutMillis" : -1,
+        "catchUpTakeoverDelayMillis" : 30000,
+        "getLastErrorModes" : {
+    
+        },
+        "getLastErrorDefaults" : {
+          "w" : 1,
+          "wtimeout" : 0
+        },
+        "replicaSetId" : ObjectId("5f957f12974186fc616688fb")
+      }
+  }
+  ```
 
 特别注意下：在 mongo shell 中，有 rs 跟 db。
 
@@ -217,120 +217,119 @@ rs.conf()
 
 1. 可以直接停掉主节点localhost:27018 来测试下主节点挂掉后，副本节点重新选举出新的主节点，即自动故障转移（Automatic Failover）
 
- 杀掉主节点 27018后，可以看到 27019 的输出日志里面选举部分，27019 发起选举，并成功参选成为主节点：
+  杀掉主节点 27018后，可以看到 27019 的输出日志里面选举部分，27019 发起选举，并成功参选成为主节点：
 
- ```
-2020-10-26T21:43:58.156+0800 I  REPL     [replexec-304] Scheduling remote command request for vote request: RemoteCommand 100694 -- target:localhost:27018 db:admin cmd:{ replSetRequestVotes: 1, setName: "rs0", dryRun: false, term: 17, candidateIndex: 1, configVersion: 1, lastCommittedOp: { ts: Timestamp(1603719830, 1), t: 16 } }
-2020-10-26T21:43:58.156+0800 I  REPL     [replexec-304] Scheduling remote command request for vote request: RemoteCommand 100695 -- target:localhost:27020 db:admin cmd:{ replSetRequestVotes: 1, setName: "rs0", dryRun: false, term: 17, candidateIndex: 1, configVersion: 1, lastCommittedOp: { ts: Timestamp(1603719830, 1), t: 16 } }
-2020-10-26T21:43:58.159+0800 I  ELECTION [replexec-301] VoteRequester(term 17) received an invalid response from localhost:27018: ShutdownInProgress: In the process of shutting down; response message: { operationTime: Timestamp(1603719830, 1), ok: 0.0, errmsg: "In the process of shutting down", code: 91, codeName: "ShutdownInProgress", $clusterTime: { clusterTime: Timestamp(1603719830, 1), signature: { hash: BinData(0, 0000000000000000000000000000000000000000), keyId: 0 } } }
-2020-10-26T21:43:58.164+0800 I  ELECTION [replexec-305] VoteRequester(term 17) received a yes vote from localhost:27020; response message: { term: 17, voteGranted: true, reason: "", ok: 1.0, $clusterTime: { clusterTime: Timestamp(1603719830, 1), signature: { hash: BinData(0, 0000000000000000000000000000000000000000), keyId: 0 } }, operationTime: Timestamp(1603719830, 1) }
-2020-10-26T21:43:58.164+0800 I  ELECTION [replexec-304] election succeeded, assuming primary role in term 17
-```
+  ```
+  2020-10-26T21:43:58.156+0800 I  REPL     [replexec-304] Scheduling remote command request for vote request: RemoteCommand 100694 -- target:localhost:27018 db:admin cmd:{ replSetRequestVotes: 1, setName: "rs0", dryRun: false, term: 17, candidateIndex: 1, configVersion: 1, lastCommittedOp: { ts: Timestamp(1603719830, 1), t: 16 } }
+  2020-10-26T21:43:58.156+0800 I  REPL     [replexec-304] Scheduling remote command request for vote request: RemoteCommand 100695 -- target:localhost:27020 db:admin cmd:{ replSetRequestVotes: 1, setName: "rs0", dryRun: false, term: 17, candidateIndex: 1, configVersion: 1, lastCommittedOp: { ts: Timestamp(1603719830, 1), t: 16 } }
+  2020-10-26T21:43:58.159+0800 I  ELECTION [replexec-301] VoteRequester(term 17) received an invalid response from localhost:27018: ShutdownInProgress: In the process of shutting down; response message: { operationTime: Timestamp(1603719830, 1), ok: 0.0, errmsg: "In the process of shutting down", code: 91, codeName: "ShutdownInProgress", $clusterTime: { clusterTime: Timestamp(1603719830, 1), signature: { hash: BinData(0, 0000000000000000000000000000000000000000), keyId: 0 } } }
+  2020-10-26T21:43:58.164+0800 I  ELECTION [replexec-305] VoteRequester(term 17) received a yes vote from localhost:27020; response message: { term: 17, voteGranted: true, reason: "", ok: 1.0, $clusterTime: { clusterTime: Timestamp(1603719830, 1), signature: { hash: BinData(0, 0000000000000000000000000000000000000000), keyId: 0 } }, operationTime: Timestamp(1603719830, 1) }
+  2020-10-26T21:43:58.164+0800 I  ELECTION [replexec-304] election succeeded, assuming primary role in term 17
+  ```
 
 2. 然后执行 rs.status() 查看当前副本集情况，可以看到27019变为主节点，27018 显示已挂掉 health = 0
 
- ```
-rs.status()
-{
-		"set" : "rs0",
-		"date" : ISODate("2020-10-26T13:44:22.071Z"),
-		"myState" : 1,
-		"heartbeatIntervalMillis" : NumberLong(2000),
-		"majorityVoteCount" : 2,
-		"writeMajorityCount" : 2,
-		"members" : [
-			{
-				"_id" : 0,
-				"name" : "localhost:27018",
-				"ip" : "127.0.0.1",
-				"health" : 0,
-				"state" : 8,
-				"stateStr" : "(not reachable/healthy)",
-				"uptime" : 0,
-				"optime" : {
-					"ts" : Timestamp(0, 0),
-					"t" : NumberLong(-1)
-				},
-				"optimeDurable" : {
-					"ts" : Timestamp(0, 0),
-					"t" : NumberLong(-1)
-				},
-				"optimeDate" : ISODate("1970-01-01T00:00:00Z"),
-				"optimeDurableDate" : ISODate("1970-01-01T00:00:00Z"),
-				"lastHeartbeat" : ISODate("2020-10-26T13:44:20.202Z"),
-				"lastHeartbeatRecv" : ISODate("2020-10-26T13:43:57.861Z"),
-				"pingMs" : NumberLong(0),
-				"lastHeartbeatMessage" : "Error connecting to localhost:27018 (127.0.0.1:27018) :: caused by :: Connection refused",
-				"syncingTo" : "",
-				"syncSourceHost" : "",
-				"syncSourceId" : -1,
-				"infoMessage" : "",
-				"configVersion" : -1
-			},
-			{
-				"_id" : 1,
-				"name" : "localhost:27019",
-				"ip" : "127.0.0.1",
-				"health" : 1,
-				"state" : 1,
-				"stateStr" : "PRIMARY",
-				"uptime" : 85318,
-				"optime" : {
-					"ts" : Timestamp(1603719858, 1),
-					"t" : NumberLong(17)
-				},
-				"optimeDate" : ISODate("2020-10-26T13:44:18Z"),
-				"syncingTo" : "",
-				"syncSourceHost" : "",
-				"syncSourceId" : -1,
-				"infoMessage" : "",
-				"electionTime" : Timestamp(1603719838, 1),
-				"electionDate" : ISODate("2020-10-26T13:43:58Z"),
-				"configVersion" : 1,
-				"self" : true,
-				"lastHeartbeatMessage" : ""
-			},
-			{
-				"_id" : 2,
-				"name" : "localhost:27020",
-				"ip" : "127.0.0.1",
-				"health" : 1,
-				"state" : 2,
-				"stateStr" : "SECONDARY",
-				"uptime" : 52468,
-				"optime" : {
-					"ts" : Timestamp(1603719858, 1),
-					"t" : NumberLong(17)
-				},
-				"optimeDurable" : {
-					"ts" : Timestamp(1603719858, 1),
-					"t" : NumberLong(17)
-				},
-				"optimeDate" : ISODate("2020-10-26T13:44:18Z"),
-				"optimeDurableDate" : ISODate("2020-10-26T13:44:18Z"),
-				"lastHeartbeat" : ISODate("2020-10-26T13:44:20.200Z"),
-				"lastHeartbeatRecv" : ISODate("2020-10-26T13:44:21.517Z"),
-				"pingMs" : NumberLong(0),
-				"lastHeartbeatMessage" : "",
-				"syncingTo" : "localhost:27019",
-				"syncSourceHost" : "localhost:27019",
-				"syncSourceId" : 1,
-				"infoMessage" : "",
-				"configVersion" : 1
-			}
-		]
-}
-```
+  ```js
+  rs.status()
+  {
+      "set" : "rs0",
+      "date" : ISODate("2020-10-26T13:44:22.071Z"),
+      "myState" : 1,
+      "heartbeatIntervalMillis" : NumberLong(2000),
+      "majorityVoteCount" : 2,
+      "writeMajorityCount" : 2,
+      "members" : [
+        {
+          "_id" : 0,
+          "name" : "localhost:27018",
+          "ip" : "127.0.0.1",
+          "health" : 0,
+          "state" : 8,
+          "stateStr" : "(not reachable/healthy)",
+          "uptime" : 0,
+          "optime" : {
+            "ts" : Timestamp(0, 0),
+            "t" : NumberLong(-1)
+          },
+          "optimeDurable" : {
+            "ts" : Timestamp(0, 0),
+            "t" : NumberLong(-1)
+          },
+          "optimeDate" : ISODate("1970-01-01T00:00:00Z"),
+          "optimeDurableDate" : ISODate("1970-01-01T00:00:00Z"),
+          "lastHeartbeat" : ISODate("2020-10-26T13:44:20.202Z"),
+          "lastHeartbeatRecv" : ISODate("2020-10-26T13:43:57.861Z"),
+          "pingMs" : NumberLong(0),
+          "lastHeartbeatMessage" : "Error connecting to localhost:27018 (127.0.0.1:27018) :: caused by :: Connection refused",
+          "syncingTo" : "",
+          "syncSourceHost" : "",
+          "syncSourceId" : -1,
+          "infoMessage" : "",
+          "configVersion" : -1
+        },
+        {
+          "_id" : 1,
+          "name" : "localhost:27019",
+          "ip" : "127.0.0.1",
+          "health" : 1,
+          "state" : 1,
+          "stateStr" : "PRIMARY",
+          "uptime" : 85318,
+          "optime" : {
+            "ts" : Timestamp(1603719858, 1),
+            "t" : NumberLong(17)
+          },
+          "optimeDate" : ISODate("2020-10-26T13:44:18Z"),
+          "syncingTo" : "",
+          "syncSourceHost" : "",
+          "syncSourceId" : -1,
+          "infoMessage" : "",
+          "electionTime" : Timestamp(1603719838, 1),
+          "electionDate" : ISODate("2020-10-26T13:43:58Z"),
+          "configVersion" : 1,
+          "self" : true,
+          "lastHeartbeatMessage" : ""
+        },
+        {
+          "_id" : 2,
+          "name" : "localhost:27020",
+          "ip" : "127.0.0.1",
+          "health" : 1,
+          "state" : 2,
+          "stateStr" : "SECONDARY",
+          "uptime" : 52468,
+          "optime" : {
+            "ts" : Timestamp(1603719858, 1),
+            "t" : NumberLong(17)
+          },
+          "optimeDurable" : {
+            "ts" : Timestamp(1603719858, 1),
+            "t" : NumberLong(17)
+          },
+          "optimeDate" : ISODate("2020-10-26T13:44:18Z"),
+          "optimeDurableDate" : ISODate("2020-10-26T13:44:18Z"),
+          "lastHeartbeat" : ISODate("2020-10-26T13:44:20.200Z"),
+          "lastHeartbeatRecv" : ISODate("2020-10-26T13:44:21.517Z"),
+          "pingMs" : NumberLong(0),
+          "lastHeartbeatMessage" : "",
+          "syncingTo" : "localhost:27019",
+          "syncSourceHost" : "localhost:27019",
+          "syncSourceId" : 1,
+          "infoMessage" : "",
+          "configVersion" : 1
+        }
+      ]
+  }
+  ```
 
 3. 再次启动27018：
- `mongod --replSet rs0 --port 27018 --bind_ip localhost --dbpath /data/mongodb/rs0-0  --oplogSize 128`
+  `mongod --replSet rs0 --port 27018 --bind_ip localhost --dbpath /data/mongodb/rs0-0  --oplogSize 128`
  
- 可以在节点 27019 日志中看到已检测到 27018，并且已变为副本节点，通过rs.status 查看结果也是如此。
+  可以在节点 27019 日志中看到已检测到 27018，并且已变为副本节点，通过rs.status 查看结果也是如此。
 
- ```
-2020-10-26T21:52:06.871+0800 I  REPL     [replexec-305] Member localhost:27018 is now in state SECONDARY
-```
-
+  ```
+  2020-10-26T21:52:06.871+0800 I  REPL     [replexec-305] Member localhost:27018 is now in state SECONDARY
+  ```
 
 ## 三、副本集写跟读的一些特性
 ### 写关注（Write concern）
@@ -351,20 +350,20 @@ rs.status()
 
 1. 在写请求中指定 writeConcern 相关参数，如下：
 
- ```
-db.products.insert(
-	   { item: "envelopes", qty : 100, type: "Clasp" },
-	   { writeConcern: { w: "majority" , wtimeout: 5000 } }
-)
-```
+  ```js
+  db.products.insert(
+      { item: "envelopes", qty : 100, type: "Clasp" },
+      { writeConcern: { w: "majority" , wtimeout: 5000 } }
+  )
+  ```
 
 2. 修改副本集 getLastErrorDefaults 配置，如下：
 
- ```
-cfg = rs.conf()
-cfg.settings.getLastErrorDefaults = { w: "majority", wtimeout: 5000 }
-rs.reconfig(cfg)
-```
+  ```js
+  cfg = rs.conf()
+  cfg.settings.getLastErrorDefaults = { w: "majority", wtimeout: 5000 }
+  rs.reconfig(cfg)
+  ```
 
 ### 读偏好 （Read preference）
 读跟写不一样，为了保持一致性，写只能通过主节点，但读可以选择主节点，也可以选择副本节点，区别是主节点数据最新，副本节点因为同步问题可能会有延迟，但从副本节点读取数据可以分散对主节点的压力。
@@ -385,33 +384,30 @@ rs.reconfig(cfg)
 | nearest            | 主要看网络延迟，选取延迟最小的节点，主节点跟副本节点均可     |
 
 
-
-
-
 #### 再说下3个条件，条件是在符合模式的基础上，再根据条件删选具体的节点
 1. Tag Sets（标签）
 
- 顾名思义，这个可以给节点加上标签，然后查找数据时，可以根据标签选择对应的节点，然后在该节点查找数据。可以通过mongo shell 使用 rs.conf() 查看当前每个节点下面的 tags， 修改或者添加tags 过程同上面修改 getLastErrorDefaults 配置 ，如：` cfg.members[n].tags = { "region": "South", "datacenter": "A" }`
+  顾名思义，这个可以给节点加上标签，然后查找数据时，可以根据标签选择对应的节点，然后在该节点查找数据。可以通过mongo shell 使用 rs.conf() 查看当前每个节点下面的 tags， 修改或者添加tags 过程同上面修改 getLastErrorDefaults 配置 ，如：` cfg.members[n].tags = { "region": "South", "datacenter": "A" }`
 
 2. maxStalenessSeconds （可容忍的最大同步延迟）
 
- 顾名思义+1，这个值是指副本节点同步主节点写入的时间 跟 主节点实际最近写入时间的对比值，如果主节点挂掉了，那就跟副本集中最新写入的时间做对比。
- 
+  顾名思义+1，这个值是指副本节点同步主节点写入的时间 跟 主节点实际最近写入时间的对比值，如果主节点挂掉了，那就跟副本集中最新写入的时间做对比。
+
   这个值建议设置，避免因为部分副本节点网络原因导致比较长时间未同步主节点数据，然后读到比较老的数据。特别注意的是该值需要设置 90s 以上，因为客户端是定时去校验副本节点的同步延迟时间，数据不会特别准确，设置比 90s 小，会抛出异常。
 
 3. Hedged Read （对冲读取）
 
- 该选项是在分片集群 MongoDB 4.4 版本后才支持，指 mongos 实例路由读取请求时会同时发给两个符合条件的副本集节点，然后那个先返回结果就返回这个结果给客户端。
+  该选项是在分片集群 MongoDB 4.4 版本后才支持，指 mongos 实例路由读取请求时会同时发给两个符合条件的副本集节点，然后那个先返回结果就返回这个结果给客户端。
 
 #### 那问题来了，如此好用的模式以及条件在查询请求中如何使用呢？
 
 1. 在代码中连接数据库，使用 connection string uri 时，可以加上下面的这三个参数
 
- | **参数**            | **说明**                                                     |
-| ------------------- | ------------------------------------------------------------ |
-| readPreference      | 模式，枚举值有：primary（默认值）、 primaryPreferred、secondary、secondaryPreferred、nearest |
-| maxStalenessSeconds | 最大同步延时秒数，取值0 - 90 会报错， -1 表示没有最大值      |
-| readPreferenceTags  | 标签，如果标签是 { "dc": "ny", "rack": "r1" }, 则在uri 为 readPreferenceTags=dc:ny,rack:r1 |
+  | **参数**            | **说明**                                                     |
+  | ------------------- | ------------------------------------------------------------ |
+  | readPreference      | 模式，枚举值有：primary（默认值）、 primaryPreferred、secondary、secondaryPreferred、nearest |
+  | maxStalenessSeconds | 最大同步延时秒数，取值0 - 90 会报错， -1 表示没有最大值      |
+  | readPreferenceTags  | 标签，如果标签是 { "dc": "ny", "rack": "r1" }, 则在uri 为 readPreferenceTags=dc:ny,rack:r1 |
   
   例如下面：
  
@@ -422,13 +418,13 @@ rs.reconfig(cfg)
 
   cursor.readPref() 参数分别为： mode、tag set、hedge options, 具体请求例如下面这样
  
-   ```
-db.collection.find({ }).readPref(
-	   "secondary",                      // mode
-	   [ { "datacenter": "B" },  { } ],  // tag set
-	   { enabled: true }                 // hedge options
-)
-```
+  ```js
+  db.collection.find({ }).readPref(
+      "secondary",                      // mode
+      [ { "datacenter": "B" },  { } ],  // tag set
+      { enabled: true }                 // hedge options
+  )
+  ```
 
   Mongo.setReadPref() 类似，只是预先设置请求条件，这样就不用每个请求后面带上 readPref 条件。
 
@@ -440,35 +436,34 @@ db.collection.find({ }).readPref(
 
    在当前节点查询: `db.nums.find()`
    
-   可以看到本条数据： 
-  ` { "_id" : ObjectId("5f958687233b11771912ced5"), "name" : "num0" }`
+   可以看到本条数据： `{ "_id" : ObjectId("5f958687233b11771912ced5"), "name" : "num0" }`
   
 3. 登录副本节点： `mongo localhost:27019`
 
- 查询：`db.nums.find()`
+  查询：`db.nums.find()`
  
- 因为查询模式默认为 primary，所以在副本节点查询会报错，如下：
+  因为查询模式默认为 primary，所以在副本节点查询会报错，如下：
  
- ```
-Error: error: {
-	"operationTime" : Timestamp(1603788383, 1),
-	"ok" : 0,
-	"errmsg" : "not master and slaveOk=false",
-	"code" : 13435,
-	"codeName" : "NotMasterNoSlaveOk",
-	"$clusterTime" : {
-		"clusterTime" : Timestamp(1603788383, 1),
-		"signature" : {
-			"hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
-			"keyId" : NumberLong(0)
-		}
-	}
-}
-```
+  ```js
+  Error: error: {
+    "operationTime" : Timestamp(1603788383, 1),
+    "ok" : 0,
+    "errmsg" : "not master and slaveOk=false",
+    "code" : 13435,
+    "codeName" : "NotMasterNoSlaveOk",
+    "$clusterTime" : {
+      "clusterTime" : Timestamp(1603788383, 1),
+      "signature" : {
+        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+        "keyId" : NumberLong(0)
+      }
+    }
+  }
+  ```
 
- 查询时指定模式为 “secondary”： `db.nums.find().readPref(“secondary")`
+  查询时指定模式为 “secondary”： `db.nums.find().readPref(“secondary")`
  
- 就可以查询到插入的数据：` { "_id" : ObjectId("5f958687233b11771912ced5"), "name" : "num0" }`
+  就可以查询到插入的数据：` { "_id" : ObjectId("5f958687233b11771912ced5"), "name" : "num0" }`
  
 
 ## 结语
