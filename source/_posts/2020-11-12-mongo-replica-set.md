@@ -28,15 +28,15 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
 
 搭建一个副本集集群最少需要三个节点：一个主节点，两个备份节点，如果三个节点分布合理，基本可以保证线上数据99.9%安全。三个节点的架构如下图所示：
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-read-write-operations-primary.bakedsvg.svg)
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-read-write-operations-primary.bakedsvg.svg)
 
 如果只有一个主节点，一个副本节点，且没有资源拿来当第二个副本节点，那就可以起一个仲裁者节点（arbiter），不存数据，只用来选举用，如下图所示：
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-primary-with-secondary-and-arbiter.bakedsvg.svg)
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-primary-with-secondary-and-arbiter.bakedsvg.svg)
 
 当主节点挂掉后，那么两个副本节点会进行选举，从中选举出一个新的主节点，流程如下：
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-trigger-election.bakedsvg.svg)
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-trigger-election.bakedsvg.svg)
 
 对于副本集成员属性，特别需要说明下这几个：priority、hidden、slaveDelay、tags、votes。
 
@@ -46,7 +46,7 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
  
  这种特性一般会被用在有多个数据中心的情况下，比如一个主数据中心，一个备份数据中心，主数据中心速度会更快，如果主节点挂掉，我们肯定希望新主节点也在主数据中心产生，那么我们就可以设置在备份数据中心的副本节点优先级为0，如下图所示：
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-three-members-geographically-distributed.bakedsvg.svg)
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-three-members-geographically-distributed.bakedsvg.svg)
 
 - hidden
 
@@ -54,7 +54,7 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
   
   因为隐藏节点对客户端不可见，所以跟客户端不会互相影响，可以用来备份数据或者跑一些后端定时任务之类的操作，具体如下图，4个备份节点都从主节点同步数据，其中1个为隐藏节点：
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-hidden-member.bakedsvg.svg
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-hidden-member.bakedsvg.svg
 )
 
 - slaveDelay
@@ -63,7 +63,7 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
  
   那这个延迟节点有什么用呢？有过数据库误操作惨痛经历的开发者肯定知道答案，那就是为了防止数据库误操作，比如更新服务前，一般会先执行数据库更新脚本，如果脚本有问题，且操作前未做备份，那数据可能就找不回了。但如果说配置了延迟节点，那误操作完，还有该节点可以兜底，只能说该功能真是贴心。具体延迟节点如下图所展示：
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-delayed-member.bakedsvg.svg)
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-delayed-member.bakedsvg.svg)
 
 - tags
  
@@ -342,7 +342,7 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
  
 如下图所示，P-S-S 结构（一个 primary 节点，两个 secondary 节点），写请求里面带了w : “majority" ，那么主节点写入完成后，数据同步到第一个副本节点，且第一个副本节点回复数据写入成功后，才给客户端返回成功。
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/crud-write-concern-w-majority.bakedsvg.svg
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/crud-write-concern-w-majority.bakedsvg.svg
 )
 
 
@@ -368,7 +368,7 @@ mongodb 副本集（Replica Set）包括主节点（primary）跟副本节点（
 ### 读偏好 （Read preference）
 读跟写不一样，为了保持一致性，写只能通过主节点，但读可以选择主节点，也可以选择副本节点，区别是主节点数据最新，副本节点因为同步问题可能会有延迟，但从副本节点读取数据可以分散对主节点的压力。
 
-![](http://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-read-preference-secondary.bakedsvg.svg)
+![](https://storage.360buyimg.com/o2-talos-report/aritcle-mongo-replica/replica-set-read-preference-secondary.bakedsvg.svg)
 
 因为承载数据的节点会有多个，那客户端如何选择从那个节点读呢？主要有3个条件（Tag Sets、 maxStalenessSeconds、Hedged Read），5种模式（primary、primaryPreferred、secondary、secondaryPreferred、nearest）
 
