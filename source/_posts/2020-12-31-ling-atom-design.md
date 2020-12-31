@@ -1,6 +1,6 @@
 title: 凹凸技术揭秘·羚珑页面可视化·成长蜕变之路
 subtitle: 羚珑智能页面设计引擎是一款全场景通用页面可视化搭建解决方案，专注于泛零售领域的设计
-cover: https://img30.360buyimg.com/ling/jfs/t1/151526/16/11590/224062/5fe58926E79441d78/a1ec7796b0d33450.jpg
+cover: https://img10.360buyimg.com/ling/jfs/t1/169901/19/224/248690/5fed91cdE19a056c9/e1710336e7d35db1.jpg
 categories: 凹凸
 tags:
   - 凹凸
