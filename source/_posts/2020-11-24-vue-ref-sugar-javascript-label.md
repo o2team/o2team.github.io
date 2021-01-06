@@ -3,11 +3,10 @@ subtitle: 近日，Vue 作者在社区提交了一份 Ref 语法糖的提案，�
 cover: https://img13.360buyimg.com/ling/jfs/t1/134578/6/16945/152425/5fba44f5E8f778313/bb9a36a109e7e9d3.png
 category: JavaScript
 tags:
-
--   JavaScript
--   label
--   Vue
-    author:
+    - JavaScript
+    - label
+    - Vue
+author:
     nick: nobo
     github_name: bplok20010
     date: 2020-11-24 10:43:33
