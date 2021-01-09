@@ -7,7 +7,7 @@
             <div class="mod-ft-sec mod-ft-copyright">
                 <p>Designed by <a href="http://aotu.io" target="_blank">{{ config.author }}</a> @<a target="_blank" href="http://jdc.jd.com">京东用户体验设计部</a></p>
                 <p>Copyright &copy; {{ moment(Date.now()).year() }}. All Rights Reserved.</p>
-                <p><a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备15077732号-2</a></p>
+                <p><a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备15077732号-2</a></p>
             </div>
 
             {% if theme.busuanzi %}
