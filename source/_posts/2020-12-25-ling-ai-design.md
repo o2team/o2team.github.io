@@ -1,7 +1,7 @@
 title: 凹凸技术揭秘·羚珑智能设计平台·逐梦设计数智化
 subtitle: 羚珑智能设计平台是由京东零售集团[用户体验设计部](https://jdrd.jd.com/)打造的在线设计服务平台，专注于泛零售领域的设计
 cover: https://img30.360buyimg.com/ling/jfs/t1/151526/16/11590/224062/5fe58926E79441d78/a1ec7796b0d33450.jpg
-categories: 凹凸
+categories: 人工智能
 tags:
   - 凹凸
 author:
