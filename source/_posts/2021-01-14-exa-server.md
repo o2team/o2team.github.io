@@ -1,6 +1,6 @@
 title: 凹凸技术揭秘 · 基础服务体系 · 构筑服务端技术中枢
 subtitle: 从前端团队出发，我们从 0 至 1 搭建了服务端研发体系，在这边文章主要介绍了我们在服务端领域方面的一些探索和思考。
-cover: https://img13.360buyimg.com/ling/jfs/t1/161692/39/2702/251764/600053eeE9363827c/abba265ec8fac262.jpg
+cover: https://img12.360buyimg.com/ling/jfs/t1/162554/13/2936/351302/60005777E9afeb179/8c99be1da3485ab0.jpg
 categories: 凹凸
 tags:
   - 凹凸
