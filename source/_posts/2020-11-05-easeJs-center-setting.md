@@ -1,6 +1,6 @@
-title: EaseJs中regX/regY的用法
+title: EaseJs 中 regX / regY 的用法
 subtitle: 动效开发过程中总会遇到中心点设置问题，本文介绍了EaseJS中regX/regY设置中心点的用法。
-cover: https://img12.360buyimg.com/ling/s690x416_jfs/t1/139168/30/9706/615083/5f732aeaE7106cd2b/2a901f7606beb638.png.webp
+cover: https://img12.360buyimg.com/ling/s690x416_jfs/t1/139168/30/9706/615083/5f732aeaE7106cd2b/2a901f7606beb638.png
 category: 经验分享
 tags:
   - EaseJs

@@ -16,7 +16,7 @@ date: 2020-11-12 20:10:20
 
 **React** 影响着我们工作的方方面面，我们每天都在使用它，只窥其表却难以窥其里。正所谓看不如写，本篇文章的目的就是从原理层面探究 **React** 是如何工作的。
 
-#### 工具
+## 工具
 
 在写文章之前，为了方便理解，我准备了一个懒人调试仓库 [simple_react](https://github.com/XHFkindergarten/simple_react) ，这个仓库将  benchmark  用例（只有两个 ^ ^）和 **React** 源码共同放在  src  文件夹中，通过  snowpack  进行热更新，可以直接在源码中加入  log  和  debuger  进行调试。当然这里的“源码”并不是真的源码，因为 **React** 源码中充斥着巨量的  dev  代码和不明确的功能函数，所以我对源码进行了整理，用  typescript  对类型进行了规范，删除了大量和核心流程无关的代码（当然也误删了一些有关的 ^ ^）。
 
@@ -26,7 +26,7 @@ date: 2020-11-12 20:10:20
 
 
 
-#### 文章结构
+## 文章结构
 
 1.  fiber  架构设计及首次渲染流程
 2. 事件委托机制
@@ -35,7 +35,7 @@ date: 2020-11-12 20:10:20
 
 在了解 **React** 是如何工作之前，我们应该确保了解几点有关 **React** 的基础知识。
 
-### Why Framework
+## Why Framework
 
 首先，我们需要知道使用框架对于开发的意义是什么。如果我们还处于远古时期使用纯 JS 的阶段，每次数据的改变都会引发组件的展示状态改变，因此我们需要去手动的操作  DOM  。如果在某一秒内，数据异步的连续改变了几十次，根据展示逻辑我们也需要连续对  DOM  进行几十次修改。频繁的  DOM  操作对网页性能的影响是很大的，当然，创建  DOM  元素和修改  DOM  元素的属性都不过分消耗性能，主要在于每次将新的  DOM  插入  document  都会导致浏览器重新计算布局属性，以及各个视图层、合并、渲染。所以，这样的代码性能是十分低下的。
 
@@ -43,11 +43,11 @@ date: 2020-11-12 20:10:20
 
 所以， **框架** 最核心的功能之一就是 **高效地** 达成 **UI层和数据层的统一。**
 
-### React 哲学
+## React 哲学
 
 **React** 本身并不是框架， **React** 只是一个 **JavaScript** 库，他的作用是通过组件构建用户界面，属于  MVC  应用中的  View  视图层。 **React** 通过  props  和  state  来简化关键数据的存储，对于一个 react 组件函数而言，在 1 秒内可能被执行很多次。而每一次被执行，数据被注入  JSX  ，  JSX  并不是真实的  DOM  ，在 **React** 中会被转换成  `React.createElement(type, props, children)`  函数，执行的结果就是 ReactElement  元素 ，也即是 **虚拟DOM** ，用来描述在浏览器的某一帧中，组件应该被呈现为什么样子。
 
-### Virtual Dom
+## Virtual Dom
 
  VirtualDom  并非 **React** 专属，就像  redux  也可以在非 **React** 环境下使用一样，它们只是一种设计的思路。
 
@@ -65,7 +65,7 @@ ReactDOM.render(<App />, domContainer)
 
 这个  render  过程中， **React** 需要做到的是根据用户创造的  JSX  语法，构建出一个虚拟的树结构（也就是  ReactElement  和  Fiber  ）来表示用户 **期望中** 页面中的元素结构。当然对于这个过程相对并不复杂（误），因为此时的  document  内还是一片虚无。就思路上而言，只需要根据虚拟 DOM 节点生成真实的 DOM 元素然后插入  document  ，第一次渲染就算圆满完成。
 
-### createReactElement
+## createReactElement
 
 通常我们会通过  Babel  将  JSX  转换为一个 JS 执行函数。例如我们在 React 环境下用  JSX  中写了一个标题组件
 
@@ -149,7 +149,7 @@ export function ScheduleRootUpdate (
 }
  ```
 
-### Fiber
+## Fiber
 
 作为整个 **Fiber架构** 中最核心的设计，  Fiber  被设计成了链表结构。
 
@@ -185,7 +185,7 @@ export function ScheduleRootUpdate (
 
 接下来是初次渲染的几个核心步骤，因为是初次渲染，核心任务就是将首屏元素渲染到页面上，所以这个过程将会是同步的。
 
-### PrepareFreshStack
+## PrepareFreshStack
 
 因为笔者是土货没学过英语，百度了下发现是 **准备干净的栈** 的意思。结合了下流程，可以看出这一步的作用是在真正工作之前做一些准备，例如初始化一些变量，放弃之前未完成的工作，以及最重要的—— **创建双向缓冲变量**  WorkInProgress  
 
@@ -303,7 +303,7 @@ function workLoopSync () {
 }
  ```
 
-### PerformUnitOfWork & beginWork
+## PerformUnitOfWork & beginWork
 
 单元工作  performUnitOfWork  的主要工作是通过  beginWork  来完成。  beginWork  的核心工作是通过判断  fiber.tag  判断当前的  fiber  代表的是一个类组件、函数组件还是原生组件，并且针对它们做一些特殊处理。这一切都是为了最终步骤：操作真实 **DOM** 做准备，即通过改变  fiber.effectTag  和  pendingProps  告诉后面的  commitRoot  函数应该对真实 **DOM** 进行怎样的改写。
 
@@ -698,7 +698,7 @@ function TestPersist () {
 
 ok，言归正传。我们点击事件到底发生了什么呢。首先是在 React 的  render  函数执行之前，在 JS 脚本中就已经自动执行了事件的注入。
 
-### 事件注入
+## 事件注入
 
 事件注入的过程稍微有一点复杂，不光模块之间有顺序，数据也做了不少处理，这里不 po 太详细的代码。可能有人会问为啥不直接写死呢，浏览器的事件不也就那么亿点点。就像  Redux  不是专门为 **React** 服务的一样， **React** 也不是专门为浏览器服务的。文章开头也说了 React 只是一个  javascipt  库，它也可以服务 native 端、桌面端甚至各种终端。所以根据底层环境的不同动态的注入事件集也是非常合理的做法。
 
@@ -1256,7 +1256,7 @@ Q3. 为什么 Hooks 的顺序和个数不允许改变
 
 A3. 每次执行 Hooks 函数需要取出上一次渲染时数据的最终状态，因为结构是链表而不是一个 Map，所以这些最终状态也会是有序的，所以如果个数和次序改变会导致数据的错乱。
 
-### 时间调度机制
+## 时间调度机制
 
 虽然今年过期时间  expirationTime  机制已经被淘汰了，但是不管是航道模型还是过期时间，本质上都是任务优先级的不同体现形式。
 
