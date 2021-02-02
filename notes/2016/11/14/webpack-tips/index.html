@@ -1,0 +1,183 @@
+<!DOCTYPE html><html class="theme-lattice"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><title>Webpack 实用配置技巧 | Aotu.io「凹凸实验室」</title><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="凹凸实验室"><meta name="designer" content="凹凸实验室"><meta name="rating" content="general"><meta name="format-detection" content="telephone=yes"><meta name="robots" content="index, follow"><meta baidu-gxt-verify-token="2b74a5aea155a215abea8547f929190c"><meta name="keywords" content="Webpack 配置技巧,模块打包工具,Webpack,凹凸实验室,Aotu,前端开发,全栈开发,IOS开发,Android开发"><link rel="canonical" href="https://aotu.io/notes/2016/11/14/webpack-tips/index.html"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png"><link rel="manifest" href="/img/manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#2f83cd"><meta name="application-name" content="Aotu.io"><link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="167x167" href="/img/apple-touch-icon-167x167.png"><link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon-180x180.png"><link rel="apple-touch-icon" sizes="1024x1024" href="/img/apple-touch-icon-1024x1024.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Aotu.io"><meta name="msapplication-TileColor" content="#fff"><meta name="msapplication-TileImage" content="/img/mstile-144x144.png"><meta name="msapplication-config" content="/img/browserconfig.xml"><meta property="wb:webmaster" content="a1686eb81db284d5"><meta name="wechat-logo" content="http://ww2.sinaimg.cn/large/66f2e5a7gw1f9m525uohdj205k05kmx2.jpg"><meta name="wechat-title" content="Webpack 实用配置技巧"><meta name="wechat-desc" content="从基础使用到配置技巧，如果你准备在自己的生产项目中使用Webpack，本文肯定会对你有所帮助！"><link rel="dns-prefetch" href="//storage.360buyimg.com"><link rel="dns-prefetch" href="//img10.360buyimg.com"><link rel="dns-prefetch" href="//img11.360buyimg.com"><link rel="dns-prefetch" href="//img12.360buyimg.com"><link rel="dns-prefetch" href="//img13.360buyimg.com"><link rel="dns-prefetch" href="//img14.360buyimg.com"><link rel="dns-prefetch" href="//img20.360buyimg.com"><link rel="dns-prefetch" href="//img30.360buyimg.com"><link rel="dns-prefetch" href="//misc.aotu.io"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" href="/atom.xml" title="Aotu.io"><meta name="description" content="前言Webpack做了什么 一句话简单来解释就是处理模块依赖，并将它们合并成可用的静态资源。 为什么选Webpack 模块打包工具有很多，Webpack的特点是它依赖的模块可以是js文件，也可以是css文件，只要配置对应的webpack-loader(加载器)，.coffee、.sass、.jade等等任意的静态资源文件都可以被引用，并解析。  例如：我在项目中使用Vue框架，在配置官方提供的lo"><meta name="keywords" content="Webpack,模块打包工具,Webpack 配置技巧"><meta property="og:type" content="article"><meta property="og:title" content="Webpack 实用配置技巧"><meta property="og:url" content="https://aotu.io/notes/2016/11/14/webpack-tips/index.html"><meta property="og:site_name" content="Aotu.io"><meta property="og:description" content="前言Webpack做了什么 一句话简单来解释就是处理模块依赖，并将它们合并成可用的静态资源。 为什么选Webpack 模块打包工具有很多，Webpack的特点是它依赖的模块可以是js文件，也可以是css文件，只要配置对应的webpack-loader(加载器)，.coffee、.sass、.jade等等任意的静态资源文件都可以被引用，并解析。  例如：我在项目中使用Vue框架，在配置官方提供的lo"><meta property="og:locale" content="zh-cn"><meta property="og:updated_time" content="2021-02-02T07:48:05.238Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Webpack 实用配置技巧"><meta name="twitter:description" content="前言Webpack做了什么 一句话简单来解释就是处理模块依赖，并将它们合并成可用的静态资源。 为什么选Webpack 模块打包工具有很多，Webpack的特点是它依赖的模块可以是js文件，也可以是css文件，只要配置对应的webpack-loader(加载器)，.coffee、.sass、.jade等等任意的静态资源文件都可以被引用，并解析。  例如：我在项目中使用Vue框架，在配置官方提供的lo"><meta name="twitter:site" content="o2circle"><script>var App={root:"/",isHome:!1,isCate:!1,isTag:!1}</script><script>window.WechatShareData={imgUrl:"http://ww2.sinaimg.cn/large/66f2e5a7gw1f9m525uohdj205k05kmx2.jpg",link:window.location.href,title:"Webpack 实用配置技巧",desc:"从基础使用到配置技巧，如果你准备在自己的生产项目中使用Webpack，本文肯定会对你有所帮助！"},window.WechatJSSDKURL="https://aotu.jd.com/aotu-wx-api/api/wx/jssdk/signature"</script></head><body class="page-post-detail"><div class="mod-hd"><div class="grid"><div class="mod-logo"><a href="/index.html" title="Aotu.io">Aotu.io</a></div><span class="mod-hd-toggle" id="J_hdToggle"><i class="fa fa-bars"></i></span><div class="mod-hd-main"><div class="mod-hd-inner"><nav class="mod-nav"><ul class="mod-nav-list"><li class="main-nav-item"><a href="/index.html" class="main-nav-link">首页</a></li><li class="main-nav-item"><a target="_blank" href="https://geeks.aotu.io" class="main-nav-link">极客沙龙</a></li><li class="main-nav-item"><a href="https://cases.aotu.io" class="main-nav-link">H5案例</a></li><li class="main-nav-item"><a href="/about/" class="main-nav-link">关于</a></li><li class="main-nav-item"><a href="/join/" class="main-nav-link">加入我们</a></li></ul></nav><div class="mod-search" id="J_search"><a class="fa fa-search mod-search-ico" id="J_searchTrigger" title="搜索"></a><form id="J_searchForm" method="get" class="mod-search-form" action="/search/"><input type="text" name="query" class="mod-search-ipt" id="J_searchInput" placeholder="搜索"></form></div></div></div></div></div><div class="mod-container"><div class="grid"><div class="mod-main typo"><article class="post"><div class="post-cover"><img src="http://ww3.sinaimg.cn/large/66f2e5a7jw1f9n00j2uwnj20p00dwt9n.jpg" alt="Webpack 实用配置技巧"></div><header class="post-hd"><h1 class="post-tit">Webpack 实用配置技巧</h1><div class="post-meta">by <a target="_blank" href="https://github.com/Simbachen" class="post-author">Simba</a> on <span>2016-11-14</span></div><p class="post-subtit" style="display:none"><i class="fa fa-quote-left"></i>如果你准备在自己的生产项目中使用Webpack，本文肯定会对你有所帮助！</p><span style="display:none" id="busuanzi_value_page_pv"></span></header><div class="post-content"><h3 id="前言" class="post-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="post-anchor" href="#前言" aria-hidden="true"></a></h3><p><strong>Webpack做了什么</strong></p><p>一句话简单来解释就是处理模块依赖，并将它们合并成可用的静态资源。</p><p><strong>为什么选Webpack</strong></p><p>模块打包工具有很多，Webpack的特点是它依赖的模块可以是js文件，也可以是css文件，只要配置对应的webpack-loader(加载器)，.coffee、.sass、.jade等等任意的静态资源文件都可以被引用，并解析。</p><blockquote><p>例如：我在项目中使用Vue框架，在配置官方提供的loader后，就可以直接在js中依赖.vue后缀的单文件组件了。</p></blockquote><h3 id="上手" class="post-heading"><a href="#上手" class="headerlink" title="上手"></a>上手<a class="post-anchor" href="#上手" aria-hidden="true"></a></h3><p><strong>安装</strong></p><ol><li>使用npm init命令来创建一个package.json文件</li><li><p>安装Webpack，推荐只安装在当前项目中作为依赖</p><p>npm install webpack –save</p></li></ol><p><strong>添加一个配置文件 webpack.config.js</strong></p><pre><code>module.exports = {
+    entry: &quot;./entry.js&quot;,
+    output: {
+        path: __dirname,
+        filename: &quot;bundle.js&quot;
+    },
+    module: {
+        loaders: [
+            { test: /\.css$/, loader: &quot;style!css&quot; }
+        ]
+    }
+};
+</code></pre><p><strong>执行webpack命令</strong></p><blockquote><p>如果全局安装了Webpack的话,那么直接在当前项目执行webpack命令就可以依赖上述webpack.config.js文件中的配置，分析entry.js中的依赖，打包输出bundle.js</p></blockquote><p>我使用npm scripts来启动任务，在package.json中添加：</p><pre><code>{
+    ...
+    &quot;scripts&quot;: {
+        &quot;build&quot;: &quot;NODE_ENV=production webpack --watch&quot;
+    }
+    ...
+}
+</code></pre><p>执行npm run build。其中–watch参数表示持续的监听文件变化进行打包。</p><h3 id="入口文件配置" class="post-heading"><a href="#入口文件配置" class="headerlink" title="入口文件配置"></a>入口文件配置<a class="post-anchor" href="#入口文件配置" aria-hidden="true"></a></h3><p><strong>配置多个入口文件</strong></p><pre><code>module.exports = {
+    entry: {
+        entry1_bundle: &quot;./entry1.js&quot;,
+        entry2_bundle: &quot;./entry2.js&quot;
+    },
+    output: {
+        path: __dirname,
+        filename: &quot;[name].js&quot;
+    },
+    module: {
+        loaders: [
+            { test: /\.css$/, loader: &quot;style!css&quot; }
+        ]
+    }
+};
+</code></pre><p>在这个配置文件中有两个入口文件，输出的时候[name]会被替换为入口中配置的entry1_bundle和entry2_bundle</p><p><strong>使用glob方式配置</strong></p><pre><code>var path = require(&apos;path&apos;),
+      glob = require(&apos;glob&apos;)  //需安装glob模块依赖
+
+  function getEntries (globPath) {
+  var files = glob.sync(globPath);
+  var _entries = {}, entry, dirname, basename;
+
+  for (var i = 0; i &lt; files.length; i++) {
+      entry = files[i];
+      dirname = path.dirname(entry);
+      basename = path.basename(entry, &apos;.js&apos;);
+      _entries[path.join(dirname, basename)] = &apos;./&apos; + entry;
+  }
+  return _entries;
+  }
+</code></pre><p>执行getEntries(‘*.js’)就会遍历到目录下全部的js文件做为入口文件配置。</p><h3 id="使用插件" class="post-heading"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件<a class="post-anchor" href="#使用插件" aria-hidden="true"></a></h3><p>目前我有用到三个插件：CommonsChunkPlugin，UglifyJsPlugin，以及一个我自己定义的插件</p><pre><code>module.exports = {
+    // plugins 字段传入一个数组，里面是实例化后的各种插件
+    plugins: [new webpack.optimize.CommonsChunkPlugin({
+          name: &apos;vendor&apos;,
+          minChunks: 3
+    }),
+    new webpack.optimize.UglifyJsPlugin([options]),
+
+    ...
+    ],
+    entry: {
+        entry1_bundle: &quot;./entry1.js&quot;,
+        entry2_bundle: &quot;./entry2.js&quot;
+    },
+    ...
+};
+</code></pre><p><strong>提取公用资源</strong></p><p>为了便于使用缓存，我通过CommonsChunkPlugin这个插件将公用部分提取出来。</p><p>上述配置会自动的将被3个及以上入口文件引用的资源提取出来到一个新的文件vendor.js中。我们通常不希望公用的内容发生不预知的变化，这样配置就可以将希望提取出来的内容显性的配置在config文件中：</p><pre><code>entry: {
+  vendor: [&quot;vue&quot;, &quot;other-lib&quot;],
+  ...
+}
+new CommonsChunkPlugin({
+  name: &quot;vendor&quot;,
+  // 将minChunks设置为无穷大，就不会有不期望的内容进入vendor了
+  minChunks: Infinity,
+
+})
+</code></pre><p><strong>只在生产环境下启用UglifyJs插件</strong></p><pre><code>var plugins = [new webpack.optimize.CommonsChunkPlugin([options])]
+// npm scripts 配置的参数可以用上了
+if(process.env.NODE_ENV == &apos;production&apos;){
+  plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }))
+}
+</code></pre><p>关于UglifyJs的使用就不介绍了，参考<a href="https://github.com/mishoo/UglifyJS2#usage" target="_blank" rel="noopener">UglifyJS2</a>。</p><p><strong>自定义插件</strong></p><p>Webpack提供的插件已足够使用，不过针对不同的业务，我们可能需要定制一些功能，例如我所定制的功能就是在编译资源的同时生成一份用于上传到服务器的md5版本号配置文件。</p><p>来一个简单的小栗子，如何开始写一个Webpack插件：</p><pre><code>var chunkCombo = function(){};
+    chunkCombo.prototype.apply = function(compiler, callback){
+  compiler.plugin(&quot;emit&quot;, function(compilation, callback){
+      compilation.chunks.map(function(chunk, key){
+
+        var filename = chunk.name + &apos;.shtml&apos;;
+        var content = chunk.hash.slice(0,8);
+
+        // 生成一个对应的新文件存储md5值
+        compilation.assets[filename] = {
+          source: function() {
+              return content;
+            },
+            size: function() {
+              return Buffer.byteLength(content, &apos;utf8&apos;) 
+            }
+        };
+      })
+      callback();
+  });
+    }
+</code></pre><p>随着项目的深度定制和优化，我们可能需要开发更多的插件。</p><h3 id="配置loaders" class="post-heading"><a href="#配置loaders" class="headerlink" title="配置loaders"></a>配置loaders<a class="post-anchor" href="#配置loaders" aria-hidden="true"></a></h3><p>有了无所不能的加载器，Webpack可以处理任何类型的静态文件</p><pre><code>module.exports = {
+  entry: {
+    entry1_bundle: &quot;./entry1.js&quot;,
+    entry2_bundle: &quot;./entry2.js&quot;
+  },
+  output: {
+      path: __dirname,
+      filename: &quot;[name].js&quot;
+  },
+  module: {
+      loaders: [
+        { test: /\.vue$/, loader: &apos;vue-loader&apos; },
+        { test: /\.css$/, loader: &apos;style-loader!css-loader&apos; },
+        { test: /\.js$/, exclude: /node_modules/, loader: &quot;babel-loader&quot;},
+        //加载器之间用！连接，-loader可以省略不写
+        { test: /\.scss$/, loader: &apos;style!css!sass?sourceMap&apos;},
+        { test: /\.(png|jpg)$/, loader: &apos;url-loader?limit=8192&apos;}
+      ]
+  }
+  };
+</code></pre><p>加载器使用前记得先通过npm安装对应的模块，并将依赖添加到package.json文件中，例如：</p><pre><code>npm install vue-loader --save
+</code></pre><ul><li>vue-loader用于解析.vue单文件组件。</li><li>有了babel-loader就可以直接使用新的语法特性了。Babel的配置参见<a href="http://babeljs.io/docs/setup/#installation" target="_blank" rel="noopener">Using Babel</a></li></ul><h3 id="使用webpack-dev-server" class="post-heading"><a href="#使用webpack-dev-server" class="headerlink" title="使用webpack-dev-server"></a>使用webpack-dev-server<a class="post-anchor" href="#使用webpack-dev-server" aria-hidden="true"></a></h3><p>webpack-dev-server是一个轻量的node.js Express服务，通过Socket.IO来实时的通知客户端Webpack编译状态。<br>安装webpack-dev-server模块，此处不再重复，直接看配置文件：</p><pre><code>module.exports = {
+  entry: {
+    entry1_bundle: &quot;./entry1.js&quot;,
+    entry2_bundle: &quot;./entry2.js&quot;
+  },
+  output: {
+        path: __dirname,
+        filename: &quot;bundle.js&quot;
+    },
+  ...
+  devServer: {
+      // serve 的根目录
+    contentBase: _contentBase,
+    port: 9000,
+    // iframe模式和inline模式可选
+    inline: true，
+    ...
+  }
+  };
+</code></pre><p>在package.json中添加：</p><pre><code>{
+      ...
+      &quot;scripts&quot;: {
+        &quot;dev&quot;: &quot;NODE_ENV=dev webpack-dev-server&quot;
+      }
+      ...
+}
+</code></pre><p>执行npm run dev 命令后，服务就启动了。访问<a href>http://localhost:9000</a>，就可以看到你的应用了。</p><p><strong>定制Express路由</strong></p><p>在inline模式下，需要手动的将用于更新的的脚本引入到页面中：</p><pre><code>module.exports = {
+  entry: {
+    entry1_bundle: &quot;./entry1.js&quot;,
+    entry2_bundle: &quot;./entry2.js&quot;
+  },
+  output: {
+        path: __dirname,
+        filename: &quot;bundle.js&quot;
+    },
+  ...
+  devServer: {
+      // serve 的根目录
+    contentBase: _contentBase,
+    port: 9000,
+    // iframe模式和inline模式可选
+    inline: true,
+    setup: function(app) {
+      app.use(function(req, res, next) {
+        //...
+        return next();
+      });
+      app.get([&apos;*.shtml&apos;,&apos;*.html&apos;], function(req, res, next) {
+        //...
+
+        //将实时更新的脚本引入到页面中
+        res.end(&apos;&lt;script src=&quot;http://localhost:9000/webpack-dev-server.js&quot;&gt;&lt;/script&gt;&apos;)
+      })
+    }
+  }
+  };
+</code></pre><p>关于Express路由的使用，参考<a href="http://expressjs.com/en/guide/routing.html" target="_blank" rel="noopener">Express Routing</a></p><p>在我的项目中，我希望HTML页面在开发环境下和服务器环境下保持一致，因此我在devServer中配置了对HTML页面的解析。</p><p><strong>以上，希望我的Webpack项目配置能对你解决相关问题的时候有所帮助和启发。</strong></p><h3 id="参考资料" class="post-heading"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料<a class="post-anchor" href="#参考资料" aria-hidden="true"></a></h3><ul><li><a href="http://webpack.github.io/docs/" target="_blank" rel="noopener">Webpack docs</a></li><li><a href="http://expressjs.com/en/guide/routing.html" target="_blank" rel="noopener">Express Routing</a></li><li><a href="https://aotu.io/notes/2016/02/26/use-npm-script-instead-of-gulp/?utm_source=tuicool&amp;utm_medium=referral">使用npm scripts替代gulp</a></li></ul><div class="post-tags" style="display:none"><a href="/tags/Webpack/">Webpack</a> <a href="/tags/模块打包工具/">模块打包工具</a> <a href="/tags/Webpack-配置技巧/">Webpack 配置技巧</a></div><div class="post-categories" style="display:none"><a href="/cates/Web开发/">Web开发</a></div><div class="post-announce">感谢您的阅读，本文由 <a href="//aotu.io">凹凸实验室</a> 版权所有。如若转载，请注明出处：凹凸实验室（<a href="https://aotu.io/notes/2016/11/14/webpack-tips/">https://aotu.io/notes/2016/11/14/webpack-tips/</a>）</div><div class="post-revision"><i class="fa fa-clock-o"></i> <time class="post-updated" datetime="2021-02-02T07:48:05.238Z">上次更新：2021-02-02 15:48:05</time></div></div><div class="post-nav"><div class="post-nav-next"><a href="/notes/2016/11/14/booklist-for-every-programmer/" title="漫漫编程路上必读的7本书">漫漫编程路上必读的7本书 <i class="fa fa-chevron-right"></i></a></div><div class="post-nav-prev"><a href="/notes/2016/11/10/weui-wxss/" title="WeUI for 小程序 - 为微信小程序量身设计"><i class="fa fa-chevron-left"></i> WeUI for 小程序 - 为微信小程序量身设计</a></div></div><div class="post-comments" id="comments"></div><script>var gitalkOpts={id:"bm90ZXMvMjAxNi8xMS8xNC93ZWJwYWNrLXRpcHMv",owner:"o2team",repo:"o2team.github.io",title:"Webpack 实用配置技巧",body:"https://aotu.io/notes/2016/11/14/webpack-tips/index.html\n\n如果你准备在自己的生产项目中使用Webpack，本文肯定会对你有所帮助！",clientID:"3c4d153e6874260f9c7e",clientSecret:"dd44012504c6168bc05b9266e0554bb28c62ce15",admin:["Simbachen"]}</script></article></div><aside class="mod-side" id="sidebar"><div class="mod-side-sec aotuwx"><img class="aotuwx-qrcode" src="/img/qrcode.jpg" alt="关注我们"><div class="aotuwx-slogan">每周推送精选技术文章</div></div><div class="mod-side-sec works"><div class="mod-side-sec-hd"><h2>服务/产品</h2></div><div class="mod-side-sec-bd"><ul class="mod-side-list"><li><a href="//taro.jd.com" target="_blank" title="Taro">Taro</a></li><li><a href="//taro-ui.jd.com" target="_blank" title="Taro-UI">Taro-UI</a></li><li><a href="//taro-ext.jd.com" target="_blank" title="Taro 物料市场">Taro 物料市场</a></li><li><a href="//taro-club.jd.com" target="_blank" title="Taro 官方论坛">Taro 官方论坛</a></li><li><a href="//cases.aotu.io/mobi/maga.html" target="_blank" title="拇指期刊">拇指期刊</a></li><li><a href="//athena.aotu.io/" target="_blank" title="Athena">Athena</a></li><li><a href="//guide.aotu.io/" target="_blank" title="前端代码规范">前端代码规范</a></li><li><a href="//halojs.aotu.io/" target="_blank" title="HaloJS">HaloJS</a></li><li><a href="//sign.aotu.io/" target="_blank" title="邮件签名工具">邮件签名工具</a></li><li><a href="//mac.aotu.io/" target="_blank" title="MAC全栈环境">MAC全栈环境</a></li><li><a href="//xcel.aotu.io" target="_blank" title="Excel Filter">Excel Filter</a></li><li><a href="//aotu.jd.com/share/" target="_blank" title="凹凸公开课">凹凸公开课</a></li><li><a href="//at.aotu.io" target="_blank" title="AT-UI">AT-UI</a></li></ul></div></div><div class="mod-side-sec favlinks"><div class="mod-side-sec-hd"><h2>友情链接</h2></div><div class="mod-side-sec-bd"><ul class="mod-side-list"><li><a href="https://www.cloudbase.net" target="_blank" title="小程序·云开发"><img style="width:22px;vertical-align:middle" src="https://img20.360buyimg.com/ling/jfs/t1/57175/5/15617/50216/5dca6729E00cdff5d/631622525425290e.png">小程序·云开发</a></li><li><a href="https://ling.jd.com" target="_blank" title="京东羚珑智能设计">羚珑智能设计</a></li><li><a href="https://jdrd.jd.com" target="_blank" title="京东零售设计服务平台">京东零售设计服务平台</a></li><li><a href="https://jdc.jd.com" target="_blank" title="京东设计中心">JDC京东设计中心</a></li><li><a href="http://dopro.io/" target="_blank" title="腾讯 Deep Ocean">Deep Ocean</a></li><li><a href="http://fex.baidu.com" target="_blank" title="百度Web前端研发部">百度FEX</a></li><li><a href="http://taobaofed.org" target="_blank" title="淘宝前端团队">淘宝FED</a></li><li><a href="http://tgideas.qq.com" target="_blank" title="腾讯互娱设计中心">TGIdeas</a></li><li><a href="http://isux.tencent.com" target="_blank" title="腾讯SNG设计中心">ISUX</a></li><li><a href="http://cdc.tencent.com" target="_blank" title="腾讯用户研究与体验设计中心">CDC</a></li><li><a href="http://ued.ctrip.com" target="_blank" title="携程设计委员会">携程UED</a></li><li><a href="https://uiiiuiii.com/" target="_blank" title="优优教程网">优优教程网</a></li><li><a href="https://www.designup.cn/" target="_blank" title="Designup">Designup</a></li><li><a href="http://eux.baidu.com/" target="_blank" title="百度EUX">百度EUX</a></li></ul></div></div></aside></div></div><div class="mod-backtop" id="backTop"><i class="fa fa-long-arrow-up"></i></div><footer class="mod-ft" id="footer"><div class="grid"><ul class="mod-ft-links"><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="https://github.com/o2team/o2team.github.io" target="_blank"><i class="fa fa-github-alt"></i></a></li></ul><div class="mod-ft-sec mod-ft-copyright"><p>Designed by <a href="http://aotu.io" target="_blank">凹凸实验室</a> @<a target="_blank" href="http://jdc.jd.com">京东用户体验设计部</a></p><p>Copyright &copy; 2021. All Rights Reserved.</p><p><a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备15077732号-2</a></p></div></div></footer><script src="/js/bundle/core.js"></script><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script src="/js/post_wx_share.js"></script><script src="/js/bundle/gitalk.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="//hm.baidu.com/hm.js?e850b980d029480b092fdd7503c3f8de";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script type="text/javascript" src="https://tajs.qq.com/stats?sId=53685723" charset="UTF-8"></script></body></html>
