@@ -1,0 +1,99 @@
+@import '@/App.scss';
+
+.wrapper {
+  @include common-wrapper;
+  max-height: 1440px;
+  background-color: $module-dark;
+}
+
+.content-pc {
+  @include common-content;
+
+  display: flex;
+  color: $module-white;
+}
+
+.content-mobile {
+  display: none;
+}
+
+.info {
+  width: 30%;
+  padding-right: 6%;
+
+  .divider {
+    width: 100%;
+    height: 0.37vh;
+    margin-top: 11vh;
+    background-color: $module-white;
+  }
+  .name-en {
+    margin-top: 2rem;
+    font-size: 4.3rem;
+    font-weight: bold;
+  }
+  .name {
+    margin-top: 0.5rem;
+    font-size: 1.9rem;
+    font-weight: bold;
+  }
+  .desc {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 2rem;
+  }
+}
+
+.main {
+  display: flex;
+  width: 70%;
+  height: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    height: $products-height-mobile;
+    min-height: $products-height-mobile;
+  }
+
+  .content-pc {
+    display: none;
+  }
+
+  .content-mobile {
+    @include common-content;
+
+    box-sizing: border-box;
+    display: block;
+    padding-top: 50px;
+    color: $module-white;
+  }
+
+  .divider {
+    height: 3px;
+    background-color: $module-white;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px;
+    .names {
+      .name-en {
+        font-size: 24px;
+      }
+      .name {
+        margin-left: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .main-mobile {
+    width: 100%;
+  }
+}

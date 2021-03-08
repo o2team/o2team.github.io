@@ -1,0 +1,133 @@
+@import '@/App.scss';
+
+.wrapper {
+  @include common-wrapper;
+  max-height: 1440px;
+  background-color: $module-white;
+}
+
+.content {
+  @include common-content;
+  padding-top: 11vh;
+}
+
+.divider {
+  width: 100%;
+  height: 0.37vh;
+  background-color: $module-dark;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 14%;
+
+  .names {
+    .name-en {
+      font-size: 68px;
+      font-weight: bold;
+      color: $aotu-blue;
+    }
+    .name {
+      margin-left: 30px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  .more {
+    display: flex;
+    align-items: center;
+    width: 6rem;
+    font-size: 1.3rem;
+    color: $module-dark;
+    &:hover {
+      cursor: pointer;
+      svg {
+        fill: $module-dark;
+      }
+    }
+    svg {
+      width: 2rem;
+      margin-left: 0.5rem;
+      fill: $module-gray;
+    }
+  }
+}
+
+.main-pc {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 55%;
+  margin-top: 78px;
+}
+
+.main-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    height: $tech-height-mobile;
+    min-height: $tech-height-mobile;
+  }
+
+  .content {
+    @include content-mobile;
+
+    padding-top: 50px;
+  }
+
+  .divider {
+    height: 3px;
+  }
+
+  .header {
+    .names {
+      .name-en {
+        font-size: 24px;
+      }
+      .name {
+        margin-left: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+    .more {
+      display: none;
+    }
+  }
+
+  .main-pc {
+    display: none;
+  }
+
+  .main-mobile {
+    display: block;
+    width: 100%;
+    height: 182px;
+    margin: 30px 0;
+    overflow-x: scroll;
+    white-space: nowrap;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .main-item {
+      display: inline-block;
+      width: 290px;
+      height: 172px;
+      margin-right: 20px;
+      background-color: #aaa;
+
+      .img-inner {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

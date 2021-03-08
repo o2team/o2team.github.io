@@ -1,0 +1,104 @@
+@import '@/App.scss';
+
+.wrapper {
+  padding-bottom: 80px;
+  overflow: hidden;
+  background-color: $module-dark;
+}
+
+.content {
+  @include common-content;
+
+  display: flex;
+  padding-top: 66px;
+  color: $module-white;
+  border-top: 2px solid $module-white;
+}
+
+.info {
+  flex: none;
+  margin-right: auto;
+
+  svg {
+    fill: $module-white;
+  }
+
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+}
+
+.list {
+  width: 310px;
+  margin-left: 24px;
+
+  h3 {
+    padding-bottom: 19px;
+    margin: 0 0 25px;
+    font-size: 20px;
+    line-height: 28px;
+    color: $module-white;
+    border-bottom: 1px solid #707070;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    font-size: 16px;
+    line-height: 2em;
+    color: $module-white;
+    text-decoration: none;
+    transition: color 1s;
+
+    &:hover {
+      color: #40a9ff;
+    }
+  }
+}
+
+.list-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    padding-bottom: 30px;
+  }
+
+  .content {
+    display: block;
+    width: 90%;
+    padding-top: 0;
+    border-top: none;
+
+    .info {
+      margin: 20px 0;
+      svg {
+        width: 114px;
+        height: 23px;
+        margin-bottom: 16px;
+        fill: $module-white;
+      }
+
+      p {
+        margin: 8px 0;
+        font-size: 10px;
+      }
+    }
+
+    .list {
+      display: none;
+    }
+
+    .list-mobile {
+      display: block;
+    }
+  }
+}

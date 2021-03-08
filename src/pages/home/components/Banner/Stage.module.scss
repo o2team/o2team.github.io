@@ -1,0 +1,48 @@
+.fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 2s;
+
+  > svg {
+    width: 82%;
+    height: auto;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.stage {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .three {
+    height: calc(100% + 75px);
+    margin-top: -75px;
+  }
+
+  opacity: 0;
+  transition: opacity 2s;
+
+  &.active {
+    opacity: 1;
+  }
+}

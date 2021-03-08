@@ -1,0 +1,12 @@
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  width: 49.8%;
+  height: 100%;
+  overflow: hidden;
+  border-right: 1px solid #707070;
+}
+
+.wrapper-first {
+  border-left: 1px solid #707070;
+}

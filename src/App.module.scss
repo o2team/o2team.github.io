@@ -1,0 +1,11 @@
+.fixed-height {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.base {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

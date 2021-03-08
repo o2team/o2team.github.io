@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81">
+  <defs>
+    <style>
+      .logo-blue-cls-1 {
+        fill: #1c16df;
+      }
+      .logo-blue-cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g transform="translate(-551.302 -397.907)">
+    <rect class="logo-blue-cls-1" width="81" height="81" transform="translate(551.302 397.907)"/>
+    <g transform="translate(565.959 420.198)">
+      <path class="logo-blue-cls-2" d="M727.867,502.24l.161-.146a12.214,12.214,0,1,0-20.726-8.759h5.863a6.351,6.351,0,1,1,10.848,4.486l-16.04,13.428h0l-.669.56v5.3H731.73v-5.863H717.106Z" transform="translate(-679.617 -481.121)"/>
+      <g transform="translate(0 30.128)">
+        <rect class="logo-blue-cls-2" width="24.754" height="5.863"/>
+      </g>
+      <path class="logo-blue-cls-2" d="M617.679,481.121A12.377,12.377,0,1,0,630.056,493.5,12.377,12.377,0,0,0,617.679,481.121Zm0,18.891a6.514,6.514,0,1,1,6.514-6.514A6.514,6.514,0,0,1,617.679,500.012Z" transform="translate(-605.302 -481.121)"/>
+    </g>
+  </g>
+</svg>

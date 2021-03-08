@@ -1,0 +1,92 @@
+{
+  "name": "aotu.io",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^4.11.2",
+    "classnames": "^2.2.6",
+    "core-js": "^3.9.0",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.10.4",
+    "detect-browser": "^5.2.0",
+    "isomorphic-fetch": "^3.0.0",
+    "lodash-es": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "query-string": "^5.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-markdown": "^5.0.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "remark-breaks": "^2.0.1",
+    "remark-gfm": "^1.0.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "three": "^0.125.1",
+    "typo.css": "^2.1.2"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^11.0.0",
+    "@craco/craco": "^6.1.1",
+    "@types/classnames": "^2.2.11",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/query-string": "^5.1.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-modal": "^3.10.6",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "commitlint": "^11.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.18.0",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "deploy": "sh ./.travis/deploy.sh",
+    "build:pre-release": "cross-env REACT_APP_RELEASE_ENV=uat craco build",
+    "build:release": "cross-env REACT_APP_RELEASE_ENV=prod craco build",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx,css,scss}'",
+    "eslint-fix": "eslint src/**/*.ts[x] --fix",
+    "stylelint-fix": "stylelint src/**/*.scss src/**/*.css --fix"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts[x]": [
+      "prettier --parser=babel-ts --write",
+      "eslint",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "prettier --parser=css --write",
+      "stylelint --syntax scss --fix",
+      "git add"
+    ]
+  },
+  "license": "MIT"
+}

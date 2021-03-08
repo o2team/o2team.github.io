@@ -1,0 +1,66 @@
+@import '@/App.scss';
+
+.title {
+  display: flex;
+  align-items: center;
+
+  width: $content-width;
+  padding-top: 39px;
+  margin: 120px auto 0;
+
+  line-height: 76px;
+  border-top: 4px solid;
+
+  .name-en {
+    margin: 0;
+    font-size: 68px;
+    font-weight: bold;
+  }
+
+  .name {
+    margin: 12px 0 0 28px;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  &.light {
+    border-color: $module-white;
+
+    .name-en {
+      color: $module-white;
+    }
+    .name {
+      color: $module-white;
+    }
+  }
+
+  &.blue {
+    border-color: #0f1011;
+
+    .name-en {
+      color: $module-white;
+    }
+    .name {
+      color: #0f1011;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    width: 90%;
+    padding-top: 0;
+    line-height: 60px;
+    border-top: 3px solid;
+
+    .name-en {
+      font-size: 24px;
+    }
+
+    .name {
+      margin: 10px 0 0 10px;
+      font-size: 12px;
+      line-height: 1;
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@import '@/App.scss';
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 0;
+  height: 100vh;
+  color: $module-white;
+  background-color: $module-dark;
+  transition: width 0.5s;
+}
+
+.show-wrapper {
+  width: 100vw;
+}
+
+.circle {
+  position: absolute;
+  right: -100px;
+  bottom: 37px;
+  width: 0;
+  height: 0;
+  border: 50px solid $aotu-blue;
+  border-radius: 100px;
+  transition: width 0.5s, height 0.5s;
+}
+
+.show-circle {
+  width: 100px;
+  height: 100px;
+}
+
+.opts {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 84%;
+  margin: 20px 30px 0 30px;
+  .close {
+    right: 30px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.main {
+  position: relative;
+  width: 80%;
+  height: 80vh;
+  margin: 40px 37.5px 0;
+
+  .tab-title {
+    font-size: 25px;
+    line-height: 60px;
+    color: #6f6f6f;
+  }
+
+  .chosen-tab {
+    color: #fff;
+  }
+
+  .contents {
+    display: none;
+    padding-top: 10px;
+    margin: 10px 0;
+    border-top: 2px solid #fff;
+  }
+
+  .contents-show {
+    display: block;
+  }
+
+  .info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #707070;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+  }
+
+  .content-img {
+    width: 26px;
+    margin-right: 20px;
+
+    .img-inner {
+      width: 100%;
+    }
+  }
+
+  .content-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: $module-white;
+  }
+
+  .goto {
+    height: 100%;
+    line-height: 45px;
+    color: $module-white;
+    text-align: right;
+
+    svg {
+      width: 18px;
+      height: 4px;
+      fill: #8b8b8b;
+    }
+  }
+}
+
+.logo {
+  width: 127px;
+  height: 25px;
+  margin: 0 0 38px 40px;
+  fill: $module-white;
+}

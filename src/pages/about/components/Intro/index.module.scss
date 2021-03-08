@@ -1,0 +1,190 @@
+@import '@/App.scss';
+
+.intro {
+  position: relative;
+}
+
+.info {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  height: 920px;
+  // height: calc(100vh + 45px);
+  padding-top: 130px;
+  padding-bottom: 320px;
+  color: $module-dark;
+  text-align: center;
+  background-color: $module-light-gray;
+
+  .name {
+    height: 75px;
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 75px;
+  }
+
+  .name_en {
+    height: 35px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 35px;
+    color: $module-dark;
+  }
+
+  .detail {
+    position: relative;
+    z-index: 10;
+    width: 50vw;
+    min-height: 34px * 5;
+    margin: 67px auto 0;
+    font-size: 17px;
+    line-height: 34px;
+    color: #505055;
+  }
+
+  button {
+    z-index: 10;
+    display: block;
+    width: 300px;
+    height: 70px;
+    margin: 80px auto 0;
+
+    font-size: 17px;
+    line-height: 70px;
+    color: $module-white;
+    cursor: pointer;
+
+    background-color: $module-dark;
+    border: none;
+    outline: none;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  min-height: 760px;
+  padding: 0;
+
+  margin: 0;
+  margin-top: -195px + 20px;
+
+  // background: url('~@/static/rect-blue.svg') #{left top 50%} / 40% 40% no-repeat,
+  //   url('~@/static/rect-blue.svg') #{right calc(10% - 24px / 3 * 2) top} / 16% 40% no-repeat,
+  //   url('~@/static/rect-blue.svg') #{right calc(30% + 24px / 3) top 70%} / 16% 25% no-repeat;
+
+  li {
+    position: relative;
+
+    flex: 1 1 0;
+    margin: 0;
+    list-style: none;
+
+    ~ li {
+      margin-left: 24px;
+    }
+
+    &:nth-of-type(2) {
+      align-self: center;
+    }
+    &:nth-of-type(3) {
+      margin-top: 235px;
+    }
+    &:nth-of-type(4) {
+      margin-top: 35px;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    ~ img {
+      margin-top: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .info {
+    height: auto;
+    // min-height: calc(100vh - 86px);
+    padding-top: 65px;
+    padding-bottom: 107.5px;
+
+    .name {
+      height: 42px;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 42px;
+    }
+
+    .name_en {
+      height: 24px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .detail {
+      width: 88vw;
+      min-height: 17px * 5;
+      margin: 33.5px auto 0;
+      font-size: 12px;
+      line-height: 24px;
+    }
+
+    button {
+      width: 150px;
+      height: 35px;
+      margin: 40px auto 0;
+      font-size: 12px;
+      line-height: 35px;
+    }
+  }
+
+  .content {
+    display: block;
+    width: 100%;
+    height: 205px;
+    min-height: unset;
+    padding-top: 27px;
+    padding-bottom: 34px;
+
+    margin: 0;
+    margin-top: -40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    background: url('~@/static/rect-blue.svg') #{left (0.06 / 0.56 * 100%) bottom} / 44% 75% no-repeat,
+      url('~@/static/rect-blue.svg') #{right (0.06 / 0.56 * 100%) top} / 44% 75% no-repeat;
+
+    li {
+      display: inline-block;
+      width: unset;
+      height: 100%;
+      margin-top: 0 !important;
+      vertical-align: top;
+
+      ~ li {
+        margin-left: 15px;
+      }
+    }
+
+    img {
+      display: inline-block;
+      width: auto;
+      height: 100%;
+      vertical-align: top;
+
+      ~ img {
+        margin-top: 0;
+        margin-left: 15px;
+      }
+    }
+  }
+}

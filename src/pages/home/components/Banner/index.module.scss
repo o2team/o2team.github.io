@@ -1,0 +1,112 @@
+@import '@/App.scss';
+
+.wrapper {
+  height: calc(100vh - 150px);
+  min-height: 800px;
+  overflow: hidden;
+  background-color: $module-light-gray;
+}
+
+.content {
+  @include common-content;
+
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: 238px / 930px * 100%;
+  right: 125px / 1920px * 86%;
+  width: 30px;
+  height: 30px;
+  background-color: #ff0d08;
+  border-radius: 50%;
+}
+
+.name-en {
+  position: absolute;
+  right: 0;
+  bottom: 90px / 930px * 100%;
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: $module-dark;
+}
+
+.social {
+  position: absolute;
+  bottom: 90px / 930px * 100%;
+  left: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+    list-style: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      .pop {
+        display: block;
+      }
+    }
+  }
+}
+
+.pop {
+  position: absolute;
+  bottom: 0;
+  left: calc(100% + 10px);
+  display: none;
+  width: 160px;
+  height: 160px;
+  padding: 5px;
+  background-color: $module-white;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    display: block;
+    width: 10px;
+    height: 100%;
+    content: '';
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    height: $banner-height-mobile;
+    min-height: $banner-height-mobile;
+  }
+
+  .content {
+    @include content-mobile;
+  }
+
+  .name-en {
+    font-size: 16px;
+  }
+
+  .dot {
+    right: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  .social {
+    padding: 0;
+
+    li {
+      width: 24px;
+      height: 24px;
+      margin-top: 16px;
+    }
+  }
+}

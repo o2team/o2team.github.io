@@ -1,0 +1,191 @@
+@import '@/App.scss';
+
+.modal {
+  :global {
+    .ant-modal-content {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .ant-modal-body {
+      padding: 40px 42px 60px 42px;
+      background-color: $module-white;
+    }
+  }
+}
+
+.overview {
+  box-sizing: border-box;
+  padding: 56px 42px 40px;
+  color: #707070;
+  cursor: pointer;
+
+  p {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .name {
+    height: 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 30px;
+    color: $module-dark;
+  }
+
+  .address {
+    box-sizing: content-box;
+    height: 24px;
+    padding-bottom: 27px;
+    margin-top: 12px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 24px;
+    border-bottom: 2px solid $module-dark;
+  }
+
+  .desc {
+    display: -webkit-box;
+    height: 30px * 4;
+    margin-top: 30px;
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 30px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .more {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-top: 20px;
+
+    font-size: 20px;
+    line-height: 32px;
+
+    border-top: 1px solid #cbcbcb;
+
+    button {
+      color: $module-dark;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.markdown {
+  box-sizing: border-box;
+  height: 60vh;
+  overflow-y: auto;
+
+  :global {
+    @import '~typo.css';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: initial;
+    color: $module-dark;
+  }
+
+  p {
+    font-weight: initial;
+    color: #707070;
+  }
+}
+
+.mailto {
+  margin-top: 50px;
+
+  a {
+    display: block;
+    width: 226px;
+    height: 60px;
+    font-size: 20px;
+    line-height: 60px;
+
+    color: $module-white;
+    text-align: center;
+
+    background-color: $aotu-blue;
+  }
+}
+
+.container {
+  color: #000;
+}
+
+@media screen and (max-width: 480px) {
+  .modal {
+    :global {
+      .ant-modal-body {
+        padding: 20px 21px 30px 21px;
+      }
+    }
+  }
+
+  .overview {
+    padding: 28px 21px 23px;
+
+    .name {
+      height: 28px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 28px;
+      color: $module-dark;
+    }
+
+    .address {
+      height: 24px;
+      padding-bottom: 12px;
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 24px;
+    }
+
+    .desc {
+      height: 24px * 4;
+      margin-top: 15px;
+      font-size: 12px;
+      line-height: 24px;
+
+      ol,
+      li {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .more {
+      padding-top: 13px;
+      margin-top: 13px;
+
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  .markdown {
+    font-size: 12px;
+  }
+
+  .mailto {
+    margin-top: 25px;
+
+    a {
+      width: 113px;
+      height: 30px;
+      font-size: 12px;
+      line-height: 30px;
+    }
+  }
+}

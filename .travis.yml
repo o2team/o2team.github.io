@@ -1,0 +1,18 @@
+language: node_js
+sudo: false
+node_js:
+- '14'
+cache:
+  yarn: true
+addons:
+  ssh_known_hosts: github.com
+script:
+- yarn run build:release
+- yarn run deploy "${TRAVIS_PULL_REQUEST}"
+branches:
+  only:
+  - v3
+env:
+  global:
+  - GH_REPO: github.com/o2team/o2team.github.io.git
+  - secure: BF/nWKPH+6N0b8nV64VMNjNwT/DdhyMBCZJ6zdot3sT/3lhlG9vXFAR/p1LGI4+35gPx+lsuzOOEzRLQ1QP1SRVFmbIE9wGcfx2uAjwAitg7pLDkM0JSn/B4DYdb8wXBCg76ahTP71HB10T5IH/Lz4zy4Sm8nbWGe1NKtk16xhq181dcEpdM/SbwbBI0hJOUJsTBJScCR4PjzX69kbc58z8wXChdJ3Lkd2cFO8CsKwXODAkwqLjbHquW2jD1yjFwMLlsM5pI2nHgctoEyhM+Z1n/FacQ3jc48HYNSUeuJVgIcFU77xGKTwjm/91c2KucpD0NtihEWufklZCV/XYJGbkXdi3FvG6iJMZCoyMBJy6aX21QCX3gj2TClyJU929/13xnMtVr4qunnW3Cjc9wS4PaBNi4aJhaTRGpNXcBPYKigFtutytLJFalDdMemV7IUEvJgn3UtA5YwT8MC4JZJ26NZNMn+nXNWxHT6TVjq0l77/jp1ylKLy9kqYbQkuK/svrKgH2lcf8u7lji1lVPKKBHGnisbqKmZI+4qu0QqRFuBKKAoU+3iOmTMAdZGiT5CgZ6MBI+wmG6MGYAo6DOSSsMa/rtO+0XYJ77twa92PvY8DnRdc6Atvx/oxgunbrBDq1DTfLXE0fp2Ok0STjrWcIZXRQZRWqxMauy30jRJsQ=

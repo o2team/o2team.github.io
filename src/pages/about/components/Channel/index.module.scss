@@ -1,0 +1,140 @@
+@import '@/App.scss';
+
+.channel {
+  position: relative;
+  z-index: 10;
+  margin-top: 90px;
+}
+
+.info {
+  .name {
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 75px;
+    text-align: center;
+  }
+
+  .desc {
+    margin: 30px auto 0;
+    font-size: 17px;
+    line-height: 34px;
+    color: #505055;
+    text-align: center;
+  }
+}
+
+.content {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 100px 0 65px + 140px 8%;
+  margin: 0;
+  margin-top: 65px;
+
+  color: $module-white;
+
+  background: url('~@/static/half-ring.svg') left top / auto 500px no-repeat,
+    url('~@/static/rect-black.svg') left top / 84% 500px no-repeat,
+    url('~@/static/rect-blue.svg') right bottom / 58% 480px no-repeat;
+
+  li {
+    width: 310px;
+    list-style: none;
+
+    ~ li {
+      margin-left: 11.2%;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .icon {
+    width: auto;
+    height: 34px;
+  }
+
+  .name {
+    padding-top: 17px;
+    margin-top: 23px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    border-top: 1px solid $module-white;
+  }
+
+  .desc {
+    margin-bottom: 17px;
+    font-size: 17px;
+    line-height: 24px;
+    color: #d0d0d0;
+  }
+
+  .image {
+    width: auto;
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .channel {
+    margin-top: 64px;
+  }
+
+  .info {
+    .name {
+      font-size: 27px;
+      line-height: 37.5px;
+    }
+
+    .desc {
+      margin: 15px auto 0;
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  .content {
+    display: block;
+    padding: 60px 0 50px + 50px 0;
+    margin-top: 35px;
+
+    background: url('~@/static/half-ring.svg') left top / auto 160px no-repeat,
+      url('~@/static/rect-black.svg') left top / 95% 90% no-repeat,
+      url('~@/static/rect-blue.svg') right bottom / 72% 80% no-repeat;
+
+    li {
+      width: 45%;
+      margin-right: auto;
+      margin-left: auto !important;
+
+      ~ li {
+        margin-top: 32px;
+      }
+    }
+
+    .icon {
+      width: auto;
+      height: 17px;
+    }
+
+    .name {
+      padding-top: 8px;
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 24px;
+    }
+
+    .desc {
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .image {
+      width: auto;
+      height: 100px;
+    }
+  }
+}

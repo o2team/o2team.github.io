@@ -1,0 +1,66 @@
+@import '@/App.scss';
+
+.wrapper {
+  box-sizing: border-box;
+  width: 28.9%;
+  overflow: hidden;
+  border: 1px solid #707070;
+  @include hover-interaction;
+
+  .wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .content-img {
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+
+      .img-inner {
+        width: 100%;
+        height: 101%;
+        object-fit: cover;
+      }
+    }
+
+    .content-intro {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      padding: 1.2rem 1.8rem;
+      overflow: hidden;
+      color: $module-white;
+      background-color: $module-dark;
+
+      .title {
+        flex-grow: 1;
+      }
+      .name {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 2.5rem;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+      .desc {
+        display: -webkit-box;
+        margin-bottom: 10px;
+        overflow: hidden;
+        font-size: 0.9rem;
+        font-weight: 100;
+        line-height: 1.6rem;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+      .date {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

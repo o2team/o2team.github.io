@@ -1,0 +1,142 @@
+@import '@/App.scss';
+
+.wrapper {
+  @include common-wrapper;
+  max-height: 1320px;
+  background-color: $module-white;
+}
+
+.content {
+  @include common-content;
+  padding-top: 11vh;
+}
+
+.divider {
+  width: 100%;
+  height: 0.37vh;
+  background-color: $module-dark;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 14%;
+
+  .names {
+    display: flex;
+
+    .name-en {
+      font-size: 4.3rem;
+      font-weight: bold;
+      color: $aotu-blue;
+    }
+    .name {
+      margin-top: 2.7rem;
+      margin-left: 1.9rem;
+      font-size: 1.9rem;
+      font-weight: bold;
+    }
+  }
+
+  .paging {
+    display: flex;
+    width: 10rem;
+    height: 48px;
+    border: 1px solid $module-gray;
+    .backward {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 49.85%;
+      height: 100%;
+      svg {
+        width: 35px;
+        fill: $module-gray;
+      }
+    }
+    .vertical-divider {
+      width: 0.3%;
+      height: 100%;
+      background-color: $module-gray;
+    }
+    .forward {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 49.85%;
+      height: 100%;
+      svg {
+        width: 35px;
+        fill: $module-gray;
+      }
+    }
+    .can-turning {
+      cursor: pointer;
+      &:hover {
+        svg {
+          fill: $module-dark;
+        }
+      }
+    }
+  }
+}
+
+.main-pc {
+  width: 100%;
+  height: 55%;
+  margin-top: 5.2%;
+}
+
+.main-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    box-sizing: border-box;
+    height: $achievement-height-mobile;
+    min-height: $achievement-height-mobile;
+  }
+
+  .content {
+    @include content-mobile;
+
+    padding-top: 50px;
+  }
+
+  .divider {
+    height: 3px;
+  }
+
+  .main-pc {
+    display: none;
+  }
+
+  .main-mobile {
+    display: block;
+    width: 100%;
+    height: 80%;
+    margin-top: 5%;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .header {
+    .names {
+      display: inline-block;
+      .name-en {
+        font-size: 24px;
+      }
+      .name {
+        margin-left: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+    .paging {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.modal {
+  :global {
+    .ant-modal-content {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .ant-modal-body {
+      padding: 0 !important;
+    }
+  }
+
+  video {
+    width: 100%;
+    outline: none;
+  }
+}
+
+.container {
+  color: #000;
+}

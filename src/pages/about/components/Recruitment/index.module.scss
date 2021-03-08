@@ -1,0 +1,93 @@
+@import '@/App.scss';
+
+.recruitment {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 130px;
+  margin-top: 130px;
+  background: url('~@/static/rect-black.svg') left bottom / 100% 360px no-repeat;
+}
+
+.info {
+  .name {
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 75px;
+    text-align: center;
+  }
+
+  .desc {
+    margin: 30px auto 0;
+    font-size: 17px;
+    line-height: 34px;
+    color: #505055;
+    text-align: center;
+  }
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: $content-width;
+  max-width: 1920px * 0.86;
+  padding-top: 90px;
+  padding-left: 0;
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  > li {
+    box-sizing: border-box;
+    flex: none;
+    width: calc((100% - 24px * 2) / 3);
+    height: 420px;
+    margin-bottom: 24px;
+    margin-left: 24px;
+    overflow: hidden;
+    list-style: none;
+
+    background: #fff;
+    border: 1px solid #d1d1d1;
+
+    // 这里不适合加 box-shadow 的动画，因为底部是深色，看起来会很突兀
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &:nth-of-type(3n + 1) {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .recruitment {
+    margin-top: 64px;
+  }
+
+  .info {
+    .name {
+      font-size: 27px;
+      line-height: 37.5px;
+    }
+
+    .desc {
+      margin: 15px auto 0;
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  .content {
+    padding-bottom: 58px;
+    margin-top: 58px;
+
+    > li {
+      width: 100%;
+      height: unset;
+      margin-left: 0;
+    }
+  }
+}

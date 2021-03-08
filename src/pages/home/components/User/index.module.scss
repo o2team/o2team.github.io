@@ -1,0 +1,75 @@
+@import '@/App.scss';
+
+.wrapper {
+  overflow: hidden;
+  background-color: $module-dark;
+}
+
+.title {
+  max-width: 1920px * 0.86;
+}
+
+.content {
+  @include common-content;
+  padding-bottom: 63px;
+}
+
+.list {
+  padding: 61px 0 0;
+  padding-left: 0;
+  overflow: hidden;
+
+  li {
+    // border: 1px solid #343434;
+    box-sizing: border-box;
+    float: left;
+    width: calc((100% - (5 - 1) * 24px) / 5);
+    height: 130px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    list-style-type: none;
+    transition: transform 0.2s;
+
+    &:nth-of-type(5n) {
+      margin-right: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    height: auto;
+
+    .title {
+      margin-top: 50px;
+    }
+  }
+
+  .content {
+    @include content-mobile;
+    padding-bottom: 0;
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0;
+      margin-top: 25px;
+
+      li {
+        box-sizing: border-box;
+        width: calc(50% - 2px); // -2px 是为了防止边框重叠
+        height: 64px;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
