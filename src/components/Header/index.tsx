@@ -145,29 +145,32 @@ const Header: React.FC<Props & RouteComponentProps> = (props) => {
               </ul>
             </div>
           </span>
-          <span className={styles.item}>
-            方案
-            <div className={classnames(styles.subnav, styles['animate-fade'])}>
-              <ul>
-                {datas?.solution?.content?.map((item) => {
-                  return (
-                    <li key={item.name}>
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => statHeader(item.name)}
-                      >
-                        <img src={item.image} alt="" />
-                        <p>{item.name}</p>
-                        <p>{item.desc}</p>
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </span>
+
+          {datas?.solution?.content?.length ? (
+            <span className={styles.item}>
+              方案
+              <div className={classnames(styles.subnav, styles['animate-fade'])}>
+                <ul>
+                  {datas?.solution?.content?.map((item) => {
+                    return (
+                      <li key={item.name}>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => statHeader(item.name)}
+                        >
+                          <img src={item.image} alt="" />
+                          <p>{item.name}</p>
+                          <p>{item.desc}</p>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </span>
+          ) : null}
 
           <Link to={'/about'}>
             <span className={styles.item}>关于</span>
