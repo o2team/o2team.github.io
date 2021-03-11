@@ -20,6 +20,16 @@ module.exports = {
       webpackConfig.output.path = dist;
       paths.appBuild = dist;
 
+      if (process.env.NODE_ENV === 'production') {
+        const sassModuleRule = webpackConfig.module.rules[1]?.oneOf?.find(i => /\.module\\\.\(scss\|sass\)/.test(i?.test?.toString()));
+        const cssLoaderInSassModuleRule = sassModuleRule?.use?.find(i => /\/css-loader\//.test(i?.loader));
+        if (cssLoaderInSassModuleRule && cssLoaderInSassModuleRule.options && cssLoaderInSassModuleRule.options.modules) {
+          cssLoaderInSassModuleRule.options.modules = {
+            localIdentName: '[local]-[hash:base64:5]',
+          };
+        }
+      }
+
       return webpackConfig;
     },
   },
