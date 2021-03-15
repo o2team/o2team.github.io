@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import classnames from 'classnames';
 import { fetchFooter, fetchHeader } from '@/services';
 import { Header as TypeHeader, Footer as TypeFooter } from '@/types';
@@ -91,6 +91,7 @@ const App: React.FC<Props> = () => {
           />
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
+          <Redirect to={'/'} />
           <Footer datas={dataFooter} />
         </Router>
       </div>
