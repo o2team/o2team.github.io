@@ -60,7 +60,7 @@
     "test": "craco test",
     "deploy": "sh ./.travis/deploy.sh",
     "build:pre-release": "cross-env REACT_APP_RELEASE_ENV=uat craco build",
-    "build:release": "cross-env REACT_APP_RELEASE_ENV=prod craco build",
+    "build:release": "cross-env REACT_APP_RELEASE_ENV=prod GENERATE_SOURCEMAP=false craco build",
     "prettier": "prettier --write 'src/**/*.{ts,tsx,css,scss}'",
     "eslint-fix": "eslint src/**/*.ts[x] --fix",
     "stylelint-fix": "stylelint src/**/*.scss src/**/*.css --fix"
