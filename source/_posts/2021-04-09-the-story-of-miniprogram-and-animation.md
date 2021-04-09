@@ -112,7 +112,7 @@ this.animate(selector, keyframes, duration, callback)
 
 生成的小程序效果：
 
-![demo](https://storage.360buyimg.com/o2app/atom/article/20201124/demo.gif)
+![demo](https://storage.360buyimg.com/o2app/atom/article/20201124/demo-compress.gif)
 
 Taro 是小程序的好伙伴，而且基于故事的设定，H5 还是要点饭吃的。
 
