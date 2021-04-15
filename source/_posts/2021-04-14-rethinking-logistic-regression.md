@@ -58,7 +58,7 @@ P(Y|X)就是模型预测结果，显然P(Y|X)的值越接近于1，说明模型�
 ![图片](https://img12.360buyimg.com/imagetools/jfs/t1/166877/1/18837/4990/6076dc2cEb4334041/9e31a859c9959c31.png)  
 显然，要使得模型得效果最佳，则得找到一个最佳参数![图片](https://img13.360buyimg.com/imagetools/jfs/t1/162705/24/18434/839/6076dc26E99d1b894/bb359c62fa1461a0.png)使得![图片](https://img11.360buyimg.com/imagetools/jfs/t1/160500/15/19120/1720/6076dc31Eeecd8a59/0559ea6396285156.png)能取到最大值，这个就是最优化方法里面的极大使然估计(MLE)了，我们找到损失函数了。  
 ![图片](https://img14.360buyimg.com/imagetools/jfs/t1/167463/23/18382/2866/6076dcddE71b550ff/4b8ad513b6f306a8.png)  
-接下来，我们得看看如何转换这个损失函数：<font color='red'>加负号（最大值问题转化最小值问题，梯度下降能找最小值），取对数（不改单调性，把复杂的连乘变成简单的连加）</font>
+接下来，我们得看看如何转换这个损失函数：<font color='red'>加负号（最大值问题转化最小值问题，梯度下降能找最小值），取对数（不改单调性，把复杂的连乘变成简单的连加）</font>  
 ![图片](https://img11.360buyimg.com/imagetools/jfs/t1/167421/29/18421/5797/6076dce3E09aecd3f/fdbd72a04d0abb5e.png)
 
 ### 梯度下降
