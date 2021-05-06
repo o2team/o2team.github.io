@@ -34,7 +34,7 @@
     "hexo-server": "^0.3.3",
     "hexo-util": "^0.6.3",
     "hexo-wordcount": "6.0.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "lunr": "github:codepiano/lunr.js.git"
   },
   "devDependencies": {
