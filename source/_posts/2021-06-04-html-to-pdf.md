@@ -4,7 +4,7 @@ date: 2021-06-03 19:11:14
 tags: ['前端', 'Puppeteer']
 ---
 
-![](https://img30.360buyimg.com/ling/jfs/t1/144763/35/14549/562334/604a192dE9caab99c/77969cb00c17113f.png) 
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dceceb991c72481685f2bf8dce549c61~tplv-k3u1fbpfcp-zoom-1.image) 
 # 一、背景
 开发工作中，需要实现网页生成 PDF 的功能，生成的 PDF 需上传至服务端，将 PDF 地址作为参数请求外部接口，这个转换过程及转换后的 PDF 不需要在前端展示给用户。
 
