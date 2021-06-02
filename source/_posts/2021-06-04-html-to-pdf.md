@@ -11,7 +11,7 @@ tags: ['前端', 'Puppeteer']
 # 二、技术选型
 该功能不需要在前端展示给用户，为节省客户端资源，选择在服务端实现网页生成 PDF 的功能。
 
-## Puppeteer
+## 1. Puppeteer
 [Puppeteer](https://pptr.dev/) 是一个 `Node` 库，它提供了高级 `API` 来通过 `DevTools` 协议控制 `Chrome` 或 `Chromium`。
 
 在浏览器中手动执行的大多数操作都可以使用 `Puppeteer` 完成，比如：
@@ -25,7 +25,7 @@ tags: ['前端', 'Puppeteer']
 从上可见，`Puppeteer` 可以实现在`Node` 端生成页面的 PDF 功能。
 
 # 三、实现步骤
-## 安装
+## 1. 安装
 进入项目，安装 `puppeteer` 到本地。
 ```
 $ npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -41,7 +41,7 @@ const browser = await puppeteer.launch({
 ```
 
 本项目需要部署至服务端，因此选择安装的是 `puppeteer`。
-## 生成浏览器
+## 2. 生成浏览器
 ```
 const browser = await puppeteer.launch({
     headless: true,
@@ -53,13 +53,13 @@ const browser = await puppeteer.launch({
 
 > 小建议：本地调试时，建议设置 `headless: false`，可以启动完整版本的浏览器，直接在浏览器窗口查看内容。
 
-## 打开新页面
+## 3. 打开新页面
 生成浏览器后，在浏览器中打开新页面。
 ```
 const page = await browser.newPage()
 ```
 
-## 跳转到指定页面
+## 4. 跳转到指定页面
 跳转至要生成 PDF 的页面。
 ```
 await page.goto(`${baseURL}/article/${id}`, {
@@ -75,7 +75,7 @@ await page.goto(`${baseURL}/article/${id}`, {
 - networkidle0： 页面加载后不存在 0 个以上的资源请求，这种状态持续至少 500 ms；
 - networkidle2： 页面加载后不存在 2 个以上的资源请求，这种状态持续至少 500 ms。
 
-## 指定路径，生成pdf
+## 5. 指定路径，生成pdf
 上述指定的页面加载完成后，将该页面生成 PDF。
 ```
   const ext = '.pdf'
@@ -92,7 +92,7 @@ await page.goto(`${baseURL}/article/${id}`, {
 
 > 注意：目前仅支持headless: true 无头模式下生成 PDF
 
-## 关闭浏览器
+## 6. 关闭浏览器
 所有操作完成后，关闭浏览器，节约性能。
 ```
   await browser.close()
@@ -100,7 +100,7 @@ await page.goto(`${baseURL}/article/${id}`, {
 
 
 # 四、难点
-## 图片懒加载
+## 1. 图片懒加载
 由于需生成 PDF 的页面是文章类型的页面，包含大量图片，且图片引入了懒加载，导致生成的 PDF 会带有很多懒加载兜底图，效果如下图：
 
 ![](https://img30.360buyimg.com/ling/jfs/t1/160854/9/12020/571405/6049da77Edba81fe8/a94a6d5448508484.jpg)
@@ -134,7 +134,7 @@ function autoScroll (page) {
 
 这里用到了 `page.evaluate()` 方法，用来控制页面操作，比如使用内置的 `DOM` 选择器、使用 `window` 方法等等。
 
-## CSS 打印样式
+## 2. CSS 打印样式
 根据[官网](https://pptr.dev/#?product=Puppeteer&version=v8.0.0&show=api-pagepdfoptions)说明，`page.pdf()` 生成 PDF 文件的样式是通过 `print css media` 指定的，因此可以通过 `css` 来修改生成的 PDF 的样式，以本文需求为例，生成的 PDF 需要隐藏头部、底部，以及其他和文章主体无关的部分，代码如下：
 ```
 @media print {
@@ -154,7 +154,7 @@ function autoScroll (page) {
 }
 ```
 
-## 登录态
+## 3. 登录态
 由于存在一部分文章不对外部用户公开，需要鉴权用户身份，符合要求的用户才能看到文章内容，因此跳转到指定文章页后，需要在生成的浏览器窗口中注入登录态，符合条件的登录用户才能看到这部分文章的内容。
 
 采用注入 `cookie` 的方式来获取登录态，使用 `page.evaluate()` 设置 `cookie`，代码如下：
@@ -178,7 +178,7 @@ await simulateLogin(page, cookies, config.domain.split('//')[1])
 ```
 > 小建议：`Puppeteer` 也有自带的 `api` 实现 `cookie` 注入，如 `page.setCookie({name: name, value: value})`，但是我用这个方式注入没能获取到登录态，没有找到具体原因，建议还是直接用我上面这个方法来注入 `cookie`，注意除 `name` 和 `value`外，`expires`、`domain`、`path` 也需要配置。
 
-## Docker 部署 Puppeteer
+## 4. Docker 部署 Puppeteer
 根据上文操作，本地已经可以成功将页面生成 PDF 了，本地体验没问题后，需要部署到服务端给到测试、上线。
 
 没有修改 `Dockerfile` 时，部署后发现了如下错误：
