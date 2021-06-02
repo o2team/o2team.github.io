@@ -45,7 +45,7 @@ const browser = await puppeteer.launch({
 });
 ```
 
-本项目需要部署至服务端，无可连接的浏览器，因此选择安装的是 `puppeteer`。
+本项目需要部署至服务端，没有可连接的浏览器，因此选择安装的是 `puppeteer`。
 ## 2. 启动浏览器
 ```
 const browser = await puppeteer.launch({
