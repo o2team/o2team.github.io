@@ -32,7 +32,12 @@ $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 $ cnpm i puppeteer --save
 ```
 
-注意还有另一个版本的 `puppeteer`, 就是 `puppeteer-core`, 使用 `puppeteer-core` 需注意本地有可连接的浏览器，且安装的 `puppeteer-core` 版本与打算连接的浏览器兼容。连接本地浏览器方法如下：
+需注意的是，安装 `puppeteer` 时，会下载与 `API` 一起使用的最新版本的 `Chromium` 浏览器，有以下方法可以修改默认设置，不下载浏览器：
+
+1. 在[环境变量](https://github.com/puppeteer/puppeteer/blob/v8.0.0/docs/api.md#environment-variables)中设置 `PUPPETEER_SKIP_CHROMIUM_DOWNLOAD`；
+2. 用 `puppeteer-core` 代替 `puppeteer`。
+
+`puppeteer-core` 是 `puppeteer` 的轻量级版本，默认不下载浏览器，而是启动现有的浏览器或者连接远程浏览器，使用 `puppeteer-core` 需注意本地有可连接的浏览器，且安装的 `puppeteer-core` 版本与打算连接的浏览器兼容。连接本地浏览器方法如下：
 
 ```
 const browser = await puppeteer.launch({ 
@@ -40,8 +45,8 @@ const browser = await puppeteer.launch({
 });
 ```
 
-本项目需要部署至服务端，因此选择安装的是 `puppeteer`。
-## 2. 生成浏览器
+本项目需要部署至服务端，无可连接的浏览器，因此选择安装的是 `puppeteer`。
+## 2. 启动浏览器
 ```
 const browser = await puppeteer.launch({
     headless: true,
@@ -49,7 +54,7 @@ const browser = await puppeteer.launch({
   })
 ```
 
-`headless` 代表无头模式，生成的浏览器在后端打开，前端不会有展示。
+`headless` 代表无头模式，在后端启动浏览器，前端不会有展示。
 
 > 小建议：本地调试时，建议设置 `headless: false`，可以启动完整版本的浏览器，直接在浏览器窗口查看内容。
 
