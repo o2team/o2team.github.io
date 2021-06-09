@@ -23,7 +23,7 @@ tags: ['前端', 'harmonyos', '鸿蒙']
 ![下载HarmonyOS SDK](https://img10.360buyimg.com/imagetools/jfs/t1/163346/25/15685/37125/606450e4E006ef985/6da1c5d8a0344392.png)
 
 4、下载HarmonyOS SDK成功后会进入欢迎页，点击欢迎页中的 Configure > Settings打开设置窗口，点击 Apparance&behavior > System settings > HarmonyOS SDK，选中JS SDK进行下载。
-![下载JS SDK](https://img13.360buyimg.com/imagetools/jfs/t1/161928/13/15721/264520/606450e5Eab174cda/51343239df808ade.png1)
+![下载JS SDK](https://img10.360buyimg.com/imagetools/jfs/t1/188102/8/7325/83229/60c079c6E7eb88c25/869532b2c4f41071.png)
 
 至此开发环境安装完成。
 
@@ -54,7 +54,7 @@ tags: ['前端', 'harmonyos', '鸿蒙']
 ##### 2.4 生命周期
 生命周期分为应用的生命周期以及页面的生命周期
 
-![生命周期](https://img12.360buyimg.com/imagetools/jfs/t1/162516/16/15970/19935/606450e7Eb1723304/e6279a958f3bf697.png)
+![生命周期](https://img12.360buyimg.com/imagetools/jfs/t1/178869/6/8197/8308/60c079d0E24fa59ae/49751c68f90244ed.png)
 
 其中，应用的生命周期主要分为应用创建时调用的onCreate，以及应用销毁时触发的onDestroy。
 
@@ -194,7 +194,7 @@ export default {
 
 ##### 4.2 数据绑定
 数据绑定的形式分两种：数据初始化，数据更新
-![数据更新流程](https://img11.360buyimg.com/imagetools/jfs/t1/156105/17/19066/45674/60645293Ebce24fe4/3b1e036266f46688.jpg)
+![数据更新流程](https://img13.360buyimg.com/imagetools/jfs/t1/191060/1/7363/19978/60c079b5Ed456aa7a/25feb40ea02170d4.jpg)
 >hml只支持数据层到视图层的单向数据绑定。
 >视图层想改变数据层，只能通过绑定事件的方式实现。
 
@@ -418,7 +418,14 @@ export default {
 }
 ```
 ##### 5.5 路由
-![路由](https://img12.360buyimg.com/imagetools/jfs/t1/171464/31/15429/16569/606450e8E572cb1ee/57211791cc4bd29b.png)
+```json
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/index"
+  ]
+}
+```
 
 鸿蒙app中页面的路由信息保存在src > main > config.json文件中的pages内，引入@system.router后，调用其push方法传入需要跳转页面的uri，即可完成跳转，也可使用其back方法回到首页。
 ```javascript
@@ -439,7 +446,14 @@ CSS是描述HML页面结构的样式语言，所有组件均存在系统默认�
 
 ##### 6.1 尺寸单位
 鸿蒙中尺寸单位有两种，px(逻辑像素)以及百分比。
-![尺寸配置](https://img12.360buyimg.com/imagetools/jfs/t1/158429/10/16338/19375/606450e8E16c290db/2f46b6a5f66f9477.png)
+```json
+{
+  "window": {
+    "designWidth": 720,
+    "autoDesignWidth": false
+  }
+}
+```
 
 逻辑像素的配置在src > main > config.json文件中的window内，designWidth为屏幕的逻辑宽度，默认为720px，实际显示时会将页面布局缩放至屏幕实际宽度，如100px在实际宽度为1440物理像素的屏幕上，实际渲染为200物理像素。
 
