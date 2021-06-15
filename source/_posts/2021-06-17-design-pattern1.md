@@ -254,7 +254,7 @@ console.log(calculateBonus('a', 10000))
 </html>
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79ee768a229842e6a377534d4ea0fef2~tplv-k3u1fbpfcp-watermark.image)
+![image.png](https://img20.360buyimg.com/ling/jfs/t1/174568/22/14756/83410/60c85e70Ebbb5d025/1d80411931670081.png)
 
 上述代码有以下缺点：
 - `onsubmit` 函数庞大，包含大量 `if-else` 语句；
@@ -510,7 +510,7 @@ const myImage = (() => {
 	}
 })()
 
-myImage.setSrc('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa98e67c4708449eb6894c7133d93774~tplv-k3u1fbpfcp-watermark.image')
+myImage.setSrc('https://img30.360buyimg.com/ling/jfs/t1/187775/5/8271/435193/60c8117eE7d79ef41/1d21db2c4dca9a90.png')
 
 ```
 
@@ -536,7 +536,7 @@ const myImage = (() => {
 })()
 
 const loadingSrc = '../../../../img/loading.gif'
-const imgSrc = 'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa98e67c4708449eb6894c7133d93774~tplv-k3u1fbpfcp-watermark.image'
+const imgSrc = 'https://img30.360buyimg.com/ling/jfs/t1/187775/5/8271/435193/60c8117eE7d79ef41/1d21db2c4dca9a90.png'
 
 const proxyImage = (function () {
 	const img = new Image()
@@ -706,13 +706,3 @@ Array.from(checkbox).forEach(i => {
 可通过 [github源码](https://github.com/jiaozitang/web-learn-note/tree/main/src/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F) 进行实操练习。
 
 希望本文能对你有所帮助，感谢阅读❤️～
-
----
-
-**· 往期精彩 ·**
-
-[【简单易懂的设计模式（上）】](https://github.com/o2team/o2team.github.io/blob/v2/source/_posts/2021-06-17-design-pattern1.md)
-
-[【简单易懂的设计模式（下）】](https://github.com/o2team/o2team.github.io/blob/v2/source/_posts/2021-06-17-design-pattern2.md)
-
-
