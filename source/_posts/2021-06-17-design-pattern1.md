@@ -714,6 +714,5 @@ Array.from(checkbox).forEach(i => {
 [【简单易懂的设计模式（上）】](https://github.com/o2team/o2team.github.io/blob/v2/source/_posts/2021-06-17-design-pattern1.md)
 
 [【简单易懂的设计模式（下）】](https://github.com/o2team/o2team.github.io/blob/v2/source/_posts/2021-06-17-design-pattern2.md)
-)
 
 
