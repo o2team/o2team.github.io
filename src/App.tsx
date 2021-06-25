@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 import classnames from 'classnames';
 import { fetchFooter, fetchHeader } from '@/services';
 import { Header as TypeHeader, Footer as TypeFooter } from '@/types';
@@ -89,9 +89,11 @@ const App: React.FC<Props> = () => {
             onMenuShow={handleShowMenuMobile}
             onMenuHide={handleHideMenuMobile}
           />
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Redirect to={'/'} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Redirect to={'/'} />
+          </Switch>
           <Footer datas={dataFooter} />
         </Router>
       </div>
