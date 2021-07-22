@@ -21,7 +21,7 @@ tags: ['前端', '手写React']
 
 1. **createElement（虚拟 DOM）**；
 2. **render**；
-3. **并发模式**；
+3. **可中断渲染**；
 4. **Fibers**；
 5. **Render and Commit Phases** ；
 6. **协调（Diff 算法）**；
@@ -367,7 +367,7 @@ myReact.render(element, document.getElementById('container'))
 
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe4fe623e02e41d2bd81957c0019f12b~tplv-k3u1fbpfcp-watermark.image)
 
-## 3. 并发模式（requestIdleCallback）
+## 3. 可中断渲染（requestIdleCallback）
 
 再来看看上面写的 render 方法中关于子节点的处理，代码如下：
 
@@ -440,7 +440,7 @@ function performUnitOfWork(nextUnitOfWork) {
 
 performUnitOfWork 是用来执行单元事件，并返回下一个单元事件的，具体实现将在下文介绍。
 
-## 4. fiber
+## 4. Fiber
 
 上文介绍了通过 requestIdleCallback 让浏览器在空闲时间渲染工作单元，避免渲染过久导致页面卡顿的问题。
 
@@ -940,7 +940,7 @@ if (
 
 #### 5.2 DELETION
 
-当 fiber 的 effectTag 为 PLACEMENT 时，表示是删除 fiber，将父节点的该节点删除。
+当 fiber 的 effectTag 为 DELETION 时，表示是删除 fiber，将父节点的该节点删除。
 
 ```javascript
 else if (fiber.effectTag === "DELETION") {
@@ -948,7 +948,7 @@ else if (fiber.effectTag === "DELETION") {
 }
 ```
 
-#### 5.3 DELETION
+#### 5.3 UPDATE
 
 当 fiber 的 effectTag 为 UPDATE 时，表示是更新 fiber，更新 props 属性。
 
@@ -1251,7 +1251,7 @@ function updateFunctionComponent(fiber) {
 2. 新增 useState 函数；
 
 ```javascript
-// initial 表示初始参数，在本例中，initail=1
+// initial 表示初始参数，在本例中，initial=1
 function useState (initial) {
     // 是否有旧钩子，旧钩子存储了上一次更新的 hook
     const oldHook =
