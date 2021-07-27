@@ -36,14 +36,14 @@ const App: React.FC<Props> = () => {
     fetchFooter().then((d) => setDataFooter((datas) => ({ ...datas, ...d })));
   }, []);
 
-  // 控制台彩蛋
+  // 控制台彩蛋提示
   useEffect(() => {
     setTimeout(() => {
       consoleAotu();
     }, 1000);
   }, []);
 
-  // 控制台输入 play = true/false 触发彩蛋
+  // 控制台输入"play"触发或"stop"停止彩蛋
   useEffect(() => {
     Reflect.defineProperty(window, 'play', {
       configurable: true,
