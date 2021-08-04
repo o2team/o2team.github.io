@@ -67,7 +67,7 @@ import './index.scss'
 
 export default class Index extends Component {
   handleButtonClick () {
-    // 调用京购小程序的公共跳转方法
+    // 调用京东购物小程序的公共跳转方法
     console.log('trigger click')
   }
 
@@ -249,9 +249,9 @@ import './index.scss'
 
 export default class Index extends Component {
   handleButtonClick () {
-    // 调用京购小程序的公共跳转方法
+    // 调用京东购物小程序的公共跳转方法
     console.log('trigger click')
-    // 利用公共方法跳转京购小程序首页
+    // 利用公共方法跳转京东购物小程序首页
     navigator.goto('/pages/index/index')
   }
 
@@ -309,9 +309,9 @@ import './index.scss'
 
 export default class Index extends Component {
   handleButtonClick () {
-    // 调用京购小程序的公共跳转方法
+    // 调用京东购物小程序的公共跳转方法
     console.log('trigger click')
-    // 利用公共方法跳转京购小程序首页
+    // 利用公共方法跳转京东购物小程序首页
     navigator.goto('/pages/index/index')
   }
 
