@@ -10,6 +10,9 @@
 - text: H5游戏开发
   value: H5游戏开发
   url: cates/H5游戏开发/index.html
+- text: 人工智能
+  value: 人工智能
+  url: cates/人工智能/index.html
 - text: NodeJS
   value: NodeJS
   url: cates/NodeJS/index.html
