@@ -1,4 +1,4 @@
-title: DI 原理分析，并实现一个简易版 DI 容器 
+title: DI 原理分析，并实现一个简易版 DI 容器  
 subtitle: 本文基于自身理解对IOC/DI相关知识点进行整理输出，仅供交流学习，如有不对的地方，还望各位看官指出。  
 cover: https://img12.360buyimg.com/ling/s690x416_jfs/t1/164957/21/22062/76741/60801aa8E27df4f16/ac2d9c918ada4b91.jpg  
 category: 经验分享  
@@ -17,7 +17,7 @@ wechat:
 ##### 本文基于自身理解进行输出，目的在于交流学习，如有不对，还望各位看官指出。
 
 ## DI
-DI—Dependency Injection，即“依赖注入”：对象之间依赖关系由容器在运行期决定，形象的说，即由`容器动态的将某个对象注入到对象属性之中`。依赖注入的目的并非为软件系统带来更多功能，而是为了提升对象重用的频率，并为系统搭建一个灵活、可扩展的平台。
+DI—Dependency Injection，即“依赖注入”：对象之间依赖关系由容器在运行期决定，形象的说，即由`容器动态的将某个对象注入到对象属性之中`。依赖注入的目的并非为软件系统带来更多功能，而是为了提升对象重用的频率，并为系统搭建一个灵活、可扩展的框架。
 
 ## 使用方式
 首先看一下常用依赖注入 (DI)的方式：
@@ -44,7 +44,7 @@ class B {
 new B().say() // hello
 ```
 ## 原理分析
-TS在编译装饰器的时候，会通过多返回一个装饰器`__metadata `，它的目的是将对象的`type类型(即service)`以元数据`'design:type'`存入`reflect.metadata`，以便我们在需要依赖注入时，通过`Reflect.getMetadata`获取到对应的`service`， 并进行实例化赋值给需要的属性。
+TS在编译装饰器的时候，会通过执行`__metadata函数`多返回一个属性装饰器`@Reflect.metadata`，它的目的是将需要实例化的`service`以元数据`'design:type'`存入`reflect.metadata`，以便我们在需要依赖注入时，通过`Reflect.getMetadata`获取到对应的`service`， 并进行实例化赋值给需要的属性。
 
 `@Inject`编译后代码:
 ```javascript
@@ -91,15 +91,16 @@ const newMetadata: ServiceMetadata<T> = {
 function ContainerInstance() {
         this.metadataMap = new Map();  //保存metadata映射关系，作用类似于Refect.metadata
         this.handlers = []; // 事件待处理队列
+        get(){};  // 获取依赖注入后的实例化对象
          ...
 }
 ```
 - this. metadataMap -  `@service`会将`service构造函数`以metadata形式保存到`this.metadataMap`中。
-  - 保证依赖注入不对原有的`class`造成影响，仅影响`container`中的`service`; 
   - 缓存实例化对象，保证单例; 
-  - 保存`构造函数`与`静态类型`及`属性`间的映射关系。
 - this.handlers  - `@inject`会将依赖注入操作的`对象`、`目标`、`行为`以 object 形式 push 进 handlers 待处理数组。
-
+  - 保存`构造函数`与`静态类型`及`属性`间的映射关系。
+- get - 对象实例化操作及依赖注入操作
+  - 避免直接修改类，而是对其实例化对象的属性进行拓展; 
 ```javascript
 {
         object: target,  // 当前等待挂载的类的原型对象
