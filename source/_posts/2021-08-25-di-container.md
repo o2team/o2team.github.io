@@ -99,8 +99,6 @@ function ContainerInstance() {
   - 缓存实例化对象，保证单例; 
 - this.handlers  - `@inject`会将依赖注入操作的`对象`、`目标`、`行为`以 object 形式 push 进 handlers 待处理数组。
   - 保存`构造函数`与`静态类型`及`属性`间的映射关系。
-- get - 对象实例化操作及依赖注入操作
-  - 避免直接修改类，而是对其实例化对象的属性进行拓展; 
 ```javascript
 {
         object: target,  // 当前等待挂载的类的原型对象
@@ -112,12 +110,15 @@ function ContainerInstance() {
         }
 }
 ```
-将该对象 push 进一个等待执行的 handlers 待处理数组里，当需要用到对应 service 时执行 value函数 并修改 propertyName。
+`@inject`将该对象 push 进一个等待执行的 handlers 待处理数组里，当需要用到对应 service 时执行 value函数 并修改 propertyName。
 ```javascript
 if (handler.propertyName) {
      instance[handler.propertyName] = handler.value(this);
 }
 ```
+- get - 对象实例化操作及依赖注入操作
+  - 避免直接修改类，而是对其实例化对象的属性进行拓展; 
+
 
 
 ## 相关结论
