@@ -1,6 +1,6 @@
 title: DI 原理分析，并实现一个简易版 DI 容器  
 subtitle: 本文基于自身理解对IOC/DI相关知识点进行整理输出，仅供交流学习，如有不对的地方，还望各位看官指出。  
-cover: https://img12.360buyimg.com/ling/s690x416_jfs/t1/164957/21/22062/76741/60801aa8E27df4f16/ac2d9c918ada4b91.jpg  
+cover: https://img10.360buyimg.com/ling/s690x416_jfs/t1/178452/35/21160/56536/61275ad1Eedcddb22/c17025ef35f25a34.jpg  
 category: 经验分享  
 tags:   
   - typescript  
@@ -10,7 +10,7 @@ author:
   github_name: AwesomeDevin   
 date: 2021-08-25 21:00:00   
 wechat:
-    share_cover: https://img12.360buyimg.com/ling/s690x416_jfs/t1/164957/21/22062/76741/60801aa8E27df4f16/ac2d9c918ada4b91.jpg  
+    share_cover: https://img10.360buyimg.com/ling/s690x416_jfs/t1/178452/35/21160/56536/61275ad1Eedcddb22/c17025ef35f25a34.jpg  
     share_title: DI 原理分析，并实现一个简易版 DI 容器. 
     share_desc: 本文基于自身理解对IOC/DI相关知识点进行整理输出，仅供交流学习，如有不对的地方，还望各位看官指出。  
 ---
@@ -124,7 +124,7 @@ if (handler.propertyName) {
 - `typedi`中的实例化操作不会立即执行, 而是在一个`handlers`待处理数组，等待`Container.get(B)`，先对B进行实例化，然后从`handlers`待处理数组取出对应的`value函数`并执行修改实例化对象的属性值，这样不会影响Class B 自身
 - 实例的属性值被修改后，将被缓存到`metadata.value`(typedi 的单例服务特性)。
 
-相关资料可查看： [https://stackoverflow.com/questions/55684776/typedi-inject-doesnt-work-but-container-get-does](https://stackoverflow.com/questions/55684776/typedi-inject-doesnt-work-but-container-get-does)
+相关问题案例可查看： [https://stackoverflow.com/questions/55684776/typedi-inject-doesnt-work-but-container-get-does](https://stackoverflow.com/questions/55684776/typedi-inject-doesnt-work-but-container-get-does)
 ```javascript
 new B().say()  // 将会输出sayHello is undefined
 
