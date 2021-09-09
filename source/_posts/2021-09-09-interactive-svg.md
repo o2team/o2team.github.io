@@ -18,7 +18,7 @@ tags:
 
 ## 前沿
 
-![http://storage.360buyimg.com/azfff/markdown/v1/1.gif](http://storage.360buyimg.com/azfff/markdown/v1/1.gif)
+![http://storage.360buyimg.com/azfff/markdown/v1/helloworld.gif](http://storage.360buyimg.com/azfff/markdown/v1/helloworld.gif)
 
 最近很多公众号开始流行在公众号正文中嵌入了 svg 交互动画，而不是在末尾/图文中添加二维码引导用户跳去 h5 网页上。那么到底是如何实现的？其实又有什么难点和坑需要攻克和避开？我们一起来学习下 svg 图文的制作思路。先来个经典三问：是什么？为什么？怎么办？
 
