@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.33cb2d6c.chunk.css",
+    "main.js": "/static/js/main.652be792.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.412ce3fe.js",
+    "static/css/2.5a6bb420.chunk.css": "/static/css/2.5a6bb420.chunk.css",
+    "static/js/2.48e20d55.chunk.js": "/static/js/2.48e20d55.chunk.js",
+    "index.html": "/index.html",
+    "static/js/2.48e20d55.chunk.js.LICENSE.txt": "/static/js/2.48e20d55.chunk.js.LICENSE.txt",
+    "static/media/close.6a98c772.svg": "/static/media/close.6a98c772.svg",
+    "static/media/index.module.scss": "/static/media/rect-blue.c1cc6087.svg",
+    "static/media/logo-blue.ad4268a5.svg": "/static/media/logo-blue.ad4268a5.svg",
+    "static/media/logo.1e95e6a6.svg": "/static/media/logo.1e95e6a6.svg",
+    "static/media/o2-ring.2b407c2a.svg": "/static/media/o2-ring.2b407c2a.svg",
+    "static/media/o2text-rect.05e99f6e.svg": "/static/media/o2text-rect.05e99f6e.svg",
+    "static/media/o2text.2843ac2f.svg": "/static/media/o2text.2843ac2f.svg",
+    "static/media/oops.4da04260.svg": "/static/media/oops.4da04260.svg",
+    "static/media/swap-left.8dd45b3a.svg": "/static/media/swap-left.8dd45b3a.svg",
+    "static/media/swap-right.a3814261.svg": "/static/media/swap-right.a3814261.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.412ce3fe.js",
+    "static/css/2.5a6bb420.chunk.css",
+    "static/js/2.48e20d55.chunk.js",
+    "static/css/main.33cb2d6c.chunk.css",
+    "static/js/main.652be792.chunk.js"
+  ]
+}
