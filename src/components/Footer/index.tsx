@@ -33,7 +33,11 @@ const Footer: React.FC<Props> = (props) => {
         <div className={styles.info}>
           <Logo className={styles.logo} />
           <p>Copyright © 2021. All Rights Reserved.</p>
-          <p>粤ICP备15077732号-2</p>
+          <p>
+            <a href="https://beian.miit.gov.cn" target="_blank" rel="noreferrer">
+              粤ICP备15077732号
+            </a>
+          </p>
         </div>
 
         <div className={styles.list}>
