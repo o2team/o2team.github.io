@@ -1,6 +1,6 @@
 title: 从浏览器渲染层面解析css3动效优化原理  
 subtitle: 从浏览器渲染层面解析css3是如何对动效性能进行优化的，帮助开发者工具巩固浏览器渲染相关知识。  
-cover: https://img30.360buyimg.com/ling/jfs/t1/178001/20/8686/250245/60c2d2dcE9047fdfe/7a819689a63410df.jpg.webp  
+cover: https://img12.360buyimg.com/img/s897x546_jfs/t1/147134/36/19370/59370/614c426aE2e3fcca1/60f3f39a034a8451.jpg  
 category: 经验分享
 tags: 
   - CSS3  
@@ -9,14 +9,14 @@ author:
   github_name: AwesomeDevin  
 date: 2020-10-13 21:00:00
 wechat:
-    share_cover: https://img30.360buyimg.com/ling/jfs/t1/178001/20/8686/250245/60c2d2dcE9047fdfe/7a819689a63410df.jpg.webp  
+    share_cover: https://img12.360buyimg.com/img/s897x546_jfs/t1/147134/36/19370/59370/614c426aE2e3fcca1/60f3f39a034a8451.jpg  
     share_title: 从浏览器渲染层面解析css3动效优化原理
     share_desc: 从浏览器渲染层面解析css3是如何对动效性能进行优化的，帮助开发者工具巩固浏览器渲染相关知识。
 ---
 
 ## 引言
 在h5开发中，我们经常会需要实现一些动效来让页面视觉效果更好，谈及动效便不可避免地会想到动效性能优化这个话题:
-* 减少页面DOM操作，可以使用CSS实现的动效不多出一行js代码
+* 减少页面DOM操作，可以使用CSS实现的动效不码出一行js代码
 * 使用绝对定位脱离让DOM脱离文档流，减少页面的重排(relayout)
 * 使用CSS3 3D属性开启硬件加速
 
