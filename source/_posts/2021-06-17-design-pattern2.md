@@ -4,7 +4,7 @@ date: 2021-06-17 19:11:14
 tags: ['前端', '设计模式']
 ---
 
-![](https://img30.360buyimg.com/ling/jfs/t1/187775/5/8271/435193/60c8117eE7d79ef41/1d21db2c4dca9a90.png)
+![](https://img12.360buyimg.com/ling/jfs/t1/177582/1/11850/840808/60de6a4bEb0ee30c6/b88babc1f08c6d59.png)
 
 
 设计模式（下）将介绍观察者模式、装饰器模式、职责链模式 3 个常用设计模式，使用观察者模式实现双向数据绑定、装饰器模式实现数据上报、职责链模式实现 618 预售订单等需求，利用设计模式帮助我们解决实际问题。
@@ -18,7 +18,7 @@ tags: ['前端', '设计模式']
 
 ### 1. `DOM` 事件
 开发过程中，最常见的观察者模式场景就是 `DOM` 事件函数，先看看代码：
-```
+```javascript
 document.body.addEventListener('click', () => {
     alert(2)
 }, false)
@@ -84,12 +84,12 @@ login.listen('loginSucc', () => {
 
 新建一个发布-订阅对象，用于发布消息，订阅消息。
 
-- `subscrib`：订阅函数，当其他对象添加订阅消息时，将回调函数 `push` 进 `callbacks` 对象数组中；
+- `subscribe`：订阅函数，当其他对象添加订阅消息时，将回调函数 `push` 进 `callbacks` 对象数组中；
 - `publish`：发布函数，当发布消息时，触发 `callbacks` 中该消息对应的 `callback`.
 
 ```javascript
 const Pubsub = {
-    subscrib: function (ev, callback) {
+    subscribe: function (ev, callback) {
         this._callbacks || (this._callbacks = {});
         (this._callbacks[ev] || (this._callbacks[ev] = [])).push(callback);
     },
@@ -134,7 +134,7 @@ document.addEventListener('keyup', eventHander, false)
 所有包含 `data-bind` 属性的 `dom` 元素，订阅 `model` 更新消息，当 `model` 更新时，`ui` 将会收到通知。
 ```javascript
 // 订阅model更新消息，更新后所有符合条件的dom节点都会收到通知，进行更新
-Pubsub.subscrib('model-update-event', function ({propNameWhole, propValue}) {
+Pubsub.subscribe('model-update-event', function ({propNameWhole, propValue}) {
     const elements = document.querySelectorAll(`[data-bind="${propNameWhole}"]`)
 
     elements.forEach(element => {
@@ -165,7 +165,7 @@ class Bind {
         this.modelName = modelName
 
         // 订阅ui更新消息
-        Pubsub.subscrib('ui-update-event', ({propNameWhole, propValue}) => {
+        Pubsub.subscribe('ui-update-event', ({propNameWhole, propValue}) => {
             const [ , _propName] = propNameWhole.split('.')
             this.updateModalData(_propName, propValue)
         })
@@ -316,7 +316,7 @@ after(duck.init, function egg () {
 
 先上代码：
 
-```
+```javascript
 const loginBtnClick = () => {
     console.log('去登录'）
     console.log('去上报')
@@ -374,7 +374,7 @@ const ajax = function (type, url, param) {
 
 通过装饰器模式，在 `ajax` 调用之前，为 `ajax` 增加 `token` 参数，代码如下：
 
-```
+```javascript
 const before = function (fn, beforeFn) {
     return function () {
         beforeFn.apply(this, arguments)
@@ -483,7 +483,7 @@ function eatDinner () {
 
 ## 2. 实际场景
 ### 1. 618 预售商品订单
-下周就是 618，电商网站免不得会推出商品预售活动，假设在 618 之前，预付 500 定金，可获得 100 元优惠券，预付 200 元定金，可获得 50 优惠券，未付定金则无优惠券。618 当天的购买事件如下：
+电商网站免不得会推出商品预售活动，假设在 618 之前，预付 500 定金，可获得 100 元优惠券，预付 200 元定金，可获得 50 优惠券，未付定金则无优惠券。618 当天的购买事件如下：
 
 #### 1.1 普通做法
 
@@ -491,7 +491,7 @@ function eatDinner () {
 
 > 本文代码仅举例说明，和业务无关。
 
-```
+```javascript
 const order = function (orderType) {
     if (orderType === 500) {
         console.log('已预付500定金，享有100优惠券')
@@ -539,7 +539,7 @@ Chain.prototype.passRequest = function() {
 
 然后定义职责类实例，通过 `setNextSuccessor` 组成职责链，代码如下：
 
-```
+```javascript
 const order500 = function (orderType) {
   if (orderType === 500) {
       console.log('已预付500定金，享有100优惠券')
