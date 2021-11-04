@@ -1,4 +1,4 @@
-title: Nodejs AOP 与 IOC 实践
+title: Nodejs AOP 与 IoC 实践
 subtitle: 从 angular.js 1.x 版本到 Nestjs ，JavaScript 世界越来越多的框架和类库开始应用 AOP 和 IoC 这样的软件编程设计思想，本文就带你一探究竟。
 cover: https://img11.360buyimg.com/ling/s690x416_jfs/t1/154993/11/6221/322466/5fb3b229E00d60f5e/10617d32c79008a8.png.webp
 category: 经验沉淀  
@@ -11,7 +11,7 @@ author:
 date: 2021-11-03 10:00:00   
 wechat:
     share_cover: https://img11.360buyimg.com/ling/s690x416_jfs/t1/154993/11/6221/322466/5fb3b229E00d60f5e/10617d32c79008a8.png.webp
-    share_title: Nodejs AOP 与 IOC 实践
+    share_title: Nodejs AOP 与 IoC 实践
     share_desc: 从 angular.js 1.x 版本到 Nestjs ，JavaScript 世界越来越多的框架和类库开始应用 AOP 和 IoC 这样的软件编程设计思想，本文就带你一探究竟。
 ---
 
@@ -73,7 +73,7 @@ export class BrowserStorageService {
 }
 ```
 
-接下来笔者就详细地介绍一下到底什么是 `AOP` 和 `IOC`，以及我们在 `Nodejs` 端的实践。
+接下来笔者就详细地介绍一下到底什么是 `AOP` 和 `IoC`，以及我们在 `Nodejs` 端的实践。
 
 ### AOP
 
