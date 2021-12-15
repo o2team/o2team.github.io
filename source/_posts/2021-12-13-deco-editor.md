@@ -144,7 +144,7 @@ Widget 的编写方法参考 theia browser widget 写法，有以下特点：
 
 ## 4.技术架构设计
 
-基于以上确定的技术方案以及思路，将编辑器技术架构主要分为一下几个模块：
+基于以上确定的技术方案以及思路，将编辑器技术架构主要分为以下几个模块：
 
 - ModuleRegistry
 - HistoryManager
