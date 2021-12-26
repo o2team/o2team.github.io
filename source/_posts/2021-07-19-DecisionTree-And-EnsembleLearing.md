@@ -5,7 +5,7 @@ tags:
   - 人工智能  
   - AI  
 categories: 人工智能  
-author: hyde   
+author:   
   nick: hyde  
   github_name: hydchow  
 date: 2021-07-19 09:34:11  

@@ -3,10 +3,9 @@ subtitle: 带你了解计算机的中断机制（操作系统心脏）是如何�
 cover: https://img11.360buyimg.com/ling/jfs/t1/156416/37/17938/20347/605c38f1E973ec4d6/fe3315b68d397ca6.jpg
 category: JavaScript
 tags:
-
-- JavaScript
-- React
-  author:
+  - JavaScript
+  - React
+author:
   nick: nobo
   github_name: bplok20010
   date: 2021-03-25 14:31:27

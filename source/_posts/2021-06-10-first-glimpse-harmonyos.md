@@ -199,7 +199,8 @@ export default {
 >视图层想改变数据层，只能通过绑定事件的方式实现。
 
 #### 4.1.1 数据初始化
-hml 中的数据都来自于对应 js 中的 data 对象，因此在初始化页面时，在 data 对象中写入数据，hml 中就可以通过 {{}} 的形式绑定数据。
+hml 中的数据都来自于对应 js 中的 data 对象，因此在初始化页面时，在 data 对象中写入数据，hml 中就可以通过 {% raw %}{{}}{% endraw %} 的形式绑定数据。
+
 ```javascript
 // xxx.js
 export default {
@@ -208,10 +209,12 @@ export default {
   }
 }
 ```
+
 ```html
 <!-- xxx.hml -->
 <div>{{text}}</div>
 ```
+
 #### 4.1.2 数据更新
 通过为页面元素绑定事件，可以调用方法更新数据，从而触发视图更新数据
 ``` javascript
