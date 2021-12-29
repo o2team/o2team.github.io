@@ -44,5 +44,8 @@
   },
   "optionalDependencies": {
     "hexo-browsersync": "^0.3.0"
+  },
+  "resolutions": {
+    "hexo-filter-cleanup/favicons/sharp": "0.28.0"
   }
 }
