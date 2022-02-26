@@ -4779,8 +4779,9 @@ lru-cache@^6.0.0:
   dependencies:
     nodejieba "^2.0.0"
 
-"lunr@github:mamboer/lunr.js":
+lunr@mamboer/lunr.js:
   version "0.7.1"
+  uid "37680a339bfec3785e507bb3c07e362cae66ac26"
   resolved "https://codeload.github.com/mamboer/lunr.js/tar.gz/37680a339bfec3785e507bb3c07e362cae66ac26"
   dependencies:
     nodejieba "^2.0.0"
@@ -5856,9 +5857,9 @@ pretty-hrtime@^1.0.3:
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
 prismjs@^1.17.1:
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
-  integrity sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
+  integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
 
 process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.1"
