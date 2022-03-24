@@ -92,7 +92,7 @@ gl.compileShader(vertexShader);
 
 首先我们定义了一个变量 vertex 并给他赋值一串其他语言格式的代码字符串，这个串代码是 glsl 代码，是一个跟 c 语言很相似的代码。代码接收一个传入的二维向量 position ，然后把他执行环境中的全局变量 gl_Position 设置成一个四维向量，这个四维向量前两个维度的分量是传入的二维向量。
 
-接下来用 glCreateShader 创建一个着色器， VERTEX_SHADER 常量说明这个着色器是一个顶点着色器，跟顶点着色器对应的是片元着色器，顶点着色器处理做为确定点的位置。片元着色器则处理确定点之间的所有位置，比如两点画一个直线，两点是顶点着色器确定的，直线是片元着色器在确定了两个点的位置之后画的。
+接下来用 glCreateShader 创建一个着色器， VERTEX_SHADER 常量说明这个着色器是一个顶点着色器，跟顶点着色器对应的是片元着色器，顶点着色器处理做为确定点的位置。片元着色器则对顶点构成的图形中的所有位置进行逐个处理，比如两点画一个直线，两点是顶点着色器确定的，直线是片元着色器在确定了两个点的位置之后画的。
 
 在我们创建了一个空的顶点着色器对象 vertexShader 之后，就可以用 glShaderSource 把前面的字符串代码放入顶点着色器对象中，然后用 glCompileShader 把这段代码编译成可执行文件。这个过程跟c语言的编译过程是相似的。
 
@@ -125,9 +125,9 @@ gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
 ### gpu加载缓存中的数据
 
 ```js
-const vPosition = gl.getAttribLocation(program, "position")
-gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0)
-gl.enableVertexAttribArray(vPosition)
+const vPosition = gl.getAttribLocation(program, "position");
+gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
+gl.enableVertexAttribArray(vPosition);
 ```
 
 在这一步中，我们先调用 glGetAttribLocation 拿到程序对象中 position 这个变量的位置，调用 glVertexAttribPointer 把这个变量的长度设置为 2 ，类型设置成 glFLOAT ，并用 glEnableVertexAttribArray 启用这个变量
@@ -147,7 +147,7 @@ gl.drawArrays(gl.TRIANGLES, 0, points.length / 2);
 
 ## 总结
 
-这段程序在 three.js 和其他的 3d 框架和工具库里都有一定的封装，通过那些库进行 webgl 的绘图相对来说会方便很多，但如果不知道这些库最根本的操作，就很容易在遇到问题的时候绕进去。所以希望本文能增加大家对web 3d底层方面的理解，给大家在学习这些3d工具库的时候提供一些帮助。
+这段程序在 three.js 和其他的 3d 框架和工具库里都有一定的封装，通过那些库进行 webgl 的绘图相对来说会方便很多，但如果不知道这些库最根本的操作，就很容易在遇到问题的时候绕进去。所以希望本文能增加大家对 web 3d 底层方面的理解，给大家在学习这些3d工具库的时候提供一些帮助。
 
 ## 参考
 
