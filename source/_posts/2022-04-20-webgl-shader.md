@@ -1,15 +1,15 @@
 title: webGL基础-着色器
 subtitle:
 cover: 
-categories: 3d webgl shader
+categories: Web开发
 tags:
-  - Phaser3
-  - 合成大西瓜
-  - matter.js
+  - 3D
+  - WebGL
+  - Shader
 author:
   nick: 杰
   github_name: eijil
-  date: 2021-03-09 17:58:08
+  date: 2022-04-20 17:58:08
   
 ---
 
