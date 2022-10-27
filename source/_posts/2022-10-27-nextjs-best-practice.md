@@ -240,7 +240,7 @@ NextJS 会在本地对所加载的远程模块进行缓存, 减少了我们所�
 
     ![](https://img12.360buyimg.com/img/s1420x1066_jfs/t1/21457/7/20560/130270/635a21ebEc7f74eb2/fe28f390371dc423.png)
 
-- network: DomContentLoaded 从 2.42s 优化到 0.67s，Load从 3.77s 优化到 1.47s ，`分别提升了 77% / 61%`
+- network: DomContentLoaded 从 2.42s 优化到 0.67s，`提升了 77% `
     
     ![image.png](https://img12.360buyimg.com/img/s1356x46_jfs/t1/211937/2/22360/25045/635a210cE90e7a5be/5b32e5f52fa1b04a.png)
 
