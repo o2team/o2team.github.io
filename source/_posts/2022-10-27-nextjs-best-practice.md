@@ -84,8 +84,8 @@ SSG / ISR 都是非常适合博客类应用的，区别在于`SSG是构建时生
     通过 network 可以看到资源实际大小及 http 请求的 size，如果不开启压缩，二者基本是没有差异的。
     ![image.png](https://img12.360buyimg.com/img/s1540x247_jfs/t1/85602/26/33860/99692/635a1ca3Ebdb4b039/203e11113afbf058.png)
     gzip 优化后可以看到, 压缩效果还是很明显的
-
-    开启 nginx 的 gzip 压缩
+       开启 nginx 的 gzip 压缩
+   
         ```shell
         gzip                            on;
         gzip_min_length                 100;
@@ -95,9 +95,9 @@ SSG / ISR 都是非常适合博客类应用的，区别在于`SSG是构建时生
         gzip_types                      gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/javascript;
         gzip_vary                       on;
         gzip_proxied                       any;
-        ```
-     
-         通过 response header 判断压缩是否生效  
+        ```  
+        
+        通过 response header 判断压缩是否生效  
         ![image.png](https://img12.360buyimg.com/img/s356x278_jfs/t1/123411/6/32476/40551/635a1e58E1bef9e2f/8e931332a588fc1e.png)  
     - **2. 针对非首屏组件基于 dynamic 动态加载**  
         在页面加载过程中，针对一些不可见组件，我们应该动态导入，而不是正常导入，`确保只有需要该组件的场景下，才 fetch 对应资源`, 通过 `next/dynamic`，在构建时，框架层面会帮我们进行分包
@@ -175,7 +175,7 @@ SSG / ISR 都是非常适合博客类应用的，区别在于`SSG是构建时生
     - **7. 第三方 library 过大时，基于 umd 按需加载**  
     当`第三方 library 过大时，以 umd 进行引入`，在需要的场景下通过 script 进行加载。
         ```js
-        // 封装记载umd模块的hoc
+        // 封装挂载 umd 模块的hoc
         function loadUmdHoc(Comp: (props) => JSX.Element, src: string) {
           return function Hoc(props) {
             const [isLoaded, setLoaded] = useState(
