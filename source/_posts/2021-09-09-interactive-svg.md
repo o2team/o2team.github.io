@@ -3,16 +3,15 @@ subtitle: 最近很多公众号开始流行在公众号正文中嵌入了 svg �
 cover: https://img30.360buyimg.com/ling/jfs/t1/196742/12/21298/93662/61301f28Ed9d64b77/68f9eab8b8aa1e0b.jpg
 category: 经验分享  
 tags:
-
 - typescript
 - 依赖注入  
-  author:  
-   nick: Azu
-  date: 2021-09-09 12:00:00  
-  wechat:
-  share_cover: https://img30.360buyimg.com/ling/jfs/t1/196742/12/21298/93662/61301f28Ed9d64b77/68f9eab8b8aa1e0b.jpg
-  share_title: SVG 交互图文教学（基础实战篇）
-  share_desc: 最近很多公众号开始流行在公众号正文中嵌入了 svg 交互动画，而不是在末尾/图文中添加二维码引导用户跳去 h5 网页上。那么到底是如何实现的？其实又有什么难点和坑需要攻克和避开？我们一起来学习下 svg 图文的制作思路。
+author:
+  nick: Azu
+date: 2021-09-09 12:00:00  
+wechat:
+share_cover: https://img30.360buyimg.com/ling/jfs/t1/196742/12/21298/93662/61301f28Ed9d64b77/68f9eab8b8aa1e0b.jpg
+share_title: SVG 交互图文教学（基础实战篇）
+share_desc: 最近很多公众号开始流行在公众号正文中嵌入了 svg 交互动画，而不是在末尾/图文中添加二维码引导用户跳去 h5 网页上。那么到底是如何实现的？其实又有什么难点和坑需要攻克和避开？我们一起来学习下 svg 图文的制作思路。
 
 ---
 
