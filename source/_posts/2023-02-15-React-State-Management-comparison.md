@@ -36,12 +36,12 @@ wechat:
 框架 | 原理 | 优点 | 缺点 
 --- | --- | --- | ---
 hooks context | 基于 react hook，开发者可实现内/外部存储 | 1. 使用简单<br/> 2. 不需要引用第三方库，体积最小<br/> 3. 支持存储全局状态，但在复杂应用中不推荐<br/> 4. 不依赖 react 上下文，可在组件外调用（外部存储的条件下） | 1. context value发生变化时，所有用到这个context的组件都会被重新渲染，基于 content 维护的模块越多，影响范围越大。<br/> 2.依赖 Context Provider 包裹你的应用程序，修改 store 无法在应用最顶层(App.tsx 层级)触发渲染<br/> 3. 受ui框架约束(react)<br/> 4. 依赖hooks调用
-react-redux | Flux思想，发布订阅模式，遵从函数式编程，外部存储 | 1. 不依赖 react 上下文，可在组件外调用<br/> 2. 支持存储全局状态<br/> 3.不受ui框架约束  | 1. 心智模型需要一些时间来理解，特别是当你不熟悉函数式编程的时候<br/> 2. 依赖 Context Provider 包裹你的应用程序，修改 store 无法在应用最顶层(App.tsx 层级)触发渲染
-mobx | 观察者模式 + 数据截止，外部存储 | 1. 使用简单<br/> 2. 不依赖 react 上下文，可在组件外调用<br/> 3. 支持存储全局状态<br/> 4.不受ui框架约束  | 1.可变状态模型，某些情况下可能影响调试<br/> 2. 除了体积相对较大之外，笔者目前未感觉到较为明显的缺点，3.99M
-zustand | Flux思想，观察者模式，外部存储 | 1. 轻量，使用简单<br/> 2. 不依赖 react 上下文，可在组件外调用<br/> 3. 支持存储全局状态  | 1.框架本身不支持 computed 属性，但可基于 middleware 机制通过少量代码间接实现 computed ，或基于第三方库 zustand-computed 实现<br/> 2.受ui框架约束(react / vue)
-jotai | 基于 react hook，内部存储 | 1. 使用简单<br/>  2. 组件颗粒度较细的情况下，jotai性能更好<br/>  3.支持存储全局状态，但在复杂应用中不推荐 | 1. 依赖 react 上下文， 无法组件外调用，相对而言, zustand 在 react 环境外及全局可以更好地工作<br/> 2. 受ui框架约束(react)
+react-redux | Flux思想，发布订阅模式，遵从函数式编程，外部存储 | 1. 不依赖 react 上下文，可在组件外调用<br/> 2. 支持存储全局状态<br/> 3. redux 本身是一种通用的状态解决方案  | 1. 心智模型需要一些时间来理解，特别是当你不熟悉函数式编程的时候<br/> 2. 依赖 Context Provider 包裹你的应用程序，修改 store 无法在应用最顶层(App.tsx 层级)触发渲染<br/> 3.受 ui 框架约束(react)
+mobx | 观察者模式 + 数据截止，外部存储 | 1. 使用简单，上手门槛低<br/> 2. 不依赖 react 上下文，可在组件外调用<br/> 3. 支持存储全局状态<br/> 4.通用的状态解决方案  | 1.可变状态模型，某些情况下可能影响调试<br/> 2. 除了体积相对较大之外，笔者目前未感觉到较为明显的缺点，3.99M
+zustand | Flux思想，观察者模式，外部存储 | 1. 轻量，使用简单，上手门槛低<br/> 2. 不依赖 react 上下文，可在组件外调用<br/> 3. 支持存储全局状态 <br/> 4. 通用的状态解决方案  | 1.框架本身不支持 computed 属性，但可基于 middleware 机制通过少量代码间接实现 computed ，或基于第三方库 zustand-computed 实现<br/> 
+jotai | 基于 react hook，内部存储 | 1. 使用简单<br/>  2. 组件颗粒度较细的情况下，jotai性能更好<br/>  3.支持存储全局状态 | 1. 依赖 react 上下文， 无法组件外调用，相对而言, zustand 在 react 环境外及全局可以更好地工作<br/> 2.受ui框架约束(react)
 recoil | 进阶版 jotai,基于 react hook + provider context，内部存储 | 相对于 jotai而言，会更重一些，但思想基本不变，拥有一些 jotai 未支持的特性及 api，如：<br/> 1.监听 store 变化<br/> 2. 针对 atom 的操作拥有更多的 api，编程上拥有更多的可能性，更加有趣 | 拥有 jotai 所有的缺点，且相对于 jotai 而言:<br/> 1.使用 recoil 需要 < RecoilRoot > 包裹应用程序<br/> 2. 编写 selector 会复杂一些 
-valtio | 基于数据劫持，外部存储 | 1. 使用简单，类mobx（类vue）的编程体验<br/> 2.支持存储全局状态<br/> 3.不依赖 react 上下文，可在组件外调用<br/> 4. 不受ui框架约束 | 1.可变状态模型，某些情况下可能影响调试<br/>2.目前笔者没发现其它特别大的缺点，个人猜测之所以star相对zustand较少，是因为 valtio 的数据双向绑定思想与 react 存在冲突。 
+valtio | 基于数据劫持，外部存储 | 1. 使用简单，类mobx（类vue）的编程体验<br/> 2.支持存储全局状态<br/> 3.不依赖 react 上下文，可在组件外调用<br/> 4. 通用的状态解决方案 | 1.可变状态模型，某些情况下可能影响调试<br/>2.目前笔者没发现其它特别大的缺点，个人猜测之所以star相对zustand较少，是因为 valtio 的数据双向绑定思想与 react 存在冲突。 
 
 ### Source
 - hooks context  
